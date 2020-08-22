@@ -23,3 +23,26 @@ def data(lim):
     del casos_api
       
     return df_pruebas, df_casos
+
+
+
+def poblacion(ruta):
+    # Lectura de datos
+    df = pd.read_excel(ruta, sheet_name='PPO_GQEdad_DPTO')
+    
+    # se extraen los códigos de cada departamento
+    codigos = df[df['Codigo'].notna()][['Codigo','Grupos de edad']]
+    codigos.columns = ['Codigo','Región']
+    
+    # se llenan los NA con el código inmediatamente anterior
+    df['Codigo'] = df['Codigo'].fillna(method='ffill')
+    
+    # se eliminan las filas de los títulos de los departamentos
+    # y las filas del final que traen NA
+    df = df.dropna()
+    
+    # se hace un merge para tener los nombres de los departamentos
+    df = pd.merge(df,codigos,on='Codigo',how='left')
+    
+    return df
+
