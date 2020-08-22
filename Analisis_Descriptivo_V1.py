@@ -7,4 +7,4 @@ Created on Fri Aug 21 19:29:32 2020
 
 from download_data import data
 
-pruebas, casos, pob = data(1000)
+pruebas, casos = data(1000)

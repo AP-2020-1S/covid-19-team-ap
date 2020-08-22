@@ -21,10 +21,5 @@ def data(lim):
     df_casos = pd.DataFrame.from_records(casos_api)
 
     del casos_api
-    
-    pob_api = client.get("grgp-6bef", limit=lim)
-    df_pob = pd.DataFrame.from_records(pob_api)
-
-    del pob_api
-    
-    return df_pruebas, df_casos, df_pob
+      
+    return df_pruebas, df_casos
