@@ -46,3 +46,21 @@ def poblacion(ruta):
     
     return df
 
+
+def consulta_bigquery(ruta_json,query):
+    # pip install google-cloud-bigquery
+    from google.cloud import bigquery
+    
+    import os
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=ruta_json
+
+    
+    client = bigquery.Client()
+    
+
+    # ejemplo query
+    # query = 'SELECT * FROM `bigquery-public-data.covid19_open_data.covid19_open_data` LIMIT 100'
+    
+    return client.query(query).to_dataframe()
+
+
