@@ -46,4 +46,21 @@ def poblacion(ruta):
     
     return df
 
-df = poblacion('poblacion.xlsx')
+
+def consulta_bigquery(ruta_json,query):
+    # pip install google-cloud-bigquery
+    from google.cloud import bigquery
+    
+    import os
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]=ruta_json
+
+    
+    client = bigquery.Client()
+    
+
+    # ejemplo query
+    # query = SELECT Date, country_name, subregion1_name, subregion2_name, new_confirmed, new_deceased, new_recovered, new_tested, cumulative_confirmed, cumulative_deceased, cumulative_recovered, cumulative_tested, new_hospitalized_patients, new_intensive_care_patients  FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
+    
+    return client.query(query).to_dataframe()
+
+
