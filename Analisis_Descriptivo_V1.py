@@ -35,6 +35,7 @@ def tabla_ciudad(ciudad):
     dff['GR'] = dff['Total'].pct_change()
     return dff
 #%%
+pred = 30
 for c in ciudades:
   
     df = tabla_ciudad(c)
@@ -45,6 +46,7 @@ for c in ciudades:
         return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
     
     x = np.arange(0, df.shape[0])
+    pred_x = np.arange(df.shape[0] + 1, df.shape[0] + pred)
     y = np.array(df['Total'])
     f_y = np.array(df[c])
     
@@ -54,17 +56,19 @@ for c in ciudades:
     plt.plot(x, y, 'b-', label='data')
     plt.plot(x, gompertz(x, *param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Predicción {} días'.format(pred))
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
-    plt.title(c)
+    plt.title(c + ' Casos Acumulados')
     plt.show()
     
     plt.plot(x, f_y, 'b-', label='data')
     plt.plot(x, f_gompertz(x, *f_param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
+    plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Predicción {} días'.format(pred))
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
-    plt.title(c)
+    plt.title(c + ' Casos Nuevos')
     plt.show()
