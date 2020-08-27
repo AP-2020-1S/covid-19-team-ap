@@ -46,3 +46,4 @@ def poblacion(ruta):
     
     return df
 
+df = poblacion('poblacion.xlsx')
