@@ -59,7 +59,7 @@ def consulta_bigquery(ruta_json,query):
     
 
     # ejemplo query
-    # query = 'SELECT * FROM `bigquery-public-data.covid19_open_data.covid19_open_data` LIMIT 100'
+    # query = SELECT Date, country_name, subregion1_name, subregion2_name, new_confirmed, new_deceased, new_recovered, new_tested, cumulative_confirmed, cumulative_deceased, cumulative_recovered, cumulative_tested, new_hospitalized_patients, new_intensive_care_patients  FROM `bigquery-public-data.covid19_open_data.covid19_open_data` 
     
     return client.query(query).to_dataframe()
 
