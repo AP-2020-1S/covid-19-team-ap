@@ -15,13 +15,13 @@ from scipy.integrate import odeint
 df_pruebas, df_casos = data(10000000)
 df_pob = poblacion('poblacion_municipios.xlsx')
 df_pob['Región'] = df_pob['Región'].replace('Bogotá, D.C.', 'Bogotá D.C.')
-df_pob['Región'] = df_pob['Región'].replace('Cartagena de Indias', 'Cartagena')
+df_pob['Región'] = df_pob['Región'].replace('Cartagena', 'Cartagena de Indias')
 df_casos.columns = ['ID', 'Fecha', 'Cod_Municipio', 'Ciudad', 'Depto', 'Estado', 'Edad', 'Sexo', 'Tipo', 'Gravedad',
                    'Pais_Proc', 'FIS', 'Fecha_Diagnostico', 'Fecha_Recuperado', 'Fecha_Reporte', 'Tipo_Recuperacion', 'Cod_Depto', 
                     'Cod_Pais', 'Etnia', 'Grupo_Etnico', 'Fecha_Muerte']
 
 ciudades = list(df_casos.Ciudad.value_counts().head().index)
-
+#%%
 def tabla_ciudad(ciudad):
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
     dff = pd.crosstab(df['Fecha'], df['Ciudad'])
@@ -40,7 +40,9 @@ def SIR(ciudad, df_pob, n_pred):
     N = int(df_pob.loc[(df_pob['Grupos de edad'] == 'Total') & (df_pob['Región'] == c), ['Ambos Sexos']].sum() * 0.6)
     I0, R0 = df['Total'][-1], df['Recuperado'].sum()
     S0 = N - I0 - R0
-    beta, gamma = df['GR'][-1], df['Recuperado'].mean() / df['Total'][-3]
+    df['Gamma'] = df['Recuperado'] / df['Total'].shift(1)
+    beta, gamma = df['GR'].rolling(7).mean()[-1], df['Gamma'].rolling(7).mean()[-1]
+#    beta, gamma = 0.05, 0.01
     t = np.linspace(df.shape[0] + 1, df.shape[0] + n_pred, n_pred)
     
     def deriv(y, t, N, beta, gamma):
@@ -55,7 +57,7 @@ def SIR(ciudad, df_pob, n_pred):
     S, I, R = ret.T
     return S, I, R
 
-pred = 30
+pred = 15
 for c in ciudades:
   
     df = tabla_ciudad(c)
@@ -76,9 +78,9 @@ for c in ciudades:
     plt.plot(x, y, 'b-', label='data')
     plt.plot(x, gompertz(x, *param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
-    plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Predicción {} días'.format(pred))
+    plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
     S, I, R = SIR(c, df_pob, pred-1)
-    plt.plot(pred_x, I, 'm-.', label='SIR')
+    plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
@@ -88,7 +90,9 @@ for c in ciudades:
     plt.plot(x, f_y, 'b-', label='data')
     plt.plot(x, f_gompertz(x, *f_param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
-    plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Predicción {} días'.format(pred))
+    plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Gompertz {} días'.format(pred))
+    SIR_n = [0 if i < 0 else i for i in np.diff(I)]
+    plt.plot(pred_x[1:], SIR_n, 'm-.', label='SIR {} días'.format(pred))
     plt.xlabel('x')
     plt.ylabel('y')
     plt.legend()
