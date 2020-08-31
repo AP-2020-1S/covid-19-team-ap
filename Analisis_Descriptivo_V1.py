@@ -74,11 +74,12 @@ for c in ciudades:
     
     param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
     f_param, f_pcov = curve_fit(f_gompertz, x, f_y, maxfev=10000)
-    
+    """Gompertz Casos Totales"""
     plt.plot(x, y, 'b-', label='data')
     plt.plot(x, gompertz(x, *param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
     plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
+    """SIR Casos Totales"""
     S, I, R = SIR(c, df_pob, pred-1)
     plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
     plt.xlabel('x')
@@ -86,11 +87,12 @@ for c in ciudades:
     plt.legend()
     plt.title(c + ' Casos Acumulados')
     plt.show()
-    
+    """Gompertz Casos Nuevos"""
     plt.plot(x, f_y, 'b-', label='data')
     plt.plot(x, f_gompertz(x, *f_param), 'r--',
              label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
     plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Gompertz {} días'.format(pred))
+    """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
     plt.plot(pred_x[1:], SIR_n, 'm-.', label='SIR {} días'.format(pred))
     plt.xlabel('x')
