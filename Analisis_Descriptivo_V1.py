@@ -5,8 +5,9 @@ Created on Fri Aug 21 19:29:32 2020
 @author: tomvc
 """
 
-import pandas as pd
 
+
+import pandas as pd
 #Se hace la extraccion de las 2 bases de Datos a Usar
 #Data: Tabla de casos positivos en Colombia INS, Datos.gov.co
 #Poblacion: Tabla proyecciones poblacion 2020, Dane
@@ -15,6 +16,14 @@ import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
+import scipy.stats as st
+from pmdarima import auto_arima 
+import pmdarima as pm
+from sodapy import Socrata
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from plotly.offline import plot
+import plotly.graph_objects as go
+    
 
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
 #Nota: No debemos traer columnas inutiles, como grupo etnico, etnia, codigo pais, Codigo municipio, codigo departamento.
@@ -78,9 +87,32 @@ def SIR(ciudad, df_pob, n_pred):
     S, I, R = ret.T
     return S, I, R
 
+def arima_fit(residuales, x):
+    stepwise_fit = auto_arima(residuales, start_p = 1, start_q = 1, 
+                              max_p = 5, max_q = 5, 
+                              seasonal = False, 
+                              d = None, D = None, trace = False, 
+                              error_action ='ignore',   # we don't want to know if an order does not work 
+                              suppress_warnings = True,  # we don't want convergence warnings 
+                              stepwise = True,
+                              information_criterion = 'aic')           # set to stepwise 
+    
+    
+    # se ajusta el modelo
+    arma = SARIMAX(residuales,  
+                order = stepwise_fit.order)
+    
+    
+    resultado = arma.fit() 
+    resultado.summary() 
+    
+    return resultado
+
+
 #Modelo Gompertz
 #
-pred = 15
+
+pred = 30
 for c in ciudades:
   
     df = tabla_ciudad(c)
@@ -90,38 +122,147 @@ for c in ciudades:
     def f_gompertz(x, a, b, c):
         return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
     
+    # variables de tiempo
+    
     x = np.arange(0, df.shape[0])
-    pred_x = np.arange(df.shape[0] + 1, df.shape[0] + pred)
+    pred_x = np.arange(df.shape[0], df.shape[0] + pred)
     y = np.array(df['Activos'])
     f_y = np.array(df[c])
     
+    # Ajuste modelos
     param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
     f_param, f_pcov = curve_fit(f_gompertz, x, f_y, maxfev=10000)
     """Gompertz Casos Totales"""
-    plt.plot(x, y, 'b-', label='data')
-    plt.plot(x, gompertz(x, *param), 'r--',
-             label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
-    plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
-    """SIR Casos Totales"""
-    S, I, R = SIR(c, df_pob, pred-1)
+    # plt.plot(x, y, 'b-', label='data')
+    # plt.plot(x, gompertz(x, *param), 'r--',
+    #          label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    # plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
+
+    # Ajuste ARMA sobre los residuales
+    res = f_y - f_gompertz(x, *f_param)
+    arima = arima_fit(res,x)
+    aj_arima = arima.predict(min(x), max(x), 
+                          typ = 'levels')
+    aj_final = f_gompertz(x, *f_param) + aj_arima
+
+    #pronóstico gumpertz + arima
+    pron_arima = arima.predict(min(pred_x), max(pred_x), 
+                             typ = 'levels')
     
-    # se parametriza los graficos de los Modelos Gompertz y SIR
-    plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.legend()
-    plt.title(c + ' Casos Acumulados')
-    plt.show()
-    """Gompertz Casos Nuevos"""
-    plt.plot(x, f_y, 'b-', label='data')
-    plt.plot(x, f_gompertz(x, *f_param), 'r--',
-             label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
-    plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Gompertz {} días'.format(pred))
+    pronostico = f_gompertz(pred_x, *f_param) + pron_arima
+
+    # nuevos residuales e intervalos de predicción
+    n_res = f_y - aj_final
+    s = np.std(n_res)
+    # límite superior e inferior de los intervalos
+    l_s = pronostico + st.norm.ppf(.95) * s
+    l_i = pronostico - st.norm.ppf(.95) * s   
+    
+    
+    
+    """SIR Casos Totales"""
+    S, I, R = SIR(c, df_pob, pred-1)    
+
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
-    plt.plot(pred_x[1:], SIR_n, 'm-.', label='SIR {} días'.format(pred))
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.legend()
-    plt.title(c + ' Casos Nuevos')
-    plt.show()
+    
+    SIR_n = [0] + SIR_n
+
+    p = np.linspace(0, 1, 15)
+    
+    pron_final = pronostico[14:]*(1-p) + SIR_n[14:]*p
+    
+    pron_final = np.append(pronostico[:14], pron_final)
+
+
+
+    fig = go.Figure()
+    # serie original
+    fig.add_trace(go.Scatter(x=x, y=f_y,
+        name='Casos Reales Diarios', 
+        fill=None,
+        mode='lines',
+        line=dict(width=3)
+        ))
+    # ajuste
+    fig.add_trace(go.Scatter(x=x, y=aj_final,
+        name='Modelo Ajustado',
+        line = dict(color='red', width=1)
+        ))
+    
+    # intervalo superior
+    fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+        showlegend=False,
+        fill=None,
+        mode='lines',
+        line=dict(width=0.5, color='rgb(127, 166, 238)'),
+        ))
+    # intervalo inferior
+    fig.add_trace(go.Scatter(
+        name='Intervalo de Predicción',
+        x=pred_x,
+        y=l_i,
+        fill='tonexty', # fill area between trace0 and trace1
+        mode='lines',
+        line=dict(width=0.5, color='rgb(127, 166, 238)')))
+    
+    # Pronóstico
+    fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
+        name='Pronósticos Puntuales',
+        line = dict(color='royalblue', width=3, dash='dash')
+        ))
+    
+    fig.update_layout(shapes=[
+        dict(
+          type= 'line',
+          yref= 'paper', y0= 0, y1= 1,
+          xref= 'x', x0= max(x)+1, x1= max(x)+1,
+          fillcolor="rgb(102,102,102)",
+          opacity=0.5,
+          layer="below",
+          line_width=1,
+          line=dict(dash="dot")
+        )
+    ])
+    plot(fig)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # # se parametriza los graficos de los Modelos Gompertz y SIR
+    # plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
+    # plt.xlabel('x')
+    # plt.ylabel('y')
+    # plt.legend()
+    # plt.title(c + ' Casos Acumulados')
+    # plt.show()
+    # """Gompertz Casos Nuevos"""
+    # plt.plot(x, f_y, 'b-', label='data')
+    # plt.plot(x, f_gompertz(x, *f_param), 'r--',
+    #          label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
+    # plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Gompertz {} días'.format(pred))
+
+
+
+    # plt.plot(pred_x[1:], SIR_n, 'm-.', label='SIR {} días'.format(pred))
+    # plt.xlabel('x')
+    # plt.ylabel('y')
+    # plt.legend()
+    # plt.title(c + ' Casos Nuevos')
+    # plt.show()
