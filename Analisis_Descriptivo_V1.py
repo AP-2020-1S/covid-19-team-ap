@@ -36,10 +36,10 @@ ciudades = list(df_casos.Ciudad.value_counts().head().index)
 
 def tabla_ciudad(ciudad):
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
-    dff = pd.crosstab(df['Fecha'], df['Ciudad'])
+    dff = pd.crosstab(df['Fecha_Diagnostico'], df['Ciudad'])
     dff['Total'] = dff[ciudad].cumsum()
     df_rec = df.loc[(df.Ciudad == ciudad) & ((df.Estado == 'Recuperado') | (df.Estado == 'Fallecido')), :]
-    df_recf = pd.crosstab(df_rec['Fecha'], df_rec['Estado'])
+    df_recf = pd.crosstab(df_rec['Fecha_Diagnostico'], df_rec['Estado'])
     df_recf['Salidas'] = df_recf.Recuperado + df_recf.Fallecido
     dff = pd.merge(dff, df_recf, left_index=True, right_index=True)
     dff['Activos'] = dff['Total'] - dff['Salidas']
