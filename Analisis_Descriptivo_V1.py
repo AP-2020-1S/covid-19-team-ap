@@ -6,12 +6,18 @@ Created on Fri Aug 21 19:29:32 2020
 """
 
 import pandas as pd
-from download_data import data, poblacion
+
+#Se hace la extraccion de las 2 bases de Datos a Usar
+#Data: Tabla de casos positivos en Colombia INS, Datos.gov.co
+#Poblacion: Tabla proyecciones poblacion 2020, Dane
+from download_data import data, poblacion 
 import numpy as np
 from scipy.optimize import curve_fit
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
+#Se definen las funciones con las columnas de datos que seran usadas posteriormente
+#Nota: No debemos traer columnas inutiles, como grupo etnico, etnia, codigo pais, Codigo municipio, codigo departamento.
 df_pruebas, df_casos = data(10000000)
 df_pob = poblacion('poblacion_municipios.xlsx')
 df_pob['Región'] = df_pob['Región'].replace('Bogotá, D.C.', 'Bogotá D.C.')
@@ -19,9 +25,15 @@ df_pob['Región'] = df_pob['Región'].replace('Cartagena', 'Cartagena de Indias'
 df_casos.columns = ['ID', 'Fecha', 'Cod_Municipio', 'Ciudad', 'Depto', 'Estado', 'Edad', 'Sexo', 'Tipo', 'Gravedad',
                    'Pais_Proc', 'FIS', 'Fecha_Diagnostico', 'Fecha_Recuperado', 'Fecha_Reporte', 'Tipo_Recuperacion', 'Cod_Depto', 
                     'Cod_Pais', 'Etnia', 'Grupo_Etnico', 'Fecha_Muerte']
-
+# se hace una lista con el conteo de casos por ciudad
 ciudades = list(df_casos.Ciudad.value_counts().head().index)
 #%%
+
+# Se crea la tabla ciudad sera generica dependiendo de la ciudad seleccionada
+# Se define Total para la suma acumulada de casos por ciudad
+# Se identifican los casos recuperados y fallecidos para restalos al total de casos, dando como resultado los casos activos
+# Se define GR como cambio porcentual de los casos totales por ciudad
+
 def tabla_ciudad(ciudad):
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
     dff = pd.crosstab(df['Fecha_Diagnostico'], df['Ciudad'])
@@ -34,7 +46,14 @@ def tabla_ciudad(ciudad):
     del df_rec, df_recf
     dff['GR'] = dff['Total'].pct_change()
     return dff
-
+#Modelo SIR
+#Definicion de variables a Usar para el modelo SIR
+# Se define N como la población por ciudad.
+# Se dan los parametros iniciales para la población infectada y recuperada
+# Se define S como la población suceptible de infectarse
+# Se define la tasa de infeccion como "Beta" dada por una media movil de 7 dias
+# Se define la tasa de recuperacion como "Gamma" como media movil de 7 dias
+# Se define el horizonte de tiempo "t" como el tamaño de la tabla ciudad (dias) + el numero de dias de la predicción (15 dias)
 def SIR(ciudad, df_pob, n_pred):
     df = tabla_ciudad(c)
     N = int(df_pob.loc[(df_pob['Grupos de edad'] == 'Total') & (df_pob['Región'] == c), ['Ambos Sexos']].sum() * 0.6)
@@ -45,6 +64,7 @@ def SIR(ciudad, df_pob, n_pred):
 #    beta, gamma = 0.05, 0.01
     t = np.linspace(df.shape[0] + 1, df.shape[0] + n_pred, n_pred)
     
+    #Se Calcula primera derivada de los casos suceptibles, infectados y recuperados. Para hallar las variaciones.
     def deriv(y, t, N, beta, gamma):
         S, I, R = y
         dSdt = -beta * S * I / N
@@ -52,11 +72,14 @@ def SIR(ciudad, df_pob, n_pred):
         dRdt = gamma * I
         return dSdt, dIdt, dRdt
     
+    #Se definen los datos iniciales para Infectados, recuperados y suceptibles
     y0 = S0, I0, R0
     ret = odeint(deriv, y0, t, args=(N, beta, gamma))
     S, I, R = ret.T
     return S, I, R
 
+#Modelo Gompertz
+#
 pred = 15
 for c in ciudades:
   
@@ -81,6 +104,8 @@ for c in ciudades:
     plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
     """SIR Casos Totales"""
     S, I, R = SIR(c, df_pob, pred-1)
+    
+    # se parametriza los graficos de los Modelos Gompertz y SIR
     plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
     plt.xlabel('x')
     plt.ylabel('y')

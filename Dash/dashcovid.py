@@ -75,81 +75,87 @@ def render_tab_content(active_tab, c):
     if active_tab is not None:
         if active_tab == "cuarentena":
             
-            # =============================================================================
-            # Lectura de datos  
-            # =============================================================================
-
-            aj = pd.read_csv("ajuste.csv", encoding='ISO-8859-1')
-            pron = pd.read_csv("pronostico.csv", encoding='ISO-8859-1')
- 
+            try:
+                # =============================================================================
+                # Lectura de datos  
+                # =============================================================================
+    
+                aj = pd.read_csv("ajuste.csv", encoding='ISO-8859-1')
+                pron = pd.read_csv("pronostico.csv", encoding='ISO-8859-1')
+     
+                
+                
+                # =============================================================================
+                # Gráfica Casos         
+                # =============================================================================
+                
+                # c = 'Bogotá D.C.'
+                x = aj[aj['Ciudad'] == c]['Fecha']
+                f_y = aj[aj['Ciudad'] == c]['Casos']
+                ajuste = aj[aj['Ciudad'] == c]['Ajuste Modelo']
+                pred_x = pron[pron['Ciudad'] == c]['Fecha']
+                pronostico = pron[pron['Ciudad'] == c]['Pronóstico Modelo']
+                l_s = pron[pron['Ciudad'] == c]['Límite Superior']
+                l_i = pron[pron['Ciudad'] == c]['Límite Inferior']
+                
+                
+                fig = go.Figure()
+                # serie original
+                fig.add_trace(go.Scatter(x=x, y=f_y,
+                    name='Casos Reales Diarios', 
+                    fill=None,
+                    mode='lines',
+                    line=dict(width=3)
+                    ))
+                # ajuste
+                fig.add_trace(go.Scatter(x=x, y=ajuste,
+                    name='Modelo Ajustado',
+                    line = dict(color='red', width=1)
+                    ))
+                
+                # intervalo superior
+                fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+                    showlegend=False,
+                    fill=None,
+                    mode='lines',
+                    line=dict(width=0.5, color='rgb(127, 166, 238)'),
+                    ))
+                # intervalo inferior
+                fig.add_trace(go.Scatter(
+                    name='Intervalo de Predicción',
+                    x=pred_x,
+                    y=l_i,
+                    fill='tonexty', # fill area between trace0 and trace1
+                    mode='lines',
+                    line=dict(width=0.5, color='rgb(127, 166, 238)')))
+                
+                # Pronóstico
+                fig.add_trace(go.Scatter(x=pred_x, y=pronostico,
+                    name='Pronósticos Puntuales',
+                    line = dict(color='royalblue', width=3, dash='dash')
+                    ))
+                
+                fig.update_layout(shapes=[
+                    dict(
+                      type= 'line',
+                      yref= 'paper', y0= 0, y1= 1,
+                      xref= 'x', x0= max(x)+1, x1= max(x)+1,
+                      fillcolor="rgb(102,102,102)",
+                      opacity=0.5,
+                      layer="below",
+                      line_width=1,
+                      line=dict(dash="dot")
+                    )
+                ])
+                
+                dcc.Graph(figure=fig)
+                return fig
+            except:
+                pass  
             
             
-            # =============================================================================
-            # Gráfica Casos         
-            # =============================================================================
-            
-            # c = 'Bogotá D.C.'
-            x = aj[aj['Ciudad'] == c]['Fecha']
-            f_y = aj[aj['Ciudad'] == c]['Casos']
-            ajuste = aj[aj['Ciudad'] == c]['Ajuste Modelo']
-            pred_x = pron[pron['Ciudad'] == c]['Fecha']
-            pronostico = pron[pron['Ciudad'] == c]['Pronóstico Modelo']
-            l_s = pron[pron['Ciudad'] == c]['Límite Superior']
-            l_i = pron[pron['Ciudad'] == c]['Límite Inferior']
-            
-            
-            fig = go.Figure()
-            # serie original
-            fig.add_trace(go.Scatter(x=x, y=f_y,
-                name='Casos Reales Diarios', 
-                fill=None,
-                mode='lines',
-                line=dict(width=3)
-                ))
-            # ajuste
-            fig.add_trace(go.Scatter(x=x, y=ajuste,
-                name='Modelo Ajustado',
-                line = dict(color='red', width=1)
-                ))
-            
-            # intervalo superior
-            fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-                showlegend=False,
-                fill=None,
-                mode='lines',
-                line=dict(width=0.5, color='rgb(127, 166, 238)'),
-                ))
-            # intervalo inferior
-            fig.add_trace(go.Scatter(
-                name='Intervalo de Predicción',
-                x=pred_x,
-                y=l_i,
-                fill='tonexty', # fill area between trace0 and trace1
-                mode='lines',
-                line=dict(width=0.5, color='rgb(127, 166, 238)')))
-            
-            # Pronóstico
-            fig.add_trace(go.Scatter(x=pred_x, y=pronostico,
-                name='Pronósticos Puntuales',
-                line = dict(color='royalblue', width=3, dash='dash')
-                ))
-            
-            fig.update_layout(shapes=[
-                dict(
-                  type= 'line',
-                  yref= 'paper', y0= 0, y1= 1,
-                  xref= 'x', x0= max(x)+1, x1= max(x)+1,
-                  fillcolor="rgb(102,102,102)",
-                  opacity=0.5,
-                  layer="below",
-                  line_width=1,
-                  line=dict(dash="dot")
-                )
-            ])
-            
-            dcc.Graph(figure=fig)
-            return fig
         elif active_tab == "histogram":
+            
             return dbc.Row(
                 [
                     dbc.Col(dcc.Graph(figure=data["hist_1"]), width=6),
@@ -291,6 +297,7 @@ def actualizar(n):
    
 
 
-
 if __name__ == "__main__":
-    app.run_server(host='0.0.0.0',debug=True, port=8050)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run_server(host='0.0.0.0',debug=True, port=port)
