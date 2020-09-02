@@ -51,10 +51,14 @@ def tabla_ciudad(ciudad):
     df_recf = pd.crosstab(df_rec['Fecha_Diagnostico'], df_rec['Estado'])
     df_recf['Salidas'] = df_recf.Recuperado + df_recf.Fallecido
     dff = pd.merge(dff, df_recf, left_index=True, right_index=True)
-    dff['Activos'] = dff['Total'] - dff['Salidas']
+    dff['Salidas_total'] = dff['Salidas'].cumsum()
+    dff['Activos'] = dff['Total'] - dff['Salidas_total']
     del df_rec, df_recf
-    dff['GR'] = dff['Total'].pct_change()
+    dff['GR'] = dff[ciudad] / dff['Activos'].shift(1)
+    # dff['GR'] = dff['Activos'].pct_change()
     return dff
+
+
 #Modelo SIR
 #Definicion de variables a Usar para el modelo SIR
 # Se define N como la población por ciudad.
@@ -66,12 +70,13 @@ def tabla_ciudad(ciudad):
 def SIR(ciudad, df_pob, n_pred):
     df = tabla_ciudad(c)
     N = int(df_pob.loc[(df_pob['Grupos de edad'] == 'Total') & (df_pob['Región'] == c), ['Ambos Sexos']].sum() * 0.6)
-    I0, R0 = df['Total'][-1], df['Recuperado'].sum()
+    I0, R0 = df['Activos'][-1], df['Recuperado'].sum()
     S0 = N - I0 - R0
-    df['Gamma'] = df['Recuperado'] / df['Total'].shift(1)
-    beta, gamma = df['GR'].rolling(7).mean()[-1], df['Gamma'].rolling(7).mean()[-1]
-#    beta, gamma = 0.05, 0.01
+    df['Gamma'] = df['Recuperado'] / df['Activos'].shift(1)
+    # beta, gamma = df['GR'].rolling(7).mean()[-1], df['Gamma'].rolling(7).mean()[-1]
+    beta, gamma = 0.05, 0.02
     t = np.linspace(df.shape[0] + 1, df.shape[0] + n_pred, n_pred)
+    
     
     #Se Calcula primera derivada de los casos suceptibles, infectados y recuperados. Para hallar las variaciones.
     def deriv(y, t, N, beta, gamma):
@@ -126,7 +131,7 @@ for c in ciudades:
     
     x = np.arange(0, df.shape[0])
     pred_x = np.arange(df.shape[0], df.shape[0] + pred)
-    y = np.array(df['Activos'])
+    y = np.array(df['Total'])
     f_y = np.array(df[c])
     
     # Ajuste modelos
@@ -161,7 +166,7 @@ for c in ciudades:
     
     
     """SIR Casos Totales"""
-    S, I, R = SIR(c, df_pob, pred-1)    
+    S, I, R = SIR(c, df_pob, pred)    
 
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
@@ -169,10 +174,13 @@ for c in ciudades:
     SIR_n = [0] + SIR_n
 
     p = np.linspace(0, 1, 15)
+    # p = np.zeros(15)
+    # p = np.repeat(1,15)
+    # Pronóstico a partir del día 15
+    pron_final = pronostico[15:]*(1-p) + SIR_n[15:]*p
     
-    pron_final = pronostico[14:]*(1-p) + SIR_n[14:]*p
     
-    pron_final = np.append(pronostico[:14], pron_final)
+    pron_final = np.append(pronostico[:15], pron_final)
 
 
 
@@ -228,12 +236,22 @@ for c in ciudades:
 
 
 
+    casos_n = np.append(aj_final, pron_final)
+    casos_t = casos_n.cumsum()
+    
+    plt.plot(x, y, 'b-', label='data')
+    plt.plot(casos_t)
 
 
+    df['Activos'].plot()
+    
 
-
-
-
+    muertos_t = casos_n * 0.01
+    df_muertos = df['Fallecido'].cumsum()
+    
+    
+    plt.plot(x, df_muertos, 'b-', label='data')
+    plt.plot(muertos_t)
 
 
 
