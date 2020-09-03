@@ -95,7 +95,7 @@ def SIR(ciudad, df_pob, n_pred):
     S, I, R = ret.T
     return S, I, R
 
-def arima_fit(residuales, x):
+def mod_arima(residuales, x, pred_x):
     stepwise_fit = auto_arima(residuales, start_p = 1, start_q = 1, 
                               max_p = 5, max_q = 5, 
                               seasonal = False, 
@@ -114,13 +114,37 @@ def arima_fit(residuales, x):
     resultado = arma.fit() 
     resultado.summary() 
     
-    return resultado
-#Modelo Gompertz
-def gompertz(x, a, b, c):
-    return c * np.exp(-b * np.exp(-x / a))
-def f_gompertz(x, a, b, c):
-    return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
+    ajuste = resultado.predict(min(x), max(x), 
+                          typ = 'levels')
+    
+    pronostico = resultado.predict(min(pred_x), max(pred_x), 
+                          typ = 'levels')
+    
+    
+    return ajuste, pronostico
 
+def mod_gompertz(datos, x, pred_x, tipo='nuevos'):
+
+    #Modelo Gompertz casos totales
+    def gompertz(x, a, b, c):
+        return c * np.exp(-b * np.exp(-x / a))
+    # Modelo Gompertz casos nuevos (Derivada)
+    def f_gompertz(x, a, b, c):
+        return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
+
+    # Ajuste y pronóstico
+    if tipo == 'nuevos':
+        f_param, pcov = curve_fit(f_gompertz, x, datos, maxfev=10000)
+        ajuste = f_gompertz(x, *f_param)
+        pronostico = f_gompertz(pred_x, *f_param)
+    elif tipo == 'totales':
+        param, pcov = curve_fit(gompertz, x, datos, maxfev=10000)
+        ajuste = f_gompertz(x, *param)
+        pronostico = f_gompertz(pred_x, *param)
+    else:
+        print('Elija un tipo válido')
+        
+    return ajuste, pronostico
 
 
 pred = 30
@@ -144,7 +168,7 @@ for c in ciudades:
     
     # Ajuste modelos
     """Gompertz Casos Totales"""
-    param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
+    aj_tot, pron_tot = mod_gompertz(y,x,pred_x,'totales')
     
     """SIR Casos Totales"""
     S, I, R = SIR(c, df_pob, pred)    
@@ -157,35 +181,37 @@ for c in ciudades:
     f_y = np.array(df[c])
     
     """Gompertz Casos Nuevos"""
-    f_param, f_pcov = curve_fit(f_gompertz, x, f_y, maxfev=10000)
+    aj_n_gom, pron_n_gom = mod_gompertz(f_y,x,pred_x)
 
     # Ajuste ARMA sobre los residuales
-    res = f_y - f_gompertz(x, *f_param)
-    arima = arima_fit(res,x)
-    aj_arima = arima.predict(min(x), max(x), 
-                          typ = 'levels')
-    aj_final = f_gompertz(x, *f_param) + aj_arima
+    res = f_y - aj_n_gom
+    aj_arima,pron_arima  = mod_arima(res,x,pred_x)
+    
+    # Ajuste gompertz + arima
+    aj_n_final = aj_n_gom + aj_arima
 
     #pronóstico gumpertz + arima
-    pron_arima = arima.predict(min(pred_x), max(pred_x), 
-                             typ = 'levels')
-    
-    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
+    pron_final = pron_n_gom + pron_arima
 
     # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_final
+    n_res = f_y - aj_n_final
     s = np.std(n_res)
     # límite superior e inferior de los intervalos
     l_s = pron_final + st.norm.ppf(.95) * s
     l_i = pron_final - st.norm.ppf(.95) * s   
     
 
-
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
     
-    SIR_n = [0] + SIR_n
 
+
+    # se agrega un cero para que tenga la misma longitud que el pronóstico del
+    # modelo gompertz + arima
+    SIR_n = [0] + SIR_n
+    
+    # se crea un vector donde se reparten los pesos de cada modelo a partir
+    # de dos semanas de pronóstico
     p = np.linspace(0, 1, 15)
     # p = np.zeros(15)
     # p = np.repeat(1,15)
@@ -195,47 +221,33 @@ for c in ciudades:
     pron_final = np.append(pron_final[:15], pron_final)
 
 
-
     # =============================================================================
     #  ARIMA Casos Activos
     # =============================================================================
 
-    arima_activos = arima_fit(df['Activos'],x)
-    
-    aj_arima_act = arima_activos.predict(min(x), max(x), 
-                          typ = 'levels')
-    
-    pron_arima_act = arima_activos.predict(min(pred_x), max(pred_x), 
-                          typ = 'levels')
-    
-    f_param, f_pcov = curve_fit(f_gompertz, x, df['Activos'], maxfev=10000)
-
-    aj_gompertz = f_gompertz(x, *f_param)     
+    aj_a_gom, pron_a_gom = mod_gompertz(df['Activos'], x, pred_x)
+  
 
     # Ajuste ARMA sobre los residuales
-    res = df['Activos'] - f_gompertz(x, *f_param)
-    arima = arima_fit(res,x)
-    aj_arima = arima.predict(min(x), max(x), 
-                          typ = 'levels')
-    aj_final = f_gompertz(x, *f_param) + aj_arima
+    res = df['Activos'] - aj_a_gom
+    aj_a_arima,  pron_a_arima = mod_arima(res,x,pred_x)
+    
+    # ajuste gompertz + arima
+    aj_a_final = aj_a_gom + aj_a_arima
 
 
     #pronóstico gumpertz + arima
-    pron_arima = arima.predict(min(pred_x), max(pred_x), 
-                             typ = 'levels')
-    
-    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
+    pron_final = pron_a_gom + pron_a_arima
 
     # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_final
+    n_res = f_y - aj_a_final
     s = np.std(n_res)
     # límite superior e inferior de los intervalos
     l_s = pron_final + st.norm.ppf(.95) * s
     l_i = pron_final - st.norm.ppf(.95) * s   
     
     # plt.plot(x, df['Activos'], 'b-', label='data')
-    # plt.plot(x, aj_final, 'r--',
-    #           label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    # plt.plot(x, aj_a_final, 'r--')
     
     # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
 
@@ -243,38 +255,33 @@ for c in ciudades:
     # plt.show()
     
     # =============================================================================
-    #  Recuperados y muertes
+    #  Recuperados
     # =============================================================================
     
     
-    f_param, f_pcov = curve_fit(f_gompertz, x, df['Recuperado'], maxfev=10000)
-
-    aj_gompertz = f_gompertz(x, *f_param)     
+    aj_r_gom, pron_r_gom = mod_gompertz(df['Recuperado'], x, pred_x)
 
     # Ajuste ARMA sobre los residuales
-    res = df['Recuperado'] - aj_gompertz
-    arima = arima_fit(res,x)
-    aj_arima = arima.predict(min(x), max(x), 
-                          typ = 'levels')
-    aj_final = aj_gompertz + aj_arima
+    res = df['Recuperado'] - aj_r_gom
+    aj_r_arima,  pron_r_arima = mod_arima(res,x,pred_x)
+    
+    # ajuste gompertz + arima
+    aj_r_final = aj_r_gom + aj_r_arima
 
 
     #pronóstico gumpertz + arima
-    pron_arima = arima.predict(min(pred_x), max(pred_x), 
-                             typ = 'levels')
-    
-    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
+    pron_final = pron_r_gom + pron_r_arima
 
     # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_final
+    n_res = f_y - aj_r_final
     s = np.std(n_res)
     # límite superior e inferior de los intervalos
     l_s = pron_final + st.norm.ppf(.95) * s
     l_i = pron_final - st.norm.ppf(.95) * s   
     
+    
     # plt.plot(x, df['Recuperado'], 'b-', label='data')
-    # plt.plot(x, aj_final, 'r--',
-    #           label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    # plt.plot(x, aj_r_final, 'r--')
     
     # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
 
@@ -282,9 +289,39 @@ for c in ciudades:
     # plt.show()
     
     # =============================================================================
-    # Otras variables
+    # Muertes
     # =============================================================================
     
+    # df['Fallecido'].plot()
+    
+    aj_f_gom, pron_f_gom = mod_gompertz(df['Fallecido'], x, pred_x)
+
+    # Ajuste ARMA sobre los residuales
+    res = df['Fallecido'] - aj_f_gom
+    aj_f_arima,  pron_f_arima = mod_arima(res,x,pred_x)
+    
+    # ajuste gompertz + arima
+    aj_f_final = aj_f_gom + aj_f_arima
+
+
+    #pronóstico gumpertz + arima
+    pron_final = pron_f_gom + pron_f_arima
+
+    # nuevos residuales e intervalos de predicción
+    n_res = f_y - aj_f_final
+    s = np.std(n_res)
+    # límite superior e inferior de los intervalos
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s   
+    
+    
+    plt.plot(x, df['Fallecido'], 'b-', label='data')
+    plt.plot(x, aj_f_final, 'r--')
+    
+    plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
+
+    plt.title(c)
+    plt.show()
     
     
 
@@ -341,87 +378,8 @@ for c in ciudades:
     # plot(fig)
 
 
-
-    # fig = go.Figure()
-    # # serie original
-    # fig.add_trace(go.Scatter(x=x, y=f_y,
-    #     name='Casos Reales Diarios', 
-    #     fill=None,
-    #     mode='lines',
-    #     line=dict(width=3)
-    #     ))
-    # # ajuste
-    # fig.add_trace(go.Scatter(x=x, y=aj_final,
-    #     name='Modelo Ajustado',
-    #     line = dict(color='red', width=1)
-    #     ))
-    
-    # # intervalo superior
-    # fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-    #     showlegend=False,
-    #     fill=None,
-    #     mode='lines',
-    #     line=dict(width=0.5, color='rgb(127, 166, 238)'),
-    #     ))
-    # # intervalo inferior
-    # fig.add_trace(go.Scatter(
-    #     name='Intervalo de Predicción',
-    #     x=pred_x,
-    #     y=l_i,
-    #     fill='tonexty', # fill area between trace0 and trace1
-    #     mode='lines',
-    #     line=dict(width=0.5, color='rgb(127, 166, 238)')))
-    
-    # # Pronóstico
-    # fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
-    #     name='Pronósticos Puntuales',
-    #     line = dict(color='royalblue', width=3, dash='dash')
-    #     ))
-    
-    # fig.update_layout(shapes=[
-    #     dict(
-    #       type= 'line',
-    #       yref= 'paper', y0= 0, y1= 1,
-    #       xref= 'x', x0= max(x)+1, x1= max(x)+1,
-    #       fillcolor="rgb(102,102,102)",
-    #       opacity=0.5,
-    #       layer="below",
-    #       line_width=1,
-    #       line=dict(dash="dot")
-    #     )
-    # ])
-    # plot(fig)
     
     
-    
-
-    # casos_n = np.append(aj_final, pron_final)
-    # casos_t = casos_n.cumsum()
-    
-    # plt.plot(x, y, 'b-', label='data')
-    # plt.plot(casos_t)
-
-
-    # df['Activos'].plot()
-    
-
-    # muertos_t = casos_n * 0.01
-    # df_muertos = df['Fallecido'].cumsum()
-    
-    
-    # plt.plot(x, df_muertos, 'b-', label='data')
-    # plt.plot(muertos_t)
-
-
-
-
-
-
-
-
-
-
-
     # # se parametriza los graficos de los Modelos Gompertz y SIR
     # plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
     # plt.xlabel('x')
