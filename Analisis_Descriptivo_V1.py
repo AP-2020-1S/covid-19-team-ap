@@ -205,7 +205,6 @@ for c in ciudades:
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
     
 
-
     # se agrega un cero para que tenga la misma longitud que el pronóstico del
     # modelo gompertz + arima
     SIR_n = [0] + SIR_n
@@ -222,182 +221,89 @@ for c in ciudades:
 
 
     # =============================================================================
-    #  ARIMA Casos Activos
+    #  Casos Activos, Recuperados, Fallecidos
     # =============================================================================
 
-    aj_a_gom, pron_a_gom = mod_gompertz(df['Activos'], x, pred_x)
-  
+    for var in ['Activos','Recuperado','Fallecido']:
 
-    # Ajuste ARMA sobre los residuales
-    res = df['Activos'] - aj_a_gom
-    aj_a_arima,  pron_a_arima = mod_arima(res,x,pred_x)
+        aj_gom, pron_gom = mod_gompertz(df[var], x, pred_x)
     
-    # ajuste gompertz + arima
-    aj_a_final = aj_a_gom + aj_a_arima
-
-
-    #pronóstico gumpertz + arima
-    pron_final = pron_a_gom + pron_a_arima
-
-    # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_a_final
-    s = np.std(n_res)
-    # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s   
-    
-    # plt.plot(x, df['Activos'], 'b-', label='data')
-    # plt.plot(x, aj_a_final, 'r--')
-    
-    # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
-
-    # plt.title(c)
-    # plt.show()
-    
-    # =============================================================================
-    #  Recuperados
-    # =============================================================================
+        # Ajuste ARMA sobre los residuales
+        res = df[var] - aj_gom
+        aj_arima,  pron_arima = mod_arima(res,x,pred_x)
+        
+        # ajuste gompertz + arima
+        aj_final = aj_gom + aj_arima
     
     
-    aj_r_gom, pron_r_gom = mod_gompertz(df['Recuperado'], x, pred_x)
-
-    # Ajuste ARMA sobre los residuales
-    res = df['Recuperado'] - aj_r_gom
-    aj_r_arima,  pron_r_arima = mod_arima(res,x,pred_x)
+        #pronóstico gumpertz + arima
+        pron_final = pron_gom + pron_arima
     
-    # ajuste gompertz + arima
-    aj_r_final = aj_r_gom + aj_r_arima
-
-
-    #pronóstico gumpertz + arima
-    pron_final = pron_r_gom + pron_r_arima
-
-    # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_r_final
-    s = np.std(n_res)
-    # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s   
+        # nuevos residuales e intervalos de predicción
+        n_res = df[var] - aj_final
+        s = np.std(n_res)
+        # límite superior e inferior de los intervalos
+        l_s = pron_final + st.norm.ppf(.95) * s
+        l_i = pron_final - st.norm.ppf(.95) * s   
+        
+        plt.plot(x, df[var], 'b-', label='data')
+        plt.plot(x, aj_final, 'r--')
+        
+        plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
     
-    
-    # plt.plot(x, df['Recuperado'], 'b-', label='data')
-    # plt.plot(x, aj_r_final, 'r--')
-    
-    # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
-
-    # plt.title(c)
-    # plt.show()
-    
-    # =============================================================================
-    # Muertes
-    # =============================================================================
-    
-    # df['Fallecido'].plot()
-    
-    aj_f_gom, pron_f_gom = mod_gompertz(df['Fallecido'], x, pred_x)
-
-    # Ajuste ARMA sobre los residuales
-    res = df['Fallecido'] - aj_f_gom
-    aj_f_arima,  pron_f_arima = mod_arima(res,x,pred_x)
-    
-    # ajuste gompertz + arima
-    aj_f_final = aj_f_gom + aj_f_arima
-
-
-    #pronóstico gumpertz + arima
-    pron_final = pron_f_gom + pron_f_arima
-
-    # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_f_final
-    s = np.std(n_res)
-    # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s   
-    
-    
-    plt.plot(x, df['Fallecido'], 'b-', label='data')
-    plt.plot(x, aj_f_final, 'r--')
-    
-    plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
-
-    plt.title(c)
-    plt.show()
-    
-    
-
+        plt.title(c)
+        plt.show()
 
     
-    # fig = go.Figure()
-    # # serie original
-    # fig.add_trace(go.Scatter(x=x, y=f_y,
-    #     name='Casos Reales Diarios', 
-    #     fill=None,
-    #     mode='lines',
-    #     line=dict(width=3)
-    #     ))
-    # # ajuste
-    # fig.add_trace(go.Scatter(x=x, y=aj_final,
-    #     name='Modelo Ajustado',
-    #     line = dict(color='red', width=1)
-    #     ))
-    
-    # # intervalo superior
-    # fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-    #     showlegend=False,
-    #     fill=None,
-    #     mode='lines',
-    #     line=dict(width=0.5, color='rgb(127, 166, 238)'),
-    #     ))
-    # # intervalo inferior
-    # fig.add_trace(go.Scatter(
-    #     name='Intervalo de Predicción',
-    #     x=pred_x,
-    #     y=l_i,
-    #     fill='tonexty', # fill area between trace0 and trace1
-    #     mode='lines',
-    #     line=dict(width=0.5, color='rgb(127, 166, 238)')))
-    
-    # # Pronóstico
-    # fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
-    #     name='Pronósticos Puntuales',
-    #     line = dict(color='royalblue', width=3, dash='dash')
-    #     ))
-    
-    # fig.update_layout(shapes=[
-    #     dict(
-    #       type= 'line',
-    #       yref= 'paper', y0= 0, y1= 1,
-    #       xref= 'x', x0= max(x)+1, x1= max(x)+1,
-    #       fillcolor="rgb(102,102,102)",
-    #       opacity=0.5,
-    #       layer="below",
-    #       line_width=1,
-    #       line=dict(dash="dot")
-    #     )
-    # ])
-    # plot(fig)
+        fig = go.Figure()
+        # serie original
+        fig.add_trace(go.Scatter(x=x, y=df[var],
+            name='Casos Reales Diarios', 
+            fill=None,
+            mode='lines',
+            line=dict(width=3)
+            ))
+        # ajuste
+        fig.add_trace(go.Scatter(x=x, y=aj_final,
+            name='Modelo Ajustado',
+            line = dict(color='red', width=1)
+            ))
+        
+        # intervalo superior
+        fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+            showlegend=False,
+            fill=None,
+            mode='lines',
+            line=dict(width=0.5, color='rgb(127, 166, 238)'),
+            ))
+        # intervalo inferior
+        fig.add_trace(go.Scatter(
+            name='Intervalo de Predicción',
+            x=pred_x,
+            y=l_i,
+            fill='tonexty', # fill area between trace0 and trace1
+            mode='lines',
+            line=dict(width=0.5, color='rgb(127, 166, 238)')))
+        
+        # Pronóstico
+        fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
+            name='Pronósticos Puntuales',
+            line = dict(color='royalblue', width=3, dash='dash')
+            ))
+        
+        fig.update_layout(shapes=[
+            dict(
+              type= 'line',
+              yref= 'paper', y0= 0, y1= 1,
+              xref= 'x', x0= max(x)+1, x1= max(x)+1,
+              fillcolor="rgb(102,102,102)",
+              opacity=0.5,
+              layer="below",
+              line_width=1,
+              line=dict(dash="dot")
+            )
+        ])
+        plot(fig)
 
 
-    
-    
-    # # se parametriza los graficos de los Modelos Gompertz y SIR
-    # plt.plot(pred_x, I, 'm-.', label='SIR {} días'.format(pred))
-    # plt.xlabel('x')
-    # plt.ylabel('y')
-    # plt.legend()
-    # plt.title(c + ' Casos Acumulados')
-    # plt.show()
-    # """Gompertz Casos Nuevos"""
-    # plt.plot(x, f_y, 'b-', label='data')
-    # plt.plot(x, f_gompertz(x, *f_param), 'r--',
-    #          label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(f_param))
-    # plt.plot(pred_x, f_gompertz(pred_x, *f_param), 'g-.', label='Gompertz {} días'.format(pred))
-
-
-
-    # plt.plot(pred_x[1:], SIR_n, 'm-.', label='SIR {} días'.format(pred))
-    # plt.xlabel('x')
-    # plt.ylabel('y')
-    # plt.legend()
-    # plt.title(c + ' Casos Nuevos')
-    # plt.show()
+      
