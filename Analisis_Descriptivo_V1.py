@@ -44,13 +44,16 @@ ciudades = list(df_casos.Ciudad.value_counts().head().index)
 # Se define GR como cambio porcentual de los casos totales por ciudad
 
 def tabla_ciudad(ciudad):
+
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
     dff = pd.crosstab(df['Fecha_Diagnostico'], df['Ciudad'])
     dff['Total'] = dff[ciudad].cumsum()
     df_rec = df.loc[(df.Ciudad == ciudad) & ((df.Estado == 'Recuperado') | (df.Estado == 'Fallecido')), :]
-    df_recf = pd.crosstab(df_rec['Fecha_Diagnostico'], df_rec['Estado'])
-    df_recf['Salidas'] = df_recf.Recuperado + df_recf.Fallecido
-    dff = pd.merge(dff, df_recf, left_index=True, right_index=True)
+    df_recf = pd.crosstab(df_rec['Fecha_Recuperado'], df_rec['Estado'])
+    df_m = pd.crosstab(df_rec['Fecha_Muerte'], df_rec['Estado'])
+    df_s = pd.merge(df_recf, df_m['Fallecido'], left_index=True, right_index=True, how='inner')
+    df_s['Salidas'] = df_s.Recuperado + df_s.Fallecido
+    dff = pd.merge(dff, df_s, left_index=True, right_index=True)
     dff['Salidas_total'] = dff['Salidas'].cumsum()
     dff['Activos'] = dff['Total'] - dff['Salidas_total']
     del df_rec, df_recf
@@ -96,7 +99,7 @@ def arima_fit(residuales, x):
     stepwise_fit = auto_arima(residuales, start_p = 1, start_q = 1, 
                               max_p = 5, max_q = 5, 
                               seasonal = False, 
-                              d = None, D = None, trace = False, 
+                              trace = False, 
                               error_action ='ignore',   # we don't want to know if an order does not work 
                               suppress_warnings = True,  # we don't want convergence warnings 
                               stepwise = True,
@@ -112,36 +115,49 @@ def arima_fit(residuales, x):
     resultado.summary() 
     
     return resultado
-
-
 #Modelo Gompertz
-#
+def gompertz(x, a, b, c):
+    return c * np.exp(-b * np.exp(-x / a))
+def f_gompertz(x, a, b, c):
+    return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
+
+
 
 pred = 30
 for c in ciudades:
   
     df = tabla_ciudad(c)
     
-    def gompertz(x, a, b, c):
-        return c * np.exp(-b * np.exp(-x / a))
-    def f_gompertz(x, a, b, c):
-        return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
-    
+
     # variables de tiempo
     
     x = np.arange(0, df.shape[0])
     pred_x = np.arange(df.shape[0], df.shape[0] + pred)
+    
+    
+    # =============================================================================
+    # Casos Totales
+    # =============================================================================    
+    
+    
     y = np.array(df['Total'])
-    f_y = np.array(df[c])
     
     # Ajuste modelos
-    param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
-    f_param, f_pcov = curve_fit(f_gompertz, x, f_y, maxfev=10000)
     """Gompertz Casos Totales"""
-    # plt.plot(x, y, 'b-', label='data')
-    # plt.plot(x, gompertz(x, *param), 'r--',
-    #          label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
-    # plt.plot(pred_x, gompertz(pred_x, *param), 'g-.', label='Gompertz {} días'.format(pred))
+    param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
+    
+    """SIR Casos Totales"""
+    S, I, R = SIR(c, df_pob, pred)    
+    
+    
+    # =============================================================================
+    # Casos nuevos
+    # =============================================================================
+    
+    f_y = np.array(df[c])
+    
+    """Gompertz Casos Nuevos"""
+    f_param, f_pcov = curve_fit(f_gompertz, x, f_y, maxfev=10000)
 
     # Ajuste ARMA sobre los residuales
     res = f_y - f_gompertz(x, *f_param)
@@ -154,19 +170,16 @@ for c in ciudades:
     pron_arima = arima.predict(min(pred_x), max(pred_x), 
                              typ = 'levels')
     
-    pronostico = f_gompertz(pred_x, *f_param) + pron_arima
+    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
 
     # nuevos residuales e intervalos de predicción
     n_res = f_y - aj_final
     s = np.std(n_res)
     # límite superior e inferior de los intervalos
-    l_s = pronostico + st.norm.ppf(.95) * s
-    l_i = pronostico - st.norm.ppf(.95) * s   
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s   
     
-    
-    
-    """SIR Casos Totales"""
-    S, I, R = SIR(c, df_pob, pred)    
+
 
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
@@ -177,81 +190,227 @@ for c in ciudades:
     # p = np.zeros(15)
     # p = np.repeat(1,15)
     # Pronóstico a partir del día 15
-    pron_final = pronostico[15:]*(1-p) + SIR_n[15:]*p
+    pron_final = pron_final[15:]*(1-p) + SIR_n[15:]*p
     
-    
-    pron_final = np.append(pronostico[:15], pron_final)
+    pron_final = np.append(pron_final[:15], pron_final)
 
 
 
-    fig = go.Figure()
-    # serie original
-    fig.add_trace(go.Scatter(x=x, y=f_y,
-        name='Casos Reales Diarios', 
-        fill=None,
-        mode='lines',
-        line=dict(width=3)
-        ))
-    # ajuste
-    fig.add_trace(go.Scatter(x=x, y=aj_final,
-        name='Modelo Ajustado',
-        line = dict(color='red', width=1)
-        ))
+    # =============================================================================
+    #  ARIMA Casos Activos
+    # =============================================================================
+
+    arima_activos = arima_fit(df['Activos'],x)
     
-    # intervalo superior
-    fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-        showlegend=False,
-        fill=None,
-        mode='lines',
-        line=dict(width=0.5, color='rgb(127, 166, 238)'),
-        ))
-    # intervalo inferior
-    fig.add_trace(go.Scatter(
-        name='Intervalo de Predicción',
-        x=pred_x,
-        y=l_i,
-        fill='tonexty', # fill area between trace0 and trace1
-        mode='lines',
-        line=dict(width=0.5, color='rgb(127, 166, 238)')))
+    aj_arima_act = arima_activos.predict(min(x), max(x), 
+                          typ = 'levels')
     
-    # Pronóstico
-    fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
-        name='Pronósticos Puntuales',
-        line = dict(color='royalblue', width=3, dash='dash')
-        ))
+    pron_arima_act = arima_activos.predict(min(pred_x), max(pred_x), 
+                          typ = 'levels')
     
-    fig.update_layout(shapes=[
-        dict(
-          type= 'line',
-          yref= 'paper', y0= 0, y1= 1,
-          xref= 'x', x0= max(x)+1, x1= max(x)+1,
-          fillcolor="rgb(102,102,102)",
-          opacity=0.5,
-          layer="below",
-          line_width=1,
-          line=dict(dash="dot")
-        )
-    ])
-    plot(fig)
+    f_param, f_pcov = curve_fit(f_gompertz, x, df['Activos'], maxfev=10000)
+
+    aj_gompertz = f_gompertz(x, *f_param)     
+
+    # Ajuste ARMA sobre los residuales
+    res = df['Activos'] - f_gompertz(x, *f_param)
+    arima = arima_fit(res,x)
+    aj_arima = arima.predict(min(x), max(x), 
+                          typ = 'levels')
+    aj_final = f_gompertz(x, *f_param) + aj_arima
+
+
+    #pronóstico gumpertz + arima
+    pron_arima = arima.predict(min(pred_x), max(pred_x), 
+                             typ = 'levels')
+    
+    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
+
+    # nuevos residuales e intervalos de predicción
+    n_res = f_y - aj_final
+    s = np.std(n_res)
+    # límite superior e inferior de los intervalos
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s   
+    
+    # plt.plot(x, df['Activos'], 'b-', label='data')
+    # plt.plot(x, aj_final, 'r--',
+    #           label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    
+    # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
+
+    # plt.title(c)
+    # plt.show()
+    
+    # =============================================================================
+    #  Recuperados y muertes
+    # =============================================================================
+    
+    
+    f_param, f_pcov = curve_fit(f_gompertz, x, df['Recuperado'], maxfev=10000)
+
+    aj_gompertz = f_gompertz(x, *f_param)     
+
+    # Ajuste ARMA sobre los residuales
+    res = df['Recuperado'] - aj_gompertz
+    arima = arima_fit(res,x)
+    aj_arima = arima.predict(min(x), max(x), 
+                          typ = 'levels')
+    aj_final = aj_gompertz + aj_arima
+
+
+    #pronóstico gumpertz + arima
+    pron_arima = arima.predict(min(pred_x), max(pred_x), 
+                             typ = 'levels')
+    
+    pron_final = f_gompertz(pred_x, *f_param) + pron_arima
+
+    # nuevos residuales e intervalos de predicción
+    n_res = f_y - aj_final
+    s = np.std(n_res)
+    # límite superior e inferior de los intervalos
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s   
+    
+    # plt.plot(x, df['Recuperado'], 'b-', label='data')
+    # plt.plot(x, aj_final, 'r--',
+    #           label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(param))
+    
+    # plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
+
+    # plt.title(c)
+    # plt.show()
+    
+    # =============================================================================
+    # Otras variables
+    # =============================================================================
+    
+    
+    
+
+
+    
+    # fig = go.Figure()
+    # # serie original
+    # fig.add_trace(go.Scatter(x=x, y=f_y,
+    #     name='Casos Reales Diarios', 
+    #     fill=None,
+    #     mode='lines',
+    #     line=dict(width=3)
+    #     ))
+    # # ajuste
+    # fig.add_trace(go.Scatter(x=x, y=aj_final,
+    #     name='Modelo Ajustado',
+    #     line = dict(color='red', width=1)
+    #     ))
+    
+    # # intervalo superior
+    # fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+    #     showlegend=False,
+    #     fill=None,
+    #     mode='lines',
+    #     line=dict(width=0.5, color='rgb(127, 166, 238)'),
+    #     ))
+    # # intervalo inferior
+    # fig.add_trace(go.Scatter(
+    #     name='Intervalo de Predicción',
+    #     x=pred_x,
+    #     y=l_i,
+    #     fill='tonexty', # fill area between trace0 and trace1
+    #     mode='lines',
+    #     line=dict(width=0.5, color='rgb(127, 166, 238)')))
+    
+    # # Pronóstico
+    # fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
+    #     name='Pronósticos Puntuales',
+    #     line = dict(color='royalblue', width=3, dash='dash')
+    #     ))
+    
+    # fig.update_layout(shapes=[
+    #     dict(
+    #       type= 'line',
+    #       yref= 'paper', y0= 0, y1= 1,
+    #       xref= 'x', x0= max(x)+1, x1= max(x)+1,
+    #       fillcolor="rgb(102,102,102)",
+    #       opacity=0.5,
+    #       layer="below",
+    #       line_width=1,
+    #       line=dict(dash="dot")
+    #     )
+    # ])
+    # plot(fig)
 
 
 
-    casos_n = np.append(aj_final, pron_final)
-    casos_t = casos_n.cumsum()
+    # fig = go.Figure()
+    # # serie original
+    # fig.add_trace(go.Scatter(x=x, y=f_y,
+    #     name='Casos Reales Diarios', 
+    #     fill=None,
+    #     mode='lines',
+    #     line=dict(width=3)
+    #     ))
+    # # ajuste
+    # fig.add_trace(go.Scatter(x=x, y=aj_final,
+    #     name='Modelo Ajustado',
+    #     line = dict(color='red', width=1)
+    #     ))
     
-    plt.plot(x, y, 'b-', label='data')
-    plt.plot(casos_t)
+    # # intervalo superior
+    # fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+    #     showlegend=False,
+    #     fill=None,
+    #     mode='lines',
+    #     line=dict(width=0.5, color='rgb(127, 166, 238)'),
+    #     ))
+    # # intervalo inferior
+    # fig.add_trace(go.Scatter(
+    #     name='Intervalo de Predicción',
+    #     x=pred_x,
+    #     y=l_i,
+    #     fill='tonexty', # fill area between trace0 and trace1
+    #     mode='lines',
+    #     line=dict(width=0.5, color='rgb(127, 166, 238)')))
+    
+    # # Pronóstico
+    # fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
+    #     name='Pronósticos Puntuales',
+    #     line = dict(color='royalblue', width=3, dash='dash')
+    #     ))
+    
+    # fig.update_layout(shapes=[
+    #     dict(
+    #       type= 'line',
+    #       yref= 'paper', y0= 0, y1= 1,
+    #       xref= 'x', x0= max(x)+1, x1= max(x)+1,
+    #       fillcolor="rgb(102,102,102)",
+    #       opacity=0.5,
+    #       layer="below",
+    #       line_width=1,
+    #       line=dict(dash="dot")
+    #     )
+    # ])
+    # plot(fig)
+    
+    
+    
+
+    # casos_n = np.append(aj_final, pron_final)
+    # casos_t = casos_n.cumsum()
+    
+    # plt.plot(x, y, 'b-', label='data')
+    # plt.plot(casos_t)
 
 
-    df['Activos'].plot()
+    # df['Activos'].plot()
     
 
-    muertos_t = casos_n * 0.01
-    df_muertos = df['Fallecido'].cumsum()
+    # muertos_t = casos_n * 0.01
+    # df_muertos = df['Fallecido'].cumsum()
     
     
-    plt.plot(x, df_muertos, 'b-', label='data')
-    plt.plot(muertos_t)
+    # plt.plot(x, df_muertos, 'b-', label='data')
+    # plt.plot(muertos_t)
 
 
 
