@@ -23,7 +23,8 @@ from sodapy import Socrata
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from plotly.offline import plot
 import plotly.graph_objects as go
-    
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import r2_score
 
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
 #Nota: No debemos traer columnas inutiles, como grupo etnico, etnia, codigo pais, Codigo municipio, codigo departamento.
@@ -95,8 +96,8 @@ def SIR(ciudad, df_pob, n_pred):
     S, I, R = ret.T
     return S, I, R
 
-def mod_arima(residuales, x, pred_x):
-    stepwise_fit = auto_arima(residuales, start_p = 1, start_q = 1, 
+def mod_arima(datos, x, pred_x):
+    stepwise_fit = auto_arima(datos, start_p = 1, start_q = 1, 
                               max_p = 5, max_q = 5, 
                               seasonal = False, 
                               trace = False, 
@@ -107,7 +108,7 @@ def mod_arima(residuales, x, pred_x):
     
     
     # se ajusta el modelo
-    arma = SARIMAX(residuales,  
+    arma = SARIMAX(datos,  
                 order = stepwise_fit.order)
     
     
@@ -146,8 +147,10 @@ def mod_gompertz(datos, x, pred_x, tipo='nuevos'):
         
     return ajuste, pronostico
 
-
+# número de pronósticos
 pred = 30
+# datos para la validación cruzada
+val_cruz = 7
 for c in ciudades:
   
     df = tabla_ciudad(c)
@@ -155,15 +158,19 @@ for c in ciudades:
 
     # variables de tiempo
     
+    # Serie completa
     x = np.arange(0, df.shape[0])
-    pred_x = np.arange(df.shape[0], df.shape[0] + pred)
+    pred_x = np.arange(df.shape[0], df.shape[0] + pred)    
     
+    #Validación cruzada
+    x_val = np.arange(0, df.shape[0] - val_cruz)
+    pred_x_val = np.arange(df.shape[0] - val_cruz, df.shape[0])
     
+
     # =============================================================================
     # Casos Totales
     # =============================================================================    
-    
-    
+      
     y = np.array(df['Total'])
     
     # Ajuste modelos
@@ -178,9 +185,30 @@ for c in ciudades:
     # Casos nuevos
     # =============================================================================
     
+    # Variable dependiente
     f_y = np.array(df[c])
     
     """Gompertz Casos Nuevos"""
+    
+    ### Validación cruzada
+
+    aj_n_gom, pron_n_gom = mod_gompertz(f_y[x_val],x_val,pred_x_val)
+
+    # Ajuste ARMA sobre los residuales
+    res = f_y[x_val] - aj_n_gom
+    aj_arima,pron_arima  = mod_arima(res,x_val,pred_x_val)
+    
+    # Ajuste gompertz + arima
+    aj_n_final = aj_n_gom + aj_arima
+
+    #pronóstico gumpertz + arima
+    pron_final = pron_n_gom + pron_arima
+    
+
+    mae = mean_absolute_error(f_y[pred_x_val], pron_final)
+    
+    ### Ahora con todos los datos
+    
     aj_n_gom, pron_n_gom = mod_gompertz(f_y,x,pred_x)
 
     # Ajuste ARMA sobre los residuales
@@ -191,15 +219,13 @@ for c in ciudades:
     aj_n_final = aj_n_gom + aj_arima
 
     #pronóstico gumpertz + arima
-    pron_final = pron_n_gom + pron_arima
+    pron_n_final = pron_n_gom + pron_arima
 
     # nuevos residuales e intervalos de predicción
     n_res = f_y - aj_n_final
     s = np.std(n_res)
-    # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s   
-    
+ 
+    r2 = r2_score(f_y, aj_n_final)
 
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
@@ -215,9 +241,71 @@ for c in ciudades:
     # p = np.zeros(15)
     # p = np.repeat(1,15)
     # Pronóstico a partir del día 15
-    pron_final = pron_final[15:]*(1-p) + SIR_n[15:]*p
+    pron_final = pron_n_final[15:]*(1-p) + SIR_n[15:]*p
     
-    pron_final = np.append(pron_final[:15], pron_final)
+    pron_final = np.append(pron_n_final[:15], pron_final)
+
+    # límite superior e inferior de los intervalos
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s  
+    
+
+    fig = go.Figure()
+    # serie original
+    fig.add_trace(go.Scatter(x=x, y=f_y,
+        name='Casos Reales Diarios', 
+        fill=None,
+        mode='lines',
+        line=dict(width=3)
+        ))
+    # ajuste
+    fig.add_trace(go.Scatter(x=x, y=aj_n_final,
+        name='Modelo Ajustado',
+        line = dict(color='red', width=1)
+        ))
+    
+    # intervalo superior
+    fig.add_trace(go.Scatter(x=pred_x, y=l_s,
+        showlegend=False,
+        fill=None,
+        mode='lines',
+        line=dict(width=0.5, color='rgb(127, 166, 238)'),
+        ))
+    # intervalo inferior
+    fig.add_trace(go.Scatter(
+        name='Intervalo de Predicción',
+        x=pred_x,
+        y=l_i,
+        fill='tonexty', # fill area between trace0 and trace1
+        mode='lines',
+        line=dict(width=0.5, color='rgb(127, 166, 238)')))
+    
+    # Pronóstico
+    fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
+        name='Pronósticos Puntuales',
+        line = dict(color='royalblue', width=3, dash='dash')
+        ))
+    
+    fig.update_layout(shapes=[
+        dict(
+          type= 'line',
+          yref= 'paper', y0= 0, y1= 1,
+          xref= 'x', x0= max(x)+1, x1= max(x)+1,
+          fillcolor="rgb(102,102,102)",
+          opacity=0.5,
+          layer="below",
+          line_width=1,
+          line=dict(dash="dot")
+        )
+    ])
+    
+    fig.update_layout(
+        title = f'Variable: Casos Diarios,   Ciudad: {c},   R2: {r2},   MAE: {mae}')
+    
+    plot(fig)
+
+
+
 
 
     # =============================================================================
@@ -225,6 +313,27 @@ for c in ciudades:
     # =============================================================================
 
     for var in ['Activos','Recuperado','Fallecido']:
+        
+        ### Validación cruzada
+
+        aj_gom, pron_gom = mod_gompertz(df[var][x_val], x_val, pred_x_val)
+    
+        # Ajuste ARMA sobre los residuales
+        res = df[var][x_val] - aj_gom
+        aj_arima,  pron_arima = mod_arima(res,x_val,pred_x_val)
+        
+        # ajuste gompertz + arima
+        aj_final = aj_gom + aj_arima
+    
+    
+        #pronóstico gumpertz + arima
+        pron_final = pron_gom + pron_arima
+        
+        # MAE
+        mae = mean_absolute_error(f_y[pred_x_val], pron_final)       
+        
+        
+        ### Modelo con todos los datos
 
         aj_gom, pron_gom = mod_gompertz(df[var], x, pred_x)
     
@@ -246,13 +355,7 @@ for c in ciudades:
         l_s = pron_final + st.norm.ppf(.95) * s
         l_i = pron_final - st.norm.ppf(.95) * s   
         
-        plt.plot(x, df[var], 'b-', label='data')
-        plt.plot(x, aj_final, 'r--')
-        
-        plt.plot(pred_x, pron_final, 'g-.', label='Gompertz {} días'.format(pred))
-    
-        plt.title(c)
-        plt.show()
+        r2 = r2_score(df[var], aj_final)
 
     
         fig = go.Figure()
@@ -303,6 +406,10 @@ for c in ciudades:
               line=dict(dash="dot")
             )
         ])
+        
+        fig.update_layout(
+            title = f'Variable: {var},   Ciudad: {c},   R2: {r2},   MAE: {mae}')
+        
         plot(fig)
 
 
