@@ -30,6 +30,7 @@ warnings.filterwarnings('ignore')
 import datetime as dt
 
 
+
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
 #Nota: No debemos traer columnas inutiles, como grupo etnico, etnia, codigo pais, Codigo municipio, codigo departamento.
 df_pruebas, df_casos = data(10000000)
@@ -51,7 +52,16 @@ ciudades = list(df_casos.Ciudad.value_counts().head().index)
 def tabla_ciudad(ciudad):
 
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
-    dff = pd.crosstab(df['Fecha_Diagnostico'], df['Ciudad'])
+    df['FIS'] = np.where(df['FIS'] == 'Asintomático',df['Fecha'] ,df['FIS'])
+    df['FIS'] = [dt.datetime.combine(dt.datetime.strptime(i,'%Y-%m-%dT%H:%M:%S.%f').date(), dt.datetime.min.time()) for i in df['FIS']]
+
+
+    # df['FIS'] = pd.to_datetime(df['FIS'], format='%Y-%m-%d')
+    
+    # df['FIS'] = pd.to_datetime(df['FIS'], format= '%Y-%m-%dT%H:%M:%S.%f')
+    # dt.datetime(strptime(i, format='%Y-%m-%dT%H:%M:%S.%f'))
+    
+    dff = pd.crosstab(df['FIS'], df['Ciudad'])
     dff['Total'] = dff[ciudad].cumsum()
     df_rec = df.loc[(df.Ciudad == ciudad) & ((df.Estado == 'Recuperado') | (df.Estado == 'Fallecido')), :]
     df_recf = pd.crosstab(df_rec['Fecha_Recuperado'], df_rec['Estado'])
@@ -173,7 +183,7 @@ e = []
 g = []
 
 for c in ciudades:
-  
+    
     df = tabla_ciudad(c)
     df.index = pd.to_datetime(df.index)
     
@@ -212,45 +222,117 @@ for c in ciudades:
     
     # Ajuste modelos
     """Gompertz Casos Totales"""
-    aj_tot, pron_tot = mod_gompertz(y,x,pred_x,'totales')
     
-    """SIR Casos Totales"""
-    S, I, R = SIR(c, df_pob, pred)    
+     ### Validación cruzada
 
+    # ajuste totales gompertz
+    aj_t_gom, pron_t_gom = mod_gompertz(y[x_val],x_val,pred_x_val,tipo='totales')
+
+    # Ajuste ARMA sobre los residuales
+    res = y[x_val] - aj_t_gom
+    aj_arima,pron_arima  = mod_arima(res,x_val,pred_x_val)
+    
+    # Ajuste gompertz + arima
+    aj_t_final = aj_t_gom + aj_arima
+
+    #pronóstico gumpertz + arima
+    pron_final = pron_t_gom + pron_arima
+    
+    mae = mean_absolute_error(y[pred_x_val], pron_final)
+    fmae.append([c, 'Totales', mae])
+    
+    # plt.plot(x,y, 'b-')
+    # plt.plot(x_val,aj_t_final, 'r-' )
+    # plt.plot(pred_x_val,pron_final, 'g-')
+    
+    ### Ahora con todos los datos
+    
+    aj_t_gom, pron_t_gom = mod_gompertz(y,x,pred_x,'totales')
+
+    # Ajuste ARMA sobre los residuales
+    res = y - aj_t_gom
+    aj_arima,pron_arima  = mod_arima(res,x,pred_x)
+    
+    # Ajuste gompertz + arima
+    aj_t_final = aj_t_gom + aj_arima
+
+    #pronóstico gumpertz + arima
+    pron_t_final = pron_t_gom + pron_arima
+
+
+    # nuevos residuales e intervalos de predicción
+    n_res = y - aj_t_final
+    s = np.std(n_res)
+    # límite superior e inferior de los intervalos
+    l_s = pron_final + st.norm.ppf(.95) * s
+    l_i = pron_final - st.norm.ppf(.95) * s   
+        
+    r2 = r2_score(y, aj_t_final)
+
+    fr2.append([c, 'Totales', r2])
+    
     
     #Construccion CSV
-    for i in range(len(aj_tot)):
+    for i in range(len(aj_t_final)):
       n.append(x[i])
       f.append(fechas[i])
       u.append(c)
-      v.append(aj_tot[i])
+      v.append(aj_t_final[i])
       e.append('Total')
       g.append('Ajuste')
 
-    for i in range(len(pron_tot)):
+    for i in range(len(pron_t_final)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
-      v.append(pron_tot[i])
+      v.append(pron_t_final[i])
       e.append('Total')
       g.append('Pronostico')
+      
+    for i in range(len(l_s)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Total')
+      g.append('LS')
+    
+    for i in range(len(l_i)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Total')
+      g.append('LI')
+      
       
     # =============================================================================
     # Casos nuevos
     # =============================================================================
-    
+
     # Variable dependiente
-    f_y = np.array(df[c])
+    f_y = np.array(df[c][:-7])
+    
+    #Construccion CSV
+    for i in range(len(df[c][:-7])):
+      n.append(x[i])
+      f.append(fechas[i])
+      u.append(c)
+      v.append(df[c].iloc[i])
+      e.append('Nuevos')
+      g.append('Real')
+    
+    
     
     """Gompertz Casos Nuevos"""
     
     ### Validación cruzada
 
-    aj_n_gom, pron_n_gom = mod_gompertz(f_y[x_val],x_val,pred_x_val,tipo='nuevos')
+    aj_n_gom, pron_n_gom = mod_gompertz(f_y[x_val[:-7]],x_val[:-7],pred_x_val-7,tipo='nuevos')
 
     # Ajuste ARMA sobre los residuales
-    res = f_y[x_val] - aj_n_gom
-    aj_arima,pron_arima  = mod_arima(res,x_val,pred_x_val)
+    res = f_y[x_val[:-7]] - aj_n_gom
+    aj_arima,pron_arima  = mod_arima(res,x_val[:-7],pred_x_val-7)
     
     # Ajuste gompertz + arima
     aj_n_final = aj_n_gom + aj_arima
@@ -258,22 +340,72 @@ for c in ciudades:
     #pronóstico gumpertz + arima
     pron_final = pron_n_gom + pron_arima
 
-    # plt.plot(x,f_y, 'b-')
-    # plt.plot(x_val,aj_n_gom, 'r-' )
-    # plt.plot(pred_x_val,pron_final, 'g-')
-    
+    # plt.plot(x[:-7],f_y, 'b-')
+    # plt.plot(x_val[:-7],aj_n_final, 'r-' )
+    # plt.plot(pred_x_val-7,pron_final, 'g-')
+    # plt.title(c)
+    # plt.show()
 
-    mae = mean_absolute_error(f_y[pred_x_val], pron_final)
+
+    mae = mean_absolute_error(f_y[pred_x_val-7], pron_final)
     fmae.append([c, 'Nuevos', mae])
     
     
     ### Ahora con todos los datos
     
-    aj_n_gom, pron_n_gom = mod_gompertz(f_y,x,pred_x)
+    aj_n_gom, pron_n_gom = mod_gompertz(f_y,x[:-7],pred_x-7)
+
+    # plt.plot(f_y)
+    # plt.plot(aj_n_gom, 'g-')
+    # plt.show()
 
     # Ajuste ARMA sobre los residuales
     res = f_y - aj_n_gom
-    aj_arima,pron_arima  = mod_arima(res,x,pred_x)
+        
+    # =============================================================================
+    # Análisis de residuales    
+    # =============================================================================
+
+    # plt.plot(res)
+    # plt.show()
+
+    # pm.plot_acf(res)
+    # pm.plot_pacf(res)    
+
+    # stepwise_fit = auto_arima(res, start_p = 1, start_q = 1, 
+    #                               max_p = 5, max_q = 5, 
+    #                               seasonal = False, 
+    #                               trace = False, 
+    #                               error_action ='ignore',   # we don't want to know if an order does not work 
+    #                               suppress_warnings = True,  # we don't want convergence warnings 
+    #                               stepwise = True,
+    #                               information_criterion = 'aic')           # set to stepwise 
+        
+        
+    # # se ajusta el modelo
+    # arma = SARIMAX(res,  
+    #             order = stepwise_fit.order)
+    
+    
+    # resultado = arma.fit() 
+    # resultado.summary() 
+    
+    # ajuste = resultado.predict(1, len(res), 
+    #                       typ = 'levels')
+    
+    # ajuste = aj_n_gom + ajuste
+
+
+
+    # plt.plot(f_y)
+    # plt.plot(aj_n_gom, 'g-')
+    # plt.plot(ajuste, 'r-')
+    
+    
+    
+    
+    
+    aj_arima,pron_arima  = mod_arima(res,x[:-7],pred_x-7)
     
     # Ajuste gompertz + arima
     aj_n_final = aj_n_gom + aj_arima
@@ -306,6 +438,9 @@ for c in ciudades:
 
     fr2.append([c, 'Nuevos', r2])
 
+
+    """SIR Casos Totales"""
+    S, I, R = SIR(c, df_pob, pred)    
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
     
@@ -329,6 +464,10 @@ for c in ciudades:
     l_i = pron_final - st.norm.ppf(.95) * s
     
     
+    plt.plot(f_y)
+    plt.plot(aj_n_final, 'r-')
+    plt.title(c)
+    plt.show()
     
     for i in range(len(pron_final)):
       n.append(pred_x[i])
@@ -363,6 +502,16 @@ for c in ciudades:
 
     for var in ['Activos','Recuperado','Fallecido']:
         
+        #Construccion CSV
+        for i in range(len(df[var])):
+          n.append(x[i])
+          f.append(fechas[i])
+          u.append(c)
+          v.append(df[var].iloc[i])
+          e.append(var)
+          g.append('Real')
+        
+        
         ### Validación cruzada
 
         aj_gom, pron_gom = mod_gompertz(df[var][x_val], x_val, pred_x_val)
@@ -381,11 +530,11 @@ for c in ciudades:
         # MAE
         mae = mean_absolute_error(df[var][pred_x_val], pron_final)       
 
-        plt.plot(x,df[var], 'b-')
-        plt.plot(x_val,aj_final, 'r-' )
-        plt.plot(pred_x_val,pron_final, 'g-')
-        plt.title(f'Ciudad: {c}, variable: {var}')
-        plt.show()
+        # plt.plot(x,df[var], 'b-')
+        # plt.plot(x_val,aj_final, 'r-' )
+        # plt.plot(pred_x_val,pron_final, 'g-')
+        # plt.title(f'Ciudad: {c}, variable: {var}')
+        # plt.show()
         
         # bodega de datos
         fmae.append([c, var, mae])

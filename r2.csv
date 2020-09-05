@@ -1,21 +1,26 @@
 Ciudad,Variable,Valor
-Bogotá D.C.,Nuevos,0.6055101008098522
-Bogotá D.C.,Activos,0.9980790085443274
-Bogotá D.C.,Recuperado,0.8856942351998582
-Bogotá D.C.,Fallecido,0.9579400452968281
-Medellín,Nuevos,0.936229159438431
-Medellín,Activos,0.9994332439519672
-Medellín,Recuperado,0.9355727850325661
-Medellín,Fallecido,0.8663926663066119
-Cali,Nuevos,0.6591794290053434
-Cali,Activos,0.9967113986743509
-Cali,Recuperado,0.7705178953488327
-Cali,Fallecido,0.8669031091862425
-Barranquilla,Nuevos,0.8239857573381892
-Barranquilla,Activos,0.9977393676372804
-Barranquilla,Recuperado,0.7834492971535081
-Barranquilla,Fallecido,0.9089108548650078
-Cartagena de Indias,Nuevos,0.716752894410311
-Cartagena de Indias,Activos,0.9976414641507944
-Cartagena de Indias,Recuperado,0.7792882415218719
-Cartagena de Indias,Fallecido,0.5638295997587169
+Bogotá D.C.,Totales,0.9999766696804863
+Bogotá D.C.,Nuevos,0.9313710800065776
+Bogotá D.C.,Activos,0.9997725384673747
+Bogotá D.C.,Recuperado,0.8686585767072819
+Bogotá D.C.,Fallecido,0.9596347891367167
+Medellín,Totales,0.9999754021448399
+Medellín,Nuevos,0.9490213281218646
+Medellín,Activos,0.9997820304706796
+Medellín,Recuperado,0.9069833159681797
+Medellín,Fallecido,0.8655571686126098
+Cali,Totales,0.9999866888662158
+Cali,Nuevos,0.944732309420712
+Cali,Activos,0.9994963498192119
+Cali,Recuperado,0.7819432843774288
+Cali,Fallecido,0.8758577425635268
+Barranquilla,Totales,0.9999704737379848
+Barranquilla,Nuevos,0.8891640828189733
+Barranquilla,Activos,0.9994287294542321
+Barranquilla,Recuperado,0.7570244306649179
+Barranquilla,Fallecido,0.9136034288233303
+Cartagena de Indias,Totales,0.9999694015107906
+Cartagena de Indias,Nuevos,0.8080371564553703
+Cartagena de Indias,Activos,0.999397817497444
+Cartagena de Indias,Recuperado,0.7672736427912569
+Cartagena de Indias,Fallecido,0.5952232783432354
