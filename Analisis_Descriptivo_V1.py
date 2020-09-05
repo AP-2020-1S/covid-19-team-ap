@@ -25,6 +25,10 @@ from plotly.offline import plot
 import plotly.graph_objects as go
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import r2_score
+import warnings
+warnings.filterwarnings('ignore')
+import datetime as dt
+
 
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
 #Nota: No debemos traer columnas inutiles, como grupo etnico, etnia, codigo pais, Codigo municipio, codigo departamento.
@@ -52,9 +56,11 @@ def tabla_ciudad(ciudad):
     df_rec = df.loc[(df.Ciudad == ciudad) & ((df.Estado == 'Recuperado') | (df.Estado == 'Fallecido')), :]
     df_recf = pd.crosstab(df_rec['Fecha_Recuperado'], df_rec['Estado'])
     df_m = pd.crosstab(df_rec['Fecha_Muerte'], df_rec['Estado'])
-    df_s = pd.merge(df_recf, df_m['Fallecido'], left_index=True, right_index=True, how='inner')
+    df_s = pd.merge(df_recf, df_m['Fallecido'], left_index=True, right_index=True, how='left')
+    df_s.fillna(0, inplace=True)
     df_s['Salidas'] = df_s.Recuperado + df_s.Fallecido
-    dff = pd.merge(dff, df_s, left_index=True, right_index=True)
+    dff = pd.merge(dff, df_s, left_index=True, right_index=True, how = 'left')
+    dff.fillna(0, inplace=True)
     dff['Salidas_total'] = dff['Salidas'].cumsum()
     dff['Activos'] = dff['Total'] - dff['Salidas_total']
     del df_rec, df_recf
@@ -124,7 +130,11 @@ def mod_arima(datos, x, pred_x):
     
     return ajuste, pronostico
 
-def mod_gompertz(datos, x, pred_x, tipo='nuevos'):
+def mod_gompertz(y, x, pred_x, tipo='nuevos'):
+
+    # y= np.array(f_y[x_val])
+    # x = np.array(x_val)
+    # pred_x = np.array(pred_x_val)
 
     #Modelo Gompertz casos totales
     def gompertz(x, a, b, c):
@@ -135,13 +145,13 @@ def mod_gompertz(datos, x, pred_x, tipo='nuevos'):
 
     # Ajuste y pronóstico
     if tipo == 'nuevos':
-        f_param, pcov = curve_fit(f_gompertz, x, datos, maxfev=10000)
+        f_param, pcov = curve_fit(f_gompertz, x, y, maxfev=10000)
         ajuste = f_gompertz(x, *f_param)
         pronostico = f_gompertz(pred_x, *f_param)
     elif tipo == 'totales':
-        param, pcov = curve_fit(gompertz, x, datos, maxfev=10000)
-        ajuste = f_gompertz(x, *param)
-        pronostico = f_gompertz(pred_x, *param)
+        param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
+        ajuste = gompertz(x, *param)
+        pronostico = gompertz(pred_x, *param)
     else:
         print('Elija un tipo válido')
         
@@ -150,21 +160,39 @@ def mod_gompertz(datos, x, pred_x, tipo='nuevos'):
 # número de pronósticos
 pred = 30
 # datos para la validación cruzada
-val_cruz = 7
+val_cruz = 5
+
+# Variables para bodega de datos
+fmae = []
+fr2 = []
+n = []
+f = []
+u = []
+v = []
+e = []
+g = []
+
 for c in ciudades:
   
     df = tabla_ciudad(c)
+    df.index = pd.to_datetime(df.index)
     
+    # c = 'Bogotá D.C.'
 
     # variables de tiempo
     
+    N = df.shape[0]
+    ff = df.index.max()
+    fi = df.index.min()
+    fechas = list(df.index)
+    
     # Serie completa
-    x = np.arange(0, df.shape[0])
-    pred_x = np.arange(df.shape[0], df.shape[0] + pred)    
+    x = np.arange(0, N)
+    pred_x = np.arange(N, N + pred)    
     
     #Validación cruzada
-    x_val = np.arange(0, df.shape[0] - val_cruz)
-    pred_x_val = np.arange(df.shape[0] - val_cruz, df.shape[0])
+    x_val = np.arange(0, N - val_cruz)
+    pred_x_val = np.arange(N - val_cruz, N)
     
 
     # =============================================================================
@@ -173,14 +201,40 @@ for c in ciudades:
       
     y = np.array(df['Total'])
     
+    #Construccion CSV
+    for i in range(N):
+      n.append(x[i])
+      f.append(fechas[i])
+      u.append(c)
+      v.append(df.iloc[i]['Total'])
+      e.append('Total')
+      g.append('Real')
+    
     # Ajuste modelos
     """Gompertz Casos Totales"""
     aj_tot, pron_tot = mod_gompertz(y,x,pred_x,'totales')
     
     """SIR Casos Totales"""
     S, I, R = SIR(c, df_pob, pred)    
+
     
-    
+    #Construccion CSV
+    for i in range(len(aj_tot)):
+      n.append(x[i])
+      f.append(fechas[i])
+      u.append(c)
+      v.append(aj_tot[i])
+      e.append('Total')
+      g.append('Ajuste')
+
+    for i in range(len(pron_tot)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_tot[i])
+      e.append('Total')
+      g.append('Pronostico')
+      
     # =============================================================================
     # Casos nuevos
     # =============================================================================
@@ -192,7 +246,7 @@ for c in ciudades:
     
     ### Validación cruzada
 
-    aj_n_gom, pron_n_gom = mod_gompertz(f_y[x_val],x_val,pred_x_val)
+    aj_n_gom, pron_n_gom = mod_gompertz(f_y[x_val],x_val,pred_x_val,tipo='nuevos')
 
     # Ajuste ARMA sobre los residuales
     res = f_y[x_val] - aj_n_gom
@@ -203,9 +257,15 @@ for c in ciudades:
 
     #pronóstico gumpertz + arima
     pron_final = pron_n_gom + pron_arima
+
+    # plt.plot(x,f_y, 'b-')
+    # plt.plot(x_val,aj_n_gom, 'r-' )
+    # plt.plot(pred_x_val,pron_final, 'g-')
     
 
     mae = mean_absolute_error(f_y[pred_x_val], pron_final)
+    fmae.append([c, 'Nuevos', mae])
+    
     
     ### Ahora con todos los datos
     
@@ -221,11 +281,30 @@ for c in ciudades:
     #pronóstico gumpertz + arima
     pron_n_final = pron_n_gom + pron_arima
 
+    for i in range(len(aj_n_final)):
+      n.append(x[i])
+      f.append(fechas[i])
+      u.append(c)
+      v.append(aj_n_final[i])
+      e.append('Nuevos')
+      g.append('Ajuste')
+    
+    for i in range(len(pron_n_final)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_n_final[i])
+      e.append('Nuevos')
+      g.append('P_Gompertz')
+
+
     # nuevos residuales e intervalos de predicción
     n_res = f_y - aj_n_final
     s = np.std(n_res)
  
     r2 = r2_score(f_y, aj_n_final)
+
+    fr2.append([c, 'Nuevos', r2])
 
     """SIR Casos Nuevos"""
     SIR_n = [0 if i < 0 else i for i in np.diff(I)]
@@ -247,64 +326,34 @@ for c in ciudades:
 
     # límite superior e inferior de los intervalos
     l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s  
+    l_i = pron_final - st.norm.ppf(.95) * s
     
-
-    fig = go.Figure()
-    # serie original
-    fig.add_trace(go.Scatter(x=x, y=f_y,
-        name='Casos Reales Diarios', 
-        fill=None,
-        mode='lines',
-        line=dict(width=3)
-        ))
-    # ajuste
-    fig.add_trace(go.Scatter(x=x, y=aj_n_final,
-        name='Modelo Ajustado',
-        line = dict(color='red', width=1)
-        ))
     
-    # intervalo superior
-    fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-        showlegend=False,
-        fill=None,
-        mode='lines',
-        line=dict(width=0.5, color='rgb(127, 166, 238)'),
-        ))
-    # intervalo inferior
-    fig.add_trace(go.Scatter(
-        name='Intervalo de Predicción',
-        x=pred_x,
-        y=l_i,
-        fill='tonexty', # fill area between trace0 and trace1
-        mode='lines',
-        line=dict(width=0.5, color='rgb(127, 166, 238)')))
     
-    # Pronóstico
-    fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
-        name='Pronósticos Puntuales',
-        line = dict(color='royalblue', width=3, dash='dash')
-        ))
-    
-    fig.update_layout(shapes=[
-        dict(
-          type= 'line',
-          yref= 'paper', y0= 0, y1= 1,
-          xref= 'x', x0= max(x)+1, x1= max(x)+1,
-          fillcolor="rgb(102,102,102)",
-          opacity=0.5,
-          layer="below",
-          line_width=1,
-          line=dict(dash="dot")
-        )
-    ])
-    
-    fig.update_layout(
-        title = f'Variable: Casos Diarios,   Ciudad: {c},   R2: {r2},   MAE: {mae}')
-    
-    plot(fig)
+    for i in range(len(pron_final)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_final[i])
+      e.append('Nuevos')
+      g.append('P_Final')
 
 
+    for i in range(len(l_s)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Nuevos')
+      g.append('LS')
+    
+    for i in range(len(l_i)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Nuevos')
+      g.append('LI')
 
 
 
@@ -330,8 +379,16 @@ for c in ciudades:
         pron_final = pron_gom + pron_arima
         
         # MAE
-        mae = mean_absolute_error(f_y[pred_x_val], pron_final)       
+        mae = mean_absolute_error(df[var][pred_x_val], pron_final)       
+
+        plt.plot(x,df[var], 'b-')
+        plt.plot(x_val,aj_final, 'r-' )
+        plt.plot(pred_x_val,pron_final, 'g-')
+        plt.title(f'Ciudad: {c}, variable: {var}')
+        plt.show()
         
+        # bodega de datos
+        fmae.append([c, var, mae])
         
         ### Modelo con todos los datos
 
@@ -348,7 +405,8 @@ for c in ciudades:
         #pronóstico gumpertz + arima
         pron_final = pron_gom + pron_arima
     
-        # nuevos residuales e intervalos de predicción
+    
+        #nuevos residuales e intervalos de predicción
         n_res = df[var] - aj_final
         s = np.std(n_res)
         # límite superior e inferior de los intervalos
@@ -356,61 +414,56 @@ for c in ciudades:
         l_i = pron_final - st.norm.ppf(.95) * s   
         
         r2 = r2_score(df[var], aj_final)
+        fr2.append([c, var, r2])    
 
+
+
+
+
+        # Bodega de datos
+        for i in range(len(aj_final)):
+          n.append(x[i])
+          f.append(fechas[i])
+          u.append(c)
+          v.append(aj_final[i])
+          e.append(var)
+          g.append('Ajuste')
+
+        pron_final = list(pron_final)
+
+        for i in range(len(pron_final)):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(pron_final[i])
+          e.append(var)
+          g.append('Pronostico')
+
+        l_s = list(l_s)
+        l_i = list(l_i) 
+        for i in range(len(l_s)):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_s[i])
+          e.append(var)
+          g.append('LS')
     
-        fig = go.Figure()
-        # serie original
-        fig.add_trace(go.Scatter(x=x, y=df[var],
-            name='Casos Reales Diarios', 
-            fill=None,
-            mode='lines',
-            line=dict(width=3)
-            ))
-        # ajuste
-        fig.add_trace(go.Scatter(x=x, y=aj_final,
-            name='Modelo Ajustado',
-            line = dict(color='red', width=1)
-            ))
-        
-        # intervalo superior
-        fig.add_trace(go.Scatter(x=pred_x, y=l_s,
-            showlegend=False,
-            fill=None,
-            mode='lines',
-            line=dict(width=0.5, color='rgb(127, 166, 238)'),
-            ))
-        # intervalo inferior
-        fig.add_trace(go.Scatter(
-            name='Intervalo de Predicción',
-            x=pred_x,
-            y=l_i,
-            fill='tonexty', # fill area between trace0 and trace1
-            mode='lines',
-            line=dict(width=0.5, color='rgb(127, 166, 238)')))
-        
-        # Pronóstico
-        fig.add_trace(go.Scatter(x=pred_x, y=pron_final,
-            name='Pronósticos Puntuales',
-            line = dict(color='royalblue', width=3, dash='dash')
-            ))
-        
-        fig.update_layout(shapes=[
-            dict(
-              type= 'line',
-              yref= 'paper', y0= 0, y1= 1,
-              xref= 'x', x0= max(x)+1, x1= max(x)+1,
-              fillcolor="rgb(102,102,102)",
-              opacity=0.5,
-              layer="below",
-              line_width=1,
-              line=dict(dash="dot")
-            )
-        ])
-        
-        fig.update_layout(
-            title = f'Variable: {var},   Ciudad: {c},   R2: {r2},   MAE: {mae}')
-        
-        plot(fig)
+        for i in range(len(l_i)):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_i[i])
+          e.append(var)
+          g.append('LI')
 
+
+final = pd.DataFrame(list(zip(n, f, u, v, e, g)), columns=['N', 'Fecha', 'Ciudad', 'Valor', 'Variable', 'Tipo'])
+df_mae = pd.DataFrame(data=fmae, columns=['Ciudad', 'Variable', 'Valor'])
+df_r2 = pd.DataFrame(data=fr2, columns=['Ciudad', 'Variable', 'Valor'])
+
+final.to_csv('BD.csv', index=False, encoding='ISO-8859-1')
+df_mae.to_csv('mae.csv', index=False, encoding='ISO-8859-1')
+df_r2.to_csv('r2.csv', index=False, encoding='ISO-8859-1')
 
       
