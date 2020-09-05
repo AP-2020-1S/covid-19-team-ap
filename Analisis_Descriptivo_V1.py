@@ -239,7 +239,7 @@ for c in ciudades:
     pron_final = pron_t_gom + pron_arima
     
     mae = mean_absolute_error(y[pred_x_val], pron_final)
-    fmae.append([c, 'Totales', mae])
+    fmae.append([c, 'Total', mae])
     
     # plt.plot(x,y, 'b-')
     # plt.plot(x_val,aj_t_final, 'r-' )
@@ -269,7 +269,7 @@ for c in ciudades:
         
     r2 = r2_score(y, aj_t_final)
 
-    fr2.append([c, 'Totales', r2])
+    fr2.append([c, 'Total', r2])
     
     
     #Construccion CSV
