@@ -28,7 +28,8 @@ from sklearn.metrics import r2_score
 import warnings
 warnings.filterwarnings('ignore')
 import datetime as dt
-
+import math
+from sklearn.metrics import mean_squared_error
 
 
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
@@ -113,14 +114,7 @@ def SIR(ciudad, df_pob, n_pred):
     return S, I, R
 
 def mod_arima(datos, x, pred_x):
-    stepwise_fit = auto_arima(datos, start_p = 1, start_q = 1, 
-                              max_p = 5, max_q = 5, 
-                              seasonal = False, 
-                              trace = False, 
-                              error_action ='ignore',   # we don't want to know if an order does not work 
-                              suppress_warnings = True,  # we don't want convergence warnings 
-                              stepwise = True,
-                              information_criterion = 'aic')           # set to stepwise 
+    stepwise_fit = auto_arima(datos, seasonal = False)           # set to stepwise 
     
     
     # se ajusta el modelo
@@ -142,29 +136,84 @@ def mod_arima(datos, x, pred_x):
 
 def mod_gompertz(y, x, pred_x, tipo='nuevos'):
 
-    # y= np.array(f_y[x_val])
-    # x = np.array(x_val)
-    # pred_x = np.array(pred_x_val)
+   
+    # y= df[var]
+    # x = x
+    # pred_x = pred_x
+    y = list(y)
+    # from sklearn.preprocessing import MinMaxScaler
+
+    # # crea el transformador
+    # scaler = MinMaxScaler()
+    
+    # # escala la serie
+    # y = scaler.fit_transform( np.array(y).reshape(-1, 1))
+    # # z es un array de listas como efecto
+    # # del escalamiento
+    # y = [u[0] for u in y]
+
+
 
     #Modelo Gompertz casos totales
     def gompertz(x, a, b, c):
         return c * np.exp(-b * np.exp(-x / a))
     # Modelo Gompertz casos nuevos (Derivada)
     def f_gompertz(x, a, b, c):
-        return a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x)
+        return (a * (-b) * (-c) * np.exp(-b * np.exp(-c * x)) * np.exp(-c * x))
+    def gauss(x, s,u,c):
+        return (1/(s*math.sqrt(2*math.pi)))*np.exp((-1*(x-u)**2)/(2*s**2))*c
+    
+
 
     # Ajuste y pronóstico
     if tipo == 'nuevos':
-        f_param, pcov = curve_fit(f_gompertz, x, y, maxfev=10000)
+        f_param, pcov = curve_fit(f_gompertz, x, y, maxfev=10000000,p0=([1000,1000,10]))
         ajuste = f_gompertz(x, *f_param)
         pronostico = f_gompertz(pred_x, *f_param)
+        f_param2, pcov2 = curve_fit(gauss, x, y, maxfev=10000000, bounds=([10,100,1000],[10000,10000,10000000]))
+        ajuste2 = gauss(x, *f_param2)
+        pronostico2 = gauss(pred_x, *f_param2)
+        
+        
+        mse1 = mean_squared_error(y,ajuste)
+        mse2 = mean_squared_error(y,ajuste2)
+        
+        if mse2 <= mse1:
+            ajuste = ajuste2
+            pronostico = pronostico2
+        
+        # plt.plot(y)    
+        # plt.plot(ajuste, 'r-')
+        # plt.plot(pred_x,pronostico, 'r-')
+        # # plt.plot(ajuste2, 'g-')
+        # # plt.plot(pred_x,pronostico2, 'g-')
+        # plt.title(f'Ciudad: {c}, variable: {var}')
+        # plt.show()        
+
+        
     elif tipo == 'totales':
-        param, pcov = curve_fit(gompertz, x, y, maxfev=10000)
+        param, pcov = curve_fit(gompertz, x, y, maxfev=10000000)
         ajuste = gompertz(x, *param)
         pronostico = gompertz(pred_x, *param)
+        
+
+        ajuste2 = np.repeat(0,len(x))
+        pronostico2 = np.repeat(0,len(pred_x))
     else:
         print('Elija un tipo válido')
         
+        
+
+    
+    # plt.plot(y)    
+    # plt.plot(ajuste, 'r-')
+        
+    # pronostico = scaler.inverse_transform([[u] for u in pronostico])
+    # pronostico = [u[0] for u in pronostico]
+    
+    # ajuste = scaler.inverse_transform([[u] for u in ajuste])
+    # ajuste = [u[0] for u in ajuste]        
+    
     return ajuste, pronostico
 
 # número de pronósticos
@@ -183,7 +232,7 @@ e = []
 g = []
 
 for c in ciudades:
-    
+
     df = tabla_ciudad(c)
     df.index = pd.to_datetime(df.index)
     
@@ -372,30 +421,24 @@ for c in ciudades:
     # pm.plot_acf(res)
     # pm.plot_pacf(res)    
 
-    # stepwise_fit = auto_arima(res, start_p = 1, start_q = 1, 
-    #                               max_p = 5, max_q = 5, 
-    #                               seasonal = False, 
-    #                               trace = False, 
-    #                               error_action ='ignore',   # we don't want to know if an order does not work 
-    #                               suppress_warnings = True,  # we don't want convergence warnings 
-    #                               stepwise = True,
-    #                               information_criterion = 'aic')           # set to stepwise 
+    # stepwise_fit = auto_arima(res, seasonal=False)           # set to stepwise 
         
         
-    # # se ajusta el modelo
-    # arma = SARIMAX(res,  
-    #             order = stepwise_fit.order)
+    # # # se ajusta el modelo
+    # arma = SARIMAX(res,order=stepwise_fit.order)
     
     
     # resultado = arma.fit() 
     # resultado.summary() 
     
     # ajuste = resultado.predict(1, len(res), 
-    #                       typ = 'levels')
+    #                      typ = 'levels')
     
-    # ajuste = aj_n_gom + ajuste
+    # pronostico = resultado.predict(min(pred_x-7), max(pred_x-7), typ = 'levels')
+        
+    # aj_n_final = aj_n_gom + ajuste
 
-
+    # pron_n_final = pron_n_gom + pronostico
 
     # plt.plot(f_y)
     # plt.plot(aj_n_gom, 'g-')
@@ -466,6 +509,7 @@ for c in ciudades:
     
     plt.plot(f_y)
     plt.plot(aj_n_final, 'r-')
+    plt.plot(pred_x-7,pron_n_final, 'g-')
     plt.title(c)
     plt.show()
     
@@ -501,7 +545,7 @@ for c in ciudades:
     # =============================================================================
 
     for var in ['Activos','Recuperado','Fallecido']:
-        
+
         #Construccion CSV
         for i in range(len(df[var])):
           n.append(x[i])
@@ -565,7 +609,11 @@ for c in ciudades:
         r2 = r2_score(df[var], aj_final)
         fr2.append([c, var, r2])    
 
-
+        plt.plot(x,df[var], 'b-')
+        plt.plot(x,aj_final, 'r-' )
+        plt.plot(pred_x,pron_final, 'g-')
+        plt.title(f'Ciudad: {c}, variable: {var}')
+        plt.show()
 
 
 
