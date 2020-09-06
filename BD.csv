@@ -415,6 +415,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 190,2020-09-07,Bogotá D.C.,226758.75040431373,Total,LI,Base
 191,2020-09-08,Bogotá D.C.,228704.9872519034,Total,LI,Base
 192,2020-09-09,Bogotá D.C.,230264.41073216483,Total,LI,Base
+188,2020-09-05,Bogotá D.C.,223945.68734160985,Total,Pronostico,Francia
+189,2020-09-06,Bogotá D.C.,224339.66181371597,Total,Pronostico,Francia
+190,2020-09-07,Bogotá D.C.,224703.81085955008,Total,Pronostico,Francia
+191,2020-09-08,Bogotá D.C.,225038.04709738417,Total,Pronostico,Francia
+192,2020-09-09,Bogotá D.C.,225342.30737574177,Total,Pronostico,Francia
+193,2020-09-10,Bogotá D.C.,225616.55183685792,Total,Pronostico,Francia
+194,2020-09-11,Bogotá D.C.,225860.76298994027,Total,Pronostico,Francia
+195,2020-09-12,Bogotá D.C.,226074.94479565218,Total,Pronostico,Francia
+196,2020-09-13,Bogotá D.C.,226259.12176310568,Total,Pronostico,Francia
+197,2020-09-14,Bogotá D.C.,226413.33806053124,Total,Pronostico,Francia
+198,2020-09-15,Bogotá D.C.,226537.65664067047,Total,Pronostico,Francia
+199,2020-09-16,Bogotá D.C.,226632.15838182968,Total,Pronostico,Francia
+200,2020-09-17,Bogotá D.C.,226696.94124542107,Total,Pronostico,Francia
+201,2020-09-18,Bogotá D.C.,226732.11945072134,Total,Pronostico,Francia
+202,2020-09-19,Bogotá D.C.,226737.8226674805,Total,Pronostico,Francia
+203,2020-09-20,Bogotá D.C.,226714.19522692342,Total,Pronostico,Francia
+204,2020-09-21,Bogotá D.C.,216285.2510300244,Total,Pronostico,Francia
+205,2020-09-22,Bogotá D.C.,206114.10384885396,Total,Pronostico,Francia
+206,2020-09-23,Bogotá D.C.,196216.76076569653,Total,Pronostico,Francia
+207,2020-09-24,Bogotá D.C.,186609.47810645113,Total,Pronostico,Francia
+208,2020-09-25,Bogotá D.C.,177308.7647324921,Total,Pronostico,Francia
+209,2020-09-26,Bogotá D.C.,168331.3858588654,Total,Pronostico,Francia
+210,2020-09-27,Bogotá D.C.,159694.36730290373,Total,Pronostico,Francia
+211,2020-09-28,Bogotá D.C.,151415.00021450847,Total,Pronostico,Francia
+212,2020-09-29,Bogotá D.C.,143510.84632575267,Total,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,135999.74357367982,Total,Pronostico,Francia
+214,2020-10-01,Bogotá D.C.,128899.81221994829,Total,Pronostico,Francia
+215,2020-10-02,Bogotá D.C.,122229.4614746296,Total,Pronostico,Francia
+216,2020-10-03,Bogotá D.C.,116007.39637979704,Total,Pronostico,Francia
+217,2020-10-04,Bogotá D.C.,110252.6252319863,Total,Pronostico,Francia
 0,2020-02-27,Bogotá D.C.,1.0,Nuevos,Real,Base
 1,2020-02-28,Bogotá D.C.,1.0,Nuevos,Real,Base
 2,2020-03-01,Bogotá D.C.,3.0,Nuevos,Real,Base
@@ -777,126 +807,76 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 178,2020-08-26,Bogotá D.C.,2252.263224139222,Nuevos,Ajuste,Base
 179,2020-08-27,Bogotá D.C.,2137.006913467469,Nuevos,Ajuste,Base
 180,2020-08-28,Bogotá D.C.,1714.1665159823883,Nuevos,Ajuste,Base
-188,2020-09-05,Bogotá D.C.,971.474353483293,Nuevos,P_Gompertz,Base
-189,2020-09-06,Bogotá D.C.,1364.4515511417185,Nuevos,P_Gompertz,Base
-190,2020-09-07,Bogotá D.C.,2024.8968741777198,Nuevos,P_Gompertz,Base
-191,2020-09-08,Bogotá D.C.,2056.496714698112,Nuevos,P_Gompertz,Base
-192,2020-09-09,Bogotá D.C.,1861.700361619236,Nuevos,P_Gompertz,Base
-193,2020-09-10,Bogotá D.C.,1398.1821022586462,Nuevos,P_Gompertz,Base
-194,2020-09-11,Bogotá D.C.,1164.8522237683012,Nuevos,P_Gompertz,Base
-195,2020-09-12,Bogotá D.C.,1193.0845157777842,Nuevos,P_Gompertz,Base
-196,2020-09-13,Bogotá D.C.,1324.7017805346202,Nuevos,P_Gompertz,Base
-197,2020-09-14,Bogotá D.C.,1395.1656411827591,Nuevos,P_Gompertz,Base
-198,2020-09-15,Bogotá D.C.,1302.4383096143104,Nuevos,P_Gompertz,Base
-199,2020-09-16,Bogotá D.C.,1131.539566401571,Nuevos,P_Gompertz,Base
-200,2020-09-17,Bogotá D.C.,990.217428734034,Nuevos,P_Gompertz,Base
-201,2020-09-18,Bogotá D.C.,936.7582858095244,Nuevos,P_Gompertz,Base
-202,2020-09-19,Bogotá D.C.,944.794421699452,Nuevos,P_Gompertz,Base
-203,2020-09-20,Bogotá D.C.,946.677673555533,Nuevos,P_Gompertz,Base
-204,2020-09-21,Bogotá D.C.,903.3865098813421,Nuevos,P_Gompertz,Base
-205,2020-09-22,Bogotá D.C.,823.1311209884738,Nuevos,P_Gompertz,Base
-206,2020-09-23,Bogotá D.C.,742.7044060643807,Nuevos,P_Gompertz,Base
-207,2020-09-24,Bogotá D.C.,689.3275114839975,Nuevos,P_Gompertz,Base
-208,2020-09-25,Bogotá D.C.,662.1381785506728,Nuevos,P_Gompertz,Base
-209,2020-09-26,Bogotá D.C.,641.541309105031,Nuevos,P_Gompertz,Base
-210,2020-09-27,Bogotá D.C.,609.9357733244369,Nuevos,P_Gompertz,Base
-211,2020-09-28,Bogotá D.C.,565.1037964550482,Nuevos,P_Gompertz,Base
-212,2020-09-29,Bogotá D.C.,517.2433228531382,Nuevos,P_Gompertz,Base
-213,2020-09-30,Bogotá D.C.,477.23605769518906,Nuevos,P_Gompertz,Base
-214,2020-10-01,Bogotá D.C.,447.88346827673854,Nuevos,P_Gompertz,Base
-215,2020-10-02,Bogotá D.C.,424.0821329173996,Nuevos,P_Gompertz,Base
-216,2020-10-03,Bogotá D.C.,399.18530016505485,Nuevos,P_Gompertz,Base
-217,2020-10-04,Bogotá D.C.,370.6446800370919,Nuevos,P_Gompertz,Base
-188,2020-09-05,Bogotá D.C.,971.474353483293,Nuevos,P_Final,Base
-189,2020-09-06,Bogotá D.C.,1364.4515511417185,Nuevos,P_Final,Base
-190,2020-09-07,Bogotá D.C.,2024.8968741777198,Nuevos,P_Final,Base
-191,2020-09-08,Bogotá D.C.,2056.496714698112,Nuevos,P_Final,Base
-192,2020-09-09,Bogotá D.C.,1861.700361619236,Nuevos,P_Final,Base
-193,2020-09-10,Bogotá D.C.,1398.1821022586462,Nuevos,P_Final,Base
-194,2020-09-11,Bogotá D.C.,1164.8522237683012,Nuevos,P_Final,Base
-195,2020-09-12,Bogotá D.C.,1193.0845157777842,Nuevos,P_Final,Base
-196,2020-09-13,Bogotá D.C.,1324.7017805346202,Nuevos,P_Final,Base
-197,2020-09-14,Bogotá D.C.,1395.1656411827591,Nuevos,P_Final,Base
-198,2020-09-15,Bogotá D.C.,1302.4383096143104,Nuevos,P_Final,Base
-199,2020-09-16,Bogotá D.C.,1131.539566401571,Nuevos,P_Final,Base
-200,2020-09-17,Bogotá D.C.,990.217428734034,Nuevos,P_Final,Base
-201,2020-09-18,Bogotá D.C.,936.7582858095244,Nuevos,P_Final,Base
-202,2020-09-19,Bogotá D.C.,944.794421699452,Nuevos,P_Final,Base
-203,2020-09-20,Bogotá D.C.,946.677673555533,Nuevos,P_Final,Base
-204,2020-09-21,Bogotá D.C.,1016.8195641431237,Nuevos,P_Final,Base
-205,2020-09-22,Bogotá D.C.,1071.4664867444374,Nuevos,P_Final,Base
-206,2020-09-23,Bogotá D.C.,1147.8432365269855,Nuevos,P_Final,Base
-207,2020-09-24,Bogotá D.C.,1265.8371280075116,Nuevos,P_Final,Base
-208,2020-09-25,Bogotá D.C.,1419.5163779683137,Nuevos,P_Final,Base
-209,2020-09-26,Bogotá D.C.,1592.5031765775382,Nuevos,P_Final,Base
-210,2020-09-27,Bogotá D.C.,1775.0274803658235,Nuevos,P_Final,Base
-211,2020-09-28,Bogotá D.C.,1968.9535412981263,Nuevos,P_Final,Base
-212,2020-09-29,Bogotá D.C.,2181.225726943807,Nuevos,P_Final,Base
-213,2020-09-30,Bogotá D.C.,2416.0828283829524,Nuevos,P_Final,Base
-214,2020-10-01,Bogotá D.C.,2672.9360370945183,Nuevos,P_Final,Base
-215,2020-10-02,Bogotá D.C.,2949.2792344354057,Nuevos,P_Final,Base
-216,2020-10-03,Bogotá D.C.,3243.9666846790874,Nuevos,P_Final,Base
-217,2020-10-04,Bogotá D.C.,3557.7655139760027,Nuevos,P_Final,Base
-188,2020-09-05,Bogotá D.C.,1436.0728916056555,Nuevos,LS,Base
-189,2020-09-06,Bogotá D.C.,1829.0500892640807,Nuevos,LS,Base
-190,2020-09-07,Bogotá D.C.,2489.495412300082,Nuevos,LS,Base
-191,2020-09-08,Bogotá D.C.,2521.0952528204743,Nuevos,LS,Base
-192,2020-09-09,Bogotá D.C.,2326.2988997415982,Nuevos,LS,Base
-193,2020-09-10,Bogotá D.C.,1862.7806403810087,Nuevos,LS,Base
-194,2020-09-11,Bogotá D.C.,1629.4507618906637,Nuevos,LS,Base
-195,2020-09-12,Bogotá D.C.,1657.6830539001467,Nuevos,LS,Base
-196,2020-09-13,Bogotá D.C.,1789.3003186569827,Nuevos,LS,Base
-197,2020-09-14,Bogotá D.C.,1859.7641793051216,Nuevos,LS,Base
-198,2020-09-15,Bogotá D.C.,1767.0368477366728,Nuevos,LS,Base
-199,2020-09-16,Bogotá D.C.,1596.1381045239332,Nuevos,LS,Base
-200,2020-09-17,Bogotá D.C.,1454.8159668563962,Nuevos,LS,Base
-201,2020-09-18,Bogotá D.C.,1401.3568239318868,Nuevos,LS,Base
-202,2020-09-19,Bogotá D.C.,1409.3929598218142,Nuevos,LS,Base
-203,2020-09-20,Bogotá D.C.,1411.2762116778954,Nuevos,LS,Base
-204,2020-09-21,Bogotá D.C.,1481.4181022654861,Nuevos,LS,Base
-205,2020-09-22,Bogotá D.C.,1536.0650248667998,Nuevos,LS,Base
-206,2020-09-23,Bogotá D.C.,1612.4417746493477,Nuevos,LS,Base
-207,2020-09-24,Bogotá D.C.,1730.4356661298739,Nuevos,LS,Base
-208,2020-09-25,Bogotá D.C.,1884.1149160906762,Nuevos,LS,Base
-209,2020-09-26,Bogotá D.C.,2057.1017146999006,Nuevos,LS,Base
-210,2020-09-27,Bogotá D.C.,2239.6260184881858,Nuevos,LS,Base
-211,2020-09-28,Bogotá D.C.,2433.5520794204886,Nuevos,LS,Base
-212,2020-09-29,Bogotá D.C.,2645.824265066169,Nuevos,LS,Base
-213,2020-09-30,Bogotá D.C.,2880.6813665053146,Nuevos,LS,Base
-214,2020-10-01,Bogotá D.C.,3137.5345752168805,Nuevos,LS,Base
-215,2020-10-02,Bogotá D.C.,3413.877772557768,Nuevos,LS,Base
-216,2020-10-03,Bogotá D.C.,3708.5652228014496,Nuevos,LS,Base
-217,2020-10-04,Bogotá D.C.,4022.364052098365,Nuevos,LS,Base
-188,2020-09-05,Bogotá D.C.,506.8758153609307,Nuevos,LI,Base
-189,2020-09-06,Bogotá D.C.,899.8530130193561,Nuevos,LI,Base
-190,2020-09-07,Bogotá D.C.,1560.2983360553576,Nuevos,LI,Base
-191,2020-09-08,Bogotá D.C.,1591.8981765757499,Nuevos,LI,Base
-192,2020-09-09,Bogotá D.C.,1397.1018234968737,Nuevos,LI,Base
-193,2020-09-10,Bogotá D.C.,933.5835641362838,Nuevos,LI,Base
-194,2020-09-11,Bogotá D.C.,700.2536856459388,Nuevos,LI,Base
-195,2020-09-12,Bogotá D.C.,728.4859776554218,Nuevos,LI,Base
-196,2020-09-13,Bogotá D.C.,860.1032424122578,Nuevos,LI,Base
-197,2020-09-14,Bogotá D.C.,930.5671030603968,Nuevos,LI,Base
-198,2020-09-15,Bogotá D.C.,837.839771491948,Nuevos,LI,Base
-199,2020-09-16,Bogotá D.C.,666.9410282792086,Nuevos,LI,Base
-200,2020-09-17,Bogotá D.C.,525.6188906116716,Nuevos,LI,Base
-201,2020-09-18,Bogotá D.C.,472.15974768716205,Nuevos,LI,Base
-202,2020-09-19,Bogotá D.C.,480.1958835770896,Nuevos,LI,Base
-203,2020-09-20,Bogotá D.C.,482.0791354331707,Nuevos,LI,Base
-204,2020-09-21,Bogotá D.C.,552.2210260207613,Nuevos,LI,Base
-205,2020-09-22,Bogotá D.C.,606.867948622075,Nuevos,LI,Base
-206,2020-09-23,Bogotá D.C.,683.2446984046231,Nuevos,LI,Base
-207,2020-09-24,Bogotá D.C.,801.2385898851493,Nuevos,LI,Base
-208,2020-09-25,Bogotá D.C.,954.9178398459513,Nuevos,LI,Base
-209,2020-09-26,Bogotá D.C.,1127.9046384551757,Nuevos,LI,Base
-210,2020-09-27,Bogotá D.C.,1310.4289422434613,Nuevos,LI,Base
-211,2020-09-28,Bogotá D.C.,1504.355003175764,Nuevos,LI,Base
-212,2020-09-29,Bogotá D.C.,1716.6271888214446,Nuevos,LI,Base
-213,2020-09-30,Bogotá D.C.,1951.4842902605901,Nuevos,LI,Base
-214,2020-10-01,Bogotá D.C.,2208.337498972156,Nuevos,LI,Base
-215,2020-10-02,Bogotá D.C.,2484.6806963130434,Nuevos,LI,Base
-216,2020-10-03,Bogotá D.C.,2779.368146556725,Nuevos,LI,Base
-217,2020-10-04,Bogotá D.C.,3093.1669758536405,Nuevos,LI,Base
+188,2020-09-05,Bogotá D.C.,971.474353483293,Nuevos,Pronostico,Base
+189,2020-09-06,Bogotá D.C.,1364.4515511417185,Nuevos,Pronostico,Base
+190,2020-09-07,Bogotá D.C.,2024.8968741777198,Nuevos,Pronostico,Base
+191,2020-09-08,Bogotá D.C.,2056.496714698112,Nuevos,Pronostico,Base
+192,2020-09-09,Bogotá D.C.,1861.700361619236,Nuevos,Pronostico,Base
+193,2020-09-10,Bogotá D.C.,1398.1821022586462,Nuevos,Pronostico,Base
+194,2020-09-11,Bogotá D.C.,1164.8522237683012,Nuevos,Pronostico,Base
+195,2020-09-12,Bogotá D.C.,1193.0845157777842,Nuevos,Pronostico,Base
+196,2020-09-13,Bogotá D.C.,1324.7017805346202,Nuevos,Pronostico,Base
+197,2020-09-14,Bogotá D.C.,1395.1656411827591,Nuevos,Pronostico,Base
+198,2020-09-15,Bogotá D.C.,1302.4383096143104,Nuevos,Pronostico,Base
+199,2020-09-16,Bogotá D.C.,1131.539566401571,Nuevos,Pronostico,Base
+200,2020-09-17,Bogotá D.C.,990.217428734034,Nuevos,Pronostico,Base
+201,2020-09-18,Bogotá D.C.,936.7582858095244,Nuevos,Pronostico,Base
+202,2020-09-19,Bogotá D.C.,944.794421699452,Nuevos,Pronostico,Base
+203,2020-09-20,Bogotá D.C.,946.677673555533,Nuevos,Pronostico,Base
+204,2020-09-21,Bogotá D.C.,903.3865098813421,Nuevos,Pronostico,Base
+205,2020-09-22,Bogotá D.C.,823.1311209884738,Nuevos,Pronostico,Base
+206,2020-09-23,Bogotá D.C.,742.7044060643807,Nuevos,Pronostico,Base
+207,2020-09-24,Bogotá D.C.,689.3275114839975,Nuevos,Pronostico,Base
+208,2020-09-25,Bogotá D.C.,662.1381785506728,Nuevos,Pronostico,Base
+209,2020-09-26,Bogotá D.C.,641.541309105031,Nuevos,Pronostico,Base
+210,2020-09-27,Bogotá D.C.,609.9357733244369,Nuevos,Pronostico,Base
+211,2020-09-28,Bogotá D.C.,565.1037964550482,Nuevos,Pronostico,Base
+212,2020-09-29,Bogotá D.C.,517.2433228531382,Nuevos,Pronostico,Base
+213,2020-09-30,Bogotá D.C.,477.23605769518906,Nuevos,Pronostico,Base
+214,2020-10-01,Bogotá D.C.,447.88346827673854,Nuevos,Pronostico,Base
+215,2020-10-02,Bogotá D.C.,424.0821329173996,Nuevos,Pronostico,Base
+216,2020-10-03,Bogotá D.C.,399.18530016505485,Nuevos,Pronostico,Base
+217,2020-10-04,Bogotá D.C.,370.6446800370919,Nuevos,Pronostico,Base
+188,2020-09-05,Bogotá D.C.,223091.91241942966,Nuevos,LS,Base
+189,2020-09-06,Bogotá D.C.,225629.54275658456,Nuevos,LS,Base
+190,2020-09-07,Bogotá D.C.,227905.73789320159,Nuevos,LS,Base
+191,2020-09-08,Bogotá D.C.,229851.97474079125,Nuevos,LS,Base
+192,2020-09-09,Bogotá D.C.,231411.3982210527,Nuevos,LS,Base
+188,2020-09-05,Bogotá D.C.,221944.9249305418,Nuevos,LI,Base
+189,2020-09-06,Bogotá D.C.,224482.5552676967,Nuevos,LI,Base
+190,2020-09-07,Bogotá D.C.,226758.75040431373,Nuevos,LI,Base
+191,2020-09-08,Bogotá D.C.,228704.9872519034,Nuevos,LI,Base
+192,2020-09-09,Bogotá D.C.,230264.41073216483,Nuevos,LI,Base
+188,2020-09-05,Bogotá D.C.,971.474353483293,Nuevos,Pronostico,Francia
+189,2020-09-06,Bogotá D.C.,1364.4515511417185,Nuevos,Pronostico,Francia
+190,2020-09-07,Bogotá D.C.,2024.8968741777198,Nuevos,Pronostico,Francia
+191,2020-09-08,Bogotá D.C.,2056.496714698112,Nuevos,Pronostico,Francia
+192,2020-09-09,Bogotá D.C.,1861.700361619236,Nuevos,Pronostico,Francia
+193,2020-09-10,Bogotá D.C.,1398.1821022586462,Nuevos,Pronostico,Francia
+194,2020-09-11,Bogotá D.C.,1164.8522237683012,Nuevos,Pronostico,Francia
+195,2020-09-12,Bogotá D.C.,1193.0845157777842,Nuevos,Pronostico,Francia
+196,2020-09-13,Bogotá D.C.,1324.7017805346202,Nuevos,Pronostico,Francia
+197,2020-09-14,Bogotá D.C.,1395.1656411827591,Nuevos,Pronostico,Francia
+198,2020-09-15,Bogotá D.C.,1302.4383096143104,Nuevos,Pronostico,Francia
+199,2020-09-16,Bogotá D.C.,1131.539566401571,Nuevos,Pronostico,Francia
+200,2020-09-17,Bogotá D.C.,990.217428734034,Nuevos,Pronostico,Francia
+201,2020-09-18,Bogotá D.C.,936.7582858095244,Nuevos,Pronostico,Francia
+202,2020-09-19,Bogotá D.C.,944.794421699452,Nuevos,Pronostico,Francia
+203,2020-09-20,Bogotá D.C.,946.677673555533,Nuevos,Pronostico,Francia
+204,2020-09-21,Bogotá D.C.,973.2707577587443,Nuevos,Pronostico,Francia
+205,2020-09-22,Bogotá D.C.,980.653198785101,Nuevos,Pronostico,Francia
+206,2020-09-23,Bogotá D.C.,1005.8699934307888,Nuevos,Pronostico,Francia
+207,2020-09-24,Bogotá D.C.,1068.6231300351474,Nuevos,Pronostico,Francia
+208,2020-09-25,Bogotá D.C.,1162.7898694679172,Nuevos,Pronostico,Francia
+209,2020-09-26,Bogotá D.C.,1271.7959023065416,Nuevos,Pronostico,Francia
+210,2020-09-27,Bogotá D.C.,1385.669148665364,Nuevos,Pronostico,Francia
+211,2020-09-28,Bogotá D.C.,1506.066104941764,Nuevos,Pronostico,Francia
+212,2020-09-29,Bogotá D.C.,1639.718129738454,Nuevos,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,1790.6453389407911,Nuevos,Pronostico,Francia
+214,2020-10-01,Bogotá D.C.,1958.034619528641,Nuevos,Pronostico,Francia
+215,2020-10-02,Bogotá D.C.,2139.1507018111347,Nuevos,Pronostico,Francia
+216,2020-10-03,Bogotá D.C.,2332.6137150415366,Nuevos,Pronostico,Francia
+217,2020-10-04,Bogotá D.C.,2538.9506651831616,Nuevos,Pronostico,Francia
 0,2020-02-27,Bogotá D.C.,1.0,Activos,Real,Base
 1,2020-02-28,Bogotá D.C.,2.0,Activos,Real,Base
 2,2020-03-01,Bogotá D.C.,5.0,Activos,Real,Base
@@ -1363,6 +1343,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 215,2020-10-02,Bogotá D.C.,9654.680848591293,Activos,LI,Base
 216,2020-10-03,Bogotá D.C.,8793.06294669299,Activos,LI,Base
 217,2020-10-04,Bogotá D.C.,7947.7491577832225,Activos,LI,Base
+188,2020-09-05,Bogotá D.C.,54581.53757589264,Activos,Pronostico,Francia
+189,2020-09-06,Bogotá D.C.,51772.2727378121,Activos,Pronostico,Francia
+190,2020-09-07,Bogotá D.C.,49448.97474093698,Activos,Pronostico,Francia
+191,2020-09-08,Bogotá D.C.,47238.43097121421,Activos,Pronostico,Francia
+192,2020-09-09,Bogotá D.C.,45663.648821090384,Activos,Pronostico,Francia
+193,2020-09-10,Bogotá D.C.,43717.69031062392,Activos,Pronostico,Francia
+194,2020-09-11,Bogotá D.C.,41516.57048860931,Activos,Pronostico,Francia
+195,2020-09-12,Bogotá D.C.,39499.787828561755,Activos,Pronostico,Francia
+196,2020-09-13,Bogotá D.C.,37448.35258976558,Activos,Pronostico,Francia
+197,2020-09-14,Bogotá D.C.,35771.93797388358,Activos,Pronostico,Francia
+198,2020-09-15,Bogotá D.C.,33843.869755667314,Activos,Pronostico,Francia
+199,2020-09-16,Bogotá D.C.,32043.16960446156,Activos,Pronostico,Francia
+200,2020-09-17,Bogotá D.C.,30228.72162075594,Activos,Pronostico,Francia
+201,2020-09-18,Bogotá D.C.,28492.932278713426,Activos,Pronostico,Francia
+202,2020-09-19,Bogotá D.C.,26917.648985730848,Activos,Pronostico,Francia
+203,2020-09-20,Bogotá D.C.,25302.457622568814,Activos,Pronostico,Francia
+204,2020-09-21,Bogotá D.C.,24468.788371523773,Activos,Pronostico,Francia
+205,2020-09-22,Bogotá D.C.,23045.134492001464,Activos,Pronostico,Francia
+206,2020-09-23,Bogotá D.C.,22138.009026689713,Activos,Pronostico,Francia
+207,2020-09-24,Bogotá D.C.,21969.56264324214,Activos,Pronostico,Francia
+208,2020-09-25,Bogotá D.C.,22260.79359961426,Activos,Pronostico,Francia
+209,2020-09-26,Bogotá D.C.,22685.77669774767,Activos,Pronostico,Francia
+210,2020-09-27,Bogotá D.C.,22895.37259789468,Activos,Pronostico,Francia
+211,2020-09-28,Bogotá D.C.,23105.881916543443,Activos,Pronostico,Francia
+212,2020-09-29,Bogotá D.C.,23228.40842948372,Activos,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,23421.151824092347,Activos,Pronostico,Francia
+214,2020-10-01,Bogotá D.C.,23576.33787185689,Activos,Pronostico,Francia
+215,2020-10-02,Bogotá D.C.,23624.741577969737,Activos,Pronostico,Francia
+216,2020-10-03,Bogotá D.C.,23634.085332116563,Activos,Pronostico,Francia
+217,2020-10-04,Bogotá D.C.,23453.07925509463,Activos,Pronostico,Francia
 0,2020-02-27,Bogotá D.C.,0.0,Recuperado,Real,Base
 1,2020-02-28,Bogotá D.C.,0.0,Recuperado,Real,Base
 2,2020-03-01,Bogotá D.C.,0.0,Recuperado,Real,Base
@@ -1829,6 +1839,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 215,2020-10-02,Bogotá D.C.,56.095843730823844,Recuperado,LI,Base
 216,2020-10-03,Bogotá D.C.,226.71163622304698,Recuperado,LI,Base
 217,2020-10-04,Bogotá D.C.,-412.6859895292856,Recuperado,LI,Base
+188,2020-09-05,Bogotá D.C.,1504.6290033103764,Recuperado,Pronostico,Francia
+189,2020-09-06,Bogotá D.C.,2676.732198789652,Recuperado,Pronostico,Francia
+190,2020-09-07,Bogotá D.C.,3286.700132454287,Recuperado,Pronostico,Francia
+191,2020-09-08,Bogotá D.C.,2727.1784658223314,Recuperado,Pronostico,Francia
+192,2020-09-09,Bogotá D.C.,1759.2064405665699,Recuperado,Pronostico,Francia
+193,2020-09-10,Bogotá D.C.,1579.4149070530873,Recuperado,Pronostico,Francia
+194,2020-09-11,Bogotá D.C.,2294.8975426021357,Recuperado,Pronostico,Francia
+195,2020-09-12,Bogotá D.C.,2823.598147297287,Recuperado,Pronostico,Francia
+196,2020-09-13,Bogotá D.C.,2335.9031762207137,Recuperado,Pronostico,Francia
+197,2020-09-14,Bogotá D.C.,1337.5087318849069,Recuperado,Pronostico,Francia
+198,2020-09-15,Bogotá D.C.,990.9359080754662,Recuperado,Pronostico,Francia
+199,2020-09-16,Bogotá D.C.,1591.1923357607702,Recuperado,Pronostico,Francia
+200,2020-09-17,Bogotá D.C.,2197.256997695313,Recuperado,Pronostico,Francia
+201,2020-09-18,Bogotá D.C.,1880.3365321074048,Recuperado,Pronostico,Francia
+202,2020-09-19,Bogotá D.C.,934.7281583296198,Recuperado,Pronostico,Francia
+203,2020-09-20,Bogotá D.C.,474.8538520194851,Recuperado,Pronostico,Francia
+204,2020-09-21,Bogotá D.C.,994.8757113332089,Recuperado,Pronostico,Francia
+205,2020-09-22,Bogotá D.C.,1696.0646656244323,Recuperado,Pronostico,Francia
+206,2020-09-23,Bogotá D.C.,1587.7834894590987,Recuperado,Pronostico,Francia
+207,2020-09-24,Bogotá D.C.,712.3557227021932,Recuperado,Pronostico,Francia
+208,2020-09-25,Bogotá D.C.,101.62904349164778,Recuperado,Pronostico,Francia
+209,2020-09-26,Bogotá D.C.,621.2213034033341,Recuperado,Pronostico,Francia
+210,2020-09-27,Bogotá D.C.,1711.1971995160686,Recuperado,Pronostico,Francia
+211,2020-09-28,Bogotá D.C.,1895.6041310286785,Recuperado,Pronostico,Francia
+212,2020-09-29,Bogotá D.C.,750.2532831262097,Recuperado,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,-336.4642181202633,Recuperado,Pronostico,Francia
+214,2020-10-01,Bogotá D.C.,174.043548438086,Recuperado,Pronostico,Francia
+215,2020-10-02,Bogotá D.C.,1807.5624818531066,Recuperado,Pronostico,Francia
+216,2020-10-03,Bogotá D.C.,2392.272206303781,Recuperado,Pronostico,Francia
+217,2020-10-04,Bogotá D.C.,885.6300281839942,Recuperado,Pronostico,Francia
 0,2020-02-27,Bogotá D.C.,0.0,Fallecido,Real,Base
 1,2020-02-28,Bogotá D.C.,0.0,Fallecido,Real,Base
 2,2020-03-01,Bogotá D.C.,0.0,Fallecido,Real,Base
@@ -2295,6 +2335,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 215,2020-10-02,Bogotá D.C.,-7.239783611164553,Fallecido,LI,Base
 216,2020-10-03,Bogotá D.C.,-7.646816471668338,Fallecido,LI,Base
 217,2020-10-04,Bogotá D.C.,-8.017063986120686,Fallecido,LI,Base
+188,2020-09-05,Bogotá D.C.,39.23909092897776,Fallecido,Pronostico,Francia
+189,2020-09-06,Bogotá D.C.,36.85131926932145,Fallecido,Pronostico,Francia
+190,2020-09-07,Bogotá D.C.,34.5501449113679,Fallecido,Pronostico,Francia
+191,2020-09-08,Bogotá D.C.,32.337543604147605,Fallecido,Pronostico,Francia
+192,2020-09-09,Bogotá D.C.,30.214985820168685,Fallecido,Pronostico,Francia
+193,2020-09-10,Bogotá D.C.,28.183449818890804,Fallecido,Pronostico,Francia
+194,2020-09-11,Bogotá D.C.,26.24343900425284,Fallecido,Pronostico,Francia
+195,2020-09-12,Bogotá D.C.,24.395003042282674,Fallecido,Pronostico,Francia
+196,2020-09-13,Bogotá D.C.,22.637762200005785,Fallecido,Pronostico,Francia
+197,2020-09-14,Bogotá D.C.,20.970934369392,Fallecido,Pronostico,Francia
+198,2020-09-15,Bogotá D.C.,19.39336424945354,Fallecido,Pronostico,Francia
+199,2020-09-16,Bogotá D.C.,17.903554175254012,Fallecido,Pronostico,Francia
+200,2020-09-17,Bogotá D.C.,16.499696103858163,Fallecido,Pronostico,Francia
+201,2020-09-18,Bogotá D.C.,15.179704293439604,Fallecido,Pronostico,Francia
+202,2020-09-19,Bogotá D.C.,13.941248242125413,Fallecido,Pronostico,Francia
+203,2020-09-20,Bogotá D.C.,12.807263327069869,Fallecido,Pronostico,Francia
+204,2020-09-21,Bogotá D.C.,12.051192394672903,Fallecido,Pronostico,Francia
+205,2020-09-22,Bogotá D.C.,11.094486550124758,Fallecido,Pronostico,Francia
+206,2020-09-23,Bogotá D.C.,10.379669817019762,Fallecido,Pronostico,Francia
+207,2020-09-24,Bogotá D.C.,10.040889562610637,Fallecido,Pronostico,Francia
+208,2020-09-25,Bogotá D.C.,9.931447729120453,Fallecido,Pronostico,Francia
+209,2020-09-26,Bogotá D.C.,9.85717012455261,Fallecido,Pronostico,Francia
+210,2020-09-27,Bogotá D.C.,9.729265004044603,Fallecido,Pronostico,Francia
+211,2020-09-28,Bogotá D.C.,9.56345842609077,Fallecido,Pronostico,Francia
+212,2020-09-29,Bogotá D.C.,9.400660900668623,Fallecido,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,9.253119411648292,Fallecido,Pronostico,Francia
+214,2020-10-01,Bogotá D.C.,9.104650132268553,Fallecido,Pronostico,Francia
+215,2020-10-02,Bogotá D.C.,8.935681105608806,Fallecido,Pronostico,Francia
+216,2020-10-03,Bogotá D.C.,8.738888617037485,Fallecido,Pronostico,Francia
+217,2020-10-04,Bogotá D.C.,8.516940049947099,Fallecido,Pronostico,Francia
 0,2020-02-29,Medellín,1.0,Total,Real,Base
 1,2020-03-02,Medellín,2.0,Total,Real,Base
 2,2020-03-05,Medellín,3.0,Total,Real,Base
@@ -2705,6 +2775,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 187,2020-09-07,Medellín,51427.826609951684,Total,LI,Base
 188,2020-09-08,Medellín,51830.11790160025,Total,LI,Base
 189,2020-09-09,Medellín,52250.089341626284,Total,LI,Base
+185,2020-09-05,Medellín,51080.48091462615,Total,Pronostico,Francia
+186,2020-09-06,Medellín,51284.01997261475,Total,Pronostico,Francia
+187,2020-09-07,Medellín,51563.03596938707,Total,Pronostico,Francia
+188,2020-09-08,Medellín,51874.29566689416,Total,Pronostico,Francia
+189,2020-09-09,Medellín,52200.67950184576,Total,Pronostico,Francia
+190,2020-09-10,Medellín,52553.13918407985,Total,Pronostico,Francia
+191,2020-09-11,Medellín,52893.906962368426,Total,Pronostico,Francia
+192,2020-09-12,Medellín,53236.45002000371,Total,Pronostico,Francia
+193,2020-09-13,Medellín,53575.39828585277,Total,Pronostico,Francia
+194,2020-09-14,Medellín,53891.534859933316,Total,Pronostico,Francia
+195,2020-09-15,Medellín,54205.73254319486,Total,Pronostico,Francia
+196,2020-09-16,Medellín,54500.09707817312,Total,Pronostico,Francia
+197,2020-09-17,Medellín,54776.56524964729,Total,Pronostico,Francia
+198,2020-09-18,Medellín,55046.42504988105,Total,Pronostico,Francia
+199,2020-09-19,Medellín,55292.122298059585,Total,Pronostico,Francia
+200,2020-09-20,Medellín,55528.08708887643,Total,Pronostico,Francia
+201,2020-09-21,Medellín,52847.337833009646,Total,Pronostico,Francia
+202,2020-09-22,Medellín,50168.186190272616,Total,Pronostico,Francia
+203,2020-09-23,Medellín,47507.91114930203,Total,Pronostico,Francia
+204,2020-09-24,Medellín,44861.68382676785,Total,Pronostico,Francia
+205,2020-09-25,Medellín,42237.6696434239,Total,Pronostico,Francia
+206,2020-09-26,Medellín,39643.74058001528,Total,Pronostico,Francia
+207,2020-09-27,Medellín,37078.22065106508,Total,Pronostico,Francia
+208,2020-09-28,Medellín,34550.830463332095,Total,Pronostico,Francia
+209,2020-09-29,Medellín,32063.69991650997,Total,Pronostico,Francia
+210,2020-09-30,Medellín,29619.964111165184,Total,Pronostico,Francia
+211,2020-10-01,Medellín,27226.050643569673,Total,Pronostico,Francia
+212,2020-10-02,Medellín,24883.78510831212,Total,Pronostico,Francia
+213,2020-10-03,Medellín,22597.9278849368,Total,Pronostico,Francia
+214,2020-10-04,Medellín,20372.1670434676,Total,Pronostico,Francia
 0,2020-02-29,Medellín,1.0,Nuevos,Real,Base
 1,2020-03-02,Medellín,1.0,Nuevos,Real,Base
 2,2020-03-05,Medellín,1.0,Nuevos,Real,Base
@@ -3061,126 +3161,76 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 175,2020-08-26,Medellín,283.1237372982079,Nuevos,Ajuste,Base
 176,2020-08-27,Medellín,263.9561179006237,Nuevos,Ajuste,Base
 177,2020-08-28,Medellín,221.8879428798067,Nuevos,Ajuste,Base
-185,2020-09-05,Medellín,254.14277467816567,Nuevos,P_Gompertz,Base
-186,2020-09-06,Medellín,224.57789940491878,Nuevos,P_Gompertz,Base
-187,2020-09-07,Medellín,199.17086705657937,Nuevos,P_Gompertz,Base
-188,2020-09-08,Medellín,206.50849340589556,Nuevos,P_Gompertz,Base
-189,2020-09-09,Medellín,168.6894226007813,Nuevos,P_Gompertz,Base
-190,2020-09-10,Medellín,161.5000060477518,Nuevos,P_Gompertz,Base
-191,2020-09-11,Medellín,156.31420150877682,Nuevos,P_Gompertz,Base
-192,2020-09-12,Medellín,124.57670337593136,Nuevos,P_Gompertz,Base
-193,2020-09-13,Medellín,127.59706130579048,Nuevos,P_Gompertz,Base
-194,2020-09-14,Medellín,111.97596651182013,Nuevos,P_Gompertz,Base
-195,2020-09-15,Medellín,92.83531167359482,Nuevos,P_Gompertz,Base
-196,2020-09-16,Medellín,96.958472988875,Nuevos,P_Gompertz,Base
-197,2020-09-17,Medellín,77.07462826434171,Nuevos,P_Gompertz,Base
-198,2020-09-18,Medellín,70.19931267823193,Nuevos,P_Gompertz,Base
-199,2020-09-19,Medellín,69.85506812420743,Nuevos,P_Gompertz,Base
-200,2020-09-20,Medellín,52.21349521902929,Nuevos,P_Gompertz,Base
-201,2020-09-21,Medellín,53.1047875092981,Nuevos,P_Gompertz,Base
-202,2020-09-22,Medellín,47.30769477456712,Nuevos,P_Gompertz,Base
-203,2020-09-23,Medellín,35.898332023475945,Nuevos,P_Gompertz,Base
-204,2020-09-24,Medellín,39.1510675932927,Nuevos,P_Gompertz,Base
-205,2020-09-25,Medellín,30.172043095917527,Nuevos,P_Gompertz,Base
-206,2020-09-26,Medellín,25.607931630957303,Nuevos,P_Gompertz,Base
-207,2020-09-27,Medellín,27.34507547956993,Nuevos,P_Gompertz,Base
-208,2020-09-28,Medellín,18.493878680892994,Nuevos,P_Gompertz,Base
-209,2020-09-29,Medellín,18.84237380198524,Nuevos,P_Gompertz,Base
-210,2020-09-30,Medellín,17.652480924076308,Nuevos,P_Gompertz,Base
-211,2020-10-01,Medellín,11.428516377686048,Nuevos,P_Gompertz,Base
-212,2020-10-02,Medellín,13.806554627655135,Nuevos,P_Gompertz,Base
-213,2020-10-03,Medellín,10.342811949698202,Nuevos,P_Gompertz,Base
-214,2020-10-04,Medellín,7.593825210114595,Nuevos,P_Gompertz,Base
-185,2020-09-05,Medellín,254.14277467816567,Nuevos,P_Final,Base
-186,2020-09-06,Medellín,224.57789940491878,Nuevos,P_Final,Base
-187,2020-09-07,Medellín,199.17086705657937,Nuevos,P_Final,Base
-188,2020-09-08,Medellín,206.50849340589556,Nuevos,P_Final,Base
-189,2020-09-09,Medellín,168.6894226007813,Nuevos,P_Final,Base
-190,2020-09-10,Medellín,161.5000060477518,Nuevos,P_Final,Base
-191,2020-09-11,Medellín,156.31420150877682,Nuevos,P_Final,Base
-192,2020-09-12,Medellín,124.57670337593136,Nuevos,P_Final,Base
-193,2020-09-13,Medellín,127.59706130579048,Nuevos,P_Final,Base
-194,2020-09-14,Medellín,111.97596651182013,Nuevos,P_Final,Base
-195,2020-09-15,Medellín,92.83531167359482,Nuevos,P_Final,Base
-196,2020-09-16,Medellín,96.958472988875,Nuevos,P_Final,Base
-197,2020-09-17,Medellín,77.07462826434171,Nuevos,P_Final,Base
-198,2020-09-18,Medellín,70.19931267823193,Nuevos,P_Final,Base
-199,2020-09-19,Medellín,69.85506812420743,Nuevos,P_Final,Base
-200,2020-09-20,Medellín,52.21349521902929,Nuevos,P_Final,Base
-201,2020-09-21,Medellín,81.61463593304573,Nuevos,P_Final,Base
-202,2020-09-22,Medellín,106.93041750862317,Nuevos,P_Final,Base
-203,2020-09-23,Medellín,130.50732329134195,Nuevos,P_Final,Base
-204,2020-09-24,Medellín,168.09930219565743,Nuevos,P_Final,Base
-205,2020-09-25,Medellín,199.34707311031934,Nuevos,P_Final,Base
-206,2020-09-26,Medellín,236.45754762320072,Nuevos,P_Final,Base
-207,2020-09-27,Medellín,279.50321373919155,Nuevos,P_Final,Base
-208,2020-09-28,Medellín,319.9726637453653,Nuevos,P_Final,Base
-209,2020-09-29,Medellín,367.2812271148101,Nuevos,P_Final,Base
-210,2020-09-30,Medellín,416.47071667588943,Nuevos,P_Final,Base
-211,2020-10-01,Medellín,467.20477172803805,Nuevos,P_Final,Base
-212,2020-10-02,Medellín,522.5952142251635,Nuevos,P_Final,Base
-213,2020-10-03,Medellín,579.8540636623507,Nuevos,P_Final,Base
-214,2020-10-04,Medellín,640.3219897685631,Nuevos,P_Final,Base
-185,2020-09-05,Medellín,394.8383924918814,Nuevos,LS,Base
-186,2020-09-06,Medellín,365.27351721863454,Nuevos,LS,Base
-187,2020-09-07,Medellín,339.8664848702951,Nuevos,LS,Base
-188,2020-09-08,Medellín,347.20411121961126,Nuevos,LS,Base
-189,2020-09-09,Medellín,309.38504041449704,Nuevos,LS,Base
-190,2020-09-10,Medellín,302.19562386146754,Nuevos,LS,Base
-191,2020-09-11,Medellín,297.00981932249255,Nuevos,LS,Base
-192,2020-09-12,Medellín,265.2723211896471,Nuevos,LS,Base
-193,2020-09-13,Medellín,268.2926791195062,Nuevos,LS,Base
-194,2020-09-14,Medellín,252.67158432553586,Nuevos,LS,Base
-195,2020-09-15,Medellín,233.53092948731054,Nuevos,LS,Base
-196,2020-09-16,Medellín,237.65409080259073,Nuevos,LS,Base
-197,2020-09-17,Medellín,217.77024607805743,Nuevos,LS,Base
-198,2020-09-18,Medellín,210.89493049194766,Nuevos,LS,Base
-199,2020-09-19,Medellín,210.55068593792316,Nuevos,LS,Base
-200,2020-09-20,Medellín,192.909113032745,Nuevos,LS,Base
-201,2020-09-21,Medellín,222.31025374676148,Nuevos,LS,Base
-202,2020-09-22,Medellín,247.6260353223389,Nuevos,LS,Base
-203,2020-09-23,Medellín,271.2029411050577,Nuevos,LS,Base
-204,2020-09-24,Medellín,308.7949200093732,Nuevos,LS,Base
-205,2020-09-25,Medellín,340.04269092403507,Nuevos,LS,Base
-206,2020-09-26,Medellín,377.1531654369164,Nuevos,LS,Base
-207,2020-09-27,Medellín,420.1988315529073,Nuevos,LS,Base
-208,2020-09-28,Medellín,460.66828155908104,Nuevos,LS,Base
-209,2020-09-29,Medellín,507.97684492852585,Nuevos,LS,Base
-210,2020-09-30,Medellín,557.1663344896051,Nuevos,LS,Base
-211,2020-10-01,Medellín,607.9003895417538,Nuevos,LS,Base
-212,2020-10-02,Medellín,663.2908320388792,Nuevos,LS,Base
-213,2020-10-03,Medellín,720.5496814760663,Nuevos,LS,Base
-214,2020-10-04,Medellín,781.0176075822787,Nuevos,LS,Base
-185,2020-09-05,Medellín,113.44715686444994,Nuevos,LI,Base
-186,2020-09-06,Medellín,83.88228159120305,Nuevos,LI,Base
-187,2020-09-07,Medellín,58.47524924286364,Nuevos,LI,Base
-188,2020-09-08,Medellín,65.81287559217984,Nuevos,LI,Base
-189,2020-09-09,Medellín,27.993804787065585,Nuevos,LI,Base
-190,2020-09-10,Medellín,20.804388234036082,Nuevos,LI,Base
-191,2020-09-11,Medellín,15.61858369506109,Nuevos,LI,Base
-192,2020-09-12,Medellín,-16.11891443778437,Nuevos,LI,Base
-193,2020-09-13,Medellín,-13.098556507925252,Nuevos,LI,Base
-194,2020-09-14,Medellín,-28.719651301895595,Nuevos,LI,Base
-195,2020-09-15,Medellín,-47.86030614012091,Nuevos,LI,Base
-196,2020-09-16,Medellín,-43.737144824840726,Nuevos,LI,Base
-197,2020-09-17,Medellín,-63.620989549374016,Nuevos,LI,Base
-198,2020-09-18,Medellín,-70.4963051354838,Nuevos,LI,Base
-199,2020-09-19,Medellín,-70.8405496895083,Nuevos,LI,Base
-200,2020-09-20,Medellín,-88.48212259468644,Nuevos,LI,Base
-201,2020-09-21,Medellín,-59.080981880669995,Nuevos,LI,Base
-202,2020-09-22,Medellín,-33.76520030509256,Nuevos,LI,Base
-203,2020-09-23,Medellín,-10.18829452237378,Nuevos,LI,Base
-204,2020-09-24,Medellín,27.4036843819417,Nuevos,LI,Base
-205,2020-09-25,Medellín,58.651455296603615,Nuevos,LI,Base
-206,2020-09-26,Medellín,95.761929809485,Nuevos,LI,Base
-207,2020-09-27,Medellín,138.80759592547582,Nuevos,LI,Base
-208,2020-09-28,Medellín,179.27704593164958,Nuevos,LI,Base
-209,2020-09-29,Medellín,226.5856093010944,Nuevos,LI,Base
-210,2020-09-30,Medellín,275.7750988621737,Nuevos,LI,Base
-211,2020-10-01,Medellín,326.5091539143223,Nuevos,LI,Base
-212,2020-10-02,Medellín,381.8995964114478,Nuevos,LI,Base
-213,2020-10-03,Medellín,439.1584458486349,Nuevos,LI,Base
-214,2020-10-04,Medellín,499.62637195484734,Nuevos,LI,Base
+185,2020-09-05,Medellín,254.14277467816567,Nuevos,Pronostico,Base
+186,2020-09-06,Medellín,224.57789940491878,Nuevos,Pronostico,Base
+187,2020-09-07,Medellín,199.17086705657937,Nuevos,Pronostico,Base
+188,2020-09-08,Medellín,206.50849340589556,Nuevos,Pronostico,Base
+189,2020-09-09,Medellín,168.6894226007813,Nuevos,Pronostico,Base
+190,2020-09-10,Medellín,161.5000060477518,Nuevos,Pronostico,Base
+191,2020-09-11,Medellín,156.31420150877682,Nuevos,Pronostico,Base
+192,2020-09-12,Medellín,124.57670337593136,Nuevos,Pronostico,Base
+193,2020-09-13,Medellín,127.59706130579048,Nuevos,Pronostico,Base
+194,2020-09-14,Medellín,111.97596651182013,Nuevos,Pronostico,Base
+195,2020-09-15,Medellín,92.83531167359482,Nuevos,Pronostico,Base
+196,2020-09-16,Medellín,96.958472988875,Nuevos,Pronostico,Base
+197,2020-09-17,Medellín,77.07462826434171,Nuevos,Pronostico,Base
+198,2020-09-18,Medellín,70.19931267823193,Nuevos,Pronostico,Base
+199,2020-09-19,Medellín,69.85506812420743,Nuevos,Pronostico,Base
+200,2020-09-20,Medellín,52.21349521902929,Nuevos,Pronostico,Base
+201,2020-09-21,Medellín,53.1047875092981,Nuevos,Pronostico,Base
+202,2020-09-22,Medellín,47.30769477456712,Nuevos,Pronostico,Base
+203,2020-09-23,Medellín,35.898332023475945,Nuevos,Pronostico,Base
+204,2020-09-24,Medellín,39.1510675932927,Nuevos,Pronostico,Base
+205,2020-09-25,Medellín,30.172043095917527,Nuevos,Pronostico,Base
+206,2020-09-26,Medellín,25.607931630957303,Nuevos,Pronostico,Base
+207,2020-09-27,Medellín,27.34507547956993,Nuevos,Pronostico,Base
+208,2020-09-28,Medellín,18.493878680892994,Nuevos,Pronostico,Base
+209,2020-09-29,Medellín,18.84237380198524,Nuevos,Pronostico,Base
+210,2020-09-30,Medellín,17.652480924076308,Nuevos,Pronostico,Base
+211,2020-10-01,Medellín,11.428516377686048,Nuevos,Pronostico,Base
+212,2020-10-02,Medellín,13.806554627655135,Nuevos,Pronostico,Base
+213,2020-10-03,Medellín,10.342811949698202,Nuevos,Pronostico,Base
+214,2020-10-04,Medellín,7.593825210114595,Nuevos,Pronostico,Base
+185,2020-09-05,Medellín,50995.09934862936,Nuevos,LS,Base
+186,2020-09-06,Medellín,51329.1024773305,Nuevos,LS,Base
+187,2020-09-07,Medellín,51706.82508725073,Nuevos,LS,Base
+188,2020-09-08,Medellín,52109.11637889929,Nuevos,LS,Base
+189,2020-09-09,Medellín,52529.08781892533,Nuevos,LS,Base
+185,2020-09-05,Medellín,50716.100871330316,Nuevos,LI,Base
+186,2020-09-06,Medellín,51050.10400003146,Nuevos,LI,Base
+187,2020-09-07,Medellín,51427.826609951684,Nuevos,LI,Base
+188,2020-09-08,Medellín,51830.11790160025,Nuevos,LI,Base
+189,2020-09-09,Medellín,52250.089341626284,Nuevos,LI,Base
+185,2020-09-05,Medellín,254.14277467816567,Nuevos,Pronostico,Francia
+186,2020-09-06,Medellín,224.57789940491878,Nuevos,Pronostico,Francia
+187,2020-09-07,Medellín,199.17086705657937,Nuevos,Pronostico,Francia
+188,2020-09-08,Medellín,206.50849340589556,Nuevos,Pronostico,Francia
+189,2020-09-09,Medellín,168.6894226007813,Nuevos,Pronostico,Francia
+190,2020-09-10,Medellín,161.5000060477518,Nuevos,Pronostico,Francia
+191,2020-09-11,Medellín,156.31420150877682,Nuevos,Pronostico,Francia
+192,2020-09-12,Medellín,124.57670337593136,Nuevos,Pronostico,Francia
+193,2020-09-13,Medellín,127.59706130579048,Nuevos,Pronostico,Francia
+194,2020-09-14,Medellín,111.97596651182013,Nuevos,Pronostico,Francia
+195,2020-09-15,Medellín,92.83531167359482,Nuevos,Pronostico,Francia
+196,2020-09-16,Medellín,96.958472988875,Nuevos,Pronostico,Francia
+197,2020-09-17,Medellín,77.07462826434171,Nuevos,Pronostico,Francia
+198,2020-09-18,Medellín,70.19931267823193,Nuevos,Pronostico,Francia
+199,2020-09-19,Medellín,69.85506812420743,Nuevos,Pronostico,Francia
+200,2020-09-20,Medellín,52.21349521902929,Nuevos,Pronostico,Francia
+201,2020-09-21,Medellín,73.95773345024985,Nuevos,Pronostico,Francia
+202,2020-09-22,Medellín,90.9797443221818,Nuevos,Pronostico,Francia
+203,2020-09-23,Medellín,105.59659705549561,Nuevos,Pronostico,Francia
+204,2020-09-24,Medellín,133.53201507863133,Nuevos,Pronostico,Francia
+205,2020-09-25,Medellín,154.3957159618048,Nuevos,Pronostico,Francia
+206,2020-09-26,Medellín,180.3628106085096,Nuevos,Pronostico,Francia
+207,2020-09-27,Medellín,211.47320642244426,Nuevos,Pronostico,Francia
+208,2020-09-28,Medellín,239.18219737531263,Nuevos,Pronostico,Francia
+209,2020-09-29,Medellín,272.87103837402583,Nuevos,Pronostico,Francia
+210,2020-09-30,Medellín,307.546742727717,Nuevos,Pronostico,Francia
+211,2020-10-01,Medellín,342.83753805061957,Nuevos,Pronostico,Francia
+212,2020-10-02,Medellín,381.8191071438548,Nuevos,Pronostico,Francia
+213,2020-10-03,Medellín,421.6667049415525,Nuevos,Pronostico,Francia
+214,2020-10-04,Medellín,463.68370696086276,Nuevos,Pronostico,Francia
 0,2020-02-29,Medellín,1.0,Activos,Real,Base
 1,2020-03-02,Medellín,2.0,Activos,Real,Base
 2,2020-03-05,Medellín,3.0,Activos,Real,Base
@@ -3641,6 +3691,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 212,2020-10-02,Medellín,339.4960839691992,Activos,LI,Base
 213,2020-10-03,Medellín,283.01899782512754,Activos,LI,Base
 214,2020-10-04,Medellín,198.0778316858851,Activos,LI,Base
+185,2020-09-05,Medellín,9518.114295029476,Activos,Pronostico,Francia
+186,2020-09-06,Medellín,8664.108304599707,Activos,Pronostico,Francia
+187,2020-09-07,Medellín,7948.120562980174,Activos,Pronostico,Francia
+188,2020-09-08,Medellín,7222.774670083675,Activos,Pronostico,Francia
+189,2020-09-09,Medellín,6688.781302377983,Activos,Pronostico,Francia
+190,2020-09-10,Medellín,6101.18699812787,Activos,Pronostico,Francia
+191,2020-09-11,Medellín,5664.2381221225005,Activos,Pronostico,Francia
+192,2020-09-12,Medellín,5170.796144895774,Activos,Pronostico,Francia
+193,2020-09-13,Medellín,4802.468056264284,Activos,Pronostico,Francia
+194,2020-09-14,Medellín,4372.476984482766,Activos,Pronostico,Francia
+195,2020-09-15,Medellín,4051.551389100171,Activos,Pronostico,Francia
+196,2020-09-16,Medellín,3669.9936444325403,Activos,Pronostico,Francia
+197,2020-09-17,Medellín,3386.1376247864896,Activos,Pronostico,Francia
+198,2020-09-18,Medellín,3045.8638574731485,Activos,Pronostico,Francia
+199,2020-09-19,Medellín,2795.3490732776063,Activos,Pronostico,Francia
+200,2020-09-20,Medellín,1864.0457140153649,Activos,Pronostico,Francia
+201,2020-09-21,Medellín,2409.486345855138,Activos,Pronostico,Francia
+202,2020-09-22,Medellín,2620.8051813890465,Activos,Pronostico,Francia
+203,2020-09-23,Medellín,2760.9767926613204,Activos,Pronostico,Francia
+204,2020-09-24,Medellín,3058.315167158688,Activos,Pronostico,Francia
+205,2020-09-25,Medellín,3194.6689954703456,Activos,Pronostico,Francia
+206,2020-09-26,Medellín,3237.7600909618723,Activos,Pronostico,Francia
+207,2020-09-27,Medellín,3417.363302673419,Activos,Pronostico,Francia
+208,2020-09-28,Medellín,3320.359269267607,Activos,Pronostico,Francia
+209,2020-09-29,Medellín,3402.514646075476,Activos,Pronostico,Francia
+210,2020-09-30,Medellín,3260.768779324317,Activos,Pronostico,Francia
+211,2020-10-01,Medellín,3263.2682024647056,Activos,Pronostico,Francia
+212,2020-10-02,Medellín,3056.6793268018932,Activos,Pronostico,Francia
+213,2020-10-03,Medellín,3034.7689472785705,Activos,Pronostico,Francia
+214,2020-10-04,Medellín,2773.3465147409875,Activos,Pronostico,Francia
 0,2020-02-29,Medellín,0.0,Recuperado,Real,Base
 1,2020-03-02,Medellín,0.0,Recuperado,Real,Base
 2,2020-03-05,Medellín,0.0,Recuperado,Real,Base
@@ -4101,6 +4181,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 212,2020-10-02,Medellín,-155.28544804054576,Recuperado,LI,Base
 213,2020-10-03,Medellín,-179.79177671335825,Recuperado,LI,Base
 214,2020-10-04,Medellín,-152.90584709542517,Recuperado,LI,Base
+185,2020-09-05,Medellín,1014.5518583637004,Recuperado,Pronostico,Francia
+186,2020-09-06,Medellín,637.4283856797844,Recuperado,Pronostico,Francia
+187,2020-09-07,Medellín,713.2674170913126,Recuperado,Pronostico,Francia
+188,2020-09-08,Medellín,710.1840780938228,Recuperado,Pronostico,Francia
+189,2020-09-09,Medellín,347.7965602954682,Recuperado,Pronostico,Francia
+190,2020-09-10,Medellín,375.8362832732987,Recuperado,Pronostico,Francia
+191,2020-09-11,Medellín,306.6333842844272,Recuperado,Pronostico,Francia
+192,2020-09-12,Medellín,270.4304573550313,Recuperado,Pronostico,Francia
+193,2020-09-13,Medellín,170.04255934924365,Recuperado,Pronostico,Francia
+194,2020-09-14,Medellín,253.77728832688925,Recuperado,Pronostico,Francia
+195,2020-09-15,Medellín,187.8814105016416,Recuperado,Pronostico,Francia
+196,2020-09-16,Medellín,233.51420975347068,Recuperado,Pronostico,Francia
+197,2020-09-17,Medellín,196.52497374882344,Recuperado,Pronostico,Francia
+198,2020-09-18,Medellín,251.01473836343723,Recuperado,Pronostico,Francia
+199,2020-09-19,Medellín,192.13305523772354,Recuperado,Pronostico,Francia
+200,2020-09-20,Medellín,170.9089308176554,Recuperado,Pronostico,Francia
+201,2020-09-21,Medellín,180.4027485390549,Recuperado,Pronostico,Francia
+202,2020-09-22,Medellín,244.98019438684682,Recuperado,Pronostico,Francia
+203,2020-09-23,Medellín,183.79948436121634,Recuperado,Pronostico,Francia
+204,2020-09-24,Medellín,256.8727872870105,Recuperado,Pronostico,Francia
+205,2020-09-25,Medellín,157.21496433698667,Recuperado,Pronostico,Francia
+206,2020-09-26,Medellín,211.5398515940169,Recuperado,Pronostico,Francia
+207,2020-09-27,Medellín,86.37613129649387,Recuperado,Pronostico,Francia
+208,2020-09-28,Medellín,154.56491964778388,Recuperado,Pronostico,Francia
+209,2020-09-29,Medellín,11.502666497065215,Recuperado,Pronostico,Francia
+210,2020-09-30,Medellín,112.53665336730607,Recuperado,Pronostico,Francia
+211,2020-10-01,Medellín,-28.18252180874607,Recuperado,Pronostico,Francia
+212,2020-10-02,Medellín,112.85587794577819,Recuperado,Pronostico,Francia
+213,2020-10-03,Medellín,-23.29394738002849,Recuperado,Pronostico,Francia
+214,2020-10-04,Medellín,152.8482478704762,Recuperado,Pronostico,Francia
 0,2020-02-29,Medellín,0.0,Fallecido,Real,Base
 1,2020-03-02,Medellín,0.0,Fallecido,Real,Base
 2,2020-03-05,Medellín,0.0,Fallecido,Real,Base
@@ -4561,6 +4671,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 212,2020-10-02,Medellín,-2.717095957088413,Fallecido,LI,Base
 213,2020-10-03,Medellín,-2.8569886928147454,Fallecido,LI,Base
 214,2020-10-04,Medellín,-2.984026661975113,Fallecido,LI,Base
+185,2020-09-05,Medellín,10.657543152420596,Fallecido,Pronostico,Francia
+186,2020-09-06,Medellín,11.663698338424156,Fallecido,Pronostico,Francia
+187,2020-09-07,Medellín,11.192074023204361,Fallecido,Pronostico,Francia
+188,2020-09-08,Medellín,10.853353696444724,Fallecido,Pronostico,Francia
+189,2020-09-09,Medellín,9.807470956895104,Fallecido,Pronostico,Francia
+190,2020-09-10,Medellín,9.047038478124898,Fallecido,Pronostico,Francia
+191,2020-09-11,Medellín,8.05353007152559,Fallecido,Pronostico,Francia
+192,2020-09-12,Medellín,7.51689043932193,Fallecido,Pronostico,Francia
+193,2020-09-13,Medellín,6.989857292508559,Fallecido,Pronostico,Francia
+194,2020-09-14,Medellín,6.663481232007397,Fallecido,Pronostico,Francia
+195,2020-09-15,Medellín,6.296841514183521,Fallecido,Pronostico,Francia
+196,2020-09-16,Medellín,5.976051617962521,Fallecido,Pronostico,Francia
+197,2020-09-17,Medellín,5.548181652086654,Fallecido,Pronostico,Francia
+198,2020-09-18,Medellín,5.136749595158783,Fallecido,Pronostico,Francia
+199,2020-09-19,Medellín,4.697052047718826,Fallecido,Pronostico,Francia
+200,2020-09-20,Medellín,3.2101634791499896,Fallecido,Pronostico,Francia
+201,2020-09-21,Medellín,4.148269554449931,Fallecido,Pronostico,Francia
+202,2020-09-22,Medellín,4.684741938980453,Fallecido,Pronostico,Francia
+203,2020-09-23,Medellín,4.986225583715625,Fallecido,Pronostico,Francia
+204,2020-09-24,Medellín,5.796187063231766,Fallecido,Pronostico,Francia
+205,2020-09-25,Medellín,6.140016855451144,Fallecido,Pronostico,Francia
+206,2020-09-26,Medellín,6.550706863117033,Fallecido,Pronostico,Francia
+207,2020-09-27,Medellín,6.974812646740963,Fallecido,Pronostico,Francia
+208,2020-09-28,Medellín,7.142658386435801,Fallecido,Pronostico,Francia
+209,2020-09-29,Medellín,7.348264452212017,Fallecido,Pronostico,Francia
+210,2020-09-30,Medellín,7.459463660894539,Fallecido,Pronostico,Francia
+211,2020-10-01,Medellín,7.480622866070227,Fallecido,Pronostico,Francia
+212,2020-10-02,Medellín,7.491803512176846,Fallecido,Pronostico,Francia
+213,2020-10-03,Medellín,7.429231243750977,Fallecido,Pronostico,Francia
+214,2020-10-04,Medellín,7.3262652487258855,Fallecido,Pronostico,Francia
 0,2020-03-02,Cali,1.0,Total,Real,Base
 1,2020-03-05,Cali,2.0,Total,Real,Base
 2,2020-03-07,Cali,3.0,Total,Real,Base
@@ -4965,6 +5105,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 184,2020-09-06,Cali,39042.475819084284,Total,LI,Base
 185,2020-09-07,Cali,39179.73197951636,Total,LI,Base
 186,2020-09-08,Cali,39312.884632915746,Total,LI,Base
+182,2020-09-04,Cali,38910.98024027786,Total,Pronostico,Francia
+183,2020-09-05,Cali,38930.31610921973,Total,Pronostico,Francia
+184,2020-09-06,Cali,38945.01472551509,Total,Pronostico,Francia
+185,2020-09-07,Cali,38955.085921480124,Total,Pronostico,Francia
+186,2020-09-08,Cali,38960.54212221823,Total,Pronostico,Francia
+187,2020-09-09,Cali,38961.398227048485,Total,Pronostico,Francia
+188,2020-09-10,Cali,38957.67149329719,Total,Pronostico,Francia
+189,2020-09-11,Cali,38949.38142253545,Total,Pronostico,Francia
+190,2020-09-12,Cali,38936.549649334214,Total,Pronostico,Francia
+191,2020-09-13,Cali,38919.19983259714,Total,Pronostico,Francia
+192,2020-09-14,Cali,38897.357549522196,Total,Pronostico,Francia
+193,2020-09-15,Cali,38871.05019223206,Total,Pronostico,Francia
+194,2020-09-16,Cali,38840.306867105835,Total,Pronostico,Francia
+195,2020-09-17,Cali,38805.15829683484,Total,Pronostico,Francia
+196,2020-09-18,Cali,38765.63672521864,Total,Pronostico,Francia
+197,2020-09-19,Cali,38721.77582470927,Total,Pronostico,Francia
+198,2020-09-20,Cali,36627.17334594839,Total,Pronostico,Francia
+199,2020-09-21,Cali,34569.52023945785,Total,Pronostico,Francia
+200,2020-09-22,Cali,32550.940100333304,Total,Pronostico,Francia
+201,2020-09-23,Cali,30573.582515656486,Total,Pronostico,Francia
+202,2020-09-24,Cali,28639.623604094086,Total,Pronostico,Francia
+203,2020-09-25,Cali,26751.266619401467,Total,Pronostico,Francia
+204,2020-09-26,Cali,24910.742603709354,Total,Pronostico,Francia
+205,2020-09-27,Cali,23120.311099407663,Total,Pronostico,Francia
+206,2020-09-28,Cali,21382.260923803668,Total,Pronostico,Francia
+207,2020-09-29,Cali,19698.910985398208,Total,Pronostico,Francia
+208,2020-09-30,Cali,18072.61116324331,Total,Pronostico,Francia
+209,2020-10-01,Cali,16505.743245269976,Total,Pronostico,Francia
+210,2020-10-02,Cali,15000.721892743051,Total,Pronostico,Francia
+211,2020-10-03,Cali,13559.995673840513,Total,Pronostico,Francia
 0,2020-03-02,Cali,1.0,Nuevos,Real,Base
 1,2020-03-05,Cali,1.0,Nuevos,Real,Base
 2,2020-03-07,Cali,1.0,Nuevos,Real,Base
@@ -5315,126 +5485,76 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 172,2020-08-25,Cali,255.10763423143226,Nuevos,Ajuste,Base
 173,2020-08-26,Cali,239.0176859021382,Nuevos,Ajuste,Base
 174,2020-08-27,Cali,222.3873490780463,Nuevos,Ajuste,Base
-182,2020-09-04,Cali,206.42499851652002,Nuevos,P_Gompertz,Base
-183,2020-09-05,Cali,198.25594178735054,Nuevos,P_Gompertz,Base
-184,2020-09-06,Cali,190.06343139817972,Nuevos,P_Gompertz,Base
-185,2020-09-07,Cali,181.8897141771754,Nuevos,P_Gompertz,Base
-186,2020-09-08,Cali,173.77217802093156,Nuevos,P_Gompertz,Base
-187,2020-09-09,Cali,165.7437593517186,Nuevos,P_Gompertz,Base
-188,2020-09-10,Cali,157.8333134962129,Nuevos,P_Gompertz,Base
-189,2020-09-11,Cali,150.06595255225437,Nuevos,P_Gompertz,Base
-190,2020-09-12,Cali,142.46335469296505,Nuevos,P_Gompertz,Base
-191,2020-09-13,Cali,135.04404831476532,Nuevos,P_Gompertz,Base
-192,2020-09-14,Cali,127.8236739595784,Nuevos,P_Gompertz,Base
-193,2020-09-15,Cali,120.8152265247702,Nuevos,P_Gompertz,Base
-194,2020-09-16,Cali,114.02927991079757,Nuevos,P_Gompertz,Base
-195,2020-09-17,Cali,107.4741959404405,Nuevos,P_Gompertz,Base
-196,2020-09-18,Cali,101.15631910974292,Nuevos,P_Gompertz,Base
-197,2020-09-19,Cali,95.08015849475868,Nuevos,P_Gompertz,Base
-198,2020-09-20,Cali,89.24855793570256,Nuevos,P_Gompertz,Base
-199,2020-09-21,Cali,83.66285544737131,Nuevos,P_Gompertz,Base
-200,2020-09-22,Cali,78.32303265828892,Nuevos,P_Gompertz,Base
-201,2020-09-23,Cali,73.22785495784863,Nuevos,P_Gompertz,Base
-202,2020-09-24,Cali,68.37500292795555,Nuevos,P_Gompertz,Base
-203,2020-09-25,Cali,63.76119555076988,Nuevos,P_Gompertz,Base
-204,2020-09-26,Cali,59.38230561480352,Nuevos,P_Gompertz,Base
-205,2020-09-27,Cali,55.23346768574266,Nuevos,P_Gompertz,Base
-206,2020-09-28,Cali,51.30917896406908,Nuevos,P_Gompertz,Base
-207,2020-09-29,Cali,47.60339331712891,Nuevos,P_Gompertz,Base
-208,2020-09-30,Cali,44.10960874722207,Nuevos,P_Gompertz,Base
-209,2020-10-01,Cali,40.82094853817898,Nuevos,P_Gompertz,Base
-210,2020-10-02,Cali,37.73023630953465,Nuevos,P_Gompertz,Base
-211,2020-10-03,Cali,34.830065198703736,Nuevos,P_Gompertz,Base
-182,2020-09-04,Cali,206.42499851652002,Nuevos,P_Final,Base
-183,2020-09-05,Cali,198.25594178735054,Nuevos,P_Final,Base
-184,2020-09-06,Cali,190.06343139817972,Nuevos,P_Final,Base
-185,2020-09-07,Cali,181.8897141771754,Nuevos,P_Final,Base
-186,2020-09-08,Cali,173.77217802093156,Nuevos,P_Final,Base
-187,2020-09-09,Cali,165.7437593517186,Nuevos,P_Final,Base
-188,2020-09-10,Cali,157.8333134962129,Nuevos,P_Final,Base
-189,2020-09-11,Cali,150.06595255225437,Nuevos,P_Final,Base
-190,2020-09-12,Cali,142.46335469296505,Nuevos,P_Final,Base
-191,2020-09-13,Cali,135.04404831476532,Nuevos,P_Final,Base
-192,2020-09-14,Cali,127.8236739595784,Nuevos,P_Final,Base
-193,2020-09-15,Cali,120.8152265247702,Nuevos,P_Final,Base
-194,2020-09-16,Cali,114.02927991079757,Nuevos,P_Final,Base
-195,2020-09-17,Cali,107.4741959404405,Nuevos,P_Final,Base
-196,2020-09-18,Cali,101.15631910974292,Nuevos,P_Final,Base
-197,2020-09-19,Cali,95.08015849475868,Nuevos,P_Final,Base
-198,2020-09-20,Cali,104.6284276228314,Nuevos,P_Final,Base
-199,2020-09-21,Cali,116.44139532295785,Nuevos,P_Final,Base
-200,2020-09-22,Cali,130.51499914260398,Nuevos,P_Final,Base
-201,2020-09-23,Cali,146.84582081443773,Nuevos,P_Final,Base
-202,2020-09-24,Cali,165.4316363877619,Nuevos,P_Final,Base
-203,2020-09-25,Cali,186.27189373163225,Nuevos,P_Final,Base
-204,2020-09-26,Cali,209.36814834646998,Nuevos,P_Final,Base
-205,2020-09-27,Cali,234.72443120318556,Nuevos,P_Final,Base
-206,2020-09-28,Cali,262.34756226960224,Nuevos,P_Final,Base
-207,2020-09-29,Cali,292.2474679615314,Nuevos,P_Final,Base
-208,2020-09-30,Cali,324.4373930876245,Nuevos,P_Final,Base
-209,2020-10-01,Cali,358.9340248545499,Nuevos,P_Final,Base
-210,2020-10-02,Cali,395.7577409734746,Nuevos,P_Final,Base
-211,2020-10-03,Cali,434.93276693234475,Nuevos,P_Final,Base
-182,2020-09-04,Cali,293.8108404947965,Nuevos,LS,Base
-183,2020-09-05,Cali,285.641783765627,Nuevos,LS,Base
-184,2020-09-06,Cali,277.4492733764562,Nuevos,LS,Base
-185,2020-09-07,Cali,269.27555615545185,Nuevos,LS,Base
-186,2020-09-08,Cali,261.158019999208,Nuevos,LS,Base
-187,2020-09-09,Cali,253.12960132999507,Nuevos,LS,Base
-188,2020-09-10,Cali,245.21915547448936,Nuevos,LS,Base
-189,2020-09-11,Cali,237.45179453053083,Nuevos,LS,Base
-190,2020-09-12,Cali,229.84919667124154,Nuevos,LS,Base
-191,2020-09-13,Cali,222.4298902930418,Nuevos,LS,Base
-192,2020-09-14,Cali,215.20951593785486,Nuevos,LS,Base
-193,2020-09-15,Cali,208.20106850304666,Nuevos,LS,Base
-194,2020-09-16,Cali,201.41512188907404,Nuevos,LS,Base
-195,2020-09-17,Cali,194.86003791871696,Nuevos,LS,Base
-196,2020-09-18,Cali,188.54216108801938,Nuevos,LS,Base
-197,2020-09-19,Cali,182.46600047303514,Nuevos,LS,Base
-198,2020-09-20,Cali,192.01426960110786,Nuevos,LS,Base
-199,2020-09-21,Cali,203.82723730123433,Nuevos,LS,Base
-200,2020-09-22,Cali,217.90084112088044,Nuevos,LS,Base
-201,2020-09-23,Cali,234.2316627927142,Nuevos,LS,Base
-202,2020-09-24,Cali,252.81747836603836,Nuevos,LS,Base
-203,2020-09-25,Cali,273.6577357099087,Nuevos,LS,Base
-204,2020-09-26,Cali,296.75399032474644,Nuevos,LS,Base
-205,2020-09-27,Cali,322.11027318146205,Nuevos,LS,Base
-206,2020-09-28,Cali,349.7334042478787,Nuevos,LS,Base
-207,2020-09-29,Cali,379.6333099398079,Nuevos,LS,Base
-208,2020-09-30,Cali,411.823235065901,Nuevos,LS,Base
-209,2020-10-01,Cali,446.31986683282634,Nuevos,LS,Base
-210,2020-10-02,Cali,483.14358295175106,Nuevos,LS,Base
-211,2020-10-03,Cali,522.3186089106213,Nuevos,LS,Base
-182,2020-09-04,Cali,119.03915653824355,Nuevos,LI,Base
-183,2020-09-05,Cali,110.87009980907406,Nuevos,LI,Base
-184,2020-09-06,Cali,102.67758941990324,Nuevos,LI,Base
-185,2020-09-07,Cali,94.50387219889892,Nuevos,LI,Base
-186,2020-09-08,Cali,86.38633604265509,Nuevos,LI,Base
-187,2020-09-09,Cali,78.35791737344213,Nuevos,LI,Base
-188,2020-09-10,Cali,70.44747151793642,Nuevos,LI,Base
-189,2020-09-11,Cali,62.6801105739779,Nuevos,LI,Base
-190,2020-09-12,Cali,55.07751271468858,Nuevos,LI,Base
-191,2020-09-13,Cali,47.658206336488846,Nuevos,LI,Base
-192,2020-09-14,Cali,40.437831981301926,Nuevos,LI,Base
-193,2020-09-15,Cali,33.42938454649372,Nuevos,LI,Base
-194,2020-09-16,Cali,26.643437932521095,Nuevos,LI,Base
-195,2020-09-17,Cali,20.08835396216402,Nuevos,LI,Base
-196,2020-09-18,Cali,13.77047713146645,Nuevos,LI,Base
-197,2020-09-19,Cali,7.694316516482203,Nuevos,LI,Base
-198,2020-09-20,Cali,17.24258564455492,Nuevos,LI,Base
-199,2020-09-21,Cali,29.05555334468137,Nuevos,LI,Base
-200,2020-09-22,Cali,43.12915716432751,Nuevos,LI,Base
-201,2020-09-23,Cali,59.459978836161255,Nuevos,LI,Base
-202,2020-09-24,Cali,78.04579440948542,Nuevos,LI,Base
-203,2020-09-25,Cali,98.88605175335577,Nuevos,LI,Base
-204,2020-09-26,Cali,121.9823063681935,Nuevos,LI,Base
-205,2020-09-27,Cali,147.33858922490907,Nuevos,LI,Base
-206,2020-09-28,Cali,174.96172029132578,Nuevos,LI,Base
-207,2020-09-29,Cali,204.86162598325495,Nuevos,LI,Base
-208,2020-09-30,Cali,237.05155110934805,Nuevos,LI,Base
-209,2020-10-01,Cali,271.5481828762734,Nuevos,LI,Base
-210,2020-10-02,Cali,308.37189899519814,Nuevos,LI,Base
-211,2020-10-03,Cali,347.5469249540683,Nuevos,LI,Base
+182,2020-09-04,Cali,206.42499851652002,Nuevos,Pronostico,Base
+183,2020-09-05,Cali,198.25594178735054,Nuevos,Pronostico,Base
+184,2020-09-06,Cali,190.06343139817972,Nuevos,Pronostico,Base
+185,2020-09-07,Cali,181.8897141771754,Nuevos,Pronostico,Base
+186,2020-09-08,Cali,173.77217802093156,Nuevos,Pronostico,Base
+187,2020-09-09,Cali,165.7437593517186,Nuevos,Pronostico,Base
+188,2020-09-10,Cali,157.8333134962129,Nuevos,Pronostico,Base
+189,2020-09-11,Cali,150.06595255225437,Nuevos,Pronostico,Base
+190,2020-09-12,Cali,142.46335469296505,Nuevos,Pronostico,Base
+191,2020-09-13,Cali,135.04404831476532,Nuevos,Pronostico,Base
+192,2020-09-14,Cali,127.8236739595784,Nuevos,Pronostico,Base
+193,2020-09-15,Cali,120.8152265247702,Nuevos,Pronostico,Base
+194,2020-09-16,Cali,114.02927991079757,Nuevos,Pronostico,Base
+195,2020-09-17,Cali,107.4741959404405,Nuevos,Pronostico,Base
+196,2020-09-18,Cali,101.15631910974292,Nuevos,Pronostico,Base
+197,2020-09-19,Cali,95.08015849475868,Nuevos,Pronostico,Base
+198,2020-09-20,Cali,89.24855793570256,Nuevos,Pronostico,Base
+199,2020-09-21,Cali,83.66285544737131,Nuevos,Pronostico,Base
+200,2020-09-22,Cali,78.32303265828892,Nuevos,Pronostico,Base
+201,2020-09-23,Cali,73.22785495784863,Nuevos,Pronostico,Base
+202,2020-09-24,Cali,68.37500292795555,Nuevos,Pronostico,Base
+203,2020-09-25,Cali,63.76119555076988,Nuevos,Pronostico,Base
+204,2020-09-26,Cali,59.38230561480352,Nuevos,Pronostico,Base
+205,2020-09-27,Cali,55.23346768574266,Nuevos,Pronostico,Base
+206,2020-09-28,Cali,51.30917896406908,Nuevos,Pronostico,Base
+207,2020-09-29,Cali,47.60339331712891,Nuevos,Pronostico,Base
+208,2020-09-30,Cali,44.10960874722207,Nuevos,Pronostico,Base
+209,2020-10-01,Cali,40.82094853817898,Nuevos,Pronostico,Base
+210,2020-10-02,Cali,37.73023630953465,Nuevos,Pronostico,Base
+211,2020-10-03,Cali,34.830065198703736,Nuevos,Pronostico,Base
+182,2020-09-04,Cali,38942.91259103967,Nuevos,LS,Base
+183,2020-09-05,Cali,39088.27167591331,Nuevos,LS,Base
+184,2020-09-06,Cali,39229.597780654396,Nuevos,LS,Base
+185,2020-09-07,Cali,39366.85394108647,Nuevos,LS,Base
+186,2020-09-08,Cali,39500.00659448586,Nuevos,LS,Base
+182,2020-09-04,Cali,38755.79062946956,Nuevos,LI,Base
+183,2020-09-05,Cali,38901.1497143432,Nuevos,LI,Base
+184,2020-09-06,Cali,39042.475819084284,Nuevos,LI,Base
+185,2020-09-07,Cali,39179.73197951636,Nuevos,LI,Base
+186,2020-09-08,Cali,39312.884632915746,Nuevos,LI,Base
+182,2020-09-04,Cali,206.42499851652002,Nuevos,Pronostico,Francia
+183,2020-09-05,Cali,198.25594178735054,Nuevos,Pronostico,Francia
+184,2020-09-06,Cali,190.06343139817972,Nuevos,Pronostico,Francia
+185,2020-09-07,Cali,181.8897141771754,Nuevos,Pronostico,Francia
+186,2020-09-08,Cali,173.77217802093156,Nuevos,Pronostico,Francia
+187,2020-09-09,Cali,165.7437593517186,Nuevos,Pronostico,Francia
+188,2020-09-10,Cali,157.8333134962129,Nuevos,Pronostico,Francia
+189,2020-09-11,Cali,150.06595255225437,Nuevos,Pronostico,Francia
+190,2020-09-12,Cali,142.46335469296505,Nuevos,Pronostico,Francia
+191,2020-09-13,Cali,135.04404831476532,Nuevos,Pronostico,Francia
+192,2020-09-14,Cali,127.8236739595784,Nuevos,Pronostico,Francia
+193,2020-09-15,Cali,120.8152265247702,Nuevos,Pronostico,Francia
+194,2020-09-16,Cali,114.02927991079757,Nuevos,Pronostico,Francia
+195,2020-09-17,Cali,107.4741959404405,Nuevos,Pronostico,Francia
+196,2020-09-18,Cali,101.15631910974292,Nuevos,Pronostico,Francia
+197,2020-09-19,Cali,95.08015849475868,Nuevos,Pronostico,Francia
+198,2020-09-20,Cali,99.35272551841682,Nuevos,Pronostico,Francia
+199,2020-09-21,Cali,105.43797789058493,Nuevos,Pronostico,Francia
+200,2020-09-22,Cali,113.30956595101782,Nuevos,Pronostico,Francia
+201,2020-09-23,Cali,122.94104429248974,Nuevos,Pronostico,Francia
+202,2020-09-24,Cali,134.3064091499872,Nuevos,Pronostico,Francia
+203,2020-09-25,Cali,147.38058113304336,Nuevos,Pronostico,Francia
+204,2020-09-26,Cali,162.13981742178225,Nuevos,Pronostico,Francia
+205,2020-09-27,Cali,178.56208329113724,Nuevos,Pronostico,Francia
+206,2020-09-28,Cali,196.6273792764774,Nuevos,Pronostico,Francia
+207,2020-09-29,Cali,216.31800246502735,Nuevos,Pronostico,Francia
+208,2020-09-30,Cali,237.61879055469566,Nuevos,Pronostico,Francia
+209,2020-10-01,Cali,260.51732322888364,Nuevos,Pronostico,Francia
+210,2020-10-02,Cali,285.00405634365126,Nuevos,Pronostico,Francia
+211,2020-10-03,Cali,311.0724704138447,Nuevos,Pronostico,Francia
 0,2020-03-02,Cali,1.0,Activos,Real,Base
 1,2020-03-05,Cali,2.0,Activos,Real,Base
 2,2020-03-07,Cali,3.0,Activos,Real,Base
@@ -5889,6 +6009,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 209,2020-10-01,Cali,-274.4643070201094,Activos,LI,Base
 210,2020-10-02,Cali,-404.88300620659885,Activos,LI,Base
 211,2020-10-03,Cali,-528.0007378103376,Activos,LI,Base
+182,2020-09-04,Cali,6477.837758389406,Activos,Pronostico,Francia
+183,2020-09-05,Cali,6151.212907657794,Activos,Pronostico,Francia
+184,2020-09-06,Cali,5838.045644736255,Activos,Pronostico,Francia
+185,2020-09-07,Cali,5539.124677034517,Activos,Pronostico,Francia
+186,2020-09-08,Cali,5227.323727542891,Activos,Pronostico,Francia
+187,2020-09-09,Cali,4916.229167729052,Activos,Pronostico,Francia
+188,2020-09-10,Cali,4602.3670654733005,Activos,Pronostico,Francia
+189,2020-09-11,Cali,4295.657623534042,Activos,Pronostico,Francia
+190,2020-09-12,Cali,3994.9411486033255,Activos,Pronostico,Francia
+191,2020-09-13,Cali,3703.7852811002913,Activos,Pronostico,Francia
+192,2020-09-14,Cali,3420.6420996459747,Activos,Pronostico,Francia
+193,2020-09-15,Cali,3146.5248180409126,Activos,Pronostico,Francia
+194,2020-09-16,Cali,2880.550303339486,Activos,Pronostico,Francia
+195,2020-09-17,Cali,2623.250666982847,Activos,Pronostico,Francia
+196,2020-09-18,Cali,2374.3753634660143,Activos,Pronostico,Francia
+197,2020-09-19,Cali,2006.0905038928383,Activos,Pronostico,Francia
+198,2020-09-20,Cali,1869.0185826125867,Activos,Pronostico,Francia
+199,2020-09-21,Cali,1751.6501014780647,Activos,Pronostico,Francia
+200,2020-09-22,Cali,1643.1925605795227,Activos,Pronostico,Francia
+201,2020-09-23,Cali,1534.0987124112594,Activos,Pronostico,Francia
+202,2020-09-24,Cali,1415.8255033020946,Activos,Pronostico,Francia
+203,2020-09-25,Cali,1280.94842072649,Activos,Pronostico,Francia
+204,2020-09-26,Cali,1122.9961888313362,Activos,Pronostico,Francia
+205,2020-09-27,Cali,936.4730799766271,Activos,Pronostico,Francia
+206,2020-09-28,Cali,716.730115117238,Activos,Pronostico,Francia
+207,2020-09-29,Cali,459.9392731201232,Activos,Pronostico,Francia
+208,2020-09-30,Cali,162.98658749742341,Activos,Pronostico,Francia
+209,2020-10-01,Cali,-176.5762404643326,Activos,Pronostico,Francia
+210,2020-10-02,Cali,-560.6228143782116,Activos,Pronostico,Francia
+211,2020-10-03,Cali,-990.5086579689306,Activos,Pronostico,Francia
 0,2020-03-02,Cali,0.0,Recuperado,Real,Base
 1,2020-03-05,Cali,0.0,Recuperado,Real,Base
 2,2020-03-07,Cali,0.0,Recuperado,Real,Base
@@ -6343,6 +6493,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 209,2020-10-01,Cali,127.31780314259711,Recuperado,LI,Base
 210,2020-10-02,Cali,114.60094120838315,Recuperado,LI,Base
 211,2020-10-03,Cali,102.07067855818892,Recuperado,LI,Base
+182,2020-09-04,Cali,610.0171218507484,Recuperado,Pronostico,Francia
+183,2020-09-05,Cali,571.8729711910935,Recuperado,Pronostico,Francia
+184,2020-09-06,Cali,624.5967281604203,Recuperado,Pronostico,Francia
+185,2020-09-07,Cali,595.2105607273039,Recuperado,Pronostico,Francia
+186,2020-09-08,Cali,602.6582434985721,Recuperado,Pronostico,Francia
+187,2020-09-09,Cali,578.6776844975487,Recuperado,Pronostico,Francia
+188,2020-09-10,Cali,574.5721029437748,Recuperado,Pronostico,Francia
+189,2020-09-11,Cali,558.935836039286,Recuperado,Pronostico,Francia
+190,2020-09-12,Cali,552.0426327433021,Recuperado,Pronostico,Francia
+191,2020-09-13,Cali,539.5515792090212,Recuperado,Pronostico,Francia
+192,2020-09-14,Cali,530.1084230653744,Recuperado,Pronostico,Francia
+193,2020-09-15,Cali,517.7781292809312,Recuperado,Pronostico,Francia
+194,2020-09-16,Cali,506.51982879325044,Recuperado,Pronostico,Francia
+195,2020-09-17,Cali,493.9146803073344,Recuperado,Pronostico,Francia
+196,2020-09-18,Cali,481.708057209606,Recuperado,Pronostico,Francia
+197,2020-09-19,Cali,440.6953176746881,Recuperado,Pronostico,Francia
+198,2020-09-20,Cali,447.97776305187506,Recuperado,Pronostico,Francia
+199,2020-09-21,Cali,461.771892101759,Recuperado,Pronostico,Francia
+200,2020-09-22,Cali,481.57666886692556,Recuperado,Pronostico,Francia
+201,2020-09-23,Cali,506.38132360151735,Recuperado,Pronostico,Francia
+202,2020-09-24,Cali,535.5594873952701,Recuperado,Pronostico,Francia
+203,2020-09-25,Cali,568.2501896370512,Recuperado,Pronostico,Francia
+204,2020-09-26,Cali,603.8068560363689,Recuperado,Pronostico,Francia
+205,2020-09-27,Cali,641.4839362182962,Recuperado,Pronostico,Francia
+206,2020-09-28,Cali,680.6695611668484,Recuperado,Pronostico,Francia
+207,2020-09-29,Cali,720.7239356439119,Recuperado,Pronostico,Francia
+208,2020-09-30,Cali,761.1008651126286,Recuperado,Pronostico,Francia
+209,2020-10-01,Cali,801.2635134223981,Recuperado,Pronostico,Francia
+210,2020-10-02,Cali,840.7471828386779,Recuperado,Pronostico,Francia
+211,2020-10-03,Cali,879.1150148310642,Recuperado,Pronostico,Francia
 0,2020-03-02,Cali,0.0,Fallecido,Real,Base
 1,2020-03-05,Cali,0.0,Fallecido,Real,Base
 2,2020-03-07,Cali,0.0,Fallecido,Real,Base
@@ -6797,6 +6977,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 209,2020-10-01,Cali,-1.065700191094873,Fallecido,LI,Base
 210,2020-10-02,Cali,-2.5371058044119277,Fallecido,LI,Base
 211,2020-10-03,Cali,-1.9802678648972956,Fallecido,LI,Base
+182,2020-09-04,Cali,9.679897219073007,Fallecido,Pronostico,Francia
+183,2020-09-05,Cali,8.954014344967547,Fallecido,Pronostico,Francia
+184,2020-09-06,Cali,10.102667115057463,Fallecido,Pronostico,Francia
+185,2020-09-07,Cali,9.814484376621069,Fallecido,Pronostico,Francia
+186,2020-09-08,Cali,8.067477205376848,Fallecido,Pronostico,Francia
+187,2020-09-09,Cali,8.498144448026377,Fallecido,Pronostico,Francia
+188,2020-09-10,Cali,9.151431271515513,Fallecido,Pronostico,Francia
+189,2020-09-11,Cali,7.519455956676031,Fallecido,Pronostico,Francia
+190,2020-09-12,Cali,6.823649364891398,Fallecido,Pronostico,Francia
+191,2020-09-13,Cali,7.920563312161703,Fallecido,Pronostico,Francia
+192,2020-09-14,Cali,7.166492123595348,Fallecido,Pronostico,Francia
+193,2020-09-15,Cali,5.602800041559926,Fallecido,Pronostico,Francia
+194,2020-09-16,Cali,6.313514852423262,Fallecido,Pronostico,Francia
+195,2020-09-17,Cali,6.674456330844019,Fallecido,Pronostico,Francia
+196,2020-09-18,Cali,4.978622370509715,Fallecido,Pronostico,Francia
+197,2020-09-19,Cali,4.433573977933282,Fallecido,Pronostico,Francia
+198,2020-09-20,Cali,5.679540083232902,Fallecido,Pronostico,Francia
+199,2020-09-21,Cali,4.964877473079713,Fallecido,Pronostico,Francia
+200,2020-09-22,Cali,3.9521501589843337,Fallecido,Pronostico,Francia
+201,2020-09-23,Cali,5.472372315316095,Fallecido,Pronostico,Francia
+202,2020-09-24,Cali,6.076019982755857,Fallecido,Pronostico,Francia
+203,2020-09-25,Cali,4.292999095339708,Fallecido,Pronostico,Francia
+204,2020-09-26,Cali,4.99802821589898,Fallecido,Pronostico,Francia
+205,2020-09-27,Cali,7.1980064414846545,Fallecido,Pronostico,Francia
+206,2020-09-28,Cali,5.571304193592986,Fallecido,Pronostico,Francia
+207,2020-09-29,Cali,4.317521576612824,Fallecido,Pronostico,Francia
+208,2020-09-30,Cali,7.436268897275358,Fallecido,Pronostico,Francia
+209,2020-10-01,Cali,7.584056243082048,Fallecido,Pronostico,Francia
+210,2020-10-02,Cali,4.1512733726991105,Fallecido,Pronostico,Francia
+211,2020-10-03,Cali,6.243346221278761,Fallecido,Pronostico,Francia
 0,2020-03-06,Barranquilla,2.0,Total,Real,Base
 1,2020-03-09,Barranquilla,4.0,Total,Real,Base
 2,2020-03-10,Barranquilla,6.0,Total,Real,Base
@@ -7191,6 +7401,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 179,2020-09-06,Barranquilla,36595.48850121585,Total,LI,Base
 180,2020-09-07,Barranquilla,36645.59641732822,Total,LI,Base
 181,2020-09-08,Barranquilla,36693.54314192689,Total,LI,Base
+177,2020-09-04,Barranquilla,36649.335783008755,Total,Pronostico,Francia
+178,2020-09-05,Barranquilla,36691.93628831529,Total,Pronostico,Francia
+179,2020-09-06,Barranquilla,36734.624673164035,Total,Pronostico,Francia
+180,2020-09-07,Barranquilla,36772.841349453505,Total,Pronostico,Francia
+181,2020-09-08,Barranquilla,36809.05052789684,Total,Pronostico,Francia
+182,2020-09-09,Barranquilla,36847.10565174062,Total,Pronostico,Francia
+183,2020-09-10,Barranquilla,36890.30503943758,Total,Pronostico,Francia
+184,2020-09-11,Barranquilla,36939.61762226446,Total,Pronostico,Francia
+185,2020-09-12,Barranquilla,36994.0058808147,Total,Pronostico,Francia
+186,2020-09-13,Barranquilla,37051.531651967016,Total,Pronostico,Francia
+187,2020-09-14,Barranquilla,37110.529173220486,Total,Pronostico,Francia
+188,2020-09-15,Barranquilla,37170.183485075824,Total,Pronostico,Francia
+189,2020-09-16,Barranquilla,37230.45907843232,Total,Pronostico,Francia
+190,2020-09-17,Barranquilla,37291.65162017643,Total,Pronostico,Francia
+191,2020-09-18,Barranquilla,37353.932906626695,Total,Pronostico,Francia
+192,2020-09-19,Barranquilla,37417.12328047151,Total,Pronostico,Francia
+193,2020-09-20,Barranquilla,34980.4212292871,Total,Pronostico,Francia
+194,2020-09-21,Barranquilla,32542.615576565706,Total,Pronostico,Francia
+195,2020-09-22,Barranquilla,30103.578548116766,Total,Pronostico,Francia
+196,2020-09-23,Barranquilla,27663.46250752727,Total,Pronostico,Francia
+197,2020-09-24,Barranquilla,25222.642575587917,Total,Pronostico,Francia
+198,2020-09-25,Barranquilla,22781.62823597156,Total,Pronostico,Francia
+199,2020-09-26,Barranquilla,20341.00293265632,Total,Pronostico,Francia
+200,2020-09-27,Barranquilla,17901.40879550126,Total,Pronostico,Francia
+201,2020-09-28,Barranquilla,15463.560829649012,Total,Pronostico,Francia
+202,2020-09-29,Barranquilla,13028.265140346792,Total,Pronostico,Francia
+203,2020-09-30,Barranquilla,10596.424468000772,Total,Pronostico,Francia
+204,2020-10-01,Barranquilla,8169.028608215318,Total,Pronostico,Francia
+205,2020-10-02,Barranquilla,5747.136740593622,Total,Pronostico,Francia
+206,2020-10-03,Barranquilla,3331.860039264876,Total,Pronostico,Francia
 0,2020-03-06,Barranquilla,2.0,Nuevos,Real,Base
 1,2020-03-09,Barranquilla,2.0,Nuevos,Real,Base
 2,2020-03-10,Barranquilla,2.0,Nuevos,Real,Base
@@ -7531,126 +7771,76 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 167,2020-08-25,Barranquilla,39.24670457894957,Nuevos,Ajuste,Base
 168,2020-08-26,Barranquilla,54.360427514248286,Nuevos,Ajuste,Base
 169,2020-08-27,Barranquilla,50.74201168213372,Nuevos,Ajuste,Base
-177,2020-09-04,Barranquilla,40.264793823003444,Nuevos,P_Gompertz,Base
-178,2020-09-05,Barranquilla,34.06152302656555,Nuevos,P_Gompertz,Base
-179,2020-09-06,Barranquilla,27.83698741480586,Nuevos,P_Gompertz,Base
-180,2020-09-07,Barranquilla,20.12520603765166,Nuevos,P_Gompertz,Base
-181,2020-09-08,Barranquilla,14.890454834854445,Nuevos,P_Gompertz,Base
-182,2020-09-09,Barranquilla,11.6270823220534,Nuevos,P_Gompertz,Base
-183,2020-09-10,Barranquilla,10.01616384615002,Nuevos,P_Gompertz,Base
-184,2020-09-11,Barranquilla,8.964348297885458,Nuevos,P_Gompertz,Base
-185,2020-09-12,Barranquilla,7.9650155945088335,Nuevos,P_Gompertz,Base
-186,2020-09-13,Barranquilla,6.82495337776018,Nuevos,P_Gompertz,Base
-187,2020-09-14,Barranquilla,5.660790829437962,Nuevos,P_Gompertz,Base
-188,2020-09-15,Barranquilla,4.617169469142347,Nuevos,P_Gompertz,Base
-189,2020-09-16,Barranquilla,3.7796315853536804,Nuevos,P_Gompertz,Base
-190,2020-09-17,Barranquilla,3.141872141875916,Nuevos,P_Gompertz,Base
-191,2020-09-18,Barranquilla,2.65123360532087,Nuevos,P_Gompertz,Base
-192,2020-09-19,Barranquilla,2.2506465062223007,Nuevos,P_Gompertz,Base
-193,2020-09-20,Barranquilla,1.9042029191270653,Nuevos,P_Gompertz,Base
-194,2020-09-21,Barranquilla,1.598302050102445,Nuevos,P_Gompertz,Base
-195,2020-09-22,Barranquilla,1.3320249323244326,Nuevos,P_Gompertz,Base
-196,2020-09-23,Barranquilla,1.106628743026196,Nuevos,P_Gompertz,Base
-197,2020-09-24,Barranquilla,0.9202382102650013,Nuevos,P_Gompertz,Base
-198,2020-09-25,Barranquilla,0.7674887239996034,Nuevos,P_Gompertz,Base
-199,2020-09-26,Barranquilla,0.6416510663459133,Nuevos,P_Gompertz,Base
-200,2020-09-27,Barranquilla,0.5367215842472444,Nuevos,P_Gompertz,Base
-201,2020-09-28,Barranquilla,0.4483647168518799,Nuevos,P_Gompertz,Base
-202,2020-09-29,Barranquilla,0.37377180650665576,Nuevos,P_Gompertz,Base
-203,2020-09-30,Barranquilla,0.311042935483066,Nuevos,P_Gompertz,Base
-204,2020-10-01,Barranquilla,0.25862673404887004,Nuevos,P_Gompertz,Base
-205,2020-10-02,Barranquilla,0.21504648236169116,Nuevos,P_Gompertz,Base
-206,2020-10-03,Barranquilla,0.17887560314427187,Nuevos,P_Gompertz,Base
-177,2020-09-04,Barranquilla,40.264793823003444,Nuevos,P_Final,Base
-178,2020-09-05,Barranquilla,34.06152302656555,Nuevos,P_Final,Base
-179,2020-09-06,Barranquilla,27.83698741480586,Nuevos,P_Final,Base
-180,2020-09-07,Barranquilla,20.12520603765166,Nuevos,P_Final,Base
-181,2020-09-08,Barranquilla,14.890454834854445,Nuevos,P_Final,Base
-182,2020-09-09,Barranquilla,11.6270823220534,Nuevos,P_Final,Base
-183,2020-09-10,Barranquilla,10.01616384615002,Nuevos,P_Final,Base
-184,2020-09-11,Barranquilla,8.964348297885458,Nuevos,P_Final,Base
-185,2020-09-12,Barranquilla,7.9650155945088335,Nuevos,P_Final,Base
-186,2020-09-13,Barranquilla,6.82495337776018,Nuevos,P_Final,Base
-187,2020-09-14,Barranquilla,5.660790829437962,Nuevos,P_Final,Base
-188,2020-09-15,Barranquilla,4.617169469142347,Nuevos,P_Final,Base
-189,2020-09-16,Barranquilla,3.7796315853536804,Nuevos,P_Final,Base
-190,2020-09-17,Barranquilla,3.141872141875916,Nuevos,P_Final,Base
-191,2020-09-18,Barranquilla,2.65123360532087,Nuevos,P_Final,Base
-192,2020-09-19,Barranquilla,2.2506465062223007,Nuevos,P_Final,Base
-193,2020-09-20,Barranquilla,6.970020366160091,Nuevos,P_Final,Base
-194,2020-09-21,Barranquilla,12.061589809441704,Nuevos,P_Final,Base
-195,2020-09-22,Barranquilla,17.52762134656887,Nuevos,P_Final,Base
-196,2020-09-23,Barranquilla,23.372597660435815,Nuevos,P_Final,Base
-197,2020-09-24,Barranquilla,29.599039642404655,Nuevos,P_Final,Base
-198,2020-09-25,Barranquilla,36.20843310495627,Nuevos,P_Final,Base
-199,2020-09-26,Barranquilla,43.20354733666441,Nuevos,P_Final,Base
-200,2020-09-27,Barranquilla,50.58983393473507,Nuevos,P_Final,Base
-201,2020-09-28,Barranquilla,58.37550999827805,Nuevos,P_Final,Base
-202,2020-09-29,Barranquilla,66.57093762000196,Nuevos,P_Final,Base
-203,2020-09-30,Barranquilla,75.18796139710783,Nuevos,P_Final,Base
-204,2020-10-01,Barranquilla,84.23951669129492,Nuevos,P_Final,Base
-205,2020-10-02,Barranquilla,93.73949249577255,Nuevos,P_Final,Base
-206,2020-10-03,Barranquilla,103.70272423351298,Nuevos,P_Final,Base
-177,2020-09-04,Barranquilla,161.9877423897218,Nuevos,LS,Base
-178,2020-09-05,Barranquilla,155.7844715932839,Nuevos,LS,Base
-179,2020-09-06,Barranquilla,149.55993598152423,Nuevos,LS,Base
-180,2020-09-07,Barranquilla,141.84815460437002,Nuevos,LS,Base
-181,2020-09-08,Barranquilla,136.6134034015728,Nuevos,LS,Base
-182,2020-09-09,Barranquilla,133.35003088877178,Nuevos,LS,Base
-183,2020-09-10,Barranquilla,131.7391124128684,Nuevos,LS,Base
-184,2020-09-11,Barranquilla,130.68729686460384,Nuevos,LS,Base
-185,2020-09-12,Barranquilla,129.6879641612272,Nuevos,LS,Base
-186,2020-09-13,Barranquilla,128.54790194447855,Nuevos,LS,Base
-187,2020-09-14,Barranquilla,127.38373939615633,Nuevos,LS,Base
-188,2020-09-15,Barranquilla,126.34011803586071,Nuevos,LS,Base
-189,2020-09-16,Barranquilla,125.50258015207206,Nuevos,LS,Base
-190,2020-09-17,Barranquilla,124.8648207085943,Nuevos,LS,Base
-191,2020-09-18,Barranquilla,124.37418217203924,Nuevos,LS,Base
-192,2020-09-19,Barranquilla,123.97359507294067,Nuevos,LS,Base
-193,2020-09-20,Barranquilla,128.69296893287847,Nuevos,LS,Base
-194,2020-09-21,Barranquilla,133.78453837616007,Nuevos,LS,Base
-195,2020-09-22,Barranquilla,139.25056991328725,Nuevos,LS,Base
-196,2020-09-23,Barranquilla,145.0955462271542,Nuevos,LS,Base
-197,2020-09-24,Barranquilla,151.32198820912302,Nuevos,LS,Base
-198,2020-09-25,Barranquilla,157.93138167167464,Nuevos,LS,Base
-199,2020-09-26,Barranquilla,164.92649590338277,Nuevos,LS,Base
-200,2020-09-27,Barranquilla,172.31278250145346,Nuevos,LS,Base
-201,2020-09-28,Barranquilla,180.0984585649964,Nuevos,LS,Base
-202,2020-09-29,Barranquilla,188.29388618672033,Nuevos,LS,Base
-203,2020-09-30,Barranquilla,196.9109099638262,Nuevos,LS,Base
-204,2020-10-01,Barranquilla,205.9624652580133,Nuevos,LS,Base
-205,2020-10-02,Barranquilla,215.46244106249094,Nuevos,LS,Base
-206,2020-10-03,Barranquilla,225.42567280023135,Nuevos,LS,Base
-177,2020-09-04,Barranquilla,-81.45815474371493,Nuevos,LI,Base
-178,2020-09-05,Barranquilla,-87.66142554015282,Nuevos,LI,Base
-179,2020-09-06,Barranquilla,-93.88596115191251,Nuevos,LI,Base
-180,2020-09-07,Barranquilla,-101.59774252906671,Nuevos,LI,Base
-181,2020-09-08,Barranquilla,-106.83249373186393,Nuevos,LI,Base
-182,2020-09-09,Barranquilla,-110.09586624466498,Nuevos,LI,Base
-183,2020-09-10,Barranquilla,-111.70678472056835,Nuevos,LI,Base
-184,2020-09-11,Barranquilla,-112.75860026883291,Nuevos,LI,Base
-185,2020-09-12,Barranquilla,-113.75793297220955,Nuevos,LI,Base
-186,2020-09-13,Barranquilla,-114.89799518895819,Nuevos,LI,Base
-187,2020-09-14,Barranquilla,-116.06215773728042,Nuevos,LI,Base
-188,2020-09-15,Barranquilla,-117.10577909757603,Nuevos,LI,Base
-189,2020-09-16,Barranquilla,-117.94331698136469,Nuevos,LI,Base
-190,2020-09-17,Barranquilla,-118.58107642484245,Nuevos,LI,Base
-191,2020-09-18,Barranquilla,-119.0717149613975,Nuevos,LI,Base
-192,2020-09-19,Barranquilla,-119.47230206049608,Nuevos,LI,Base
-193,2020-09-20,Barranquilla,-114.75292820055829,Nuevos,LI,Base
-194,2020-09-21,Barranquilla,-109.66135875727667,Nuevos,LI,Base
-195,2020-09-22,Barranquilla,-104.1953272201495,Nuevos,LI,Base
-196,2020-09-23,Barranquilla,-98.35035090628256,Nuevos,LI,Base
-197,2020-09-24,Barranquilla,-92.12390892431372,Nuevos,LI,Base
-198,2020-09-25,Barranquilla,-85.5145154617621,Nuevos,LI,Base
-199,2020-09-26,Barranquilla,-78.51940123005397,Nuevos,LI,Base
-200,2020-09-27,Barranquilla,-71.1331146319833,Nuevos,LI,Base
-201,2020-09-28,Barranquilla,-63.347438568440325,Nuevos,LI,Base
-202,2020-09-29,Barranquilla,-55.152010946716416,Nuevos,LI,Base
-203,2020-09-30,Barranquilla,-46.534987169610545,Nuevos,LI,Base
-204,2020-10-01,Barranquilla,-37.48343187542345,Nuevos,LI,Base
-205,2020-10-02,Barranquilla,-27.98345607094582,Nuevos,LI,Base
-206,2020-10-03,Barranquilla,-18.02022433320539,Nuevos,LI,Base
+177,2020-09-04,Barranquilla,40.264793823003444,Nuevos,Pronostico,Base
+178,2020-09-05,Barranquilla,34.06152302656555,Nuevos,Pronostico,Base
+179,2020-09-06,Barranquilla,27.83698741480586,Nuevos,Pronostico,Base
+180,2020-09-07,Barranquilla,20.12520603765166,Nuevos,Pronostico,Base
+181,2020-09-08,Barranquilla,14.890454834854445,Nuevos,Pronostico,Base
+182,2020-09-09,Barranquilla,11.6270823220534,Nuevos,Pronostico,Base
+183,2020-09-10,Barranquilla,10.01616384615002,Nuevos,Pronostico,Base
+184,2020-09-11,Barranquilla,8.964348297885458,Nuevos,Pronostico,Base
+185,2020-09-12,Barranquilla,7.9650155945088335,Nuevos,Pronostico,Base
+186,2020-09-13,Barranquilla,6.82495337776018,Nuevos,Pronostico,Base
+187,2020-09-14,Barranquilla,5.660790829437962,Nuevos,Pronostico,Base
+188,2020-09-15,Barranquilla,4.617169469142347,Nuevos,Pronostico,Base
+189,2020-09-16,Barranquilla,3.7796315853536804,Nuevos,Pronostico,Base
+190,2020-09-17,Barranquilla,3.141872141875916,Nuevos,Pronostico,Base
+191,2020-09-18,Barranquilla,2.65123360532087,Nuevos,Pronostico,Base
+192,2020-09-19,Barranquilla,2.2506465062223007,Nuevos,Pronostico,Base
+193,2020-09-20,Barranquilla,1.9042029191270653,Nuevos,Pronostico,Base
+194,2020-09-21,Barranquilla,1.598302050102445,Nuevos,Pronostico,Base
+195,2020-09-22,Barranquilla,1.3320249323244326,Nuevos,Pronostico,Base
+196,2020-09-23,Barranquilla,1.106628743026196,Nuevos,Pronostico,Base
+197,2020-09-24,Barranquilla,0.9202382102650013,Nuevos,Pronostico,Base
+198,2020-09-25,Barranquilla,0.7674887239996034,Nuevos,Pronostico,Base
+199,2020-09-26,Barranquilla,0.6416510663459133,Nuevos,Pronostico,Base
+200,2020-09-27,Barranquilla,0.5367215842472444,Nuevos,Pronostico,Base
+201,2020-09-28,Barranquilla,0.4483647168518799,Nuevos,Pronostico,Base
+202,2020-09-29,Barranquilla,0.37377180650665576,Nuevos,Pronostico,Base
+203,2020-09-30,Barranquilla,0.311042935483066,Nuevos,Pronostico,Base
+204,2020-10-01,Barranquilla,0.25862673404887004,Nuevos,Pronostico,Base
+205,2020-10-02,Barranquilla,0.21504648236169116,Nuevos,Pronostico,Base
+206,2020-10-03,Barranquilla,0.17887560314427187,Nuevos,Pronostico,Base
+177,2020-09-04,Barranquilla,36708.81613411294,Nuevos,LS,Base
+178,2020-09-05,Barranquilla,36774.386098471296,Nuevos,LS,Base
+179,2020-09-06,Barranquilla,36832.017800104586,Nuevos,LS,Base
+180,2020-09-07,Barranquilla,36882.12571621696,Nuevos,LS,Base
+181,2020-09-08,Barranquilla,36930.07244081563,Nuevos,LS,Base
+177,2020-09-04,Barranquilla,36472.2868352242,Nuevos,LI,Base
+178,2020-09-05,Barranquilla,36537.85679958256,Nuevos,LI,Base
+179,2020-09-06,Barranquilla,36595.48850121585,Nuevos,LI,Base
+180,2020-09-07,Barranquilla,36645.59641732822,Nuevos,LI,Base
+181,2020-09-08,Barranquilla,36693.54314192689,Nuevos,LI,Base
+177,2020-09-04,Barranquilla,40.264793823003444,Nuevos,Pronostico,Francia
+178,2020-09-05,Barranquilla,34.06152302656555,Nuevos,Pronostico,Francia
+179,2020-09-06,Barranquilla,27.83698741480586,Nuevos,Pronostico,Francia
+180,2020-09-07,Barranquilla,20.12520603765166,Nuevos,Pronostico,Francia
+181,2020-09-08,Barranquilla,14.890454834854445,Nuevos,Pronostico,Francia
+182,2020-09-09,Barranquilla,11.6270823220534,Nuevos,Pronostico,Francia
+183,2020-09-10,Barranquilla,10.01616384615002,Nuevos,Pronostico,Francia
+184,2020-09-11,Barranquilla,8.964348297885458,Nuevos,Pronostico,Francia
+185,2020-09-12,Barranquilla,7.9650155945088335,Nuevos,Pronostico,Francia
+186,2020-09-13,Barranquilla,6.82495337776018,Nuevos,Pronostico,Francia
+187,2020-09-14,Barranquilla,5.660790829437962,Nuevos,Pronostico,Francia
+188,2020-09-15,Barranquilla,4.617169469142347,Nuevos,Pronostico,Francia
+189,2020-09-16,Barranquilla,3.7796315853536804,Nuevos,Pronostico,Francia
+190,2020-09-17,Barranquilla,3.141872141875916,Nuevos,Pronostico,Francia
+191,2020-09-18,Barranquilla,2.65123360532087,Nuevos,Pronostico,Francia
+192,2020-09-19,Barranquilla,2.2506465062223007,Nuevos,Pronostico,Francia
+193,2020-09-20,Barranquilla,5.762567985846365,Nuevos,Pronostico,Francia
+194,2020-09-21,Barranquilla,9.542485716952749,Nuevos,Pronostico,Francia
+195,2020-09-22,Barranquilla,13.587273260594902,Nuevos,Pronostico,Francia
+196,2020-09-23,Barranquilla,17.895808358934794,Nuevos,Pronostico,Francia
+197,2020-09-24,Barranquilla,22.464787873306268,Nuevos,Pronostico,Francia
+198,2020-09-25,Barranquilla,27.289649653193674,Nuevos,Pronostico,Francia
+199,2020-09-26,Barranquilla,32.366883538676895,Nuevos,Pronostico,Francia
+200,2020-09-27,Barranquilla,37.69542100314598,Nuevos,Pronostico,Francia
+201,2020-09-28,Barranquilla,43.27672062245354,Nuevos,Pronostico,Francia
+202,2020-09-29,Barranquilla,49.114132691934856,Nuevos,Pronostico,Francia
+203,2020-09-30,Barranquilla,55.212232044002874,Nuevos,Pronostico,Francia
+204,2020-10-01,Barranquilla,61.57642015355024,Nuevos,Pronostico,Francia
+205,2020-10-02,Barranquilla,68.21277647906136,Nuevos,Pronostico,Francia
+206,2020-10-03,Barranquilla,75.12804681711577,Nuevos,Pronostico,Francia
 0,2020-03-06,Barranquilla,2.0,Activos,Real,Base
 1,2020-03-09,Barranquilla,4.0,Activos,Real,Base
 2,2020-03-10,Barranquilla,6.0,Activos,Real,Base
@@ -8095,6 +8285,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 204,2020-10-01,Barranquilla,-625.1690076720188,Activos,LI,Base
 205,2020-10-02,Barranquilla,-570.852786543597,Activos,LI,Base
 206,2020-10-03,Barranquilla,-513.3302118342942,Activos,LI,Base
+177,2020-09-04,Barranquilla,1506.442381630368,Activos,Pronostico,Francia
+178,2020-09-05,Barranquilla,1297.7409223181949,Activos,Pronostico,Francia
+179,2020-09-06,Barranquilla,1104.1247240611483,Activos,Pronostico,Francia
+180,2020-09-07,Barranquilla,923.6072970317799,Activos,Pronostico,Francia
+181,2020-09-08,Barranquilla,751.1898315404446,Activos,Pronostico,Francia
+182,2020-09-09,Barranquilla,585.5196844218041,Activos,Pronostico,Francia
+183,2020-09-10,Barranquilla,427.5685883554802,Activos,Pronostico,Francia
+184,2020-09-11,Barranquilla,278.9419494226641,Activos,Pronostico,Francia
+185,2020-09-12,Barranquilla,140.62661736263726,Activos,Pronostico,Francia
+186,2020-09-13,Barranquilla,13.14723374130989,Activos,Pronostico,Francia
+187,2020-09-14,Barranquilla,-103.20103349194648,Activos,Pronostico,Francia
+188,2020-09-15,Barranquilla,-208.1305040036366,Activos,Pronostico,Francia
+189,2020-09-16,Barranquilla,-301.3859279683821,Activos,Pronostico,Francia
+190,2020-09-17,Barranquilla,-382.7799926807712,Activos,Pronostico,Francia
+191,2020-09-18,Barranquilla,-452.23698593613557,Activos,Pronostico,Francia
+192,2020-09-19,Barranquilla,-432.76443415183917,Activos,Pronostico,Francia
+193,2020-09-20,Barranquilla,-1207.5813494229928,Activos,Pronostico,Francia
+194,2020-09-21,Barranquilla,-2123.0113207375853,Activos,Pronostico,Francia
+195,2020-09-22,Barranquilla,-3141.106760116163,Activos,Pronostico,Francia
+196,2020-09-23,Barranquilla,-4220.090535362471,Activos,Pronostico,Francia
+197,2020-09-24,Barranquilla,-5314.564795314284,Activos,Pronostico,Francia
+198,2020-09-25,Barranquilla,-6376.928240758589,Activos,Pronostico,Francia
+199,2020-09-26,Barranquilla,-7359.2234160715425,Activos,Pronostico,Francia
+200,2020-09-27,Barranquilla,-8214.708345409294,Activos,Pronostico,Francia
+201,2020-09-28,Barranquilla,-8898.979827135401,Activos,Pronostico,Francia
+202,2020-09-29,Barranquilla,-9370.803766031919,Activos,Pronostico,Francia
+203,2020-09-30,Barranquilla,-9592.858485195193,Activos,Pronostico,Francia
+204,2020-10-01,Barranquilla,-9532.47286839875,Activos,Pronostico,Francia
+205,2020-10-02,Barranquilla,-9162.343176355114,Activos,Pronostico,Francia
+206,2020-10-03,Barranquilla,-8461.184525815437,Activos,Pronostico,Francia
 0,2020-03-06,Barranquilla,0.0,Recuperado,Real,Base
 1,2020-03-09,Barranquilla,0.0,Recuperado,Real,Base
 2,2020-03-10,Barranquilla,0.0,Recuperado,Real,Base
@@ -8539,6 +8759,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 204,2020-10-01,Barranquilla,-188.23581051145445,Recuperado,LI,Base
 205,2020-10-02,Barranquilla,-188.5686826653214,Recuperado,LI,Base
 206,2020-10-03,Barranquilla,-188.85295838393856,Recuperado,LI,Base
+177,2020-09-04,Barranquilla,83.20928827526649,Recuperado,Pronostico,Francia
+178,2020-09-05,Barranquilla,75.03997703380811,Recuperado,Pronostico,Francia
+179,2020-09-06,Barranquilla,67.50292673172234,Recuperado,Pronostico,Francia
+180,2020-09-07,Barranquilla,60.57055302917646,Recuperado,Pronostico,Francia
+181,2020-09-08,Barranquilla,54.213756432527475,Recuperado,Pronostico,Francia
+182,2020-09-09,Barranquilla,48.402354377898405,Recuperado,Pronostico,Francia
+183,2020-09-10,Barranquilla,43.105481354353564,Recuperado,Pronostico,Francia
+184,2020-09-11,Barranquilla,38.29195472350697,Recuperado,Pronostico,Francia
+185,2020-09-12,Barranquilla,33.93060470947661,Recuperado,Pronostico,Francia
+186,2020-09-13,Barranquilla,29.990567791622933,Recuperado,Pronostico,Francia
+187,2020-09-14,Barranquilla,26.441543422670787,Recuperado,Pronostico,Francia
+188,2020-09-15,Barranquilla,23.25401460949094,Recuperado,Pronostico,Francia
+189,2020-09-16,Barranquilla,20.399433428457854,Recuperado,Pronostico,Francia
+190,2020-09-17,Barranquilla,17.850372999761184,Recuperado,Pronostico,Francia
+191,2020-09-18,Barranquilla,15.580647815365085,Recuperado,Pronostico,Francia
+192,2020-09-19,Barranquilla,11.515745130667428,Recuperado,Pronostico,Francia
+193,2020-09-20,Barranquilla,25.60690463456507,Recuperado,Pronostico,Francia
+194,2020-09-21,Barranquilla,36.73396704787036,Recuperado,Pronostico,Francia
+195,2020-09-22,Barranquilla,45.19734668905873,Recuperado,Pronostico,Francia
+196,2020-09-23,Barranquilla,51.31156883291679,Recuperado,Pronostico,Francia
+197,2020-09-24,Barranquilla,55.380728297377686,Recuperado,Pronostico,Francia
+198,2020-09-25,Barranquilla,57.69732705686799,Recuperado,Pronostico,Francia
+199,2020-09-26,Barranquilla,58.54219980549206,Recuperado,Pronostico,Francia
+200,2020-09-27,Barranquilla,58.18033192194884,Recuperado,Pronostico,Francia
+201,2020-09-28,Barranquilla,56.85522855626348,Recuperado,Pronostico,Francia
+202,2020-09-29,Barranquilla,54.78479487767063,Recuperado,Pronostico,Francia
+203,2020-09-30,Barranquilla,52.15973610340685,Recuperado,Pronostico,Francia
+204,2020-10-01,Barranquilla,49.14395033397723,Recuperado,Pronostico,Francia
+205,2020-10-02,Barranquilla,45.87604019890806,Recuperado,Pronostico,Francia
+206,2020-10-03,Barranquilla,42.471333022335116,Recuperado,Pronostico,Francia
 0,2020-03-06,Barranquilla,0.0,Fallecido,Real,Base
 1,2020-03-09,Barranquilla,0.0,Fallecido,Real,Base
 2,2020-03-10,Barranquilla,0.0,Fallecido,Real,Base
@@ -8983,6 +9233,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 204,2020-10-01,Barranquilla,-4.578985736412405,Fallecido,LI,Base
 205,2020-10-02,Barranquilla,-4.569400305528789,Fallecido,LI,Base
 206,2020-10-03,Barranquilla,-4.580639837690408,Fallecido,LI,Base
+177,2020-09-04,Barranquilla,0.22270585390775027,Fallecido,Pronostico,Francia
+178,2020-09-05,Barranquilla,0.8676121114259937,Fallecido,Pronostico,Francia
+179,2020-09-06,Barranquilla,-0.04883142518422172,Fallecido,Pronostico,Francia
+180,2020-09-07,Barranquilla,-0.27968850689648633,Fallecido,Pronostico,Francia
+181,2020-09-08,Barranquilla,0.35563732856893526,Fallecido,Pronostico,Francia
+182,2020-09-09,Barranquilla,0.1416198567532548,Fallecido,Pronostico,Francia
+183,2020-09-10,Barranquilla,-0.2634085404057822,Fallecido,Pronostico,Francia
+184,2020-09-11,Barranquilla,0.0711010603011956,Fallecido,Pronostico,Francia
+185,2020-09-12,Barranquilla,0.18152309228022045,Fallecido,Pronostico,Francia
+186,2020-09-13,Barranquilla,-0.12302350632448672,Fallecido,Pronostico,Francia
+187,2020-09-14,Barranquilla,-0.059675934056997906,Fallecido,Pronostico,Francia
+188,2020-09-15,Barranquilla,0.1275373502426497,Fallecido,Pronostico,Francia
+189,2020-09-16,Barranquilla,-0.014212154979610555,Fallecido,Pronostico,Francia
+190,2020-09-17,Barranquilla,-0.08106957845863867,Fallecido,Pronostico,Francia
+191,2020-09-18,Barranquilla,0.05343668715020722,Fallecido,Pronostico,Francia
+192,2020-09-19,Barranquilla,0.029621258761879633,Fallecido,Pronostico,Francia
+193,2020-09-20,Barranquilla,-0.11814532628101757,Fallecido,Pronostico,Francia
+194,2020-09-21,Barranquilla,0.010696900686309338,Fallecido,Pronostico,Francia
+195,2020-09-22,Barranquilla,0.1998059740706817,Fallecido,Pronostico,Francia
+196,2020-09-23,Barranquilla,-0.13927476709991105,Fallecido,Pronostico,Francia
+197,2020-09-24,Barranquilla,-0.1484061933089305,Fallecido,Pronostico,Francia
+198,2020-09-25,Barranquilla,0.24827535780557897,Fallecido,Pronostico,Francia
+199,2020-09-26,Barranquilla,0.013697226668374453,Fallecido,Pronostico,Francia
+200,2020-09-27,Barranquilla,-0.2529910345882434,Fallecido,Pronostico,Francia
+201,2020-09-28,Barranquilla,0.13365112407151772,Fallecido,Pronostico,Francia
+202,2020-09-29,Barranquilla,0.16718444448311126,Fallecido,Pronostico,Francia
+203,2020-09-30,Barranquilla,-0.21442128444662936,Fallecido,Pronostico,Francia
+204,2020-10-01,Barranquilla,-0.0317752704281696,Fallecido,Pronostico,Francia
+205,2020-10-02,Barranquilla,0.21142078366637898,Fallecido,Pronostico,Francia
+206,2020-10-03,Barranquilla,-0.08564060716861964,Fallecido,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,1.0,Total,Real,Base
 1,2020-03-02,Cartagena de Indias,3.0,Total,Real,Base
 2,2020-03-06,Cartagena de Indias,6.0,Total,Real,Base
@@ -9379,6 +9659,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 180,2020-09-04,Cartagena de Indias,20914.380061950287,Total,LI,Base
 181,2020-09-05,Cartagena de Indias,21003.70177884193,Total,LI,Base
 182,2020-09-06,Cartagena de Indias,21098.02967055636,Total,LI,Base
+178,2020-09-02,Cartagena de Indias,20863.37395463673,Total,Pronostico,Francia
+179,2020-09-03,Cartagena de Indias,20920.56971148645,Total,Pronostico,Francia
+180,2020-09-04,Cartagena de Indias,20985.87986519063,Total,Pronostico,Francia
+181,2020-09-05,Cartagena de Indias,21058.536373353887,Total,Pronostico,Francia
+182,2020-09-06,Cartagena de Indias,21137.72562178875,Total,Pronostico,Francia
+183,2020-09-07,Cartagena de Indias,21222.60279481839,Total,Pronostico,Francia
+184,2020-09-08,Cartagena de Indias,21312.305428931915,Total,Pronostico,Francia
+185,2020-09-09,Cartagena de Indias,21405.966048488503,Total,Pronostico,Francia
+186,2020-09-10,Cartagena de Indias,21502.723802127835,Total,Pronostico,Francia
+187,2020-09-11,Cartagena de Indias,21601.73503785384,Total,Pronostico,Francia
+188,2020-09-12,Cartagena de Indias,21702.182773227898,Total,Pronostico,Francia
+189,2020-09-13,Cartagena de Indias,21803.285034577628,Total,Pronostico,Francia
+190,2020-09-14,Cartagena de Indias,21904.30205546155,Total,Pronostico,Francia
+191,2020-09-15,Cartagena de Indias,22004.542339720294,Total,Pronostico,Francia
+192,2020-09-16,Cartagena de Indias,22103.36760820642,Total,Pronostico,Francia
+193,2020-09-17,Cartagena de Indias,22200.196660656162,Total,Pronostico,Francia
+194,2020-09-18,Cartagena de Indias,20883.32381378907,Total,Pronostico,Francia
+195,2020-09-19,Cartagena de Indias,19558.92682003693,Total,Pronostico,Francia
+196,2020-09-20,Cartagena de Indias,18227.62903043202,Total,Pronostico,Francia
+197,2020-09-21,Cartagena de Indias,16890.22110272781,Total,Pronostico,Francia
+198,2020-09-22,Cartagena de Indias,15547.638392333478,Total,Pronostico,Francia
+199,2020-09-23,Cartagena de Indias,14200.938266903684,Total,Pronostico,Francia
+200,2020-09-24,Cartagena de Indias,12851.277737466547,Total,Pronostico,Francia
+201,2020-09-25,Cartagena de Indias,11499.891764649446,Total,Pronostico,Francia
+202,2020-09-26,Cartagena de Indias,10148.072546496353,Total,Pronostico,Francia
+203,2020-09-27,Cartagena de Indias,8797.150045010889,Total,Pronostico,Francia
+204,2020-09-28,Cartagena de Indias,7448.473978439328,Total,Pronostico,Francia
+205,2020-09-29,Cartagena de Indias,6103.397438119451,Total,Pronostico,Francia
+206,2020-09-30,Cartagena de Indias,4763.262261214208,Total,Pronostico,Francia
+207,2020-10-01,Cartagena de Indias,3429.386253022892,Total,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,1.0,Nuevos,Real,Base
 1,2020-03-02,Cartagena de Indias,2.0,Nuevos,Real,Base
 2,2020-03-06,Cartagena de Indias,3.0,Nuevos,Real,Base
@@ -9721,126 +10031,76 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 168,2020-08-23,Cartagena de Indias,53.65869475342516,Nuevos,Ajuste,Base
 169,2020-08-24,Cartagena de Indias,43.429376454371194,Nuevos,Ajuste,Base
 170,2020-08-25,Cartagena de Indias,40.957534899411755,Nuevos,Ajuste,Base
-178,2020-09-02,Cartagena de Indias,36.534791713352696,Nuevos,P_Gompertz,Base
-179,2020-09-03,Cartagena de Indias,37.0036272610731,Nuevos,P_Gompertz,Base
-180,2020-09-04,Cartagena de Indias,36.587721224817095,Nuevos,P_Gompertz,Base
-181,2020-09-05,Cartagena de Indias,35.61421070540325,Nuevos,P_Gompertz,Base
-182,2020-09-06,Cartagena de Indias,34.30036972720828,Nuevos,P_Gompertz,Base
-183,2020-09-07,Cartagena de Indias,32.79024794673952,Nuevos,P_Gompertz,Base
-184,2020-09-08,Cartagena de Indias,31.179080776049545,Nuevos,P_Gompertz,Base
-185,2020-09-09,Cartagena de Indias,29.529553887492476,Nuevos,P_Gompertz,Base
-186,2020-09-10,Cartagena de Indias,27.882641756938593,Nuevos,P_Gompertz,Base
-187,2020-09-11,Cartagena de Indias,26.26483180044925,Nuevos,P_Gompertz,Base
-188,2020-09-12,Cartagena de Indias,24.692940772083272,Nuevos,P_Gompertz,Base
-189,2020-09-13,Cartagena de Indias,23.177327175342732,Nuevos,P_Gompertz,Base
-190,2020-09-14,Cartagena de Indias,21.724035059772795,Nuevos,P_Gompertz,Base
-191,2020-09-15,Cartagena de Indias,20.33622580676382,Nuevos,P_Gompertz,Base
-192,2020-09-16,Cartagena de Indias,19.01513543288957,Nuevos,P_Gompertz,Base
-193,2020-09-17,Cartagena de Indias,17.76071562417059,Nuevos,P_Gompertz,Base
-194,2020-09-18,Cartagena de Indias,16.572063884382317,Nuevos,P_Gompertz,Base
-195,2020-09-19,Cartagena de Indias,15.447712991687538,Nuevos,P_Gompertz,Base
-196,2020-09-20,Cartagena de Indias,14.385826519943807,Nuevos,P_Gompertz,Base
-197,2020-09-21,Cartagena de Indias,13.384331570323203,Nuevos,P_Gompertz,Base
-198,2020-09-22,Cartagena de Indias,12.44100946179714,Nuevos,P_Gompertz,Base
-199,2020-09-23,Cartagena de Indias,11.553558204662645,Nuevos,P_Gompertz,Base
-200,2020-09-24,Cartagena de Indias,10.719635969983884,Nuevos,P_Gompertz,Base
-201,2020-09-25,Cartagena de Indias,9.936891697159455,Nuevos,P_Gompertz,Base
-202,2020-09-26,Cartagena de Indias,9.202986937280105,Nuevos,P_Gompertz,Base
-203,2020-09-27,Cartagena de Indias,8.515611668790823,Nuevos,P_Gompertz,Base
-204,2020-09-28,Cartagena de Indias,7.872495915928822,Nuevos,P_Gompertz,Base
-205,2020-09-29,Cartagena de Indias,7.271418397416223,Nuevos,P_Gompertz,Base
-206,2020-09-30,Cartagena de Indias,6.71021303165835,Nuevos,P_Gompertz,Base
-207,2020-10-01,Cartagena de Indias,6.186773857775243,Nuevos,P_Gompertz,Base
-178,2020-09-02,Cartagena de Indias,36.534791713352696,Nuevos,P_Final,Base
-179,2020-09-03,Cartagena de Indias,37.0036272610731,Nuevos,P_Final,Base
-180,2020-09-04,Cartagena de Indias,36.587721224817095,Nuevos,P_Final,Base
-181,2020-09-05,Cartagena de Indias,35.61421070540325,Nuevos,P_Final,Base
-182,2020-09-06,Cartagena de Indias,34.30036972720828,Nuevos,P_Final,Base
-183,2020-09-07,Cartagena de Indias,32.79024794673952,Nuevos,P_Final,Base
-184,2020-09-08,Cartagena de Indias,31.179080776049545,Nuevos,P_Final,Base
-185,2020-09-09,Cartagena de Indias,29.529553887492476,Nuevos,P_Final,Base
-186,2020-09-10,Cartagena de Indias,27.882641756938593,Nuevos,P_Final,Base
-187,2020-09-11,Cartagena de Indias,26.26483180044925,Nuevos,P_Final,Base
-188,2020-09-12,Cartagena de Indias,24.692940772083272,Nuevos,P_Final,Base
-189,2020-09-13,Cartagena de Indias,23.177327175342732,Nuevos,P_Final,Base
-190,2020-09-14,Cartagena de Indias,21.724035059772795,Nuevos,P_Final,Base
-191,2020-09-15,Cartagena de Indias,20.33622580676382,Nuevos,P_Final,Base
-192,2020-09-16,Cartagena de Indias,19.01513543288957,Nuevos,P_Final,Base
-193,2020-09-17,Cartagena de Indias,17.76071562417059,Nuevos,P_Final,Base
-194,2020-09-18,Cartagena de Indias,20.861482279883557,Nuevos,P_Final,Base
-195,2020-09-19,Cartagena de Indias,24.496154573832946,Nuevos,P_Final,Base
-196,2020-09-20,Cartagena de Indias,28.662213964207837,Nuevos,P_Final,Base
-197,2020-09-21,Cartagena de Indias,33.35793182034556,Nuevos,P_Final,Base
-198,2020-09-22,Cartagena de Indias,38.5825251660409,Nuevos,P_Final,Base
-199,2020-09-23,Cartagena de Indias,44.33625532837563,Nuevos,P_Final,Base
-200,2020-09-24,Cartagena de Indias,50.620492345612384,Nuevos,P_Final,Base
-201,2020-09-25,Cartagena de Indias,57.43775489794966,Nuevos,P_Final,Base
-202,2020-09-26,Cartagena de Indias,64.79172950571066,Nuevos,P_Final,Base
-203,2020-09-27,Cartagena de Indias,72.68728606275232,Nuevos,P_Final,Base
-204,2020-09-28,Cartagena de Indias,81.1304910998057,Nuevos,P_Final,Base
-205,2020-09-29,Cartagena de Indias,90.12859223568368,Nuevos,P_Final,Base
-206,2020-09-30,Cartagena de Indias,99.69001820612482,Nuevos,P_Final,Base
-207,2020-10-01,Cartagena de Indias,109.82437733811821,Nuevos,P_Final,Base
-178,2020-09-02,Cartagena de Indias,108.82841136635636,Nuevos,LS,Base
-179,2020-09-03,Cartagena de Indias,109.29724691407677,Nuevos,LS,Base
-180,2020-09-04,Cartagena de Indias,108.88134087782075,Nuevos,LS,Base
-181,2020-09-05,Cartagena de Indias,107.90783035840691,Nuevos,LS,Base
-182,2020-09-06,Cartagena de Indias,106.59398938021194,Nuevos,LS,Base
-183,2020-09-07,Cartagena de Indias,105.08386759974317,Nuevos,LS,Base
-184,2020-09-08,Cartagena de Indias,103.4727004290532,Nuevos,LS,Base
-185,2020-09-09,Cartagena de Indias,101.82317354049613,Nuevos,LS,Base
-186,2020-09-10,Cartagena de Indias,100.17626140994226,Nuevos,LS,Base
-187,2020-09-11,Cartagena de Indias,98.5584514534529,Nuevos,LS,Base
-188,2020-09-12,Cartagena de Indias,96.98656042508694,Nuevos,LS,Base
-189,2020-09-13,Cartagena de Indias,95.4709468283464,Nuevos,LS,Base
-190,2020-09-14,Cartagena de Indias,94.01765471277645,Nuevos,LS,Base
-191,2020-09-15,Cartagena de Indias,92.62984545976748,Nuevos,LS,Base
-192,2020-09-16,Cartagena de Indias,91.30875508589322,Nuevos,LS,Base
-193,2020-09-17,Cartagena de Indias,90.05433527717425,Nuevos,LS,Base
-194,2020-09-18,Cartagena de Indias,93.15510193288722,Nuevos,LS,Base
-195,2020-09-19,Cartagena de Indias,96.78977422683661,Nuevos,LS,Base
-196,2020-09-20,Cartagena de Indias,100.9558336172115,Nuevos,LS,Base
-197,2020-09-21,Cartagena de Indias,105.65155147334923,Nuevos,LS,Base
-198,2020-09-22,Cartagena de Indias,110.87614481904455,Nuevos,LS,Base
-199,2020-09-23,Cartagena de Indias,116.62987498137929,Nuevos,LS,Base
-200,2020-09-24,Cartagena de Indias,122.91411199861605,Nuevos,LS,Base
-201,2020-09-25,Cartagena de Indias,129.73137455095332,Nuevos,LS,Base
-202,2020-09-26,Cartagena de Indias,137.08534915871434,Nuevos,LS,Base
-203,2020-09-27,Cartagena de Indias,144.98090571575597,Nuevos,LS,Base
-204,2020-09-28,Cartagena de Indias,153.42411075280936,Nuevos,LS,Base
-205,2020-09-29,Cartagena de Indias,162.42221188868734,Nuevos,LS,Base
-206,2020-09-30,Cartagena de Indias,171.98363785912846,Nuevos,LS,Base
-207,2020-10-01,Cartagena de Indias,182.11799699112186,Nuevos,LS,Base
-178,2020-09-02,Cartagena de Indias,-35.75882793965096,Nuevos,LI,Base
-179,2020-09-03,Cartagena de Indias,-35.28999239193056,Nuevos,LI,Base
-180,2020-09-04,Cartagena de Indias,-35.705898428186565,Nuevos,LI,Base
-181,2020-09-05,Cartagena de Indias,-36.67940894760041,Nuevos,LI,Base
-182,2020-09-06,Cartagena de Indias,-37.99324992579538,Nuevos,LI,Base
-183,2020-09-07,Cartagena de Indias,-39.50337170626414,Nuevos,LI,Base
-184,2020-09-08,Cartagena de Indias,-41.114538876954114,Nuevos,LI,Base
-185,2020-09-09,Cartagena de Indias,-42.764065765511184,Nuevos,LI,Base
-186,2020-09-10,Cartagena de Indias,-44.41097789606506,Nuevos,LI,Base
-187,2020-09-11,Cartagena de Indias,-46.02878785255441,Nuevos,LI,Base
-188,2020-09-12,Cartagena de Indias,-47.600678880920384,Nuevos,LI,Base
-189,2020-09-13,Cartagena de Indias,-49.11629247766093,Nuevos,LI,Base
-190,2020-09-14,Cartagena de Indias,-50.569584593230864,Nuevos,LI,Base
-191,2020-09-15,Cartagena de Indias,-51.95739384623984,Nuevos,LI,Base
-192,2020-09-16,Cartagena de Indias,-53.278484220114095,Nuevos,LI,Base
-193,2020-09-17,Cartagena de Indias,-54.53290402883307,Nuevos,LI,Base
-194,2020-09-18,Cartagena de Indias,-51.4321373731201,Nuevos,LI,Base
-195,2020-09-19,Cartagena de Indias,-47.79746507917071,Nuevos,LI,Base
-196,2020-09-20,Cartagena de Indias,-43.63140568879582,Nuevos,LI,Base
-197,2020-09-21,Cartagena de Indias,-38.9356878326581,Nuevos,LI,Base
-198,2020-09-22,Cartagena de Indias,-33.71109448696276,Nuevos,LI,Base
-199,2020-09-23,Cartagena de Indias,-27.95736432462803,Nuevos,LI,Base
-200,2020-09-24,Cartagena de Indias,-21.673127307391276,Nuevos,LI,Base
-201,2020-09-25,Cartagena de Indias,-14.855864755054,Nuevos,LI,Base
-202,2020-09-26,Cartagena de Indias,-7.501890147292997,Nuevos,LI,Base
-203,2020-09-27,Cartagena de Indias,0.3936664097486613,Nuevos,LI,Base
-204,2020-09-28,Cartagena de Indias,8.836871446802036,Nuevos,LI,Base
-205,2020-09-29,Cartagena de Indias,17.834972582680024,Nuevos,LI,Base
-206,2020-09-30,Cartagena de Indias,27.39639855312116,Nuevos,LI,Base
-207,2020-10-01,Cartagena de Indias,37.53075768511455,Nuevos,LI,Base
+178,2020-09-02,Cartagena de Indias,36.534791713352696,Nuevos,Pronostico,Base
+179,2020-09-03,Cartagena de Indias,37.0036272610731,Nuevos,Pronostico,Base
+180,2020-09-04,Cartagena de Indias,36.587721224817095,Nuevos,Pronostico,Base
+181,2020-09-05,Cartagena de Indias,35.61421070540325,Nuevos,Pronostico,Base
+182,2020-09-06,Cartagena de Indias,34.30036972720828,Nuevos,Pronostico,Base
+183,2020-09-07,Cartagena de Indias,32.79024794673952,Nuevos,Pronostico,Base
+184,2020-09-08,Cartagena de Indias,31.179080776049545,Nuevos,Pronostico,Base
+185,2020-09-09,Cartagena de Indias,29.529553887492476,Nuevos,Pronostico,Base
+186,2020-09-10,Cartagena de Indias,27.882641756938593,Nuevos,Pronostico,Base
+187,2020-09-11,Cartagena de Indias,26.26483180044925,Nuevos,Pronostico,Base
+188,2020-09-12,Cartagena de Indias,24.692940772083272,Nuevos,Pronostico,Base
+189,2020-09-13,Cartagena de Indias,23.177327175342732,Nuevos,Pronostico,Base
+190,2020-09-14,Cartagena de Indias,21.724035059772795,Nuevos,Pronostico,Base
+191,2020-09-15,Cartagena de Indias,20.33622580676382,Nuevos,Pronostico,Base
+192,2020-09-16,Cartagena de Indias,19.01513543288957,Nuevos,Pronostico,Base
+193,2020-09-17,Cartagena de Indias,17.76071562417059,Nuevos,Pronostico,Base
+194,2020-09-18,Cartagena de Indias,16.572063884382317,Nuevos,Pronostico,Base
+195,2020-09-19,Cartagena de Indias,15.447712991687538,Nuevos,Pronostico,Base
+196,2020-09-20,Cartagena de Indias,14.385826519943807,Nuevos,Pronostico,Base
+197,2020-09-21,Cartagena de Indias,13.384331570323203,Nuevos,Pronostico,Base
+198,2020-09-22,Cartagena de Indias,12.44100946179714,Nuevos,Pronostico,Base
+199,2020-09-23,Cartagena de Indias,11.553558204662645,Nuevos,Pronostico,Base
+200,2020-09-24,Cartagena de Indias,10.719635969983884,Nuevos,Pronostico,Base
+201,2020-09-25,Cartagena de Indias,9.936891697159455,Nuevos,Pronostico,Base
+202,2020-09-26,Cartagena de Indias,9.202986937280105,Nuevos,Pronostico,Base
+203,2020-09-27,Cartagena de Indias,8.515611668790823,Nuevos,Pronostico,Base
+204,2020-09-28,Cartagena de Indias,7.872495915928822,Nuevos,Pronostico,Base
+205,2020-09-29,Cartagena de Indias,7.271418397416223,Nuevos,Pronostico,Base
+206,2020-09-30,Cartagena de Indias,6.71021303165835,Nuevos,Pronostico,Base
+207,2020-10-01,Cartagena de Indias,6.186773857775243,Nuevos,Pronostico,Base
+178,2020-09-02,Cartagena de Indias,20896.92250179326,Nuevos,LS,Base
+179,2020-09-03,Cartagena de Indias,20973.775783694597,Nuevos,LS,Base
+180,2020-09-04,Cartagena de Indias,21057.260225130565,Nuevos,LS,Base
+181,2020-09-05,Cartagena de Indias,21146.581942022207,Nuevos,LS,Base
+182,2020-09-06,Cartagena de Indias,21240.909833736638,Nuevos,LS,Base
+178,2020-09-02,Cartagena de Indias,20754.04233861298,Nuevos,LI,Base
+179,2020-09-03,Cartagena de Indias,20830.89562051432,Nuevos,LI,Base
+180,2020-09-04,Cartagena de Indias,20914.380061950287,Nuevos,LI,Base
+181,2020-09-05,Cartagena de Indias,21003.70177884193,Nuevos,LI,Base
+182,2020-09-06,Cartagena de Indias,21098.02967055636,Nuevos,LI,Base
+178,2020-09-02,Cartagena de Indias,36.534791713352696,Nuevos,Pronostico,Francia
+179,2020-09-03,Cartagena de Indias,37.0036272610731,Nuevos,Pronostico,Francia
+180,2020-09-04,Cartagena de Indias,36.587721224817095,Nuevos,Pronostico,Francia
+181,2020-09-05,Cartagena de Indias,35.61421070540325,Nuevos,Pronostico,Francia
+182,2020-09-06,Cartagena de Indias,34.30036972720828,Nuevos,Pronostico,Francia
+183,2020-09-07,Cartagena de Indias,32.79024794673952,Nuevos,Pronostico,Francia
+184,2020-09-08,Cartagena de Indias,31.179080776049545,Nuevos,Pronostico,Francia
+185,2020-09-09,Cartagena de Indias,29.529553887492476,Nuevos,Pronostico,Francia
+186,2020-09-10,Cartagena de Indias,27.882641756938593,Nuevos,Pronostico,Francia
+187,2020-09-11,Cartagena de Indias,26.26483180044925,Nuevos,Pronostico,Francia
+188,2020-09-12,Cartagena de Indias,24.692940772083272,Nuevos,Pronostico,Francia
+189,2020-09-13,Cartagena de Indias,23.177327175342732,Nuevos,Pronostico,Francia
+190,2020-09-14,Cartagena de Indias,21.724035059772795,Nuevos,Pronostico,Francia
+191,2020-09-15,Cartagena de Indias,20.33622580676382,Nuevos,Pronostico,Francia
+192,2020-09-16,Cartagena de Indias,19.01513543288957,Nuevos,Pronostico,Francia
+193,2020-09-17,Cartagena de Indias,17.76071562417059,Nuevos,Pronostico,Francia
+194,2020-09-18,Cartagena de Indias,19.541843253024762,Nuevos,Pronostico,Francia
+195,2020-09-19,Cartagena de Indias,21.741620126494254,Nuevos,Pronostico,Francia
+196,2020-09-20,Cartagena de Indias,24.351525657327734,Nuevos,Pronostico,Francia
+197,2020-09-21,Cartagena de Indias,27.363595951326303,Nuevos,Pronostico,Francia
+198,2020-09-22,Cartagena de Indias,30.770572055268477,Nuevos,Pronostico,Francia
+199,2020-09-23,Cartagena de Indias,34.56599485904664,Nuevos,Pronostico,Francia
+200,2020-09-24,Cartagena de Indias,38.744258928436984,Nuevos,Pronostico,Francia
+201,2020-09-25,Cartagena de Indias,43.30064816789424,Nuevos,Pronostico,Francia
+202,2020-09-26,Cartagena de Indias,48.2313533988195,Nuevos,Pronostico,Francia
+203,2020-09-27,Cartagena de Indias,53.53347423525759,Nuevos,Pronostico,Francia
+204,2020-09-28,Cartagena de Indias,59.20502472305201,Nuevos,Pronostico,Francia
+205,2020-09-29,Cartagena de Indias,65.24492031747928,Nuevos,Pronostico,Francia
+206,2020-09-30,Cartagena de Indias,71.65296499476626,Nuevos,Pronostico,Francia
+207,2020-10-01,Cartagena de Indias,78.42984248858875,Nuevos,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,1.0,Activos,Real,Base
 1,2020-03-02,Cartagena de Indias,3.0,Activos,Real,Base
 2,2020-03-06,Cartagena de Indias,6.0,Activos,Real,Base
@@ -10287,6 +10547,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 205,2020-09-29,Cartagena de Indias,238.11434477463897,Activos,LI,Base
 206,2020-09-30,Cartagena de Indias,202.08746059381278,Activos,LI,Base
 207,2020-10-01,Cartagena de Indias,168.6977893181759,Activos,LI,Base
+178,2020-09-02,Cartagena de Indias,1664.883084765967,Activos,Pronostico,Francia
+179,2020-09-03,Cartagena de Indias,1587.464538579533,Activos,Pronostico,Francia
+180,2020-09-04,Cartagena de Indias,1517.7426689443337,Activos,Pronostico,Francia
+181,2020-09-05,Cartagena de Indias,1454.6726593729995,Activos,Pronostico,Francia
+182,2020-09-06,Cartagena de Indias,1397.1993715726605,Activos,Pronostico,Francia
+183,2020-09-07,Cartagena de Indias,1344.2873097330034,Activos,Pronostico,Francia
+184,2020-09-08,Cartagena de Indias,1294.947173000061,Activos,Pronostico,Francia
+185,2020-09-09,Cartagena de Indias,1248.2585693138437,Activos,Pronostico,Francia
+186,2020-09-10,Cartagena de Indias,1203.388609613663,Activos,Pronostico,Francia
+187,2020-09-11,Cartagena de Indias,1159.6062420020417,Activos,Pronostico,Francia
+188,2020-09-12,Cartagena de Indias,1116.2923173391741,Activos,Pronostico,Francia
+189,2020-09-13,Cartagena de Indias,1072.9454980021528,Activos,Pronostico,Francia
+190,2020-09-14,Cartagena de Indias,1029.1842278601837,Activos,Pronostico,Francia
+191,2020-09-15,Cartagena de Indias,984.7450721614182,Activos,Pronostico,Francia
+192,2020-09-16,Cartagena de Indias,939.4778098653123,Activos,Pronostico,Francia
+193,2020-09-17,Cartagena de Indias,834.404635798531,Activos,Pronostico,Francia
+194,2020-09-18,Cartagena de Indias,869.819615253462,Activos,Pronostico,Francia
+195,2020-09-19,Cartagena de Indias,913.2507634749597,Activos,Pronostico,Francia
+196,2020-09-20,Cartagena de Indias,961.2379657839551,Activos,Pronostico,Francia
+197,2020-09-21,Cartagena de Indias,1010.5494242526615,Activos,Pronostico,Francia
+198,2020-09-22,Cartagena de Indias,1058.2522627102348,Activos,Pronostico,Francia
+199,2020-09-23,Cartagena de Indias,1101.7776105925743,Activos,Pronostico,Francia
+200,2020-09-24,Cartagena de Indias,1138.9760302271113,Activos,Pronostico,Francia
+201,2020-09-25,Cartagena de Indias,1168.1603270414828,Activos,Pronostico,Francia
+202,2020-09-26,Cartagena de Indias,1188.132948536277,Activos,Pronostico,Francia
+203,2020-09-27,Cartagena de Indias,1198.1963957460669,Activos,Pronostico,Francia
+204,2020-09-28,Cartagena de Indias,1198.1464718631507,Activos,Pronostico,Francia
+205,2020-09-29,Cartagena de Indias,1188.2481040864827,Activos,Pronostico,Francia
+206,2020-09-30,Cartagena de Indias,1169.1954072718809,Activos,Pronostico,Francia
+207,2020-10-01,Cartagena de Indias,1142.0578666218612,Activos,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,0.0,Recuperado,Real,Base
 1,2020-03-02,Cartagena de Indias,0.0,Recuperado,Real,Base
 2,2020-03-06,Cartagena de Indias,0.0,Recuperado,Real,Base
@@ -10733,6 +11023,36 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 205,2020-09-29,Cartagena de Indias,-42.87758825591612,Recuperado,LI,Base
 206,2020-09-30,Cartagena de Indias,-44.36988804211929,Recuperado,LI,Base
 207,2020-10-01,Cartagena de Indias,-46.78969811112357,Recuperado,LI,Base
+178,2020-09-02,Cartagena de Indias,120.07115732507376,Recuperado,Pronostico,Francia
+179,2020-09-03,Cartagena de Indias,160.87499008087536,Recuperado,Pronostico,Francia
+180,2020-09-04,Cartagena de Indias,151.43954170270382,Recuperado,Pronostico,Francia
+181,2020-09-05,Cartagena de Indias,106.59551342336832,Recuperado,Pronostico,Francia
+182,2020-09-06,Cartagena de Indias,117.16312071315832,Recuperado,Pronostico,Francia
+183,2020-09-07,Cartagena de Indias,132.90294858043998,Recuperado,Pronostico,Francia
+184,2020-09-08,Cartagena de Indias,115.47083625076428,Recuperado,Pronostico,Francia
+185,2020-09-09,Cartagena de Indias,93.5712517806777,Recuperado,Pronostico,Francia
+186,2020-09-10,Cartagena de Indias,100.91783225653082,Recuperado,Pronostico,Francia
+187,2020-09-11,Cartagena de Indias,107.48422945689893,Recuperado,Pronostico,Francia
+188,2020-09-12,Cartagena de Indias,94.22046012299155,Recuperado,Pronostico,Francia
+189,2020-09-13,Cartagena de Indias,82.87943944042357,Recuperado,Pronostico,Francia
+190,2020-09-14,Cartagena de Indias,86.4976909184909,Recuperado,Pronostico,Francia
+191,2020-09-15,Cartagena de Indias,86.97776539833895,Recuperado,Pronostico,Francia
+192,2020-09-16,Cartagena de Indias,77.05703010217992,Recuperado,Pronostico,Francia
+193,2020-09-17,Cartagena de Indias,65.8880588225391,Recuperado,Pronostico,Francia
+194,2020-09-18,Cartagena de Indias,73.61933484857941,Recuperado,Pronostico,Francia
+195,2020-09-19,Cartagena de Indias,79.62330184920026,Recuperado,Pronostico,Francia
+196,2020-09-20,Cartagena de Indias,80.15762123364946,Recuperado,Pronostico,Francia
+197,2020-09-21,Cartagena de Indias,84.21915688918833,Recuperado,Pronostico,Francia
+198,2020-09-22,Cartagena de Indias,94.02810104484041,Recuperado,Pronostico,Francia
+199,2020-09-23,Cartagena de Indias,100.58499750948921,Recuperado,Pronostico,Francia
+200,2020-09-24,Cartagena de Indias,102.52601688173176,Recuperado,Pronostico,Francia
+201,2020-09-25,Cartagena de Indias,108.0929581869785,Recuperado,Pronostico,Francia
+202,2020-09-26,Cartagena de Indias,117.34917108835131,Recuperado,Pronostico,Francia
+203,2020-09-27,Cartagena de Indias,122.49010681855266,Recuperado,Pronostico,Francia
+204,2020-09-28,Cartagena de Indias,124.2288154698654,Recuperado,Pronostico,Francia
+205,2020-09-29,Cartagena de Indias,129.42788842294453,Recuperado,Pronostico,Francia
+206,2020-09-30,Cartagena de Indias,136.51638351294287,Recuperado,Pronostico,Francia
+207,2020-10-01,Cartagena de Indias,139.44723836960128,Recuperado,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,0.0,Fallecido,Real,Base
 1,2020-03-02,Cartagena de Indias,0.0,Fallecido,Real,Base
 2,2020-03-06,Cartagena de Indias,0.0,Fallecido,Real,Base
@@ -11179,3 +11499,33 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 205,2020-09-29,Cartagena de Indias,-2.583441629157657,Fallecido,LI,Base
 206,2020-09-30,Cartagena de Indias,-2.726435337041427,Fallecido,LI,Base
 207,2020-10-01,Cartagena de Indias,-2.6466359343605523,Fallecido,LI,Base
+178,2020-09-02,Cartagena de Indias,0.7975718018745939,Fallecido,Pronostico,Francia
+179,2020-09-03,Cartagena de Indias,1.299189307480089,Fallecido,Pronostico,Francia
+180,2020-09-04,Cartagena de Indias,1.0235164374840284,Fallecido,Pronostico,Francia
+181,2020-09-05,Cartagena de Indias,1.123870033840007,Fallecido,Pronostico,Francia
+182,2020-09-06,Cartagena de Indias,1.1986977894360535,Fallecido,Pronostico,Francia
+183,2020-09-07,Cartagena de Indias,0.8820729655248063,Fallecido,Pronostico,Francia
+184,2020-09-08,Cartagena de Indias,1.0976230424885882,Fallecido,Pronostico,Francia
+185,2020-09-09,Cartagena de Indias,1.0680634430125915,Fallecido,Pronostico,Francia
+186,2020-09-10,Cartagena de Indias,0.8126063970135373,Fallecido,Pronostico,Francia
+187,2020-09-11,Cartagena de Indias,1.0400103675168597,Fallecido,Pronostico,Francia
+188,2020-09-12,Cartagena de Indias,0.9345059221114886,Fallecido,Pronostico,Francia
+189,2020-09-13,Cartagena de Indias,0.7545424942108667,Fallecido,Pronostico,Francia
+190,2020-09-14,Cartagena de Indias,0.9652645950161736,Fallecido,Pronostico,Francia
+191,2020-09-15,Cartagena de Indias,0.8064455562129837,Fallecido,Pronostico,Francia
+192,2020-09-16,Cartagena de Indias,0.7000784743270425,Fallecido,Pronostico,Francia
+193,2020-09-17,Cartagena de Indias,0.8181638674625653,Fallecido,Pronostico,Francia
+194,2020-09-18,Cartagena de Indias,0.7055762422199047,Fallecido,Pronostico,Francia
+195,2020-09-19,Cartagena de Indias,0.737683983532614,Fallecido,Pronostico,Francia
+196,2020-09-20,Cartagena de Indias,0.9925846607695888,Fallecido,Pronostico,Francia
+197,2020-09-21,Cartagena de Indias,0.8286206985286949,Fallecido,Pronostico,Francia
+198,2020-09-22,Cartagena de Indias,0.9494612588576699,Fallecido,Pronostico,Francia
+199,2020-09-23,Cartagena de Indias,1.2106079790641713,Fallecido,Pronostico,Francia
+200,2020-09-24,Cartagena de Indias,0.9659259681245427,Fallecido,Pronostico,Francia
+201,2020-09-25,Cartagena de Indias,1.1899734757282978,Fallecido,Pronostico,Francia
+202,2020-09-26,Cartagena de Indias,1.400061542201047,Fallecido,Pronostico,Francia
+203,2020-09-27,Cartagena de Indias,1.070759779075108,Fallecido,Pronostico,Francia
+204,2020-09-28,Cartagena de Indias,1.4055384407537654,Fallecido,Pronostico,Francia
+205,2020-09-29,Cartagena de Indias,1.4963826361485524,Fallecido,Pronostico,Francia
+206,2020-09-30,Cartagena de Indias,1.1045203167387645,Fallecido,Pronostico,Francia
+207,2020-10-01,Cartagena de Indias,1.5381256031525814,Fallecido,Pronostico,Francia

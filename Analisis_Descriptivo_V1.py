@@ -88,14 +88,14 @@ def tabla_ciudad(ciudad):
 # Se define la tasa de infeccion como "Beta" dada por una media movil de 7 dias
 # Se define la tasa de recuperacion como "Gamma" como media movil de 7 dias
 # Se define el horizonte de tiempo "t" como el tamaño de la tabla ciudad (dias) + el numero de dias de la predicción (15 dias)
-def SIR(ciudad, df_pob, n_pred):
+def SIR(ciudad, df_pob, n_pred, beta, gamma):
     df = tabla_ciudad(c)
     N = int(df_pob.loc[(df_pob['Grupos de edad'] == 'Total') & (df_pob['Región'] == c), ['Ambos Sexos']].sum() * 0.6)
     I0, R0 = df['Activos'][-1], df['Recuperado'].sum()
     S0 = N - I0 - R0
     df['Gamma'] = df['Recuperado'] / df['Activos'].shift(1)
     # beta, gamma = df['GR'].rolling(7).mean()[-1], df['Gamma'].rolling(7).mean()[-1]
-    beta, gamma = 0.05, 0.02
+    # beta, gamma = 0.05, 0.02
     t = np.linspace(df.shape[0] + 1, df.shape[0] + n_pred, n_pred)
     
     
@@ -136,23 +136,7 @@ def mod_arima(datos, x, pred_x):
 
 def mod_gompertz(y, x, pred_x, tipo='nuevos'):
 
-   
-    # y= df[var]
-    # x = x
-    # pred_x = pred_x
     y = list(y)
-    # from sklearn.preprocessing import MinMaxScaler
-
-    # # # crea el transformador
-    # scaler = MinMaxScaler()
-    
-    # # escala la serie
-    # y = scaler.fit_transform( np.array(y).reshape(-1, 1))
-    # # z es un array de listas como efecto
-    # # del escalamiento
-    # y = [u[0] for u in y]
-
-
 
     #Modelo Gompertz casos totales
     def gompertz(x, a, b, c):
@@ -203,16 +187,6 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
         print('Elija un tipo válido')
         
         
-
-    
-    # plt.plot(y)    
-    # plt.plot(ajuste, 'r-')
-        
-    # pronostico = scaler.inverse_transform([[u] for u in pronostico])
-    # pronostico = [u[0] for u in pronostico]
-    
-    # ajuste = scaler.inverse_transform([[u] for u in ajuste])
-    # ajuste = [u[0] for u in ajuste]        
     
     return ajuste, pronostico
 
@@ -239,7 +213,9 @@ for c in ciudades:
     
     # c = 'Bogotá D.C.'
 
+    # =============================================================================
     # variables de tiempo
+    # =============================================================================
     
     N = df.shape[0]
     ff = df.index.max()
@@ -292,10 +268,7 @@ for c in ciudades:
     mae = mean_absolute_error(y[pred_x_val], pron_final)
     fmae.append([c, 'Total', mae,'Base'])
     
-    # plt.plot(x,y, 'b-')
-    # plt.plot(x_val,aj_t_final, 'r-' )
-    # plt.plot(pred_x_val,pron_final, 'g-')
-    
+
     ### Ahora con todos los datos
     
     aj_t_gom, pron_t_gom = mod_gompertz(y,x,pred_x,'totales')
@@ -323,10 +296,10 @@ for c in ciudades:
     fr2.append([c, 'Total', r2,'Base'])
     
     
-    plt.plot(x,y, 'b-')
-    plt.plot(x,aj_t_final, 'r-' )
-    plt.plot(pred_x,pron_t_final, 'g-')
-    plt.show()
+    # plt.plot(x,y, 'b-')
+    # plt.plot(x,aj_t_final, 'r-' )
+    # plt.plot(pred_x,pron_t_final, 'g-')
+    # plt.show()
     
     #Construccion CSV
     for i in range(len(aj_t_final)):
@@ -366,6 +339,38 @@ for c in ciudades:
       esc.append('Base')
       
       
+    ### Pronósticos con escenarios de apertura
+      
+    """SIR Casos Totales"""
+    # Francia 0.0269,0.0028
+    # Mundo 0.01,0.0116
+    S, I, R = SIR(c, df_pob, pred, 0.0269,0.0028)    
+
+    # se crea un vector donde se reparten los pesos de cada modelo a partir
+    # de dos semanas de pronóstico
+    p = np.linspace(0, 1, 15)
+
+    # Pronóstico a partir del día 15
+    pron_final = pron_t_final[15:]*(1-p) + I[15:]*p
+    
+    pron_final = np.append(pron_t_final[:15], pron_final)
+    
+    # escenario 
+    for i in range(len(pron_final)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_final[i])
+      e.append('Total')
+      g.append('Pronostico')
+      esc.append('Francia')
+
+
+    # plt.plot(x,y, 'b-')
+    # plt.plot(x,aj_t_final, 'r-' )
+    # plt.plot(pred_x,pron_final, 'g-')
+    # plt.show()     
+    
     # =============================================================================
     # Casos nuevos
     # =============================================================================
@@ -483,59 +488,8 @@ for c in ciudades:
       u.append(c)
       v.append(pron_n_final[i])
       e.append('Nuevos')
-      g.append('P_Gompertz')
+      g.append('Pronostico')
       esc.append('Base')
-
-
-    # nuevos residuales e intervalos de predicción
-    n_res = f_y - aj_n_final
-    s = np.std(n_res)
- 
-    r2 = r2_score(f_y, aj_n_final)
-
-    fr2.append([c, 'Nuevos', r2,'Base'])
-
-
-    """SIR Casos Totales"""
-    S, I, R = SIR(c, df_pob, pred)    
-    """SIR Casos Nuevos"""
-    SIR_n = [0 if i < 0 else i for i in np.diff(I)]
-    
-
-    # se agrega un cero para que tenga la misma longitud que el pronóstico del
-    # modelo gompertz + arima
-    SIR_n = [0] + SIR_n
-    
-    # se crea un vector donde se reparten los pesos de cada modelo a partir
-    # de dos semanas de pronóstico
-    p = np.linspace(0, 1, 15)
-    # p = np.zeros(15)
-    # p = np.repeat(1,15)
-    # Pronóstico a partir del día 15
-    pron_final = pron_n_final[15:]*(1-p) + SIR_n[15:]*p
-    
-    pron_final = np.append(pron_n_final[:15], pron_final)
-
-    # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s
-    
-    
-    # plt.plot(f_y)
-    # plt.plot(aj_n_final, 'r-')
-    # plt.plot(pred_x-7,pron_n_final, 'g-')
-    # plt.title(c)
-    # plt.show()
-    
-    for i in range(len(pron_final)):
-      n.append(pred_x[i])
-      f.append(fechas[-1] + dt.timedelta(days=i+1))
-      u.append(c)
-      v.append(pron_final[i])
-      e.append('Nuevos')
-      g.append('P_Final')
-      esc.append('Base')
-
 
     for i in range(len(l_s)):
       n.append(pred_x[i])
@@ -554,6 +508,66 @@ for c in ciudades:
       e.append('Nuevos')
       g.append('LI')
       esc.append('Base')
+
+    # nuevos residuales
+    n_res = f_y - aj_n_final
+    s = np.std(n_res)
+ 
+    r2 = r2_score(f_y, aj_n_final)
+
+    fr2.append([c, 'Nuevos', r2,'Base'])
+
+   
+    """SIR Casos Nuevos"""
+    SIR_n = [0 if i < 0 else i for i in np.diff(I)]
+    
+
+    # se agrega un cero para que tenga la misma longitud que el pronóstico del
+    # modelo gompertz + arima
+    SIR_n = [0] + SIR_n
+    
+    # se crea un vector donde se reparten los pesos de cada modelo a partir
+    # de dos semanas de pronóstico
+    p = np.linspace(0, 1, 15)
+    # p = np.zeros(15)
+    # p = np.repeat(1,15)
+    # Pronóstico a partir del día 15
+    pron_final = pron_n_final[15:]*(1-p) + SIR_n[15:]*p
+    
+    pron_final = np.append(pron_n_final[:15], pron_final)
+
+
+
+    # cambio porcentual por el escenario
+    crecimiento = pd.DataFrame(pron_final).pct_change()
+    
+    crecimiento[0] = crecimiento[0] + 1
+    
+    # se dejan los primeros 15 días en 1 (en este periodo no se pretende
+    # modificar el pronóstico del modelo a corto plazo)    
+    crecimiento[0][:15] = 1
+    # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
+    # al pronóstico número 15
+    crecimiento = list(crecimiento[0].cumprod())
+    
+
+    
+    plt.plot(f_y)
+    plt.plot(aj_n_final, 'r-')
+    plt.plot(pred_x-7,pron_final, 'g-')
+    plt.title(c)
+    plt.show()
+    
+      
+    # escenario 1 
+    for i in range(len(pron_final)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_final[i])
+      e.append('Nuevos')
+      g.append('Pronostico')
+      esc.append('Francia')
 
 
 
@@ -626,41 +640,6 @@ for c in ciudades:
         
         r2 = r2_score(df[var], aj_final)
         fr2.append([c, var, r2,'Base']) 
-     
-        
-# =============================================================================
-#      
-# =============================================================================
-        # pm.plot_acf(res)
-        # pm.plot_pacf(res) 
-
-        # arma = SARIMAX(res,  
-        #             order = (0,0,0))
-        
-        
-        # resultado = arma.fit() 
-        # resultado.summary() 
-        
-        # ajuste = resultado.predict(min(x), max(x), 
-        #                       typ = 'levels')
-        
-        # pronostico = resultado.predict(min(pred_x), max(pred_x), 
-        #                       typ = 'levels')
-
-
-        # aj_final = aj_gom + ajuste
-    
-    
-        # #pronóstico gumpertz + arima
-        # pron_final = pron_gom + pronostico
-
-
-        plt.plot(x,df[var], 'b-')
-        plt.plot(x,aj_final, 'r-' )
-        plt.plot(pred_x,pron_final, 'g-')
-        plt.title(f'Ciudad: {c}, variable: {var}')
-        plt.show()
-
 
 
         # Bodega de datos
@@ -703,6 +682,33 @@ for c in ciudades:
           e.append(var)
           g.append('LI')
           esc.append('Base')
+
+
+        #Escenarios
+
+        # Pronóstico a partir del día 15
+        pron_final = [pron_final[i]*crecimiento[i] for i in range(len(crecimiento))]
+
+
+
+        # escenario 1 
+        for i in range(len(pron_final)):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(pron_final[i])
+          e.append(var)
+          g.append('Pronostico')
+          esc.append('Francia')
+          
+          
+        # plt.plot(x,df[var], 'b-')
+        # plt.plot(x,aj_final, 'r-' )
+        # plt.plot(pred_x,pron_final, 'g-')
+        # plt.title(f'Ciudad: {c}, variable: {var}')
+        # plt.show()
+        
+
 
 
 final = pd.DataFrame(list(zip(n, f, u, v, e, g, esc)), columns=['N', 'Fecha', 'Ciudad', 'Valor', 'Variable', 'Tipo','Escenario'])
