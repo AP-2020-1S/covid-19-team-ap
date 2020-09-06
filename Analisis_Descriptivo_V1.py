@@ -114,8 +114,8 @@ def SIR(ciudad, df_pob, n_pred):
     return S, I, R
 
 def mod_arima(datos, x, pred_x):
-
-    stepwise_fit = auto_arima(datos, seasonal = False,trace=True,start_p=5)   
+    
+    stepwise_fit = auto_arima(datos, seasonal = False,trace=False,start_p=5)   
     
     # se ajusta el modelo
     arma = SARIMAX(datos,  
@@ -143,7 +143,7 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
     y = list(y)
     # from sklearn.preprocessing import MinMaxScaler
 
-    # # crea el transformador
+    # # # crea el transformador
     # scaler = MinMaxScaler()
     
     # # escala la serie
@@ -230,6 +230,7 @@ u = []
 v = []
 e = []
 g = []
+esc = []
 
 for c in ciudades:
 
@@ -268,6 +269,7 @@ for c in ciudades:
       v.append(df.iloc[i]['Total'])
       e.append('Total')
       g.append('Real')
+      esc.append('Base')
     
     # Ajuste modelos
     """Gompertz Casos Totales"""
@@ -288,7 +290,7 @@ for c in ciudades:
     pron_final = pron_t_gom + pron_arima
     
     mae = mean_absolute_error(y[pred_x_val], pron_final)
-    fmae.append([c, 'Total', mae])
+    fmae.append([c, 'Total', mae,'Base'])
     
     # plt.plot(x,y, 'b-')
     # plt.plot(x_val,aj_t_final, 'r-' )
@@ -318,8 +320,13 @@ for c in ciudades:
         
     r2 = r2_score(y, aj_t_final)
 
-    fr2.append([c, 'Total', r2])
+    fr2.append([c, 'Total', r2,'Base'])
     
+    
+    plt.plot(x,y, 'b-')
+    plt.plot(x,aj_t_final, 'r-' )
+    plt.plot(pred_x,pron_t_final, 'g-')
+    plt.show()
     
     #Construccion CSV
     for i in range(len(aj_t_final)):
@@ -329,6 +336,7 @@ for c in ciudades:
       v.append(aj_t_final[i])
       e.append('Total')
       g.append('Ajuste')
+      esc.append('Base')
 
     for i in range(len(pron_t_final)):
       n.append(pred_x[i])
@@ -337,6 +345,7 @@ for c in ciudades:
       v.append(pron_t_final[i])
       e.append('Total')
       g.append('Pronostico')
+      esc.append('Base')
       
     for i in range(len(l_s)):
       n.append(pred_x[i])
@@ -345,6 +354,7 @@ for c in ciudades:
       v.append(l_s[i])
       e.append('Total')
       g.append('LS')
+      esc.append('Base')
     
     for i in range(len(l_i)):
       n.append(pred_x[i])
@@ -353,6 +363,7 @@ for c in ciudades:
       v.append(l_i[i])
       e.append('Total')
       g.append('LI')
+      esc.append('Base')
       
       
     # =============================================================================
@@ -370,6 +381,7 @@ for c in ciudades:
       v.append(df[c].iloc[i])
       e.append('Nuevos')
       g.append('Real')
+      esc.append('Base')
     
     
     
@@ -397,7 +409,7 @@ for c in ciudades:
 
 
     mae = mean_absolute_error(f_y[pred_x_val-7], pron_final)
-    fmae.append([c, 'Nuevos', mae])
+    fmae.append([c, 'Nuevos', mae,'Base'])
     
     
     ### Ahora con todos los datos
@@ -463,6 +475,7 @@ for c in ciudades:
       v.append(aj_n_final[i])
       e.append('Nuevos')
       g.append('Ajuste')
+      esc.append('Base')
     
     for i in range(len(pron_n_final)):
       n.append(pred_x[i])
@@ -471,6 +484,7 @@ for c in ciudades:
       v.append(pron_n_final[i])
       e.append('Nuevos')
       g.append('P_Gompertz')
+      esc.append('Base')
 
 
     # nuevos residuales e intervalos de predicción
@@ -479,7 +493,7 @@ for c in ciudades:
  
     r2 = r2_score(f_y, aj_n_final)
 
-    fr2.append([c, 'Nuevos', r2])
+    fr2.append([c, 'Nuevos', r2,'Base'])
 
 
     """SIR Casos Totales"""
@@ -507,11 +521,11 @@ for c in ciudades:
     l_i = pron_final - st.norm.ppf(.95) * s
     
     
-    plt.plot(f_y)
-    plt.plot(aj_n_final, 'r-')
-    plt.plot(pred_x-7,pron_n_final, 'g-')
-    plt.title(c)
-    plt.show()
+    # plt.plot(f_y)
+    # plt.plot(aj_n_final, 'r-')
+    # plt.plot(pred_x-7,pron_n_final, 'g-')
+    # plt.title(c)
+    # plt.show()
     
     for i in range(len(pron_final)):
       n.append(pred_x[i])
@@ -520,6 +534,7 @@ for c in ciudades:
       v.append(pron_final[i])
       e.append('Nuevos')
       g.append('P_Final')
+      esc.append('Base')
 
 
     for i in range(len(l_s)):
@@ -529,6 +544,7 @@ for c in ciudades:
       v.append(l_s[i])
       e.append('Nuevos')
       g.append('LS')
+      esc.append('Base')
     
     for i in range(len(l_i)):
       n.append(pred_x[i])
@@ -537,6 +553,7 @@ for c in ciudades:
       v.append(l_i[i])
       e.append('Nuevos')
       g.append('LI')
+      esc.append('Base')
 
 
 
@@ -554,6 +571,7 @@ for c in ciudades:
           v.append(df[var].iloc[i])
           e.append(var)
           g.append('Real')
+          esc.append('Base')
         
         
         ### Validación cruzada
@@ -581,7 +599,7 @@ for c in ciudades:
         # plt.show()
         
         # bodega de datos
-        fmae.append([c, var, mae])
+        fmae.append([c, var, mae,'Base'])
         
         ### Modelo con todos los datos
 
@@ -607,7 +625,7 @@ for c in ciudades:
         l_i = pron_final - st.norm.ppf(.95) * s   
         
         r2 = r2_score(df[var], aj_final)
-        fr2.append([c, var, r2]) 
+        fr2.append([c, var, r2,'Base']) 
      
         
 # =============================================================================
@@ -653,6 +671,7 @@ for c in ciudades:
           v.append(aj_final[i])
           e.append(var)
           g.append('Ajuste')
+          esc.append('Base')
 
         pron_final = list(pron_final)
 
@@ -663,6 +682,7 @@ for c in ciudades:
           v.append(pron_final[i])
           e.append(var)
           g.append('Pronostico')
+          esc.append('Base')
 
         l_s = list(l_s)
         l_i = list(l_i) 
@@ -673,6 +693,7 @@ for c in ciudades:
           v.append(l_s[i])
           e.append(var)
           g.append('LS')
+          esc.append('Base')
     
         for i in range(len(l_i)):
           n.append(pred_x[i])
@@ -681,11 +702,12 @@ for c in ciudades:
           v.append(l_i[i])
           e.append(var)
           g.append('LI')
+          esc.append('Base')
 
 
-final = pd.DataFrame(list(zip(n, f, u, v, e, g)), columns=['N', 'Fecha', 'Ciudad', 'Valor', 'Variable', 'Tipo'])
-df_mae = pd.DataFrame(data=fmae, columns=['Ciudad', 'Variable', 'Valor'])
-df_r2 = pd.DataFrame(data=fr2, columns=['Ciudad', 'Variable', 'Valor'])
+final = pd.DataFrame(list(zip(n, f, u, v, e, g, esc)), columns=['N', 'Fecha', 'Ciudad', 'Valor', 'Variable', 'Tipo','Escenario'])
+df_mae = pd.DataFrame(data=fmae, columns=['Ciudad', 'Variable', 'Valor','Escenario'])
+df_r2 = pd.DataFrame(data=fr2, columns=['Ciudad', 'Variable', 'Valor','Escenario'])
 
 final.to_csv('BD.csv', index=False, encoding='ISO-8859-1')
 df_mae.to_csv('mae.csv', index=False, encoding='ISO-8859-1')
