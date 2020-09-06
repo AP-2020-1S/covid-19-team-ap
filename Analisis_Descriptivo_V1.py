@@ -114,8 +114,8 @@ def SIR(ciudad, df_pob, n_pred):
     return S, I, R
 
 def mod_arima(datos, x, pred_x):
-    stepwise_fit = auto_arima(datos, seasonal = False)           # set to stepwise 
-    
+
+    stepwise_fit = auto_arima(datos, seasonal = False,trace=True,start_p=5)   
     
     # se ajusta el modelo
     arma = SARIMAX(datos,  
@@ -607,7 +607,35 @@ for c in ciudades:
         l_i = pron_final - st.norm.ppf(.95) * s   
         
         r2 = r2_score(df[var], aj_final)
-        fr2.append([c, var, r2])    
+        fr2.append([c, var, r2]) 
+     
+        
+# =============================================================================
+#      
+# =============================================================================
+        # pm.plot_acf(res)
+        # pm.plot_pacf(res) 
+
+        # arma = SARIMAX(res,  
+        #             order = (0,0,0))
+        
+        
+        # resultado = arma.fit() 
+        # resultado.summary() 
+        
+        # ajuste = resultado.predict(min(x), max(x), 
+        #                       typ = 'levels')
+        
+        # pronostico = resultado.predict(min(pred_x), max(pred_x), 
+        #                       typ = 'levels')
+
+
+        # aj_final = aj_gom + ajuste
+    
+    
+        # #pronóstico gumpertz + arima
+        # pron_final = pron_gom + pronostico
+
 
         plt.plot(x,df[var], 'b-')
         plt.plot(x,aj_final, 'r-' )
