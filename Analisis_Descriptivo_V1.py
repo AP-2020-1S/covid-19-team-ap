@@ -289,8 +289,8 @@ for c in ciudades:
     n_res = y - aj_t_final
     s = np.std(n_res)
     # límite superior e inferior de los intervalos
-    l_s = pron_final + st.norm.ppf(.95) * s
-    l_i = pron_final - st.norm.ppf(.95) * s   
+    l_s = pron_t_final + st.norm.ppf(.95) * s
+    l_i = pron_t_final - st.norm.ppf(.95) * s   
         
     r2 = r2_score(y, aj_t_final)
 
@@ -369,6 +369,26 @@ for c in ciudades:
       g.append('Pronostico')
       esc.append('Mexico')
 
+
+    for i in range(len(l_s[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Total')
+      g.append('LS')
+      esc.append('Mexico')
+    
+    for i in range(len(l_i[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Total')
+      g.append('LI')
+      esc.append('Mexico')   
+      
+
     # escenario  USA
     for i in range(len(pron_final_usa)):
       n.append(pred_x[i])
@@ -378,6 +398,26 @@ for c in ciudades:
       e.append('Total')
       g.append('Pronostico')
       esc.append('USA')
+      
+      
+    for i in range(len(l_s[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Total')
+      g.append('LS')
+      esc.append('USA')
+    
+    for i in range(len(l_i[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Total')
+      g.append('LI')
+      esc.append('USA')  
+
       
     # plt.plot(x,y, 'b-')
     # plt.plot(x,aj_t_final, 'r-' )
@@ -504,6 +544,25 @@ for c in ciudades:
       g.append('Pronostico')
       esc.append('Base')
 
+
+
+    # nuevos residuales
+    n_res = f_y - aj_n_final
+    s = np.std(n_res)
+ 
+    
+    # límite superior e inferior de los intervalos
+    l_s = pron_n_final + st.norm.ppf(.95) * s
+    l_i = pron_n_final - st.norm.ppf(.95) * s   
+        
+    
+    
+    r2 = r2_score(f_y, aj_n_final)
+
+    fr2.append([c, 'Nuevos', r2,'Base'])
+
+
+
     for i in range(len(l_s)):
       n.append(pred_x[i])
       f.append(fechas[-8] + dt.timedelta(days=i+1))
@@ -522,13 +581,8 @@ for c in ciudades:
       g.append('LI')
       esc.append('Base')
 
-    # nuevos residuales
-    n_res = f_y - aj_n_final
-    s = np.std(n_res)
- 
-    r2 = r2_score(f_y, aj_n_final)
 
-    fr2.append([c, 'Nuevos', r2,'Base'])
+
 
    
     """SIR Casos Nuevos"""
@@ -564,6 +618,28 @@ for c in ciudades:
       e.append('Nuevos')
       g.append('Pronostico')
       esc.append('Mexico')
+      
+      
+    for i in range(len(l_s[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Nuevos')
+      g.append('LS')
+      esc.append('Mexico')
+    
+    for i in range(len(l_i[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Nuevos')
+      g.append('LI')
+      esc.append('Mexico')
+
+
+      
 
     # escenario  USA
     for i in range(len(pron_final_usa)):
@@ -574,6 +650,25 @@ for c in ciudades:
       e.append('Nuevos')
       g.append('Pronostico')
       esc.append('USA')
+
+    for i in range(len(l_s[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_s[i])
+      e.append('Nuevos')
+      g.append('LS')
+      esc.append('USA')
+    
+    for i in range(len(l_i[:15])):
+      n.append(pred_x[i])
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(l_i[i])
+      e.append('Nuevos')
+      g.append('LI')
+      esc.append('USA')
+
 
     
     # Crecimiento de cada curva para las demás variables
@@ -750,6 +845,27 @@ for c in ciudades:
           g.append('Pronostico')
           esc.append('Mexico')
     
+    
+        for i in range(len(l_s[:15])):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_s[i])
+          e.append(var)
+          g.append('LS')
+          esc.append('Mexico')
+    
+        for i in range(len(l_i[:15])):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_i[i])
+          e.append(var)
+          g.append('LI')
+          esc.append('Mexico')   
+    
+    
+    
         # escenario  USA
         for i in range(len(pron_final_usa)):
           n.append(pred_x[i])
@@ -760,6 +876,25 @@ for c in ciudades:
           g.append('Pronostico')
           esc.append('USA')
 
+ 
+        for i in range(len(l_s[:15])):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_s[i])
+          e.append(var)
+          g.append('LS')
+          esc.append('USA')
+    
+        for i in range(len(l_i[:15])):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(l_i[i])
+          e.append(var)
+          g.append('LI')
+          esc.append('USA')  
+          
           
         # plt.plot(x,df[var], 'b-')
         # plt.plot(x,aj_final, 'r-' )
