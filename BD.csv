@@ -435,11 +435,91 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 190,2020-09-07,Bogotá D.C.,224703.81085955008,Total,Pronostico,Mexico
 191,2020-09-08,Bogotá D.C.,225038.04709738417,Total,Pronostico,Mexico
 192,2020-09-09,Bogotá D.C.,225342.30737574177,Total,Pronostico,Mexico
+193,2020-09-10,Bogotá D.C.,225616.55183685792,Total,Pronostico,Mexico
+194,2020-09-11,Bogotá D.C.,225860.76298994027,Total,Pronostico,Mexico
+195,2020-09-12,Bogotá D.C.,226074.94479565218,Total,Pronostico,Mexico
+196,2020-09-13,Bogotá D.C.,226259.12176310568,Total,Pronostico,Mexico
+197,2020-09-14,Bogotá D.C.,226413.33806053124,Total,Pronostico,Mexico
+198,2020-09-15,Bogotá D.C.,226537.65664067047,Total,Pronostico,Mexico
+199,2020-09-16,Bogotá D.C.,226632.15838182968,Total,Pronostico,Mexico
+200,2020-09-17,Bogotá D.C.,226696.94124542107,Total,Pronostico,Mexico
+201,2020-09-18,Bogotá D.C.,226732.11945072134,Total,Pronostico,Mexico
+202,2020-09-19,Bogotá D.C.,226737.8226674805,Total,Pronostico,Mexico
+203,2020-09-20,Bogotá D.C.,226714.19522692342,Total,Pronostico,Mexico
+204,2020-09-21,Bogotá D.C.,228251.23402112664,Total,Pronostico,Mexico
+205,2020-09-22,Bogotá D.C.,229989.26169080066,Total,Pronostico,Mexico
+206,2020-09-23,Bogotá D.C.,231933.32532979897,Total,Pronostico,Mexico
+207,2020-09-24,Bogotá D.C.,234088.39001240753,Total,Pronostico,Mexico
+208,2020-09-25,Bogotá D.C.,236459.33311857725,Total,Pronostico,Mexico
+209,2020-09-26,Bogotá D.C.,239050.93886405794,Total,Pronostico,Mexico
+210,2020-09-27,Bogotá D.C.,241867.89307033544,Total,Pronostico,Mexico
+211,2020-09-28,Bogotá D.C.,244914.77791505196,Total,Pronostico,Mexico
+212,2020-09-29,Bogotá D.C.,248196.06684816536,Total,Pronostico,Mexico
+213,2020-09-30,Bogotá D.C.,251716.11977018486,Total,Pronostico,Mexico
+214,2020-10-01,Bogotá D.C.,255479.17826516682,Total,Pronostico,Mexico
+215,2020-10-02,Bogotá D.C.,259489.3608335572,Total,Pronostico,Mexico
+216,2020-10-03,Bogotá D.C.,263750.65844262805,Total,Pronostico,Mexico
+217,2020-10-04,Bogotá D.C.,268266.930310386,Total,Pronostico,Mexico
+218,2020-10-05,Bogotá D.C.,273041.89943499287,Total,Pronostico,Mexico
+219,2020-10-06,Bogotá D.C.,278079.14847690024,Total,Pronostico,Mexico
+220,2020-10-07,Bogotá D.C.,283382.11613769585,Total,Pronostico,Mexico
+221,2020-10-08,Bogotá D.C.,288954.092976559,Total,Pronostico,Mexico
+222,2020-10-09,Bogotá D.C.,294798.21761333506,Total,Pronostico,Mexico
+223,2020-10-10,Bogotá D.C.,300917.47315102024,Total,Pronostico,Mexico
+224,2020-10-11,Bogotá D.C.,307314.6837735467,Total,Pronostico,Mexico
+225,2020-10-12,Bogotá D.C.,313992.5120042447,Total,Pronostico,Mexico
+226,2020-10-13,Bogotá D.C.,320953.4549123747,Total,Pronostico,Mexico
+227,2020-10-14,Bogotá D.C.,328199.8412381494,Total,Pronostico,Mexico
+228,2020-10-15,Bogotá D.C.,335733.828601967,Total,Pronostico,Mexico
+229,2020-10-16,Bogotá D.C.,343557.40058719175,Total,Pronostico,Mexico
+230,2020-10-17,Bogotá D.C.,351672.3636705014,Total,Pronostico,Mexico
+231,2020-10-18,Bogotá D.C.,360080.34548004804,Total,Pronostico,Mexico
+232,2020-10-19,Bogotá D.C.,368782.7922390201,Total,Pronostico,Mexico
 188,2020-09-05,Bogotá D.C.,223945.68734160985,Total,Pronostico,USA
 189,2020-09-06,Bogotá D.C.,224339.66181371597,Total,Pronostico,USA
 190,2020-09-07,Bogotá D.C.,224703.81085955008,Total,Pronostico,USA
 191,2020-09-08,Bogotá D.C.,225038.04709738417,Total,Pronostico,USA
 192,2020-09-09,Bogotá D.C.,225342.30737574177,Total,Pronostico,USA
+193,2020-09-10,Bogotá D.C.,225616.55183685792,Total,Pronostico,USA
+194,2020-09-11,Bogotá D.C.,225860.76298994027,Total,Pronostico,USA
+195,2020-09-12,Bogotá D.C.,226074.94479565218,Total,Pronostico,USA
+196,2020-09-13,Bogotá D.C.,226259.12176310568,Total,Pronostico,USA
+197,2020-09-14,Bogotá D.C.,226413.33806053124,Total,Pronostico,USA
+198,2020-09-15,Bogotá D.C.,226537.65664067047,Total,Pronostico,USA
+199,2020-09-16,Bogotá D.C.,226632.15838182968,Total,Pronostico,USA
+200,2020-09-17,Bogotá D.C.,226696.94124542107,Total,Pronostico,USA
+201,2020-09-18,Bogotá D.C.,226732.11945072134,Total,Pronostico,USA
+202,2020-09-19,Bogotá D.C.,226737.8226674805,Total,Pronostico,USA
+203,2020-09-20,Bogotá D.C.,226714.19522692342,Total,Pronostico,USA
+204,2020-09-21,Bogotá D.C.,227043.53266201666,Total,Pronostico,USA
+205,2020-09-22,Bogotá D.C.,227411.90695432437,Total,Pronostico,USA
+206,2020-09-23,Bogotá D.C.,227822.67022093246,Total,Pronostico,USA
+207,2020-09-24,Bogotá D.C.,228279.15780609308,Total,Pronostico,USA
+208,2020-09-25,Bogotá D.C.,228784.68565012806,Total,Pronostico,USA
+209,2020-09-26,Bogotá D.C.,229342.54782962828,Total,Pronostico,USA
+210,2020-09-27,Bogotá D.C.,229956.01425350521,Total,Pronostico,USA
+211,2020-09-28,Bogotá D.C.,230628.3285149554,Total,Pronostico,USA
+212,2020-09-29,Bogotá D.C.,231362.70592862886,Total,Pronostico,USA
+213,2020-09-30,Bogotá D.C.,232162.33161350834,Total,Pronostico,USA
+214,2020-10-01,Bogotá D.C.,233030.35876697017,Total,Pronostico,USA
+215,2020-10-02,Bogotá D.C.,233969.90706575476,Total,Pronostico,USA
+216,2020-10-03,Bogotá D.C.,234984.0611864361,Total,Pronostico,USA
+217,2020-10-04,Bogotá D.C.,236075.8694399659,Total,Pronostico,USA
+218,2020-10-05,Bogotá D.C.,237248.34253604827,Total,Pronostico,USA
+219,2020-10-06,Bogotá D.C.,238504.45244918775,Total,Pronostico,USA
+220,2020-10-07,Bogotá D.C.,239847.13139097748,Total,Pronostico,USA
+221,2020-10-08,Bogotá D.C.,241279.27088752692,Total,Pronostico,USA
+222,2020-10-09,Bogotá D.C.,242803.720924274,Total,Pronostico,USA
+223,2020-10-10,Bogotá D.C.,244423.28925227118,Total,Pronostico,USA
+224,2020-10-11,Bogotá D.C.,246140.74071134807,Total,Pronostico,USA
+225,2020-10-12,Bogotá D.C.,247958.79667457222,Total,Pronostico,USA
+226,2020-10-13,Bogotá D.C.,249880.13456271306,Total,Pronostico,USA
+227,2020-10-14,Bogotá D.C.,251907.38742229837,Total,Pronostico,USA
+228,2020-10-15,Bogotá D.C.,254043.14360852708,Total,Pronostico,USA
+229,2020-10-16,Bogotá D.C.,256289.94651423476,Total,Pronostico,USA
+230,2020-10-17,Bogotá D.C.,258650.29436336757,Total,Pronostico,USA
+231,2020-10-18,Bogotá D.C.,261126.6400684455,Total,Pronostico,USA
+232,2020-10-19,Bogotá D.C.,263721.391145632,Total,Pronostico,USA
 0,2020-02-27,Bogotá D.C.,1.0,Nuevos,Real,Base
 1,2020-02-28,Bogotá D.C.,1.0,Nuevos,Real,Base
 2,2020-03-01,Bogotá D.C.,3.0,Nuevos,Real,Base
@@ -3180,11 +3260,91 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 187,2020-09-07,Medellín,51563.03596938707,Total,Pronostico,Mexico
 188,2020-09-08,Medellín,51874.29566689416,Total,Pronostico,Mexico
 189,2020-09-09,Medellín,52200.67950184576,Total,Pronostico,Mexico
+190,2020-09-10,Medellín,52553.13918407985,Total,Pronostico,Mexico
+191,2020-09-11,Medellín,52893.906962368426,Total,Pronostico,Mexico
+192,2020-09-12,Medellín,53236.45002000371,Total,Pronostico,Mexico
+193,2020-09-13,Medellín,53575.39828585277,Total,Pronostico,Mexico
+194,2020-09-14,Medellín,53891.534859933316,Total,Pronostico,Mexico
+195,2020-09-15,Medellín,54205.73254319486,Total,Pronostico,Mexico
+196,2020-09-16,Medellín,54500.09707817312,Total,Pronostico,Mexico
+197,2020-09-17,Medellín,54776.56524964729,Total,Pronostico,Mexico
+198,2020-09-18,Medellín,55046.42504988105,Total,Pronostico,Mexico
+199,2020-09-19,Medellín,55292.122298059585,Total,Pronostico,Mexico
+200,2020-09-20,Medellín,55528.08708887643,Total,Pronostico,Mexico
+201,2020-09-21,Medellín,55934.836218965786,Total,Pronostico,Mexico
+202,2020-09-22,Medellín,56352.42936044584,Total,Pronostico,Mexico
+203,2020-09-23,Medellín,56795.885098902494,Total,Pronostico,Mexico
+204,2020-09-24,Medellín,57256.43062271839,Total,Pronostico,Mexico
+205,2020-09-25,Medellín,57739.42742275374,Total,Pronostico,Mexico
+206,2020-09-26,Medellín,58250.87088385163,Total,Pronostico,Mexico
+207,2020-09-27,Medellín,58783.936828523285,Total,Pronostico,Mexico
+208,2020-09-28,Medellín,59347.56955607773,Total,Pronostico,Mexico
+209,2020-09-29,Medellín,59940.13377722993,Total,Pronostico,Mexico
+210,2020-09-30,Medellín,60560.54676206727,Total,Pronostico,Mexico
+211,2020-10-01,Medellín,61215.104363097744,Total,Pronostico,Mexico
+212,2020-10-02,Medellín,61899.69562667742,Total,Pronostico,Mexico
+213,2020-10-03,Medellín,62617.372423511406,Total,Pronostico,Mexico
+214,2020-10-04,Medellín,63369.850088608786,Total,Pronostico,Mexico
+215,2020-10-05,Medellín,64154.57065368137,Total,Pronostico,Mexico
+216,2020-10-06,Medellín,64975.16513489424,Total,Pronostico,Mexico
+217,2020-10-07,Medellín,65830.39363212304,Total,Pronostico,Mexico
+218,2020-10-08,Medellín,66720.15607443203,Total,Pronostico,Mexico
+219,2020-10-09,Medellín,67646.35371762868,Total,Pronostico,Mexico
+220,2020-10-10,Medellín,68607.27765378985,Total,Pronostico,Mexico
+221,2020-10-11,Medellín,69604.00399800696,Total,Pronostico,Mexico
+222,2020-10-12,Medellín,70636.57701981808,Total,Pronostico,Mexico
+223,2020-10-13,Medellín,71704.12283785889,Total,Pronostico,Mexico
+224,2020-10-14,Medellín,72807.39779215894,Total,Pronostico,Mexico
+225,2020-10-15,Medellín,73945.66070707103,Total,Pronostico,Mexico
+226,2020-10-16,Medellín,75118.70771587484,Total,Pronostico,Mexico
+227,2020-10-17,Medellín,76326.46487129062,Total,Pronostico,Mexico
+228,2020-10-18,Medellín,77568.2916452853,Total,Pronostico,Mexico
+229,2020-10-19,Medellín,78843.92738245791,Total,Pronostico,Mexico
 185,2020-09-05,Medellín,51080.48091462615,Total,Pronostico,USA
 186,2020-09-06,Medellín,51284.01997261475,Total,Pronostico,USA
 187,2020-09-07,Medellín,51563.03596938707,Total,Pronostico,USA
 188,2020-09-08,Medellín,51874.29566689416,Total,Pronostico,USA
 189,2020-09-09,Medellín,52200.67950184576,Total,Pronostico,USA
+190,2020-09-10,Medellín,52553.13918407985,Total,Pronostico,USA
+191,2020-09-11,Medellín,52893.906962368426,Total,Pronostico,USA
+192,2020-09-12,Medellín,53236.45002000371,Total,Pronostico,USA
+193,2020-09-13,Medellín,53575.39828585277,Total,Pronostico,USA
+194,2020-09-14,Medellín,53891.534859933316,Total,Pronostico,USA
+195,2020-09-15,Medellín,54205.73254319486,Total,Pronostico,USA
+196,2020-09-16,Medellín,54500.09707817312,Total,Pronostico,USA
+197,2020-09-17,Medellín,54776.56524964729,Total,Pronostico,USA
+198,2020-09-18,Medellín,55046.42504988105,Total,Pronostico,USA
+199,2020-09-19,Medellín,55292.122298059585,Total,Pronostico,USA
+200,2020-09-20,Medellín,55528.08708887643,Total,Pronostico,USA
+201,2020-09-21,Medellín,55687.91239038497,Total,Pronostico,USA
+202,2020-09-22,Medellín,55826.83554429067,Total,Pronostico,USA
+203,2020-09-23,Medellín,55959.813469751185,Total,Pronostico,USA
+204,2020-09-24,Medellín,56078.03475662972,Total,Pronostico,USA
+205,2020-09-25,Medellín,56186.84591799005,Total,Pronostico,USA
+206,2020-09-26,Medellín,56292.25150849596,Total,Pronostico,USA
+207,2020-09-27,Medellín,56387.461213053044,Total,Pronostico,USA
+208,2020-09-28,Medellín,56481.47839740698,Total,Pronostico,USA
+209,2020-09-29,Medellín,56572.752501647636,Total,Pronostico,USA
+210,2020-09-30,Medellín,56660.3116532337,Total,Pronostico,USA
+211,2020-10-01,Medellín,56750.58918182731,Total,Pronostico,USA
+212,2020-10-02,Medellín,56839.63864729257,Total,Pronostico,USA
+213,2020-10-03,Medellín,56930.7038394836,Total,Pronostico,USA
+214,2020-10-04,Medellín,57025.71986102083,Total,Pronostico,USA
+215,2020-10-05,Medellín,57122.376706278315,Total,Pronostico,USA
+216,2020-10-06,Medellín,57224.58183901152,Total,Pronostico,USA
+217,2020-10-07,Medellín,57331.400593348546,Total,Pronostico,USA
+218,2020-10-08,Medellín,57443.06728275784,Total,Pronostico,USA
+219,2020-10-09,Medellín,57561.84688771647,Total,Pronostico,USA
+220,2020-10-10,Medellín,57686.42370428507,Total,Pronostico,USA
+221,2020-10-11,Medellín,57818.29687391474,Total,Pronostico,USA
+222,2020-10-12,Medellín,57957.96363664411,Total,Pronostico,USA
+223,2020-10-13,Medellín,58105.0331594695,Total,Pronostico,USA
+224,2020-10-14,Medellín,58260.77493106789,Total,Pronostico,USA
+225,2020-10-15,Medellín,58424.991044170136,Total,Pronostico,USA
+226,2020-10-16,Medellín,58598.05110572433,Total,Pronostico,USA
+227,2020-10-17,Medellín,58780.48479493706,Total,Pronostico,USA
+228,2020-10-18,Medellín,58972.28526291401,Total,Pronostico,USA
+229,2020-10-19,Medellín,59173.85568601657,Total,Pronostico,USA
 0,2020-02-29,Medellín,1.0,Nuevos,Real,Base
 1,2020-03-02,Medellín,1.0,Nuevos,Real,Base
 2,2020-03-05,Medellín,1.0,Nuevos,Real,Base
@@ -5895,11 +6055,91 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 184,2020-09-06,Cali,38945.01472551509,Total,Pronostico,Mexico
 185,2020-09-07,Cali,38955.085921480124,Total,Pronostico,Mexico
 186,2020-09-08,Cali,38960.54212221823,Total,Pronostico,Mexico
+187,2020-09-09,Cali,38961.398227048485,Total,Pronostico,Mexico
+188,2020-09-10,Cali,38957.67149329719,Total,Pronostico,Mexico
+189,2020-09-11,Cali,38949.38142253545,Total,Pronostico,Mexico
+190,2020-09-12,Cali,38936.549649334214,Total,Pronostico,Mexico
+191,2020-09-13,Cali,38919.19983259714,Total,Pronostico,Mexico
+192,2020-09-14,Cali,38897.357549522196,Total,Pronostico,Mexico
+193,2020-09-15,Cali,38871.05019223206,Total,Pronostico,Mexico
+194,2020-09-16,Cali,38840.306867105835,Total,Pronostico,Mexico
+195,2020-09-17,Cali,38805.15829683484,Total,Pronostico,Mexico
+196,2020-09-18,Cali,38765.63672521864,Total,Pronostico,Mexico
+197,2020-09-19,Cali,38721.77582470927,Total,Pronostico,Mexico
+198,2020-09-20,Cali,38960.578941567204,Total,Pronostico,Mexico
+199,2020-09-21,Cali,39235.060650629806,Total,Pronostico,Mexico
+200,2020-09-22,Cali,39545.8792967063,Total,Pronostico,Mexico
+201,2020-09-23,Cali,39893.67374863831,Total,Pronostico,Mexico
+202,2020-09-24,Cali,40279.06265335399,Total,Pronostico,Mexico
+203,2020-09-25,Cali,40702.64374366708,Total,Pronostico,Mexico
+204,2020-09-26,Cali,41164.99311682353,Total,Pronostico,Mexico
+205,2020-09-27,Cali,41666.66455272806,Total,Pronostico,Mexico
+206,2020-09-28,Cali,42208.18887650802,Total,Pronostico,Mexico
+207,2020-09-29,Cali,42790.073350553794,Total,Pronostico,Mexico
+208,2020-09-30,Cali,43412.801022156564,Total,Pronostico,Mexico
+209,2020-10-01,Cali,44076.830144437205,Total,Pronostico,Mexico
+210,2020-10-02,Cali,44782.59366783662,Total,Pronostico,Mexico
+211,2020-10-03,Cali,45530.49867038621,Total,Pronostico,Mexico
+212,2020-10-04,Cali,46320.92581703863,Total,Pronostico,Mexico
+213,2020-10-05,Cali,47154.228890490805,Total,Pronostico,Mexico
+214,2020-10-06,Cali,48030.73439120879,Total,Pronostico,Mexico
+215,2020-10-07,Cali,48950.74102098022,Total,Pronostico,Mexico
+216,2020-10-08,Cali,49914.51925572738,Total,Pronostico,Mexico
+217,2020-10-09,Cali,50922.311035093444,Total,Pronostico,Mexico
+218,2020-10-10,Cali,51974.32941032831,Total,Pronostico,Mexico
+219,2020-10-11,Cali,53070.75810183629,Total,Pronostico,Mexico
+220,2020-10-12,Cali,54211.751224634136,Total,Pronostico,Mexico
+221,2020-10-13,Cali,55397.43299841621,Total,Pronostico,Mexico
+222,2020-10-14,Cali,56627.89758827026,Total,Pronostico,Mexico
+223,2020-10-15,Cali,57903.208853716555,Total,Pronostico,Mexico
+224,2020-10-16,Cali,59223.40010771768,Total,Pronostico,Mexico
+225,2020-10-17,Cali,60588.474000705195,Total,Pronostico,Mexico
+226,2020-10-18,Cali,61998.40239683141,Total,Pronostico,Mexico
 182,2020-09-04,Cali,38910.98024027786,Total,Pronostico,USA
 183,2020-09-05,Cali,38930.31610921973,Total,Pronostico,USA
 184,2020-09-06,Cali,38945.01472551509,Total,Pronostico,USA
 185,2020-09-07,Cali,38955.085921480124,Total,Pronostico,USA
 186,2020-09-08,Cali,38960.54212221823,Total,Pronostico,USA
+187,2020-09-09,Cali,38961.398227048485,Total,Pronostico,USA
+188,2020-09-10,Cali,38957.67149329719,Total,Pronostico,USA
+189,2020-09-11,Cali,38949.38142253545,Total,Pronostico,USA
+190,2020-09-12,Cali,38936.549649334214,Total,Pronostico,USA
+191,2020-09-13,Cali,38919.19983259714,Total,Pronostico,USA
+192,2020-09-14,Cali,38897.357549522196,Total,Pronostico,USA
+193,2020-09-15,Cali,38871.05019223206,Total,Pronostico,USA
+194,2020-09-16,Cali,38840.306867105835,Total,Pronostico,USA
+195,2020-09-17,Cali,38805.15829683484,Total,Pronostico,USA
+196,2020-09-18,Cali,38765.63672521864,Total,Pronostico,USA
+197,2020-09-19,Cali,38721.77582470927,Total,Pronostico,USA
+198,2020-09-20,Cali,38762.26796833564,Total,Pronostico,USA
+199,2020-09-21,Cali,38812.400497219096,Total,Pronostico,USA
+200,2020-09-22,Cali,38872.669829016384,Total,Pronostico,USA
+201,2020-09-23,Cali,38943.567781928126,Total,Pronostico,USA
+202,2020-09-24,Cali,39025.58132211253,Total,Pronostico,USA
+203,2020-09-25,Cali,39119.192319777285,Total,Pronostico,USA
+204,2020-09-26,Cali,39224.877328345785,Total,Pronostico,USA
+205,2020-09-27,Cali,39343.10738030704,Total,Pronostico,USA
+206,2020-09-28,Cali,39474.347800290976,Total,Pronostico,USA
+207,2020-09-29,Cali,39619.05804459749,Total,Pronostico,USA
+208,2020-09-30,Cali,39777.69153437908,Total,Pronostico,USA
+209,2020-10-01,Cali,39950.695513893865,Total,Pronostico,USA
+210,2020-10-02,Cali,40138.51092440763,Total,Pronostico,USA
+211,2020-10-03,Cali,40341.572289672506,Total,Pronostico,USA
+212,2020-10-04,Cali,40560.307614333724,Total,Pronostico,USA
+213,2020-10-05,Cali,40795.13829413847,Total,Pronostico,USA
+214,2020-10-06,Cali,41046.47903772559,Total,Pronostico,USA
+215,2020-10-07,Cali,41314.73779961504,Total,Pronostico,USA
+216,2020-10-08,Cali,41600.31572360001,Total,Pronostico,USA
+217,2020-10-09,Cali,41903.60709626956,Total,Pronostico,USA
+218,2020-10-10,Cali,42224.999310939864,Total,Pronostico,USA
+219,2020-10-11,Cali,42564.87283694558,Total,Pronostico,USA
+220,2020-10-12,Cali,42923.6012017137,Total,Pronostico,USA
+221,2020-10-13,Cali,43301.55097847258,Total,Pronostico,USA
+222,2020-10-14,Cali,43699.08178287111,Total,Pronostico,USA
+223,2020-10-15,Cali,44116.54627766373,Total,Pronostico,USA
+224,2020-10-16,Cali,44554.2901785509,Total,Pronostico,USA
+225,2020-10-17,Cali,45012.65227168921,Total,Pronostico,USA
+226,2020-10-18,Cali,45491.964435804875,Total,Pronostico,USA
 0,2020-03-02,Cali,1.0,Nuevos,Real,Base
 1,2020-03-05,Cali,1.0,Nuevos,Real,Base
 2,2020-03-07,Cali,1.0,Nuevos,Real,Base
@@ -8576,11 +8816,91 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 179,2020-09-06,Barranquilla,36734.624673164035,Total,Pronostico,Mexico
 180,2020-09-07,Barranquilla,36772.841349453505,Total,Pronostico,Mexico
 181,2020-09-08,Barranquilla,36809.05052789684,Total,Pronostico,Mexico
+182,2020-09-09,Barranquilla,36847.10565174062,Total,Pronostico,Mexico
+183,2020-09-10,Barranquilla,36890.30503943758,Total,Pronostico,Mexico
+184,2020-09-11,Barranquilla,36939.61762226446,Total,Pronostico,Mexico
+185,2020-09-12,Barranquilla,36994.0058808147,Total,Pronostico,Mexico
+186,2020-09-13,Barranquilla,37051.531651967016,Total,Pronostico,Mexico
+187,2020-09-14,Barranquilla,37110.529173220486,Total,Pronostico,Mexico
+188,2020-09-15,Barranquilla,37170.183485075824,Total,Pronostico,Mexico
+189,2020-09-16,Barranquilla,37230.45907843232,Total,Pronostico,Mexico
+190,2020-09-17,Barranquilla,37291.65162017643,Total,Pronostico,Mexico
+191,2020-09-18,Barranquilla,37353.932906626695,Total,Pronostico,Mexico
+192,2020-09-19,Barranquilla,37417.12328047151,Total,Pronostico,Mexico
+193,2020-09-20,Barranquilla,37656.3786909471,Total,Pronostico,Mexico
+194,2020-09-21,Barranquilla,37915.725777307045,Total,Pronostico,Mexico
+195,2020-09-22,Barranquilla,38194.398050582364,Total,Pronostico,Mexico
+196,2020-09-23,Barranquilla,38491.81653743442,Total,Pronostico,Mexico
+197,2020-09-24,Barranquilla,38807.557937201724,Total,Pronostico,Mexico
+198,2020-09-25,Barranquilla,39141.276774682454,Total,Pronostico,Mexico
+199,2020-09-26,Barranquilla,39492.639965773546,Total,Pronostico,Mexico
+200,2020-09-27,Barranquilla,39861.30147494232,Total,Pronostico,Mexico
+201,2020-09-28,Barranquilla,40246.912381062604,Total,Pronostico,Mexico
+202,2020-09-29,Barranquilla,40649.145132574326,Total,Pronostico,Mexico
+203,2020-09-30,Barranquilla,41067.71200733741,Total,Pronostico,Mexico
+204,2020-10-01,Barranquilla,41502.36881860472,Total,Pronostico,Mexico
+205,2020-10-02,Barranquilla,41952.90611806733,Total,Pronostico,Mexico
+206,2020-10-03,Barranquilla,42419.135462504804,Total,Pronostico,Mexico
+207,2020-10-04,Barranquilla,42900.87752230493,Total,Pronostico,Mexico
+208,2020-10-05,Barranquilla,43397.95488784084,Total,Pronostico,Mexico
+209,2020-10-06,Barranquilla,43910.18872276005,Total,Pronostico,Mexico
+210,2020-10-07,Barranquilla,44437.39672115281,Total,Pronostico,Mexico
+211,2020-10-08,Barranquilla,44979.39026693085,Total,Pronostico,Mexico
+212,2020-10-09,Barranquilla,45535.970090617324,Total,Pronostico,Mexico
+213,2020-10-10,Barranquilla,46106.92089404603,Total,Pronostico,Mexico
+214,2020-10-11,Barranquilla,46692.005880561635,Total,Pronostico,Mexico
+215,2020-10-12,Barranquilla,47290.961981053784,Total,Pronostico,Mexico
+216,2020-10-13,Barranquilla,47903.49591277417,Total,Pronostico,Mexico
+217,2020-10-14,Barranquilla,48529.2809601595,Total,Pronostico,Mexico
+218,2020-10-15,Barranquilla,49167.95415187669,Total,Pronostico,Mexico
+219,2020-10-16,Barranquilla,49819.113912344495,Total,Pronostico,Mexico
+220,2020-10-17,Barranquilla,50482.31792796364,Total,Pronostico,Mexico
+221,2020-10-18,Barranquilla,51157.08142977769,Total,Pronostico,Mexico
 177,2020-09-04,Barranquilla,36649.335783008755,Total,Pronostico,USA
 178,2020-09-05,Barranquilla,36691.93628831529,Total,Pronostico,USA
 179,2020-09-06,Barranquilla,36734.624673164035,Total,Pronostico,USA
 180,2020-09-07,Barranquilla,36772.841349453505,Total,Pronostico,USA
 181,2020-09-08,Barranquilla,36809.05052789684,Total,Pronostico,USA
+182,2020-09-09,Barranquilla,36847.10565174062,Total,Pronostico,USA
+183,2020-09-10,Barranquilla,36890.30503943758,Total,Pronostico,USA
+184,2020-09-11,Barranquilla,36939.61762226446,Total,Pronostico,USA
+185,2020-09-12,Barranquilla,36994.0058808147,Total,Pronostico,USA
+186,2020-09-13,Barranquilla,37051.531651967016,Total,Pronostico,USA
+187,2020-09-14,Barranquilla,37110.529173220486,Total,Pronostico,USA
+188,2020-09-15,Barranquilla,37170.183485075824,Total,Pronostico,USA
+189,2020-09-16,Barranquilla,37230.45907843232,Total,Pronostico,USA
+190,2020-09-17,Barranquilla,37291.65162017643,Total,Pronostico,USA
+191,2020-09-18,Barranquilla,37353.932906626695,Total,Pronostico,USA
+192,2020-09-19,Barranquilla,37417.12328047151,Total,Pronostico,USA
+193,2020-09-20,Barranquilla,37512.28463406036,Total,Pronostico,USA
+194,2020-09-21,Barranquilla,37610.46261744491,Total,Pronostico,USA
+195,2020-09-22,Barranquilla,37711.14097833959,Total,Pronostico,USA
+196,2020-09-23,Barranquilla,37814.010240673204,Total,Pronostico,USA
+197,2020-09-24,Barranquilla,37918.93589059076,Total,Pronostico,USA
+198,2020-09-25,Barranquilla,38025.88051046809,Total,Pronostico,USA
+199,2020-09-26,Barranquilla,38134.83831837443,Total,Pronostico,USA
+200,2020-09-27,Barranquilla,38245.80976758679,Total,Pronostico,USA
+201,2020-09-28,Barranquilla,38358.81153027697,Total,Pronostico,USA
+202,2020-09-29,Barranquilla,38473.90064199919,Total,Pronostico,USA
+203,2020-09-30,Barranquilla,38591.19280637353,Total,Pronostico,USA
+204,2020-10-01,Barranquilla,38710.865954392575,Total,Pronostico,USA
+205,2020-10-02,Barranquilla,38833.15125135564,Total,Pronostico,USA
+206,2020-10-03,Barranquilla,38958.31912992486,Total,Pronostico,USA
+207,2020-10-04,Barranquilla,39086.667151425136,Total,Pronostico,USA
+208,2020-10-05,Barranquilla,39218.512543845536,Total,Pronostico,USA
+209,2020-10-06,Barranquilla,39354.1885592921,Total,Pronostico,USA
+210,2020-10-07,Barranquilla,39494.042074850266,Total,Pronostico,USA
+211,2020-10-08,Barranquilla,39638.43041204405,Total,Pronostico,USA
+212,2020-10-09,Barranquilla,39787.716599732405,Total,Pronostico,USA
+213,2020-10-10,Barranquilla,39942.26360125197,Total,Pronostico,USA
+214,2020-10-11,Barranquilla,40102.428430305976,Total,Pronostico,USA
+215,2020-10-12,Barranquilla,40268.55686296966,Total,Pronostico,USA
+216,2020-10-13,Barranquilla,40440.979020758714,Total,Pronostico,USA
+217,2020-10-14,Barranquilla,40620.00564664377,Total,Pronostico,USA
+218,2020-10-15,Barranquilla,40805.924826117895,Total,Pronostico,USA
+219,2020-10-16,Barranquilla,40998.99899666684,Total,Pronostico,USA
+220,2020-10-17,Barranquilla,41199.46224724449,Total,Pronostico,USA
+221,2020-10-18,Barranquilla,41407.518007570696,Total,Pronostico,USA
 0,2020-03-06,Barranquilla,2.0,Nuevos,Real,Base
 1,2020-03-09,Barranquilla,2.0,Nuevos,Real,Base
 2,2020-03-10,Barranquilla,2.0,Nuevos,Real,Base
@@ -11219,11 +11539,91 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 180,2020-09-04,Cartagena de Indias,20985.87986519063,Total,Pronostico,Mexico
 181,2020-09-05,Cartagena de Indias,21058.536373353887,Total,Pronostico,Mexico
 182,2020-09-06,Cartagena de Indias,21137.72562178875,Total,Pronostico,Mexico
+183,2020-09-07,Cartagena de Indias,21222.60279481839,Total,Pronostico,Mexico
+184,2020-09-08,Cartagena de Indias,21312.305428931915,Total,Pronostico,Mexico
+185,2020-09-09,Cartagena de Indias,21405.966048488503,Total,Pronostico,Mexico
+186,2020-09-10,Cartagena de Indias,21502.723802127835,Total,Pronostico,Mexico
+187,2020-09-11,Cartagena de Indias,21601.73503785384,Total,Pronostico,Mexico
+188,2020-09-12,Cartagena de Indias,21702.182773227898,Total,Pronostico,Mexico
+189,2020-09-13,Cartagena de Indias,21803.285034577628,Total,Pronostico,Mexico
+190,2020-09-14,Cartagena de Indias,21904.30205546155,Total,Pronostico,Mexico
+191,2020-09-15,Cartagena de Indias,22004.542339720294,Total,Pronostico,Mexico
+192,2020-09-16,Cartagena de Indias,22103.36760820642,Total,Pronostico,Mexico
+193,2020-09-17,Cartagena de Indias,22200.196660656162,Total,Pronostico,Mexico
+194,2020-09-18,Cartagena de Indias,22383.127981210233,Total,Pronostico,Mexico
+195,2020-09-19,Cartagena de Indias,22574.57249582927,Total,Pronostico,Mexico
+196,2020-09-20,Cartagena de Indias,22774.502242181636,Total,Pronostico,Mexico
+197,2020-09-21,Cartagena de Indias,22982.988479150597,Total,Pronostico,Mexico
+198,2020-09-22,Cartagena de Indias,23200.190044812152,Total,Pronostico,Mexico
+199,2020-09-23,Cartagena de Indias,23426.341311704295,Total,Pronostico,Mexico
+200,2020-09-24,Cartagena de Indias,23661.73996396147,Total,Pronostico,Mexico
+201,2020-09-25,Cartagena de Indias,23906.73481374343,Total,Pronostico,Mexico
+202,2020-09-26,Cartagena de Indias,24161.71386001016,Total,Pronostico,Mexico
+203,2020-09-27,Cartagena de Indias,24427.0927400644,Total,Pronostico,Mexico
+204,2020-09-28,Cartagena de Indias,24703.303704562684,Total,Pronostico,Mexico
+205,2020-09-29,Cartagena de Indias,24990.785278499803,Total,Pronostico,Mexico
+206,2020-09-30,Cartagena de Indias,25289.972706539535,Total,Pronostico,Mexico
+207,2020-10-01,Cartagena de Indias,25601.289186958,Total,Pronostico,Mexico
+208,2020-10-02,Cartagena de Indias,25925.138034320466,Total,Pronostico,Mexico
+209,2020-10-03,Cartagena de Indias,26261.895796134493,Total,Pronostico,Mexico
+210,2020-10-04,Cartagena de Indias,26611.90630985651,Total,Pronostico,Mexico
+211,2020-10-05,Cartagena de Indias,26975.475676450827,Total,Pronostico,Mexico
+212,2020-10-06,Cartagena de Indias,27352.86823493716,Total,Pronostico,Mexico
+213,2020-10-07,Cartagena de Indias,27744.303460564155,Total,Pronostico,Mexico
+214,2020-10-08,Cartagena de Indias,28149.953643836147,Total,Pronostico,Mexico
+215,2020-10-09,Cartagena de Indias,28569.94247227908,Total,Pronostico,Mexico
+216,2020-10-10,Cartagena de Indias,29004.34436389259,Total,Pronostico,Mexico
+217,2020-10-11,Cartagena de Indias,29453.18452364983,Total,Pronostico,Mexico
+218,2020-10-12,Cartagena de Indias,29916.439667827537,Total,Pronostico,Mexico
+219,2020-10-13,Cartagena de Indias,30394.03920312329,Total,Pronostico,Mexico
+220,2020-10-14,Cartagena de Indias,30885.86698569616,Total,Pronostico,Mexico
+221,2020-10-15,Cartagena de Indias,31391.76347773126,Total,Pronostico,Mexico
+222,2020-10-16,Cartagena de Indias,31911.528196600037,Total,Pronostico,Mexico
 178,2020-09-02,Cartagena de Indias,20863.37395463673,Total,Pronostico,USA
 179,2020-09-03,Cartagena de Indias,20920.56971148645,Total,Pronostico,USA
 180,2020-09-04,Cartagena de Indias,20985.87986519063,Total,Pronostico,USA
 181,2020-09-05,Cartagena de Indias,21058.536373353887,Total,Pronostico,USA
 182,2020-09-06,Cartagena de Indias,21137.72562178875,Total,Pronostico,USA
+183,2020-09-07,Cartagena de Indias,21222.60279481839,Total,Pronostico,USA
+184,2020-09-08,Cartagena de Indias,21312.305428931915,Total,Pronostico,USA
+185,2020-09-09,Cartagena de Indias,21405.966048488503,Total,Pronostico,USA
+186,2020-09-10,Cartagena de Indias,21502.723802127835,Total,Pronostico,USA
+187,2020-09-11,Cartagena de Indias,21601.73503785384,Total,Pronostico,USA
+188,2020-09-12,Cartagena de Indias,21702.182773227898,Total,Pronostico,USA
+189,2020-09-13,Cartagena de Indias,21803.285034577628,Total,Pronostico,USA
+190,2020-09-14,Cartagena de Indias,21904.30205546155,Total,Pronostico,USA
+191,2020-09-15,Cartagena de Indias,22004.542339720294,Total,Pronostico,USA
+192,2020-09-16,Cartagena de Indias,22103.36760820642,Total,Pronostico,USA
+193,2020-09-17,Cartagena de Indias,22200.196660656162,Total,Pronostico,USA
+194,2020-09-18,Cartagena de Indias,22284.389688035728,Total,Pronostico,USA
+195,2020-09-19,Cartagena de Indias,22364.453491463995,Total,Pronostico,USA
+196,2020-09-20,Cartagena de Indias,22440.345159196728,Total,Pronostico,USA
+197,2020-09-21,Cartagena de Indias,22512.130300694473,Total,Pronostico,USA
+198,2020-09-22,Cartagena de Indias,22579.971615986582,Total,Pronostico,USA
+199,2020-09-23,Cartagena de Indias,22644.117048602177,Total,Pronostico,USA
+200,2020-09-24,Cartagena de Indias,22704.887762505074,Total,Pronostico,USA
+201,2020-09-25,Cartagena de Indias,22762.666151393467,Total,Pronostico,USA
+202,2020-09-26,Cartagena de Indias,22817.88407196451,Total,Pronostico,USA
+203,2020-09-27,Cartagena de Indias,22871.011471977494,Total,Pronostico,USA
+204,2020-09-28,Cartagena de Indias,22922.545540819592,Total,Pronostico,USA
+205,2020-09-29,Cartagena de Indias,22973.000524713876,Total,Pronostico,USA
+206,2020-09-30,Cartagena de Indias,23022.898296298015,Total,Pronostico,USA
+207,2020-10-01,Cartagena de Indias,23072.759756506668,Total,Pronostico,USA
+208,2020-10-02,Cartagena de Indias,23123.097126342083,Total,Pronostico,USA
+209,2020-10-03,Cartagena de Indias,23174.40716166864,Total,Pronostico,USA
+210,2020-10-04,Cartagena de Indias,23227.165312923644,Total,Pronostico,USA
+211,2020-10-05,Cartagena de Indias,23281.82082952581,Total,Pronostico,USA
+212,2020-10-06,Cartagena de Indias,23338.792793915964,Total,Pronostico,USA
+213,2020-10-07,Cartagena de Indias,23398.46706540713,Total,Pronostico,USA
+214,2020-10-08,Cartagena de Indias,23461.194072015296,Total,Pronostico,USA
+215,2020-10-09,Cartagena de Indias,23527.287431992754,Total,Pronostico,USA
+216,2020-10-10,Cartagena de Indias,23597.023323001788,Total,Pronostico,USA
+217,2020-10-11,Cartagena de Indias,23670.640544659276,Total,Pronostico,USA
+218,2020-10-12,Cartagena de Indias,23748.341206688157,Total,Pronostico,USA
+219,2020-10-13,Cartagena de Indias,23830.291958620175,Total,Pronostico,USA
+220,2020-10-14,Cartagena de Indias,23916.625696252522,Total,Pronostico,USA
+221,2020-10-15,Cartagena de Indias,24007.443669554694,Total,Pronostico,USA
+222,2020-10-16,Cartagena de Indias,24102.817913265484,Total,Pronostico,USA
 0,2020-03-01,Cartagena de Indias,1.0,Nuevos,Real,Base
 1,2020-03-02,Cartagena de Indias,2.0,Nuevos,Real,Base
 2,2020-03-06,Cartagena de Indias,3.0,Nuevos,Real,Base

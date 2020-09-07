@@ -353,14 +353,14 @@ for c in ciudades:
 
     # Pronóstico a partir del día 15 USA
     pron_final_usa = pron_t_final[15:]*(1-p) + Ie[15:]*p
-    pron_final_usa = np.append(pron_t_final[:15], pron_final)
+    pron_final_usa = np.append(pron_t_final[:15], pron_final_usa)
     
      # Pronóstico a partir del día 15 MÉXICO
     pron_final_mex = pron_t_final[15:]*(1-p) + Im[15:]*p
-    pron_final_mex = np.append(pron_t_final[:15], pron_final)   
+    pron_final_mex = np.append(pron_t_final[:15], pron_final_mex)   
     
     # escenario México
-    for i in range(len(pron_final)):
+    for i in range(len(pron_final_mex)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
@@ -370,7 +370,7 @@ for c in ciudades:
       esc.append('Mexico')
 
     # escenario  USA
-    for i in range(len(pron_final)):
+    for i in range(len(pron_final_usa)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
