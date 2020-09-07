@@ -5,7 +5,6 @@ Created on Sun Sep  6 19:34:06 2020
 @author: LENOVO
 """
 
-!pip install sodapy
 import pandas as pd
 from sodapy import Socrata
 
@@ -37,8 +36,6 @@ z['Estado'] = z['Estado'].replace(['Hospital UCI'], 'Hospital')
 desc_casos_est = z.groupby(['Ciudad','Grupo de edad','Estado'])['Total'].sum().reset_index()
 desc_casos_est['Grupo de edad'] = desc_casos_est['Grupo de edad'].replace(['[0, 9)'], '0-9')
 desc_casos_est.to_csv('Descrip_casos.csv', index=False, encoding= 'ISO-8859-1')
-desc_casos_est
-
 
 h = df_casos.groupby(['Ciudad','Edad', 'Sexo']).size().reset_index()
 ciud = ['Bogotá D.C.', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena de Indias']
@@ -50,5 +47,3 @@ j['Grupo de edad'] = pd.cut(j['Grupo de edad'].astype(int),bins=[0,9,19,39,59,79
 desc_casos_sexo = j.groupby(['Ciudad','Grupo de edad','Sexo'])['Total'].sum().reset_index()
 desc_casos_sexo['Grupo de edad'] = desc_casos_sexo['Grupo de edad'].replace(['[0, 9)'], '0-9')
 desc_casos_sexo.to_csv('desc_casos_sexo.csv', index=False, encoding= 'ISO-8859-1')
-desc_casos_sexo
-

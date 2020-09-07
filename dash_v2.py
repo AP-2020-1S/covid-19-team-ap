@@ -15,7 +15,6 @@ import dash_table
 #import dash_table_FormatTemplate as FormatTemplate
 #import datetime as dt
 import plotly.graph_objects as go
-import numpy as np
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 suppress_callback_exceptions = True
@@ -78,7 +77,21 @@ def index():
                                             dcc.Graph(id='grafico'),
                                             ]),
                                     ]), width=6)
-                            ], justify = 'center')
+                            ], justify = 'center'),
+                    dbc.Row(dbc.Col(html.Div(html.H1(" ")))),
+                    dbc.Row([
+                            dbc.Col(dbc.Card([
+                                    dbc.CardBody([
+                                            html.H6('Descripción Casos Covid por Rangos de Edad'),
+                                            dcc.RadioItems(id='covid',
+                                                           options=[{'label' : 'Género', 'value' : 'genero'},
+                                                                    {'label' : 'Tratamiento', 'value' : 'tratamiento'}],
+                                                                    value='genero',
+                                                                    labelStyle={'display' : 'inline-block'}),
+                                            dcc.Graph(id='covid-graf')
+                                            ])
+                                    ]), width=10)
+                            ], justify='center')
                 ]
             )
 
@@ -160,12 +173,43 @@ def grafico_ppal(ciudad, variable, escenario):
             go.Scatter(x=x_p,
                        y=ls,
                        ),
-                        go.Scatter(x=x_p,
+            go.Scatter(x=x_p,
                        y=li,
                        fill='tonexty'),
             ])
         
-        
+
+#Descripciones COVID
+@app.callback(Output('covid-graf', 'figure'),
+              [Input('covid', 'value'), Input('ciudad', 'value')])
+
+def covid_graf(tipo, ciudad):
+    if tipo == 'genero':
+        df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\desc_casos_sexo.csv', 
+                     delimiter=',', encoding='ISO-8859-1')
+        df = df.loc[(df.Ciudad == ciudad), :]
+        x = df['Grupo de edad']
+        y_m = df[df['Sexo'] == 'F']['Total']
+        y_h = df[df['Sexo'] == 'M']['Total']
+        fig = go.Figure(data=[
+            go.Bar(name='F', x=x, y=y_m),
+            go.Bar(name='M', x=x, y=y_h),
+            ])
+        fig.update_layout(barmode='stack')
+        return fig
+    else:
+        df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\Descrip_casos.csv', 
+                     delimiter=',', encoding='ISO-8859-1')
+        df = df.loc[(df.Ciudad == ciudad), :]
+        x = df['Grupo de edad']
+        y_m = df[df['Estado'] == 'Casa']['Total']
+        y_h = df[df['Estado'] == 'Hospital']['Total']
+        fig = go.Figure(data=[
+            go.Bar(name='Casa', x=x, y=y_m),
+            go.Bar(name='Hospital', x=x, y=y_h),
+            ])
+        fig.update_layout(barmode='stack')
+        return fig
 
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0')

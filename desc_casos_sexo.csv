@@ -1,0 +1,61 @@
+Ciudad,Grupo de edad,Sexo,Total
+Barranquilla,"[0, 9)",F,571
+Barranquilla,"[0, 9)",M,580
+Barranquilla,"[9, 19)",F,959
+Barranquilla,"[9, 19)",M,936
+Barranquilla,"[19, 39)",F,7293
+Barranquilla,"[19, 39)",M,8383
+Barranquilla,"[39, 59)",F,5298
+Barranquilla,"[39, 59)",M,6019
+Barranquilla,"[59, 79)",F,2540
+Barranquilla,"[59, 79)",M,2790
+Barranquilla,"[79, 100)",F,640
+Barranquilla,"[79, 100)",M,595
+Bogotá D.C.,"[0, 9)",F,4093
+Bogotá D.C.,"[0, 9)",M,4376
+Bogotá D.C.,"[9, 19)",F,7097
+Bogotá D.C.,"[9, 19)",M,6885
+Bogotá D.C.,"[19, 39)",F,49968
+Bogotá D.C.,"[19, 39)",M,47264
+Bogotá D.C.,"[39, 59)",F,35616
+Bogotá D.C.,"[39, 59)",M,33939
+Bogotá D.C.,"[59, 79)",F,13803
+Bogotá D.C.,"[59, 79)",M,14533
+Bogotá D.C.,"[79, 100)",F,3289
+Bogotá D.C.,"[79, 100)",M,2624
+Cali,"[0, 9)",F,521
+Cali,"[0, 9)",M,546
+Cali,"[9, 19)",F,844
+Cali,"[9, 19)",M,882
+Cali,"[19, 39)",F,8629
+Cali,"[19, 39)",M,8458
+Cali,"[39, 59)",F,5907
+Cali,"[39, 59)",M,6313
+Cali,"[59, 79)",F,2557
+Cali,"[59, 79)",M,2881
+Cali,"[79, 100)",F,679
+Cali,"[79, 100)",M,663
+Cartagena de Indias,"[0, 9)",F,383
+Cartagena de Indias,"[0, 9)",M,408
+Cartagena de Indias,"[9, 19)",F,615
+Cartagena de Indias,"[9, 19)",M,654
+Cartagena de Indias,"[19, 39)",F,4300
+Cartagena de Indias,"[19, 39)",M,5085
+Cartagena de Indias,"[39, 59)",F,2888
+Cartagena de Indias,"[39, 59)",M,3507
+Cartagena de Indias,"[59, 79)",F,1176
+Cartagena de Indias,"[59, 79)",M,1299
+Cartagena de Indias,"[79, 100)",F,266
+Cartagena de Indias,"[79, 100)",M,229
+Medellín,"[0, 9)",F,723
+Medellín,"[0, 9)",M,751
+Medellín,"[9, 19)",F,1142
+Medellín,"[9, 19)",M,1249
+Medellín,"[19, 39)",F,12301
+Medellín,"[19, 39)",M,11898
+Medellín,"[39, 59)",F,8007
+Medellín,"[39, 59)",M,7579
+Medellín,"[59, 79)",F,2763
+Medellín,"[59, 79)",M,3062
+Medellín,"[79, 100)",F,797
+Medellín,"[79, 100)",M,662
