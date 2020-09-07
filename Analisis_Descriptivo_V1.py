@@ -353,14 +353,14 @@ for c in ciudades:
 
     # Pronóstico a partir del día 15 USA
     pron_final_usa = pron_t_final[15:]*(1-p) + Ie[15:]*p
-    pron_final_usa = np.append(pron_t_final[:15], pron_final)
+    pron_final_usa = np.append(pron_t_final[:15], pron_final_usa)
     
      # Pronóstico a partir del día 15 MÉXICO
     pron_final_mex = pron_t_final[15:]*(1-p) + Im[15:]*p
-    pron_final_mex = np.append(pron_t_final[:15], pron_final)   
+    pron_final_mex = np.append(pron_t_final[:15], pron_final_mex)   
     
     # escenario México
-    for i in range(len(pron_final)):
+    for i in range(len(pron_final_mex)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
@@ -370,7 +370,7 @@ for c in ciudades:
       esc.append('Mexico')
 
     # escenario  USA
-    for i in range(len(pron_final)):
+    for i in range(len(pron_final_usa)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
@@ -494,7 +494,7 @@ for c in ciudades:
       e.append('Nuevos')
       g.append('Ajuste')
       esc.append('Base')
-    
+
     for i in range(len(pron_n_final)):
       n.append(pred_x[i])
       f.append(fechas[-8] + dt.timedelta(days=i+1))
@@ -515,7 +515,7 @@ for c in ciudades:
     
     for i in range(len(l_i)):
       n.append(pred_x[i])
-      f.append(fechas[-6] + dt.timedelta(days=i+1))
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
       u.append(c)
       v.append(l_i[i])
       e.append('Nuevos')
@@ -535,7 +535,7 @@ for c in ciudades:
     # México
     SIR_n_m = [0 if i < 0 else i for i in np.diff(Im)]
     # USA
-    SIR_n_u = [0 if i < 0 else i for i in np.diff(Im)]
+    SIR_n_u = [0 if i < 0 else i for i in np.diff(Ie)]
 
     # se agrega un cero para que tenga la misma longitud que el pronóstico del
     # modelo gompertz + arima
@@ -548,17 +548,17 @@ for c in ciudades:
 
     # Pronóstico a partir del día 15 México
     pron_final_usa = pron_n_final[15:]*(1-p) + SIR_n_u[15:]*p
-    pron_final_usa = np.append(pron_n_final[:15], pron_final)
+    pron_final_usa = np.append(pron_n_final[:15], pron_final_usa)
 
     # Pronóstico a partir del día 15 USA
     pron_final_mex = pron_n_final[15:]*(1-p) + SIR_n_m[15:]*p
-    pron_final_mex = np.append(pron_n_final[:15], pron_final)
+    pron_final_mex = np.append(pron_n_final[:15], pron_final_mex)
 
   
     # escenario México
     for i in range(len(pron_final_mex)):
       n.append(pred_x[i])
-      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
       u.append(c)
       v.append(pron_final_mex[i])
       e.append('Nuevos')
@@ -568,7 +568,7 @@ for c in ciudades:
     # escenario  USA
     for i in range(len(pron_final_usa)):
       n.append(pred_x[i])
-      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
       u.append(c)
       v.append(pron_final_usa[i])
       e.append('Nuevos')
@@ -720,11 +720,11 @@ for c in ciudades:
 
         # Pronóstico a partir del día 15 México
         pron_final_mex = [pron_final[i]*crecimiento_m[i] for i in range(len(crecimiento_m))]
-        pron_final_mex = [i if i>0 else 0 for i in pron_final]    
+        pron_final_mex = [i if i>0 else 0 for i in pron_final_mex]    
 
         # Pronóstico a partir del día 15 USA
         pron_final_usa = [pron_final[i]*crecimiento_u[i] for i in range(len(crecimiento_u))]
-        pron_final_usa = [i if i>0 else 0 for i in pron_final]   
+        pron_final_usa = [i if i>0 else 0 for i in pron_final_usa]   
         
 
           
