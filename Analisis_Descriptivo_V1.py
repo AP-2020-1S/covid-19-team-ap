@@ -738,6 +738,12 @@ for c in ciudades:
         # MAE
         mae = mean_absolute_error(df[var][pred_x_val], pron_final)       
 
+
+        #nuevos residuales e intervalos de predicción
+        res_pron = df[var][pred_x_val] - pron_final
+        s = np.std(res_pron)
+        
+        
         # plt.plot(x,df[var], 'b-')
         # plt.plot(x_val,aj_final, 'r-' )
         # plt.plot(pred_x_val,pron_final, 'g-')
@@ -763,9 +769,7 @@ for c in ciudades:
         pron_final = pron_gom + pron_arima
     
     
-        #nuevos residuales e intervalos de predicción
-        n_res = df[var] - aj_final
-        s = np.std(n_res)
+    
         # límite superior e inferior de los intervalos
         l_s = pron_final + st.norm.ppf(.95) * s
         l_i = pron_final - st.norm.ppf(.95) * s   
