@@ -38,7 +38,7 @@ def index():
     return html.Div(
                 [
                     dbc.Row([
-                            dbc.Col(html.Div(html.H1("Dashboard COVID-19 Ciudades Colombia - Team AP")), width=10),
+                            dbc.Col(html.Div(html.H1("Predicción COVID-19 Ciudades Colombia - Team AP")), width=10),
                             ], justify = 'center'),
                     dbc.Row(dbc.Col(html.Div(html.Hr()))),
                     dbc.Row([
@@ -94,7 +94,11 @@ def index():
                                             dcc.Graph(id='covid-graf')
                                             ])
                                     ]), width=10)
-                            ], justify='center')
+                            ], justify='center'),
+                    dbc.Row(dbc.Col(html.Div(html.Hr()))),
+                    dbc.Row([
+                            dbc.Col(html.Div(html.Footer('Equipo: Dayana Jiménez Vanegas, Santiago Agudelo Martínez, Julian Palacio Roldan y Tomás Vergara Cardona')), width=10)
+                            ], justify = 'end')
                 ]
             )
 
