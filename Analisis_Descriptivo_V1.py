@@ -688,7 +688,7 @@ for c in ciudades:
 
         # Pronóstico a partir del día 15
         pron_final = [pron_final[i]*crecimiento[i] for i in range(len(crecimiento))]
-
+        pron_final = [i if i>0 else 0 for i in pron_final]    
 
 
         # escenario 1 

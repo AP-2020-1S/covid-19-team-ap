@@ -1864,7 +1864,7 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 210,2020-09-27,Bogotá D.C.,1711.1971995160686,Recuperado,Pronostico,Francia
 211,2020-09-28,Bogotá D.C.,1895.6041310286785,Recuperado,Pronostico,Francia
 212,2020-09-29,Bogotá D.C.,750.2532831262097,Recuperado,Pronostico,Francia
-213,2020-09-30,Bogotá D.C.,-336.4642181202633,Recuperado,Pronostico,Francia
+213,2020-09-30,Bogotá D.C.,0.0,Recuperado,Pronostico,Francia
 214,2020-10-01,Bogotá D.C.,174.043548438086,Recuperado,Pronostico,Francia
 215,2020-10-02,Bogotá D.C.,1807.5624818531066,Recuperado,Pronostico,Francia
 216,2020-10-03,Bogotá D.C.,2392.272206303781,Recuperado,Pronostico,Francia
@@ -4207,9 +4207,9 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 208,2020-09-28,Medellín,154.56491964778388,Recuperado,Pronostico,Francia
 209,2020-09-29,Medellín,11.502666497065215,Recuperado,Pronostico,Francia
 210,2020-09-30,Medellín,112.53665336730607,Recuperado,Pronostico,Francia
-211,2020-10-01,Medellín,-28.18252180874607,Recuperado,Pronostico,Francia
+211,2020-10-01,Medellín,0.0,Recuperado,Pronostico,Francia
 212,2020-10-02,Medellín,112.85587794577819,Recuperado,Pronostico,Francia
-213,2020-10-03,Medellín,-23.29394738002849,Recuperado,Pronostico,Francia
+213,2020-10-03,Medellín,0.0,Recuperado,Pronostico,Francia
 214,2020-10-04,Medellín,152.8482478704762,Recuperado,Pronostico,Francia
 0,2020-02-29,Medellín,0.0,Fallecido,Real,Base
 1,2020-03-02,Medellín,0.0,Fallecido,Real,Base
@@ -6036,9 +6036,9 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 206,2020-09-28,Cali,716.730115117238,Activos,Pronostico,Francia
 207,2020-09-29,Cali,459.9392731201232,Activos,Pronostico,Francia
 208,2020-09-30,Cali,162.98658749742341,Activos,Pronostico,Francia
-209,2020-10-01,Cali,-176.5762404643326,Activos,Pronostico,Francia
-210,2020-10-02,Cali,-560.6228143782116,Activos,Pronostico,Francia
-211,2020-10-03,Cali,-990.5086579689306,Activos,Pronostico,Francia
+209,2020-10-01,Cali,0.0,Activos,Pronostico,Francia
+210,2020-10-02,Cali,0.0,Activos,Pronostico,Francia
+211,2020-10-03,Cali,0.0,Activos,Pronostico,Francia
 0,2020-03-02,Cali,0.0,Recuperado,Real,Base
 1,2020-03-05,Cali,0.0,Recuperado,Real,Base
 2,2020-03-07,Cali,0.0,Recuperado,Real,Base
@@ -8295,26 +8295,26 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 184,2020-09-11,Barranquilla,278.9419494226641,Activos,Pronostico,Francia
 185,2020-09-12,Barranquilla,140.62661736263726,Activos,Pronostico,Francia
 186,2020-09-13,Barranquilla,13.14723374130989,Activos,Pronostico,Francia
-187,2020-09-14,Barranquilla,-103.20103349194648,Activos,Pronostico,Francia
-188,2020-09-15,Barranquilla,-208.1305040036366,Activos,Pronostico,Francia
-189,2020-09-16,Barranquilla,-301.3859279683821,Activos,Pronostico,Francia
-190,2020-09-17,Barranquilla,-382.7799926807712,Activos,Pronostico,Francia
-191,2020-09-18,Barranquilla,-452.23698593613557,Activos,Pronostico,Francia
-192,2020-09-19,Barranquilla,-432.76443415183917,Activos,Pronostico,Francia
-193,2020-09-20,Barranquilla,-1207.5813494229928,Activos,Pronostico,Francia
-194,2020-09-21,Barranquilla,-2123.0113207375853,Activos,Pronostico,Francia
-195,2020-09-22,Barranquilla,-3141.106760116163,Activos,Pronostico,Francia
-196,2020-09-23,Barranquilla,-4220.090535362471,Activos,Pronostico,Francia
-197,2020-09-24,Barranquilla,-5314.564795314284,Activos,Pronostico,Francia
-198,2020-09-25,Barranquilla,-6376.928240758589,Activos,Pronostico,Francia
-199,2020-09-26,Barranquilla,-7359.2234160715425,Activos,Pronostico,Francia
-200,2020-09-27,Barranquilla,-8214.708345409294,Activos,Pronostico,Francia
-201,2020-09-28,Barranquilla,-8898.979827135401,Activos,Pronostico,Francia
-202,2020-09-29,Barranquilla,-9370.803766031919,Activos,Pronostico,Francia
-203,2020-09-30,Barranquilla,-9592.858485195193,Activos,Pronostico,Francia
-204,2020-10-01,Barranquilla,-9532.47286839875,Activos,Pronostico,Francia
-205,2020-10-02,Barranquilla,-9162.343176355114,Activos,Pronostico,Francia
-206,2020-10-03,Barranquilla,-8461.184525815437,Activos,Pronostico,Francia
+187,2020-09-14,Barranquilla,0.0,Activos,Pronostico,Francia
+188,2020-09-15,Barranquilla,0.0,Activos,Pronostico,Francia
+189,2020-09-16,Barranquilla,0.0,Activos,Pronostico,Francia
+190,2020-09-17,Barranquilla,0.0,Activos,Pronostico,Francia
+191,2020-09-18,Barranquilla,0.0,Activos,Pronostico,Francia
+192,2020-09-19,Barranquilla,0.0,Activos,Pronostico,Francia
+193,2020-09-20,Barranquilla,0.0,Activos,Pronostico,Francia
+194,2020-09-21,Barranquilla,0.0,Activos,Pronostico,Francia
+195,2020-09-22,Barranquilla,0.0,Activos,Pronostico,Francia
+196,2020-09-23,Barranquilla,0.0,Activos,Pronostico,Francia
+197,2020-09-24,Barranquilla,0.0,Activos,Pronostico,Francia
+198,2020-09-25,Barranquilla,0.0,Activos,Pronostico,Francia
+199,2020-09-26,Barranquilla,0.0,Activos,Pronostico,Francia
+200,2020-09-27,Barranquilla,0.0,Activos,Pronostico,Francia
+201,2020-09-28,Barranquilla,0.0,Activos,Pronostico,Francia
+202,2020-09-29,Barranquilla,0.0,Activos,Pronostico,Francia
+203,2020-09-30,Barranquilla,0.0,Activos,Pronostico,Francia
+204,2020-10-01,Barranquilla,0.0,Activos,Pronostico,Francia
+205,2020-10-02,Barranquilla,0.0,Activos,Pronostico,Francia
+206,2020-10-03,Barranquilla,0.0,Activos,Pronostico,Francia
 0,2020-03-06,Barranquilla,0.0,Recuperado,Real,Base
 1,2020-03-09,Barranquilla,0.0,Recuperado,Real,Base
 2,2020-03-10,Barranquilla,0.0,Recuperado,Real,Base
@@ -9235,34 +9235,34 @@ N,Fecha,Ciudad,Valor,Variable,Tipo,Escenario
 206,2020-10-03,Barranquilla,-4.580639837690408,Fallecido,LI,Base
 177,2020-09-04,Barranquilla,0.22270585390775027,Fallecido,Pronostico,Francia
 178,2020-09-05,Barranquilla,0.8676121114259937,Fallecido,Pronostico,Francia
-179,2020-09-06,Barranquilla,-0.04883142518422172,Fallecido,Pronostico,Francia
-180,2020-09-07,Barranquilla,-0.27968850689648633,Fallecido,Pronostico,Francia
+179,2020-09-06,Barranquilla,0.0,Fallecido,Pronostico,Francia
+180,2020-09-07,Barranquilla,0.0,Fallecido,Pronostico,Francia
 181,2020-09-08,Barranquilla,0.35563732856893526,Fallecido,Pronostico,Francia
 182,2020-09-09,Barranquilla,0.1416198567532548,Fallecido,Pronostico,Francia
-183,2020-09-10,Barranquilla,-0.2634085404057822,Fallecido,Pronostico,Francia
+183,2020-09-10,Barranquilla,0.0,Fallecido,Pronostico,Francia
 184,2020-09-11,Barranquilla,0.0711010603011956,Fallecido,Pronostico,Francia
 185,2020-09-12,Barranquilla,0.18152309228022045,Fallecido,Pronostico,Francia
-186,2020-09-13,Barranquilla,-0.12302350632448672,Fallecido,Pronostico,Francia
-187,2020-09-14,Barranquilla,-0.059675934056997906,Fallecido,Pronostico,Francia
+186,2020-09-13,Barranquilla,0.0,Fallecido,Pronostico,Francia
+187,2020-09-14,Barranquilla,0.0,Fallecido,Pronostico,Francia
 188,2020-09-15,Barranquilla,0.1275373502426497,Fallecido,Pronostico,Francia
-189,2020-09-16,Barranquilla,-0.014212154979610555,Fallecido,Pronostico,Francia
-190,2020-09-17,Barranquilla,-0.08106957845863867,Fallecido,Pronostico,Francia
+189,2020-09-16,Barranquilla,0.0,Fallecido,Pronostico,Francia
+190,2020-09-17,Barranquilla,0.0,Fallecido,Pronostico,Francia
 191,2020-09-18,Barranquilla,0.05343668715020722,Fallecido,Pronostico,Francia
 192,2020-09-19,Barranquilla,0.029621258761879633,Fallecido,Pronostico,Francia
-193,2020-09-20,Barranquilla,-0.11814532628101757,Fallecido,Pronostico,Francia
+193,2020-09-20,Barranquilla,0.0,Fallecido,Pronostico,Francia
 194,2020-09-21,Barranquilla,0.010696900686309338,Fallecido,Pronostico,Francia
 195,2020-09-22,Barranquilla,0.1998059740706817,Fallecido,Pronostico,Francia
-196,2020-09-23,Barranquilla,-0.13927476709991105,Fallecido,Pronostico,Francia
-197,2020-09-24,Barranquilla,-0.1484061933089305,Fallecido,Pronostico,Francia
+196,2020-09-23,Barranquilla,0.0,Fallecido,Pronostico,Francia
+197,2020-09-24,Barranquilla,0.0,Fallecido,Pronostico,Francia
 198,2020-09-25,Barranquilla,0.24827535780557897,Fallecido,Pronostico,Francia
 199,2020-09-26,Barranquilla,0.013697226668374453,Fallecido,Pronostico,Francia
-200,2020-09-27,Barranquilla,-0.2529910345882434,Fallecido,Pronostico,Francia
+200,2020-09-27,Barranquilla,0.0,Fallecido,Pronostico,Francia
 201,2020-09-28,Barranquilla,0.13365112407151772,Fallecido,Pronostico,Francia
 202,2020-09-29,Barranquilla,0.16718444448311126,Fallecido,Pronostico,Francia
-203,2020-09-30,Barranquilla,-0.21442128444662936,Fallecido,Pronostico,Francia
-204,2020-10-01,Barranquilla,-0.0317752704281696,Fallecido,Pronostico,Francia
+203,2020-09-30,Barranquilla,0.0,Fallecido,Pronostico,Francia
+204,2020-10-01,Barranquilla,0.0,Fallecido,Pronostico,Francia
 205,2020-10-02,Barranquilla,0.21142078366637898,Fallecido,Pronostico,Francia
-206,2020-10-03,Barranquilla,-0.08564060716861964,Fallecido,Pronostico,Francia
+206,2020-10-03,Barranquilla,0.0,Fallecido,Pronostico,Francia
 0,2020-03-01,Cartagena de Indias,1.0,Total,Real,Base
 1,2020-03-02,Cartagena de Indias,3.0,Total,Real,Base
 2,2020-03-06,Cartagena de Indias,6.0,Total,Real,Base
