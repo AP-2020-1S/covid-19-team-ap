@@ -587,7 +587,7 @@ for c in ciudades:
     crecimiento_m[0][:15] = 1
     # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
     # al pronóstico número 15
-    crecimiento_m = list(crecimiento_m[0].cumprod())
+    crecimiento_m = list(crecimiento_m[0])
     
     ## USA
     # cambio porcentual por el escenario
@@ -599,7 +599,7 @@ for c in ciudades:
     crecimiento_u[0][:15] = 1
     # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
     # al pronóstico número 15
-    crecimiento_u = list(crecimiento_u[0].cumprod())   
+    crecimiento_u = list(crecimiento_u[0])   
     
 
 
@@ -717,14 +717,26 @@ for c in ciudades:
 
 
         #Escenarios
-
+        
         # Pronóstico a partir del día 15 México
-        pron_final_mex = [pron_final[i]*crecimiento_m[i] for i in range(len(crecimiento_m))]
-        pron_final_mex = [i if i>0 else 0 for i in pron_final_mex]    
-
+        pron_final_mex = []
+        anterior = pron_final[14]
+        for i in range(15,len(crecimiento_m)):
+            anterior = anterior * crecimiento_m[i]
+            pron_final_mex.append(anterior)
+            
+        pron_final_mex = np.append(pron_final[:15], pron_final_mex)
+            
+  
         # Pronóstico a partir del día 15 USA
-        pron_final_usa = [pron_final[i]*crecimiento_u[i] for i in range(len(crecimiento_u))]
-        pron_final_usa = [i if i>0 else 0 for i in pron_final_usa]   
+        pron_final_usa = []
+        anterior = pron_final[14]
+        for i in range(15,len(crecimiento_u)):
+            anterior = anterior * crecimiento_u[i]
+            pron_final_usa.append(anterior)
+            
+        pron_final_usa = np.append(pron_final[:15], pron_final_usa) 
+        
         
 
           
