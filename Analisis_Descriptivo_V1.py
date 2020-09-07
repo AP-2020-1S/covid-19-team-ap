@@ -89,9 +89,10 @@ def tabla_ciudad(ciudad):
 # Se define la tasa de recuperacion como "Gamma" como media movil de 7 dias
 # Se define el horizonte de tiempo "t" como el tamaño de la tabla ciudad (dias) + el numero de dias de la predicción (15 dias)
 def SIR(ciudad, df_pob, n_pred, beta, gamma):
+
     df = tabla_ciudad(c)
     N = int(df_pob.loc[(df_pob['Grupos de edad'] == 'Total') & (df_pob['Región'] == c), ['Ambos Sexos']].sum() * 0.6)
-    I0, R0 = df['Activos'][-1], df['Recuperado'].sum()
+    I0, R0 = df['Total'][-1], df['Recuperado'].sum()
     S0 = N - I0 - R0
     df['Gamma'] = df['Recuperado'] / df['Activos'].shift(1)
     # beta, gamma = df['GR'].rolling(7).mean()[-1], df['Gamma'].rolling(7).mean()[-1]
@@ -191,7 +192,7 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
     return ajuste, pronostico
 
 # número de pronósticos
-pred = 30
+pred = 45
 # datos para la validación cruzada
 val_cruz = 5
 
@@ -342,30 +343,42 @@ for c in ciudades:
     ### Pronósticos con escenarios de apertura
       
     """SIR Casos Totales"""
-    # Francia 0.0269,0.0028
-    # Mundo 0.01,0.0116
-    S, I, R = SIR(c, df_pob, pred, 0.0269,0.0028)    
-
+    # EEUU 0.0167,0.0121
+    # México 0.0515,0.0364
+    Se, Ie, Re = SIR(c, df_pob, pred, 0.0167,0.0121)    
+    Sm, Im, Rm = SIR(c, df_pob, pred, 0.0515,0.0364)
     # se crea un vector donde se reparten los pesos de cada modelo a partir
     # de dos semanas de pronóstico
-    p = np.linspace(0, 1, 15)
+    p = np.linspace(0, 1, 30)
 
-    # Pronóstico a partir del día 15
-    pron_final = pron_t_final[15:]*(1-p) + I[15:]*p
+    # Pronóstico a partir del día 15 USA
+    pron_final = pron_t_final[15:]*(1-p) + Ie[15:]*p
+    pron_final_usa = np.append(pron_t_final[:15], pron_final)
     
-    pron_final = np.append(pron_t_final[:15], pron_final)
+     # Pronóstico a partir del día 15 MÉXICO
+    pron_final = pron_t_final[15:]*(1-p) + Im[15:]*p
+    pron_final_mex = np.append(pron_t_final[:15], pron_final)   
     
-    # escenario 
+    # escenario México
     for i in range(len(pron_final)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
-      v.append(pron_final[i])
+      v.append(pron_final_mex[i])
       e.append('Total')
       g.append('Pronostico')
-      esc.append('Francia')
+      esc.append('Mexico')
 
-
+    # escenario  USA
+    for i in range(len(pron_final)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_final_usa[i])
+      e.append('Total')
+      g.append('Pronostico')
+      esc.append('USA')
+      
     # plt.plot(x,y, 'b-')
     # plt.plot(x,aj_t_final, 'r-' )
     # plt.plot(pred_x,pron_final, 'g-')
@@ -519,56 +532,75 @@ for c in ciudades:
 
    
     """SIR Casos Nuevos"""
-    SIR_n = [0 if i < 0 else i for i in np.diff(I)]
-    
+    # México
+    SIR_n_m = [0 if i < 0 else i for i in np.diff(Im)]
+    # USA
+    SIR_n_u = [0 if i < 0 else i for i in np.diff(Im)]
 
     # se agrega un cero para que tenga la misma longitud que el pronóstico del
     # modelo gompertz + arima
-    SIR_n = [0] + SIR_n
+    SIR_n_m = [0] + SIR_n_m
+    SIR_n_u = [0] + SIR_n_u
     
     # se crea un vector donde se reparten los pesos de cada modelo a partir
     # de dos semanas de pronóstico
-    p = np.linspace(0, 1, 15)
-    # p = np.zeros(15)
-    # p = np.repeat(1,15)
-    # Pronóstico a partir del día 15
-    pron_final = pron_n_final[15:]*(1-p) + SIR_n[15:]*p
-    
-    pron_final = np.append(pron_n_final[:15], pron_final)
+    p = np.linspace(0, 1, 30)
 
+    # Pronóstico a partir del día 15 México
+    pron_final = pron_n_final[15:]*(1-p) + SIR_n_u[15:]*p
+    pron_final_usa = np.append(pron_n_final[:15], pron_final)
 
+    # Pronóstico a partir del día 15 USA
+    pron_final = pron_n_final[15:]*(1-p) + SIR_n_m[15:]*p
+    pron_final_mex = np.append(pron_n_final[:15], pron_final)
 
-    # cambio porcentual por el escenario
-    crecimiento = pd.DataFrame(pron_final).pct_change()
-    
-    crecimiento[0] = crecimiento[0] + 1
-    
-    # se dejan los primeros 15 días en 1 (en este periodo no se pretende
-    # modificar el pronóstico del modelo a corto plazo)    
-    crecimiento[0][:15] = 1
-    # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
-    # al pronóstico número 15
-    crecimiento = list(crecimiento[0].cumprod())
-    
-
-    
-    plt.plot(f_y)
-    plt.plot(aj_n_final, 'r-')
-    plt.plot(pred_x-7,pron_final, 'g-')
-    plt.title(c)
-    plt.show()
-    
-      
-    # escenario 1 
-    for i in range(len(pron_final)):
+  
+    # escenario México
+    for i in range(len(pron_final_mex)):
       n.append(pred_x[i])
       f.append(fechas[-1] + dt.timedelta(days=i+1))
       u.append(c)
-      v.append(pron_final[i])
+      v.append(pron_final_mex[i])
       e.append('Nuevos')
       g.append('Pronostico')
-      esc.append('Francia')
+      esc.append('Mexico')
 
+    # escenario  USA
+    for i in range(len(pron_final_usa)):
+      n.append(pred_x[i])
+      f.append(fechas[-1] + dt.timedelta(days=i+1))
+      u.append(c)
+      v.append(pron_final_usa[i])
+      e.append('Nuevos')
+      g.append('Pronostico')
+      esc.append('USA')
+
+    
+    # Crecimiento de cada curva para las demás variables
+    ## México
+    # cambio porcentual por el escenario
+    crecimiento_m = pd.DataFrame(pron_final_mex).pct_change()
+    crecimiento_m[0] = crecimiento_m[0] + 1
+    
+    # se dejan los primeros 15 días en 1 (en este periodo no se pretende
+    # modificar el pronóstico del modelo a corto plazo)    
+    crecimiento_m[0][:15] = 1
+    # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
+    # al pronóstico número 15
+    crecimiento_m = list(crecimiento_m[0].cumprod())
+    
+    ## USA
+    # cambio porcentual por el escenario
+    crecimiento_u = pd.DataFrame(pron_final_usa).pct_change()
+    crecimiento_u[0] = crecimiento_u[0] + 1
+    
+    # se dejan los primeros 15 días en 1 (en este periodo no se pretende
+    # modificar el pronóstico del modelo a corto plazo)    
+    crecimiento_u[0][:15] = 1
+    # con el cumprod se halla el cambio porcentual de cada pronóstico con respecto
+    # al pronóstico número 15
+    crecimiento_u = list(crecimiento_u[0].cumprod())   
+    
 
 
     # =============================================================================
@@ -686,21 +718,36 @@ for c in ciudades:
 
         #Escenarios
 
-        # Pronóstico a partir del día 15
-        pron_final = [pron_final[i]*crecimiento[i] for i in range(len(crecimiento))]
-        pron_final = [i if i>0 else 0 for i in pron_final]    
+        # Pronóstico a partir del día 15 México
+        pron_final = [pron_final[i]*crecimiento_m[i] for i in range(len(crecimiento_m))]
+        pron_final_mex = [i if i>0 else 0 for i in pron_final]    
 
+        # Pronóstico a partir del día 15 USA
+        pron_final = [pron_final[i]*crecimiento_u[i] for i in range(len(crecimiento_u))]
+        pron_final_usa = [i if i>0 else 0 for i in pron_final]   
+        
 
-        # escenario 1 
-        for i in range(len(pron_final)):
+          
+        # escenario México
+        for i in range(len(pron_final_mex)):
           n.append(pred_x[i])
           f.append(fechas[-1] + dt.timedelta(days=i+1))
           u.append(c)
-          v.append(pron_final[i])
+          v.append(pron_final_mex[i])
           e.append(var)
           g.append('Pronostico')
-          esc.append('Francia')
-          
+          esc.append('Mexico')
+    
+        # escenario  USA
+        for i in range(len(pron_final_usa)):
+          n.append(pred_x[i])
+          f.append(fechas[-1] + dt.timedelta(days=i+1))
+          u.append(c)
+          v.append(pron_final_usa[i])
+          e.append('Nuevos')
+          g.append('Pronostico')
+          esc.append('USA')
+
           
         # plt.plot(x,df[var], 'b-')
         # plt.plot(x,aj_final, 'r-' )
