@@ -497,7 +497,7 @@ for c in ciudades:
     
     for i in range(len(pron_n_final)):
       n.append(pred_x[i])
-      f.append(fechas[-6] + dt.timedelta(days=i+1))
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
       u.append(c)
       v.append(pron_n_final[i])
       e.append('Nuevos')
@@ -506,7 +506,7 @@ for c in ciudades:
 
     for i in range(len(l_s)):
       n.append(pred_x[i])
-      f.append(fechas[-6] + dt.timedelta(days=i+1))
+      f.append(fechas[-8] + dt.timedelta(days=i+1))
       u.append(c)
       v.append(l_s[i])
       e.append('Nuevos')
@@ -744,7 +744,7 @@ for c in ciudades:
           f.append(fechas[-1] + dt.timedelta(days=i+1))
           u.append(c)
           v.append(pron_final_usa[i])
-          e.append('Nuevos')
+          e.append(var)
           g.append('Pronostico')
           esc.append('USA')
 
