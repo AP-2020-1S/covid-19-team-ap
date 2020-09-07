@@ -269,7 +269,14 @@ for c in ciudades:
     mae = mean_absolute_error(y[pred_x_val], pron_final)
     fmae.append([c, 'Total', mae,'Base'])
     
-
+   
+    
+    # residuales de pronóstico e intervalos de predicción
+    res_pron = y[pred_x_val] - pron_final
+    s = np.std(res_pron)
+  
+    
+    
     ### Ahora con todos los datos
     
     aj_t_gom, pron_t_gom = mod_gompertz(y,x,pred_x,'totales')
@@ -285,13 +292,11 @@ for c in ciudades:
     pron_t_final = pron_t_gom + pron_arima
 
 
-    # nuevos residuales e intervalos de predicción
-    n_res = y - aj_t_final
-    s = np.std(n_res)
     # límite superior e inferior de los intervalos
     l_s = pron_t_final + st.norm.ppf(.95) * s
-    l_i = pron_t_final - st.norm.ppf(.95) * s   
-        
+    l_i = pron_t_final - st.norm.ppf(.95) * s    
+
+       
     r2 = r2_score(y, aj_t_final)
 
     fr2.append([c, 'Total', r2,'Base'])
@@ -470,6 +475,13 @@ for c in ciudades:
     fmae.append([c, 'Nuevos', mae,'Base'])
     
     
+    # residuales de pronóstico
+    res_pron = f_y[pred_x_val-7] - pron_final
+    s = np.std(res_pron)
+      
+    
+    
+    
     ### Ahora con todos los datos
     
     aj_n_gom, pron_n_gom = mod_gompertz(f_y,x[:-7],pred_x-7)
@@ -546,17 +558,10 @@ for c in ciudades:
 
 
 
-    # nuevos residuales
-    n_res = f_y - aj_n_final
-    s = np.std(n_res)
- 
-    
     # límite superior e inferior de los intervalos
     l_s = pron_n_final + st.norm.ppf(.95) * s
-    l_i = pron_n_final - st.norm.ppf(.95) * s   
+    l_i = pron_n_final - st.norm.ppf(.95) * s  
         
-    
-    
     r2 = r2_score(f_y, aj_n_final)
 
     fr2.append([c, 'Nuevos', r2,'Base'])
