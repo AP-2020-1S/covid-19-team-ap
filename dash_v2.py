@@ -58,7 +58,7 @@ def index():
                                             html.H6('Medidas de Ajuste y Pronóstico', className='card-title'),
                                             dcc.RadioItems(id='variable',
                                                            options=[{'label' : i, 'value' : i} for i in df_mae.Variable.unique()],
-                                                           value='Total',
+                                                           value='Nuevos',
                                                            labelStyle={'display' : 'inline-block'}),
                                             dash_table.DataTable(id='medidas',
                                                                  style_cell={'textAlign' : 'center', 'fontSize' : 14, 'font-family' : 'arial'}),
@@ -69,12 +69,15 @@ def index():
                                     ]), width=4),
                             dbc.Col(dbc.Card([
                                     dbc.CardBody([
-                                            html.H6('Pronóstico por Escenarios', className='card-title'),
+                                            html.H6('Pronóstico por Escenarios de Restricciones', className='card-title'),
                                             dcc.RadioItems(id='escenario',
-                                                           options=[{'label' : i, 'value' : i} for i in df.Escenario.unique()],
+                                                           options=[{'label' : 'Estrictas', 'value' : 'Base'},
+                                                                    {'label' : 'Parciales', 'value' : 'USA'},
+                                                                    {'label' : 'Sin Restricciones', 'value' : 'Mexico'}],
                                                                     value='Base',
                                                                     labelStyle={'display' : 'inline-block'}),
                                             dcc.Graph(id='grafico'),
+                                            html.P(id='exp'),
                                             ]),
                                     ]), width=6)
                             ], justify = 'center'),
@@ -85,7 +88,7 @@ def index():
                                             html.H6('Descripción Casos Covid por Rangos de Edad'),
                                             dcc.RadioItems(id='covid',
                                                            options=[{'label' : 'Género', 'value' : 'genero'},
-                                                                    {'label' : 'Tratamiento', 'value' : 'tratamiento'}],
+                                                                    {'label' : 'Lugar de Recuperación', 'value' : 'tratamiento'}],
                                                                     value='genero',
                                                                     labelStyle={'display' : 'inline-block'}),
                                             dcc.Graph(id='covid-graf')
@@ -105,7 +108,7 @@ def fechas(ciudad):
     df = data()
     _ = df.loc[(df.Ciudad == ciudad) & (df.Tipo == 'Real'), ['Fecha']]
     f = _.Fecha.max()
-    return f, df.Fecha.min(), df.Fecha.max()
+    return f, f, f
     
 #Tablas y graficas --> Ciudad y Variable
 @app.callback([Output('medidas', 'data'), Output('medidas', 'columns')],
@@ -119,7 +122,7 @@ def tabla_medidas(ciudad, variable):
     df = pd.concat([df_r2, df_mae])
     df = df.loc[(df.Ciudad == ciudad) & (df.Variable == variable), :]
     df = df[['Medida', 'Valor']]
-    df.Valor = df.Valor.apply(lambda x: round(x, 2))
+    df.Valor = df.Valor.apply(lambda x: round(x, 3))
     return df.to_dict('rows'), [{'name' : i, 'id' : i} for i in df.columns]
 
 #Informacion UCI por Ciudad
@@ -156,10 +159,10 @@ def grafico_ppal(ciudad, variable, escenario):
     y_a = df[df['Tipo'] == 'Ajuste']['Valor']
     x_p = df[(df['Tipo'] == 'Pronostico') & (df.Escenario == escenario)]['Fecha']
     y_p = df[(df['Tipo'] == 'Pronostico') & (df.Escenario == escenario)]['Valor']
-    li = df[(df['Tipo'] == 'L_I') & (df.Escenario == escenario)]['Valor']
-    ls = df[(df['Tipo'] == 'L_S') & (df.Escenario == escenario)]['Valor']
+    li = df[(df['Tipo'] == 'LI') & (df.Escenario == escenario)]['Valor']
+    ls = df[(df['Tipo'] == 'LS') & (df.Escenario == escenario)]['Valor']
     
-    return go.Figure(data=[
+    fig = go.Figure(data=[
             go.Scatter(x=x,
                        y=y,
                        name='Datos Reales',
@@ -172,12 +175,41 @@ def grafico_ppal(ciudad, variable, escenario):
                        name='Pronóstico'),
             go.Scatter(x=x_p,
                        y=ls,
+                       showlegend=False,
+                       fill=None,
+                       mode='lines',
+                       line=dict(width=0.5, color='rgb(127, 166, 238)')
                        ),
             go.Scatter(x=x_p,
                        y=li,
-                       fill='tonexty'),
+                       fill='tonexty',
+                       mode='lines',
+                       name='Intervalo de Predicción',
+                       line=dict(width=0.5, color='rgb(127, 166, 238)')),
             ])
-        
+    fig.update_layout(
+        title={
+            'text': ciudad + ' - ' + variable,
+            'y':0.9,
+            'x':0.5,
+            'xanchor': 'center',
+            'yanchor': 'top'})
+    
+    return fig
+
+#Explicacion escenario
+@app.callback(Output('exp', 'children'), [Input('escenario', 'value')])
+
+def explicacion(esc):
+    if esc == 'Base':
+        return """Se estima el comportamiento de la pandemia por medio del modelo 
+    Gompertz y ARIMA bajo la implementación de medidas estrictas de seguridad frente a la pandemia."""
+    elif esc == 'Mexico':
+        return """Se utilizaron las tasas de infección y recuperación de México para predecir el comportamiento 
+    de Colombia bajo condiciones sin restricciones aéreas y pocas medidas de seguridad frente a la pandemia."""
+    elif esc == 'USA':
+        return """Se utilizaron las tasas de infección y recuperación de los Estados Unidos 
+            para predecir el comportamiento de Colombia bajo algunas medidas de seguridad frente a la pandemia."""
 
 #Descripciones COVID
 @app.callback(Output('covid-graf', 'figure'),
@@ -197,6 +229,13 @@ def covid_graf(tipo, ciudad):
             go.Bar(name='M', x=x, y=y_h),
             ])
         fig.update_layout(barmode='stack')
+        fig.update_layout(
+            title={
+                'text': ciudad,
+                'y':0.9,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top'})
         return fig
     else:
         df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\Descrip_casos.csv', 
@@ -210,6 +249,13 @@ def covid_graf(tipo, ciudad):
             go.Bar(name='Hospital', x=x, y=y_h),
             ])
         fig.update_layout(barmode='stack')
+        fig.update_layout(
+            title={
+                'text': ciudad,
+                'y':0.9,
+                'x':0.5,
+                'xanchor': 'center',
+                'yanchor': 'top'})
         return fig
 
 if __name__ == '__main__':
