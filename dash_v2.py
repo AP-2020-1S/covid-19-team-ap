@@ -184,11 +184,12 @@ def grafico_ppal(ciudad, variable, escenario):
               [Input('covid', 'value'), Input('ciudad', 'value')])
 
 def covid_graf(tipo, ciudad):
+#    ciudad = 'Cali'
     if tipo == 'genero':
         df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\desc_casos_sexo.csv', 
                      delimiter=',', encoding='ISO-8859-1')
         df = df.loc[(df.Ciudad == ciudad), :]
-        x = df['Grupo de edad']
+        x = df['Grupo de edad'].unique()
         y_m = df[df['Sexo'] == 'F']['Total']
         y_h = df[df['Sexo'] == 'M']['Total']
         fig = go.Figure(data=[
@@ -201,7 +202,7 @@ def covid_graf(tipo, ciudad):
         df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\Descrip_casos.csv', 
                      delimiter=',', encoding='ISO-8859-1')
         df = df.loc[(df.Ciudad == ciudad), :]
-        x = df['Grupo de edad']
+        x = df['Grupo de edad'].unique()
         y_m = df[df['Estado'] == 'Casa']['Total']
         y_h = df[df['Estado'] == 'Hospital']['Total']
         fig = go.Figure(data=[
