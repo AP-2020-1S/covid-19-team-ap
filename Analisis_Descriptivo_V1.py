@@ -18,11 +18,7 @@ import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 import scipy.stats as st
 from pmdarima import auto_arima 
-import pmdarima as pm
-from sodapy import Socrata
 from statsmodels.tsa.statespace.sarimax import SARIMAX
-from plotly.offline import plot
-import plotly.graph_objects as go
 from sklearn.metrics import mean_absolute_error
 from sklearn.metrics import r2_score
 import warnings
