@@ -20,16 +20,16 @@ app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP])
 suppress_callback_exceptions = True
 
 def data():
-    df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\BD.csv', 
+    df = pd.read_csv(r'BD.csv', 
                      delimiter=',', encoding='ISO-8859-1')
     df['Fecha'] = pd.to_datetime(df['Fecha'])
     return df
 
 def mae():
-    return pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\mae.csv', 
+    return pd.read_csv(r'mae.csv', 
                      delimiter=',', encoding='ISO-8859-1')
 def r2():
-    return pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\r2.csv', 
+    return pd.read_csv(r'r2.csv', 
                      delimiter=',', encoding='ISO-8859-1')
 
 def index():
@@ -135,7 +135,7 @@ def tabla_medidas(ciudad, variable):
               [Input('ciudad', 'value')])
 
 def uci(ciudad):
-    df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\Ocupacion UCI.csv', 
+    df = pd.read_csv(r'Ocupacion UCI.csv', 
                      delimiter=',', encoding='ISO-8859-1')
     df = df.loc[df.Ciudad == ciudad, :]
     oc = str(df.iloc[0]['Ocupacion'])
@@ -222,7 +222,7 @@ def explicacion(esc):
 def covid_graf(tipo, ciudad):
 #    ciudad = 'Cali'
     if tipo == 'genero':
-        df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\desc_casos_sexo.csv', 
+        df = pd.read_csv(r'desc_casos_sexo.csv', 
                      delimiter=',', encoding='ISO-8859-1')
         df = df.loc[(df.Ciudad == ciudad), :]
         x = df['Grupo de edad'].unique()
@@ -242,7 +242,7 @@ def covid_graf(tipo, ciudad):
                 'yanchor': 'top'})
         return fig
     else:
-        df = pd.read_csv(r'C:\Users\tomvc\Desktop\Maestria\Analitica_Predictiva\covid-19-team-ap\Descrip_casos.csv', 
+        df = pd.read_csv(r'Descrip_casos.csv', 
                      delimiter=',', encoding='ISO-8859-1')
         df = df.loc[(df.Ciudad == ciudad), :]
         x = df['Grupo de edad'].unique()
@@ -262,5 +262,14 @@ def covid_graf(tipo, ciudad):
                 'yanchor': 'top'})
         return fig
 
-if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0')
+
+if __name__ == "__main__":
+    
+    import os
+            
+    if os.environ.get("deploy_en_heroku") == 'TRUE':
+        port = int(os.environ.get("PORT", 5000))
+        app.run_server(host='0.0.0.0',debug=True, port=port)
+        
+    else:
+        app.run_server(host='0.0.0.0',debug=True, port=8050)

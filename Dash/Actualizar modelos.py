@@ -26,6 +26,7 @@ warnings.filterwarnings('ignore')
 import datetime as dt
 import math
 from sklearn.metrics import mean_squared_error
+import pmdarima as pm
 
 
 #Se definen las funciones con las columnas de datos que seran usadas posteriormente
@@ -148,7 +149,7 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
 
     # Ajuste y pronóstico
     if tipo == 'nuevos':
-        f_param, pcov = curve_fit(f_gompertz, x, y, maxfev=10000000,p0=([1000,1000,10]))
+        f_param, pcov = curve_fit(f_gompertz, x, y, maxfev=10000000)
         ajuste = f_gompertz(x, *f_param)
         pronostico = f_gompertz(pred_x, *f_param)
         f_param2, pcov2 = curve_fit(gauss, x, y, maxfev=10000000, bounds=([10,100,1000],[10000,10000,10000000]))
@@ -162,14 +163,6 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
         if mse2 <= mse1:
             ajuste = ajuste2
             pronostico = pronostico2
-        
-        # plt.plot(y)    
-        # plt.plot(ajuste, 'r-')
-        # plt.plot(pred_x,pronostico, 'r-')
-        # # plt.plot(ajuste2, 'g-')
-        # # plt.plot(pred_x,pronostico2, 'g-')
-        # plt.title(f'Ciudad: {c}, variable: {var}')
-        # plt.show()        
 
         
     elif tipo == 'totales':
@@ -187,12 +180,14 @@ def mod_gompertz(y, x, pred_x, tipo='nuevos'):
     
     return ajuste, pronostico
 
+
+
 # número de pronósticos
 pred = 45
 # datos para la validación cruzada
-val_cruz = 5
+val_cruz = 7
 
-# Variables para bodega de datos
+# Variables para armar lo csv que alimentan el dashboard
 fmae = []
 fr2 = []
 n = []
@@ -298,11 +293,6 @@ for c in ciudades:
     fr2.append([c, 'Total', r2,'Base'])
     
     
-    # plt.plot(x,y, 'b-')
-    # plt.plot(x,aj_t_final, 'r-' )
-    # plt.plot(pred_x,pron_t_final, 'g-')
-    # plt.show()
-    
     #Construccion CSV
     for i in range(len(aj_t_final)):
       n.append(x[i])
@@ -348,6 +338,7 @@ for c in ciudades:
     # México 0.0515,0.0364
     Se, Ie, Re = SIR(c, df_pob, pred, 0.0167,0.0121)    
     Sm, Im, Rm = SIR(c, df_pob, pred, 0.0515,0.0364)
+    
     # se crea un vector donde se reparten los pesos de cada modelo a partir
     # de dos semanas de pronóstico
     p = np.linspace(0, 1, 30)
@@ -420,10 +411,6 @@ for c in ciudades:
       esc.append('USA')  
 
       
-    # plt.plot(x,y, 'b-')
-    # plt.plot(x,aj_t_final, 'r-' )
-    # plt.plot(pred_x,pron_final, 'g-')
-    # plt.show()     
     
     # =============================================================================
     # Casos nuevos
@@ -460,11 +447,6 @@ for c in ciudades:
     #pronóstico gumpertz + arima
     pron_final = pron_n_gom + pron_arima
 
-    # plt.plot(x[:-7],f_y, 'b-')
-    # plt.plot(x_val[:-7],aj_n_final, 'r-' )
-    # plt.plot(pred_x_val-7,pron_final, 'g-')
-    # plt.title(c)
-    # plt.show()
 
 
     mae = mean_absolute_error(f_y[pred_x_val-7], pron_final)
@@ -477,14 +459,13 @@ for c in ciudades:
       
     
     
-    
     ### Ahora con todos los datos
     
     aj_n_gom, pron_n_gom = mod_gompertz(f_y,x[:-7],pred_x-7)
 
-    # plt.plot(f_y)
-    # plt.plot(aj_n_gom, 'g-')
-    # plt.show()
+    plt.plot(f_y)
+    plt.plot(aj_n_gom, 'g-')
+    plt.show()
 
     # Ajuste ARMA sobre los residuales
     res = f_y - aj_n_gom
@@ -493,37 +474,24 @@ for c in ciudades:
     # Análisis de residuales    
     # =============================================================================
 
-    # plt.plot(res)
-    # plt.show()
+    plt.plot(res)
+    plt.show()
 
-    # pm.plot_acf(res)
-    # pm.plot_pacf(res)    
+    pm.plot_acf(res)
+    pm.plot_pacf(res)    
 
-    # stepwise_fit = auto_arima(res, seasonal=False)           # set to stepwise 
+    stepwise_fit = auto_arima(res, seasonal=False)           # set to stepwise 
         
         
-    # # # se ajusta el modelo
-    # arma = SARIMAX(res,order=stepwise_fit.order)
+    # # se ajusta el modelo
+    arma = SARIMAX(res,order=stepwise_fit.order)
     
     
-    # resultado = arma.fit() 
-    # resultado.summary() 
+    resultado = arma.fit() 
+    resultado.summary() 
     
-    # ajuste = resultado.predict(1, len(res), 
-    #                      typ = 'levels')
-    
-    # pronostico = resultado.predict(min(pred_x-7), max(pred_x-7), typ = 'levels')
-        
-    # aj_n_final = aj_n_gom + ajuste
-
-    # pron_n_final = pron_n_gom + pronostico
-
-    # plt.plot(f_y)
-    # plt.plot(aj_n_gom, 'g-')
-    # plt.plot(ajuste, 'r-')
-    
-    
-    
+    ajuste = resultado.predict(1, len(res), 
+                          typ = 'levels')
     
     
     aj_arima,pron_arima  = mod_arima(res,x[:-7],pred_x-7)
@@ -583,8 +551,6 @@ for c in ciudades:
       esc.append('Base')
 
 
-
-
    
     """SIR Casos Nuevos"""
     # México
@@ -641,7 +607,6 @@ for c in ciudades:
 
 
       
-
     # escenario  USA
     for i in range(len(pron_final_usa)):
       n.append(pred_x[i])
@@ -736,15 +701,9 @@ for c in ciudades:
 
 
         #nuevos residuales e intervalos de predicción
-        res_pron = df[var][pred_x_val] - pron_final
+        res_pron = list(df[var][pred_x_val]) - pron_final
         s = np.std(res_pron)
         
-        
-        # plt.plot(x,df[var], 'b-')
-        # plt.plot(x_val,aj_final, 'r-' )
-        # plt.plot(pred_x_val,pron_final, 'g-')
-        # plt.title(f'Ciudad: {c}, variable: {var}')
-        # plt.show()
         
         # bodega de datos
         fmae.append([c, var, mae,'Base'])
@@ -763,7 +722,6 @@ for c in ciudades:
     
         #pronóstico gumpertz + arima
         pron_final = pron_gom + pron_arima
-    
     
     
         # límite superior e inferior de los intervalos
@@ -900,15 +858,8 @@ for c in ciudades:
           g.append('LI')
           esc.append('USA')  
           
-          
-        # plt.plot(x,df[var], 'b-')
-        # plt.plot(x,aj_final, 'r-' )
-        # plt.plot(pred_x,pron_final, 'g-')
-        # plt.title(f'Ciudad: {c}, variable: {var}')
-        # plt.show()
+
         
-
-
 
 final = pd.DataFrame(list(zip(n, f, u, v, e, g, esc)), columns=['N', 'Fecha', 'Ciudad', 'Valor', 'Variable', 'Tipo','Escenario'])
 df_mae = pd.DataFrame(data=fmae, columns=['Ciudad', 'Variable', 'Valor','Escenario'])
