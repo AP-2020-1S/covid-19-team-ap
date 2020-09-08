@@ -14,7 +14,6 @@ import pandas as pd
 from download_data import data, poblacion 
 import numpy as np
 from scipy.optimize import curve_fit
-import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 import scipy.stats as st
 from pmdarima import auto_arima 
@@ -53,11 +52,6 @@ def tabla_ciudad(ciudad):
     df['FIS'] = np.where(df['FIS'] == 'Asintomático',df['Fecha'] ,df['FIS'])
     df['FIS'] = [dt.datetime.combine(dt.datetime.strptime(i,'%Y-%m-%dT%H:%M:%S.%f').date(), dt.datetime.min.time()) for i in df['FIS']]
 
-
-    # df['FIS'] = pd.to_datetime(df['FIS'], format='%Y-%m-%d')
-    
-    # df['FIS'] = pd.to_datetime(df['FIS'], format= '%Y-%m-%dT%H:%M:%S.%f')
-    # dt.datetime(strptime(i, format='%Y-%m-%dT%H:%M:%S.%f'))
     
     dff = pd.crosstab(df['FIS'], df['Ciudad'])
     dff['Total'] = dff[ciudad].cumsum()
@@ -113,7 +107,7 @@ def SIR(ciudad, df_pob, n_pred, beta, gamma):
 
 def mod_arima(datos, x, pred_x):
     
-    stepwise_fit = auto_arima(datos, seasonal = False,trace=False,start_p=5)   
+    stepwise_fit = auto_arima(datos, seasonal = False,trace=False,start_p=5,suppress_warnings=(True))   
     
     # se ajusta el modelo
     arma = SARIMAX(datos,  
@@ -121,7 +115,7 @@ def mod_arima(datos, x, pred_x):
     
     
     resultado = arma.fit() 
-    resultado.summary() 
+    # resultado.summary() 
     
     ajuste = resultado.predict(min(x), max(x), 
                           typ = 'levels')
@@ -463,36 +457,9 @@ for c in ciudades:
     
     aj_n_gom, pron_n_gom = mod_gompertz(f_y,x[:-7],pred_x-7)
 
-    plt.plot(f_y)
-    plt.plot(aj_n_gom, 'g-')
-    plt.show()
 
     # Ajuste ARMA sobre los residuales
     res = f_y - aj_n_gom
-        
-    # =============================================================================
-    # Análisis de residuales    
-    # =============================================================================
-
-    plt.plot(res)
-    plt.show()
-
-    pm.plot_acf(res)
-    pm.plot_pacf(res)    
-
-    stepwise_fit = auto_arima(res, seasonal=False)           # set to stepwise 
-        
-        
-    # # se ajusta el modelo
-    arma = SARIMAX(res,order=stepwise_fit.order)
-    
-    
-    resultado = arma.fit() 
-    resultado.summary() 
-    
-    ajuste = resultado.predict(1, len(res), 
-                          typ = 'levels')
-    
     
     aj_arima,pron_arima  = mod_arima(res,x[:-7],pred_x-7)
     
