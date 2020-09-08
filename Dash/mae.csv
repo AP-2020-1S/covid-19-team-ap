@@ -1,0 +1,26 @@
+Ciudad,Variable,Valor,Escenario
+Bogotá D.C.,Total,4364.329717361011,Base
+Bogotá D.C.,Nuevos,547.4040874183606,Base
+Bogotá D.C.,Activos,1765.262363006181,Base
+Bogotá D.C.,Recuperado,1640.2822694903407,Base
+Bogotá D.C.,Fallecido,9.96991927969781,Base
+Medellín,Total,1142.1305382812902,Base
+Medellín,Nuevos,218.38398716537426,Base
+Medellín,Activos,208.90776794924568,Base
+Medellín,Recuperado,390.756100181312,Base
+Medellín,Fallecido,2.8589498995092018,Base
+Cali,Total,480.817279981416,Base
+Cali,Nuevos,141.39003003061455,Base
+Cali,Activos,889.314894386874,Base
+Cali,Recuperado,171.03761441471696,Base
+Cali,Fallecido,2.966765247772126,Base
+Barranquilla,Total,158.18781271156644,Base
+Barranquilla,Nuevos,24.462108340374293,Base
+Barranquilla,Activos,405.898235910701,Base
+Barranquilla,Recuperado,60.35489837534595,Base
+Barranquilla,Fallecido,1.4815714100985544,Base
+Cartagena de Indias,Total,299.04193967315433,Base
+Cartagena de Indias,Nuevos,24.0137353605717,Base
+Cartagena de Indias,Activos,60.14153485448745,Base
+Cartagena de Indias,Recuperado,43.16408074618931,Base
+Cartagena de Indias,Fallecido,0.7222493820574335,Base

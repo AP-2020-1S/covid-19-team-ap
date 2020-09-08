@@ -8,7 +8,6 @@ ADD . /app
 
 RUN pip3 install -r requirements.txt
 
-
 RUN microdnf clean all
 
-CMD ["python3","dashcovid.py"]
+CMD ["python3","dash_v2.py"]

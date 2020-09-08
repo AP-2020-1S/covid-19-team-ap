@@ -2,3 +2,4 @@ sodapy
 pmdarima
 dash
 dash_bootstrap_components
+xlrd
