@@ -1,61 +1,61 @@
 Ciudad,Grupo de edad,Estado,Total
-Barranquilla,"[0, 9)",Casa,39.0
+Barranquilla,"[0, 9)",Casa,40.0
 Barranquilla,"[0, 9)",Hospital,
-Barranquilla,"[9, 19)",Casa,67.0
+Barranquilla,"[9, 19)",Casa,66.0
 Barranquilla,"[9, 19)",Hospital,2.0
-Barranquilla,"[19, 39)",Casa,413.0
-Barranquilla,"[19, 39)",Hospital,2.0
-Barranquilla,"[39, 59)",Casa,274.0
+Barranquilla,"[19, 39)",Casa,390.0
+Barranquilla,"[19, 39)",Hospital,1.0
+Barranquilla,"[39, 59)",Casa,278.0
 Barranquilla,"[39, 59)",Hospital,1.0
 Barranquilla,"[59, 79)",Casa,156.0
 Barranquilla,"[59, 79)",Hospital,4.0
-Barranquilla,"[79, 100)",Casa,24.0
+Barranquilla,"[79, 100)",Casa,25.0
 Barranquilla,"[79, 100)",Hospital,2.0
-Bogotá D.C.,"[0, 9)",Casa,2220.0
-Bogotá D.C.,"[0, 9)",Hospital,170.0
-Bogotá D.C.,"[9, 19)",Casa,3817.0
-Bogotá D.C.,"[9, 19)",Hospital,60.0
-Bogotá D.C.,"[19, 39)",Casa,22443.0
-Bogotá D.C.,"[19, 39)",Hospital,488.0
-Bogotá D.C.,"[39, 59)",Casa,14770.0
-Bogotá D.C.,"[39, 59)",Hospital,1243.0
-Bogotá D.C.,"[59, 79)",Casa,5475.0
-Bogotá D.C.,"[59, 79)",Hospital,1365.0
-Bogotá D.C.,"[79, 100)",Casa,946.0
-Bogotá D.C.,"[79, 100)",Hospital,342.0
-Cali,"[0, 9)",Casa,118.0
-Cali,"[0, 9)",Hospital,18.0
-Cali,"[9, 19)",Casa,207.0
-Cali,"[9, 19)",Hospital,13.0
-Cali,"[19, 39)",Casa,2028.0
-Cali,"[19, 39)",Hospital,100.0
-Cali,"[39, 59)",Casa,1342.0
-Cali,"[39, 59)",Hospital,247.0
-Cali,"[59, 79)",Casa,502.0
-Cali,"[59, 79)",Hospital,291.0
-Cali,"[79, 100)",Casa,108.0
+Bogotá D.C.,"[0, 9)",Casa,2183.0
+Bogotá D.C.,"[0, 9)",Hospital,176.0
+Bogotá D.C.,"[9, 19)",Casa,3783.0
+Bogotá D.C.,"[9, 19)",Hospital,62.0
+Bogotá D.C.,"[19, 39)",Casa,22198.0
+Bogotá D.C.,"[19, 39)",Hospital,498.0
+Bogotá D.C.,"[39, 59)",Casa,14576.0
+Bogotá D.C.,"[39, 59)",Hospital,1251.0
+Bogotá D.C.,"[59, 79)",Casa,5468.0
+Bogotá D.C.,"[59, 79)",Hospital,1380.0
+Bogotá D.C.,"[79, 100)",Casa,945.0
+Bogotá D.C.,"[79, 100)",Hospital,348.0
+Cali,"[0, 9)",Casa,110.0
+Cali,"[0, 9)",Hospital,19.0
+Cali,"[9, 19)",Casa,195.0
+Cali,"[9, 19)",Hospital,14.0
+Cali,"[19, 39)",Casa,1896.0
+Cali,"[19, 39)",Hospital,103.0
+Cali,"[39, 59)",Casa,1262.0
+Cali,"[39, 59)",Hospital,253.0
+Cali,"[59, 79)",Casa,476.0
+Cali,"[59, 79)",Hospital,293.0
+Cali,"[79, 100)",Casa,101.0
 Cali,"[79, 100)",Hospital,96.0
-Cartagena de Indias,"[0, 9)",Casa,38.0
+Cartagena de Indias,"[0, 9)",Casa,27.0
 Cartagena de Indias,"[0, 9)",Hospital,
-Cartagena de Indias,"[9, 19)",Casa,58.0
+Cartagena de Indias,"[9, 19)",Casa,55.0
 Cartagena de Indias,"[9, 19)",Hospital,4.0
-Cartagena de Indias,"[19, 39)",Casa,355.0
+Cartagena de Indias,"[19, 39)",Casa,317.0
 Cartagena de Indias,"[19, 39)",Hospital,10.0
-Cartagena de Indias,"[39, 59)",Casa,242.0
-Cartagena de Indias,"[39, 59)",Hospital,13.0
-Cartagena de Indias,"[59, 79)",Casa,106.0
+Cartagena de Indias,"[39, 59)",Casa,215.0
+Cartagena de Indias,"[39, 59)",Hospital,12.0
+Cartagena de Indias,"[59, 79)",Casa,97.0
 Cartagena de Indias,"[59, 79)",Hospital,16.0
 Cartagena de Indias,"[79, 100)",Casa,15.0
 Cartagena de Indias,"[79, 100)",Hospital,4.0
-Medellín,"[0, 9)",Casa,208.0
-Medellín,"[0, 9)",Hospital,52.0
-Medellín,"[9, 19)",Casa,315.0
-Medellín,"[9, 19)",Hospital,14.0
-Medellín,"[19, 39)",Casa,3754.0
-Medellín,"[19, 39)",Hospital,85.0
-Medellín,"[39, 59)",Casa,2331.0
-Medellín,"[39, 59)",Hospital,186.0
-Medellín,"[59, 79)",Casa,764.0
-Medellín,"[59, 79)",Hospital,278.0
-Medellín,"[79, 100)",Casa,131.0
-Medellín,"[79, 100)",Hospital,85.0
+Medellín,"[0, 9)",Casa,196.0
+Medellín,"[0, 9)",Hospital,53.0
+Medellín,"[9, 19)",Casa,270.0
+Medellín,"[9, 19)",Hospital,15.0
+Medellín,"[19, 39)",Casa,3185.0
+Medellín,"[19, 39)",Hospital,87.0
+Medellín,"[39, 59)",Casa,2052.0
+Medellín,"[39, 59)",Hospital,187.0
+Medellín,"[59, 79)",Casa,661.0
+Medellín,"[59, 79)",Hospital,282.0
+Medellín,"[79, 100)",Casa,121.0
+Medellín,"[79, 100)",Hospital,88.0

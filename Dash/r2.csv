@@ -1,26 +1,26 @@
 Ciudad,Variable,Valor,Escenario
-Bogotá D.C.,Total,0.9999787096620693,Base
-Bogotá D.C.,Nuevos,0.9558976549788724,Base
-Bogotá D.C.,Activos,0.9997843567975752,Base
-Bogotá D.C.,Recuperado,0.8646284348629985,Base
-Bogotá D.C.,Fallecido,0.9653487480210949,Base
-Medellín,Total,0.9999794590844695,Base
-Medellín,Nuevos,0.9598465305728718,Base
-Medellín,Activos,0.999798834319658,Base
-Medellín,Recuperado,0.9250420829834325,Base
-Medellín,Fallecido,0.9133676661165547,Base
-Cali,Total,0.9999829942249231,Base
-Cali,Nuevos,0.9344939922153923,Base
-Cali,Activos,0.9994927592386488,Base
-Cali,Recuperado,0.7834019980445136,Base
-Cali,Fallecido,0.8902192792527268,Base
-Barranquilla,Total,0.9999765381630625,Base
-Barranquilla,Nuevos,0.9030866146362229,Base
-Barranquilla,Activos,0.9995910380862083,Base
-Barranquilla,Recuperado,0.795065083780922,Base
-Barranquilla,Fallecido,0.9349948775792801,Base
-Cartagena de Indias,Total,0.9999704509379436,Base
-Cartagena de Indias,Nuevos,0.8122420101748793,Base
-Cartagena de Indias,Activos,0.9995065109239165,Base
-Cartagena de Indias,Recuperado,0.7965965622665891,Base
-Cartagena de Indias,Fallecido,0.5994555865340443,Base
+Bogotá D.C.,Total,0.9999792409954449,Base
+Bogotá D.C.,Nuevos,0.9446336693437672,Base
+Bogotá D.C.,Activos,0.999780939694616,Base
+Bogotá D.C.,Recuperado,0.8658649219078351,Base
+Bogotá D.C.,Fallecido,0.9632210937992776,Base
+Medellín,Total,0.9999795422430878,Base
+Medellín,Nuevos,0.9558704961292825,Base
+Medellín,Activos,0.9997740015768264,Base
+Medellín,Recuperado,0.91696219274694,Base
+Medellín,Fallecido,0.9133491247045168,Base
+Cali,Total,0.9999842831802892,Base
+Cali,Nuevos,0.9417256169666403,Base
+Cali,Activos,0.9995339758128462,Base
+Cali,Recuperado,0.7910507819784941,Base
+Cali,Fallecido,0.8904052518422929,Base
+Barranquilla,Total,0.9999768630119166,Base
+Barranquilla,Nuevos,0.9031563137630338,Base
+Barranquilla,Activos,0.9995534920154092,Base
+Barranquilla,Recuperado,0.7927705257564107,Base
+Barranquilla,Fallecido,0.9350776248251449,Base
+Cartagena de Indias,Total,0.9999712662441167,Base
+Cartagena de Indias,Nuevos,0.8133765421517132,Base
+Cartagena de Indias,Activos,0.9994899386391964,Base
+Cartagena de Indias,Recuperado,0.8208505009044587,Base
+Cartagena de Indias,Fallecido,0.6171949400944234,Base
