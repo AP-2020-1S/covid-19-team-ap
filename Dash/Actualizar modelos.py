@@ -48,8 +48,9 @@ ciudades = list(df_casos.Ciudad.value_counts().head().index)
 
 def tabla_ciudad(ciudad):
 
+
     df = df_casos.loc[(df_casos.Ciudad == ciudad), :]
-    df['FIS'] = np.where(df['FIS'] == 'Asintomático',df['Fecha'] ,df['FIS'])
+    df['FIS'] = np.where((df['FIS'] == 'Asintomático')|(df['FIS'].isna()),df['Fecha'] ,df['FIS'])
     df['FIS'] = [dt.datetime.combine(dt.datetime.strptime(i,'%Y-%m-%dT%H:%M:%S.%f').date(), dt.datetime.min.time()) for i in df['FIS']]
 
     
