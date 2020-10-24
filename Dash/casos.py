@@ -23,7 +23,7 @@ df_casos = data(10000000)
 
 df_casos.columns = ['ID', 'Fecha', 'Cod_Municipio', 'Ciudad', 'Depto', 'Estado', 'Edad', 'Sexo', 'Tipo', 'Gravedad',
                    'Pais_Proc', 'FIS', 'Fecha_Diagnostico', 'Fecha_Recuperado', 'Fecha_Reporte', 'Tipo_Recuperacion', 'Cod_Depto', 
-                    'Cod_Pais', 'Etnia', 'Grupo_Etnico', 'Fecha_Muerte']
+                    'Cod_Pais', 'Etnia','Ubicación Recuperado', 'Grupo_Etnico', 'Fecha_Muerte']
 
 a = df_casos.groupby(['Ciudad','Edad', 'Estado']).size().reset_index()
 ciud = ['Bogotá D.C.', 'Medellín', 'Cali', 'Barranquilla', 'Cartagena de Indias']

@@ -36,7 +36,7 @@ df_pob['Región'] = df_pob['Región'].replace('Bogotá, D.C.', 'Bogotá D.C.')
 df_pob['Región'] = df_pob['Región'].replace('Cartagena', 'Cartagena de Indias')
 df_casos.columns = ['ID', 'Fecha', 'Cod_Municipio', 'Ciudad', 'Depto', 'Estado', 'Edad', 'Sexo', 'Tipo', 'Gravedad',
                    'Pais_Proc', 'FIS', 'Fecha_Diagnostico', 'Fecha_Recuperado', 'Fecha_Reporte', 'Tipo_Recuperacion', 'Cod_Depto', 
-                    'Cod_Pais', 'Etnia', 'Grupo_Etnico', 'Fecha_Muerte']
+                    'Cod_Pais', 'Etnia','Ubicación Recuperado', 'Grupo_Etnico', 'Fecha_Muerte']
 # se hace una lista con el conteo de casos por ciudad
 ciudades = list(df_casos.Ciudad.value_counts().head().index)
 #%%
